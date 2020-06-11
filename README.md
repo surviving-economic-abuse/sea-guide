@@ -11,6 +11,10 @@
 - [nvm for macOS & Linux](https://github.com/nvm-sh/nvm) or [nvm for Windows](https://github.com/coreybutler/nvm-windows)
 - [Parcel](https:://parceljs.org)
 
+### Formatting
+We recommend integrating `elm-format@0.8.3` into your code editor, but if you don't...
+- Please `npm run format` to format `.elm` files in `src` before committing code.
+
 ### Develop
 - `npm start` for a hot-reload dev server
 
