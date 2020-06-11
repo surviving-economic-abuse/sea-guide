@@ -21,4 +21,4 @@
 - `npm run build` to bundle app to `dist` dir
 
 ### Deploy to GitHub pages
-- copy contents of `dist` to `alpha-deploy` branch
+- copy contents of `dist` to `gh-pages` branch
