@@ -6,5 +6,6 @@ repl-temp-*
 # package.json generated files
 node_modules
 
-# build generated files
+# parcel build generated files
 dist
+.cache
