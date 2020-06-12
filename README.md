@@ -16,7 +16,7 @@ We recommend integrating `elm-format@0.8.3` into your code editor, but if you do
 - Please `npm run format` to format `.elm` files in `src` before committing code.
 
 ### Develop
-- `npm start` for a hot-reload dev server
+- `npm start` for a hot-reload dev server at [http://localhost:1234](http://localhost:1234/)
 
 ### Test
 - `npm test` to run `elm-test`
