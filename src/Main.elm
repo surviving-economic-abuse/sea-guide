@@ -1,7 +1,11 @@
 module Main exposing (main)
 
 import Browser
+import Css exposing (..)
 import Html
+import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (css, href, src)
+import Theme exposing (colours)
 
 
 main : Program () Model Msg
@@ -38,9 +42,22 @@ update msg model =
 
 viewDocument : Model -> Browser.Document Msg
 viewDocument model =
-    { title = "[cCc] SEA-MAP App", body = [ view model ] }
+    { title = "[cCc] SEA-MAP App", body = [ view model |> Html.Styled.toUnstyled ] }
 
 
-view : Model -> Html.Html Msg
+view : Model -> Html Msg
 view model =
-    Html.div [] []
+    layout [] []
+
+
+layout : List (Attribute msg) -> List (Html msg) -> Html msg
+layout =
+    styled div
+        [ margin2 zero auto
+        , maxWidth (px 800)
+        , width (pct 100)
+        , backgroundColor (hex "cCc")
+        , displayFlex
+        , flexDirection column
+        , minHeight (vh 100)
+        ]
