@@ -26,5 +26,9 @@ We recommend integrating `elm-format@0.8.3` into your code editor, but if you do
 ### Build
 - `npm run build` to bundle app to `dist` dir
 
-### Deploy to GitHub pages
-- copy contents of `dist` to `gh-pages` branch
+### Deploy to GitHub pages with Travis
+We're using [Travis](https://travis-ci.org).
+- On every push to the repo, Travis will build and run tests
+- On every merge to `master` Travis will deploy to `gh-pages`
+Encrypted vars can be added to `.travis.yml` using the travis cli tools as decribed in the [travis docs](https://docs.travis-ci.com/user/encryption-keys/#usage).
+Currently configured with GITHUB_TOKEN value.
