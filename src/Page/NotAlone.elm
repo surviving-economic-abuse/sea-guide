@@ -1,6 +1,7 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
 import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
 
 
 type alias Model =
@@ -27,4 +28,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [] [ text "Not Alone page" ]
+    div []
+        [ div [] [ text "Not Alone page" ]
+        , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
+        ]
