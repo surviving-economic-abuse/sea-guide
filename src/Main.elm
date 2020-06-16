@@ -2,10 +2,13 @@ module Main exposing (main)
 
 import Browser
 import Css exposing (..)
-import Css.Global exposing (everything, global, typeSelector)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href, src)
-import Theme exposing (colours)
+import Html.Styled.Attributes exposing (css, href)
+import Page.Definition as Definition
+import Page.GetHelp as GetHelp
+import Page.HelpSelf as HelpSelf
+import Page.NotAlone as NotAlone
+import Theme exposing (colours, globalStyles)
 
 
 main : Program () Model Msg
@@ -19,24 +22,43 @@ main =
 
 
 type alias Model =
-    {}
+    { page : Page }
+
+
+type Page
+    = Definition Definition.Model
+    | GetHelp
+    | HelpSelf HelpSelf.Model
+    | NotAlone NotAlone.Model
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}
+    ( { page = NotAlone NotAlone.Model }
     , Cmd.none
     )
 
 
 type Msg
     = NoOp
+    | DefinitionMsg Definition.Msg
+    | HelpSelfMsg HelpSelf.Msg
+    | NotAloneMsg NotAlone.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
+            ( model, Cmd.none )
+
+        DefinitionMsg subMsg ->
+            ( model, Cmd.none )
+
+        HelpSelfMsg subMsg ->
+            ( model, Cmd.none )
+
+        NotAloneMsg subMsg ->
             ( model, Cmd.none )
 
 
@@ -47,10 +69,18 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    layout []
-        [ globalStyles
-        , whatisea
-        ]
+    case model.page of
+        Definition definition ->
+            layout [] [ globalStyles, Html.Styled.map DefinitionMsg (Definition.view definition) ]
+
+        GetHelp ->
+            layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) GetHelp.view ]
+
+        HelpSelf helpSelf ->
+            layout [] [ globalStyles, Html.Styled.map HelpSelfMsg (HelpSelf.view helpSelf) ]
+
+        NotAlone notAlone ->
+            layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
 
 
 layout : List (Attribute msg) -> List (Html msg) -> Html msg
@@ -86,12 +116,14 @@ eacategories =
     div [] []
 
 
+
+-- For a top header, likely an h1
+
+
 pageHeadingStyles : Style
 pageHeadingStyles =
     Css.batch
-        [ color Theme.colours.purple
-        , fontFamilies [ "Raleway-ExtraBold", "sansSerif" ]
-        , fontSize (rem 2.5)
+        [ fontSize (rem 2.5)
         , margin (rem 2)
         , textAlign center
         ]
@@ -103,12 +135,4 @@ pageDescriptionStyles =
         [ color Theme.colours.purple
         , fontFamilies [ "Raleway-Bold", "sansSerif" ]
         , fontSize (rem 1.8)
-        ]
-
-
-globalStyles : Html msg
-globalStyles =
-    global
-        [ typeSelector "body" [ backgroundColor (hex "eee") ]
-        , everything [ color Theme.colours.grey, fontFamilies [ "sansSerif" ] ]
         ]
