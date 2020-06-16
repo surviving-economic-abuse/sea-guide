@@ -2,7 +2,7 @@ module Theme exposing (..)
 
 import Css exposing (..)
 import Css.Global exposing (global, typeSelector)
-import Html.Styled exposing (..)
+import Html.Styled exposing (Html)
 
 
 colours : { purple : Color, green : Color, teal : Color, grey : Color }
@@ -47,8 +47,8 @@ globalStyles =
 
 {-| For a top header, likely an h1
 -}
-pageHeadingStyles : Style
-pageHeadingStyles =
+pageHeading : Style
+pageHeading =
     Css.batch
         [ fontSize (rem 2.5)
         , margin2 (rem 2) zero
