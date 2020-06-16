@@ -19,14 +19,14 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "Definition page" ]
+                    |> Query.contains [ Html.text "[cCc] What is Economic Abuse?" ]
         , test "Definition view has 2 nav links" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.findAll [ tag "li" ]
-                    |> Query.count (Expect.equal 2)
+                    |> Query.findAll [ tag "a" ]
+                    |> Query.count (Expect.equal 3)
         , test "Definition view has nav link to get-help" <|
             \() ->
                 view {}
