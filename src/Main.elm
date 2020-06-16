@@ -1,6 +1,7 @@
 module Main exposing (main)
 
 import Browser
+import Browser.Navigation
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, src)
@@ -9,38 +10,53 @@ import Page.GetHelp as GetHelp
 import Page.HelpSelf as HelpSelf
 import Page.NotAlone as NotAlone
 import Theme exposing (colours)
+import Url
+import Url.Parser as Parser
 
 
 main : Program () Model Msg
 main =
-    Browser.document
+    Browser.application
         { init = init
         , update = update
         , subscriptions = always Sub.none
         , view = viewDocument
+        , onUrlRequest = PageLinkClicked
+        , onUrlChange = UrlChanged
         }
 
 
+
+-- MODEL
+
+
 type alias Model =
-    { page : Page }
+    { key : Browser.Navigation.Key, page : Page }
 
 
 type Page
-    = Definition Definition.Model
-    | GetHelp
-    | HelpSelf HelpSelf.Model
-    | NotAlone NotAlone.Model
+    = DefinitionPage Definition.Model
+    | GetHelpPage
+    | HelpSelfPage HelpSelf.Model
+    | NotAlonePage NotAlone.Model
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( { page = NotAlone NotAlone.Model }
-    , Cmd.none
-    )
+init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
+init _ url key =
+    toUrl url
+        { key = key
+        , page = NotAlonePage NotAlone.Model
+        }
+
+
+
+-- UPDATE
 
 
 type Msg
     = NoOp
+    | PageLinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
     | DefinitionMsg Definition.Msg
     | HelpSelfMsg HelpSelf.Msg
     | NotAloneMsg NotAlone.Msg
@@ -52,6 +68,21 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
+        PageLinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model
+                    , Browser.Navigation.pushUrl model.key (Url.toString url)
+                    )
+
+                Browser.External href ->
+                    ( model
+                    , Browser.Navigation.load href
+                    )
+
+        UrlChanged url ->
+            toUrl url model
+
         DefinitionMsg subMsg ->
             ( model, Cmd.none )
 
@@ -62,6 +93,10 @@ update msg model =
             ( model, Cmd.none )
 
 
+
+-- VIEW
+
+
 viewDocument : Model -> Browser.Document Msg
 viewDocument model =
     { title = "[cCc] SEA-MAP App", body = [ view model |> Html.Styled.toUnstyled ] }
@@ -70,16 +105,16 @@ viewDocument model =
 view : Model -> Html Msg
 view model =
     case model.page of
-        Definition definition ->
+        DefinitionPage definition ->
             layout [] [ Html.Styled.map DefinitionMsg (Definition.view definition) ]
 
-        GetHelp ->
+        GetHelpPage ->
             layout [] [ Html.Styled.map (\_ -> NoOp) GetHelp.view ]
 
-        HelpSelf helpSelf ->
+        HelpSelfPage helpSelf ->
             layout [] [ Html.Styled.map HelpSelfMsg (HelpSelf.view helpSelf) ]
 
-        NotAlone notAlone ->
+        NotAlonePage notAlone ->
             layout [] [ Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
 
 
@@ -94,3 +129,65 @@ layout =
         , flexDirection column
         , minHeight (vh 100)
         ]
+
+
+
+-- ROUTER
+
+
+toUrl : Url.Url -> Model -> ( Model, Cmd Msg )
+toUrl url model =
+    let
+        parser =
+            Parser.oneOf
+                [ route Parser.top
+                    (toNotAlone model (NotAlone.init ()))
+                , route (Parser.s "definition")
+                    (toDefinition model (Definition.init ()))
+                , route (Parser.s "get-help")
+                    (toGetHelp model)
+                , route (Parser.s "help-self")
+                    (toHelpSelf model (HelpSelf.init ()))
+                ]
+    in
+    case Parser.parse parser url of
+        Just aPage ->
+            aPage
+
+        Nothing ->
+            ( { model | page = NotAlonePage NotAlone.Model }
+            , Cmd.none
+            )
+
+
+toNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd Msg )
+toNotAlone model ( notAloneModel, cmds ) =
+    ( { model | page = NotAlonePage NotAlone.Model }
+    , Cmd.map NotAloneMsg cmds
+    )
+
+
+toDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
+toDefinition model ( definitionModel, cmds ) =
+    ( { model | page = DefinitionPage Definition.Model }
+    , Cmd.map DefinitionMsg cmds
+    )
+
+
+toGetHelp : Model -> ( Model, Cmd Msg )
+toGetHelp model =
+    ( { model | page = GetHelpPage }
+    , Cmd.none
+    )
+
+
+toHelpSelf : Model -> ( HelpSelf.Model, Cmd HelpSelf.Msg ) -> ( Model, Cmd Msg )
+toHelpSelf model ( helpSelfModel, cmds ) =
+    ( { model | page = HelpSelfPage HelpSelf.Model }
+    , Cmd.map HelpSelfMsg cmds
+    )
+
+
+route : Parser.Parser a b -> a -> Parser.Parser (b -> c) c
+route parser handler =
+    Parser.map handler parser

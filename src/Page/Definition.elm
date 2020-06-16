@@ -1,4 +1,4 @@
-module Page.Definition exposing (Model, Msg, view)
+module Page.Definition exposing (Model, Msg, init, view)
 
 import Html.Styled exposing (..)
 

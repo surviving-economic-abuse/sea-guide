@@ -1,4 +1,4 @@
-module Page.HelpSelf exposing (Model, Msg, view)
+module Page.HelpSelf exposing (Model, Msg, init, view)
 
 import Html.Styled exposing (..)
 

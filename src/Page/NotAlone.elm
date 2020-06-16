@@ -1,4 +1,4 @@
-module Page.NotAlone exposing (Model, Msg, view)
+module Page.NotAlone exposing (Model, Msg, init, view)
 
 import Html.Styled exposing (..)
 
