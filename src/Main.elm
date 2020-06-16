@@ -4,12 +4,11 @@ import Browser
 import Browser.Navigation
 import Css exposing (..)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href, src)
 import Page.Definition as Definition
 import Page.GetHelp as GetHelp
 import Page.HelpSelf as HelpSelf
 import Page.NotAlone as NotAlone
-import Theme exposing (colours)
+import Theme exposing (globalStyles)
 import Url
 import Url.Parser as Parser
 
@@ -106,28 +105,29 @@ view : Model -> Html Msg
 view model =
     case model.page of
         DefinitionPage definition ->
-            layout [] [ Html.Styled.map DefinitionMsg (Definition.view definition) ]
+            layout [] [ globalStyles, Html.Styled.map DefinitionMsg (Definition.view definition) ]
 
         GetHelpPage ->
-            layout [] [ Html.Styled.map (\_ -> NoOp) GetHelp.view ]
+            layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) GetHelp.view ]
 
         HelpSelfPage helpSelf ->
-            layout [] [ Html.Styled.map HelpSelfMsg (HelpSelf.view helpSelf) ]
+            layout [] [ globalStyles, Html.Styled.map HelpSelfMsg (HelpSelf.view helpSelf) ]
 
         NotAlonePage notAlone ->
-            layout [] [ Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
+            layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
 
 
 layout : List (Attribute msg) -> List (Html msg) -> Html msg
 layout =
     styled div
         [ margin2 zero auto
-        , maxWidth (px 800)
+        , maxWidth (px 1000)
         , width (pct 100)
-        , backgroundColor (hex "cCc")
+        , backgroundColor (hex "fff")
         , displayFlex
         , flexDirection column
         , minHeight (vh 100)
+        , padding2 zero (rem 2)
         ]
 
 
