@@ -1,6 +1,9 @@
 module Page.Definition exposing (Model, Msg, view)
 
+import Css exposing (..)
 import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (css, href)
+import Theme exposing (..)
 
 
 type alias Model =
@@ -27,4 +30,30 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [] [ text "Definition page" ]
+    div []
+        [ header []
+            [ h1 [ css [ pageHeadingStyles ] ] [ text "[cCc] What is Economic Abuse?" ]
+            , p [ css [ pageDescriptionStyles ] ] [ text "[cCc] A concise definition of economic abuse in accessible language, and that spans a few sentences so that a small intro paragraph doesn't look strange here.", text " ", a [ href "/[cCc]somewhere" ] [ text "[cCc] more information" ] ]
+            ]
+        , ul []
+            [ li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
+            , li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
+            , li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
+            ]
+        ]
+
+
+category : Style
+category =
+    Css.batch
+        [ margin2 (rem 2) zero ]
+
+
+pageDescriptionStyles : Style
+pageDescriptionStyles =
+    Css.batch
+        [ color colours.purple
+        , fontFamilies [ "Raleway", sansSerif.value ]
+        , fontSize (rem 1.25)
+        , margin2 (rem 2) zero
+        ]

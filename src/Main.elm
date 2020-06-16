@@ -3,12 +3,11 @@ module Main exposing (main)
 import Browser
 import Css exposing (..)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
 import Page.Definition as Definition
 import Page.GetHelp as GetHelp
 import Page.HelpSelf as HelpSelf
 import Page.NotAlone as NotAlone
-import Theme exposing (colours, globalStyles)
+import Theme exposing (globalStyles)
 
 
 main : Program () Model Msg
@@ -87,52 +86,11 @@ layout : List (Attribute msg) -> List (Html msg) -> Html msg
 layout =
     styled div
         [ margin2 zero auto
-        , maxWidth (px 800)
+        , maxWidth (px 1000)
         , width (pct 100)
         , backgroundColor (hex "fff")
         , displayFlex
         , flexDirection column
         , minHeight (vh 100)
-        ]
-
-
-whatisea : Html msg
-whatisea =
-    div []
-        [ header []
-            [ h1 [ css [ pageHeadingStyles ] ] [ text "What is Economic Abuse?" ]
-            , p [ css [ pageDescriptionStyles ] ] [ text "A concise definition of economic abuse in accessible language. ", a [ href "/somewhere" ] [ text "somewhere" ] ]
-            ]
-        , ul []
-            [ li [] [ text "A Category" ]
-            , li [] [ text "A Category" ]
-            , li [] [ text "A Category" ]
-            ]
-        ]
-
-
-eacategories : Html msg
-eacategories =
-    div [] []
-
-
-
--- For a top header, likely an h1
-
-
-pageHeadingStyles : Style
-pageHeadingStyles =
-    Css.batch
-        [ fontSize (rem 2.5)
-        , margin (rem 2)
-        , textAlign center
-        ]
-
-
-pageDescriptionStyles : Style
-pageDescriptionStyles =
-    Css.batch
-        [ color Theme.colours.purple
-        , fontFamilies [ "Raleway-Bold", "sansSerif" ]
-        , fontSize (rem 1.8)
+        , padding2 zero (rem 2)
         ]
