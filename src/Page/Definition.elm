@@ -1,4 +1,4 @@
-module Page.Definition exposing (Model, Msg, view)
+module Page.Definition exposing (Model, Msg, init, view)
 
 import Css exposing (..)
 import Html.Styled exposing (Html, a, div, h1, h2, header, li, p, text, ul)
@@ -39,6 +39,10 @@ view model =
             [ li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
             , li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
             , li [ css [ category ] ] [ h2 [] [ text "[cCc] A Category" ] ]
+            ]
+        , ul []
+            [ li [] [ a [ href "help-self" ] [ text "Find out more" ] ]
+            , li [] [ a [ href "get-help" ] [ text "Get help" ] ]
             ]
         ]
 
