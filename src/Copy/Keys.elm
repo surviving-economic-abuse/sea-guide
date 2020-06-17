@@ -42,7 +42,7 @@ type Key
     | EmergencyContactDV
       -- Definition page
     | DefinitionTitle
-    | DefintionConcise
+    | DefinitionConcise
     | DefinitionMoreLink
     | DefinitionCategoryTitle1
     | DefinitionCategoryInfo1
