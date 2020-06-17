@@ -1,5 +1,7 @@
 module DefinitionTest exposing (suite)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
@@ -19,8 +21,8 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "[cCc] What is Economic Abuse?" ]
-        , test "Definition view has 2 nav links" <|
+                    |> Query.contains [ Html.text (t DefinitionTitle) ]
+        , test "Definition view has 3 nav links" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
@@ -33,12 +35,12 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href "get-help") ]
-                    |> Query.has [ text "Get help" ]
+                    |> Query.has [ text (t ToGetHelpFromDefinitionLink) ]
         , test "Definition view has nav link to help-self" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href "help-self") ]
-                    |> Query.has [ text "Find out more" ]
+                    |> Query.has [ text (t ToHelpSelfFromDefinitionLink) ]
         ]
