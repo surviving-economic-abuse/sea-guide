@@ -43,7 +43,6 @@ view model =
             , card "[cCc] A short quote about a recognisable experience" "My Name" "55"
             , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "44"
             ]
-        , div [] [ text "Not Alone page" ]
         , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
         ]
 
