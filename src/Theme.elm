@@ -47,8 +47,8 @@ globalStyles =
 
 {-| For a top header, likely an h1
 -}
-pageHeading : Style
-pageHeading =
+pageHeadingStyle : Style
+pageHeadingStyle =
     Css.batch
         [ fontSize (rem 2.5)
         , margin2 (rem 2) zero

@@ -4,7 +4,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, pageHeading)
+import Theme exposing (colours, pageHeadingStyle)
 
 
 type alias Model =
@@ -33,9 +33,9 @@ view : Model -> Html Msg
 view model =
     div []
         [ header []
-            [ h1 [ css [ pageHeading ] ] [ text "[cCc] You Are Not Alone" ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text "[cCc] You Are Not Alone" ]
             ]
-        , div [ css [ grid ] ]
+        , div [ css [ gridStyle ] ]
             [ card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "22"
             , card "[cCc] A short quote about a recognisable experience" "My Name" "33"
             , card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "62"
@@ -48,8 +48,8 @@ view model =
         ]
 
 
-grid : Style
-grid =
+gridStyle : Style
+gridStyle =
     batch
         [ displayFlex
         , flexWrap wrap
@@ -67,7 +67,7 @@ card quote name age =
             ]
         ]
         [ span [ css [ quoteStyle ] ] [ text quote ]
-        , span [ css [ details ] ] [ text ("- " ++ name ++ ", " ++ age) ]
+        , span [ css [ detailsStyle ] ] [ text ("- " ++ name ++ ", " ++ age) ]
         ]
 
 
@@ -102,8 +102,8 @@ quoteStyle =
         ]
 
 
-details : Style
-details =
+detailsStyle : Style
+detailsStyle =
     batch
         [ alignSelf flexEnd
         , Css.flex3 zero zero (pct 20)
