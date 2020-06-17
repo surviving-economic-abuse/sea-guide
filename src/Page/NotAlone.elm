@@ -1,10 +1,9 @@
-module Page.NotAlone exposing (Model, Msg, view)
+module Page.NotAlone exposing (Model, Msg, init, view)
 
 import Css exposing (..)
-import Css.Transitions exposing (flex2)
 import Html.Attributes exposing (height)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css)
+import Html.Styled.Attributes exposing (css, href)
 import Theme exposing (colours, pageHeading)
 
 
@@ -37,6 +36,8 @@ view model =
             [ h1 [ css [ pageHeading ] ] [ text "[cCc] You Are Not Alone" ]
             ]
         , div [ css [ grid ] ] [ card, card, card ]
+        , div [] [ text "Not Alone page" ]
+        , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
         ]
 
 
