@@ -1,8 +1,7 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
 import Css exposing (..)
-import Css.Media as Media exposing (..)
-import Html.Attributes exposing (height)
+import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Theme exposing (colours, pageHeading)
