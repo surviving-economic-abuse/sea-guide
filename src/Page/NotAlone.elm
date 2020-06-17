@@ -82,16 +82,16 @@ mobileWidth =
 cardStyle : Style
 cardStyle =
     batch
-        [ flex3 zero zero mobileWidth
-        , margin2 (rem 1) zero
-        , Css.minHeight (px 200)
-        , border3 (px 2) solid Theme.colours.grey
+        [ border3 (px 2) solid Theme.colours.grey
         , borderRadius (rem 1)
-        , textAlign center
+        , flex3 zero zero mobileWidth
         , displayFlex
         , flexDirection column
-        , padding (rem 1)
         , justifyContent center
+        , margin2 (rem 1) zero
+        , padding (rem 1)
+        , Css.minHeight (px 200)
+        , textAlign center
         ]
 
 
@@ -105,6 +105,6 @@ quoteStyle =
 details : Style
 details =
     batch
-        [ Css.flex3 zero zero (pct 20)
-        , alignSelf flexEnd
+        [ alignSelf flexEnd
+        , Css.flex3 zero zero (pct 20)
         ]
