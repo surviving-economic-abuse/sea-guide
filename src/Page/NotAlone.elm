@@ -1,6 +1,7 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
 import Css exposing (..)
+import Css.Media as Media exposing (..)
 import Html.Attributes exposing (height)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
@@ -35,7 +36,14 @@ view model =
         [ header []
             [ h1 [ css [ pageHeading ] ] [ text "[cCc] You Are Not Alone" ]
             ]
-        , div [ css [ grid ] ] [ card, card, card ]
+        , div [ css [ grid ] ]
+            [ card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "22"
+            , card "[cCc] A short quote about a recognisable experience" "My Name" "33"
+            , card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "62"
+            , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "33"
+            , card "[cCc] A short quote about a recognisable experience" "My Name" "55"
+            , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "44"
+            ]
         , div [] [ text "Not Alone page" ]
         , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
         ]
@@ -46,41 +54,58 @@ grid =
     batch
         [ displayFlex
         , flexWrap wrap
+        , justifyContent spaceBetween
         ]
 
 
-card : Html msg
-card =
-    div [ css [ cardStyle ] ]
-        [ span [ css [ quote ] ] [ text "A nice long quote about a recognisable experience" ]
-        , span [ css [ details ] ] [ text "- My Name, 99" ]
+card : String -> String -> String -> Html msg
+card quote name age =
+    div
+        [ css
+            [ cardStyle
+            , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+                [ flex3 zero zero desktopWidth ]
+            ]
         ]
+        [ span [ css [ quoteStyle ] ] [ text quote ]
+        , span [ css [ details ] ] [ text ("- " ++ name ++ ", " ++ age) ]
+        ]
+
+
+desktopWidth =
+    calc (pct 50) minus (rem 1)
+
+
+mobileWidth =
+    calc (pct 100) minus (rem 1)
 
 
 cardStyle : Style
 cardStyle =
     batch
-        [ flex3 (int 1) zero (px 400)
+        [ flex3 zero zero mobileWidth
         , margin2 (rem 1) zero
-        , Css.height (px 200)
+        , Css.minHeight (px 200)
         , border3 (px 2) solid Theme.colours.grey
         , borderRadius (rem 1)
         , textAlign center
         , displayFlex
         , flexDirection column
-        , padding (rem 0.5)
+        , padding (rem 1)
+        , justifyContent center
         ]
 
 
-quote : Style
-quote =
+quoteStyle : Style
+quoteStyle =
     batch
-        [ Css.flex3 (int 1) zero (pct 75)
+        [ Css.flex3 zero zero (pct 60)
         ]
 
 
 details : Style
 details =
     batch
-        [ Css.flex3 (int 1) zero (pct 25)
+        [ Css.flex3 zero zero (pct 20)
+        , alignSelf flexEnd
         ]
