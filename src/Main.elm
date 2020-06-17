@@ -10,7 +10,7 @@ import Page.HelpSelf as HelpSelf
 import Page.NotAlone as NotAlone
 import Theme exposing (globalStyles)
 import Url
-import Url.Parser as Parser
+import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, top)
 
 
 main : Program () Model Msg
@@ -147,6 +147,14 @@ toUrl url model =
                 , route (Parser.s "get-help")
                     (toGetHelp model)
                 , route (Parser.s "help-self")
+                    (toHelpSelf model (HelpSelf.init ()))
+
+                -- The "sea-map" alternatives are to support gh-pages url nesting
+                , route (Parser.s "sea-map" </> Parser.s "definition")
+                    (toDefinition model (Definition.init ()))
+                , route (Parser.s "sea-map" </> Parser.s "get-help")
+                    (toGetHelp model)
+                , route (Parser.s "sea-map" </> Parser.s "help-self")
                     (toHelpSelf model (HelpSelf.init ()))
                 ]
     in
