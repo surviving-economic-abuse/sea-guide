@@ -2,6 +2,8 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Page.Definition as Definition
@@ -98,7 +100,7 @@ update msg model =
 
 viewDocument : Model -> Browser.Document Msg
 viewDocument model =
-    { title = "[cCc] SEA-MAP App", body = [ view model |> Html.Styled.toUnstyled ] }
+    { title = t SiteTitle, body = [ view model |> Html.Styled.toUnstyled ] }
 
 
 view : Model -> Html Msg
@@ -142,19 +144,19 @@ toUrl url model =
             Parser.oneOf
                 [ route Parser.top
                     (toNotAlone model (NotAlone.init ()))
-                , route (Parser.s "definition")
+                , route (Parser.s (t DefinitionPageSlug))
                     (toDefinition model (Definition.init ()))
-                , route (Parser.s "get-help")
+                , route (Parser.s (t GetHelpPageSlug))
                     (toGetHelp model)
-                , route (Parser.s "help-self")
+                , route (Parser.s (t HelpSelfPageSlug))
                     (toHelpSelf model (HelpSelf.init ()))
 
                 -- The "sea-map" alternatives are to support gh-pages url nesting
-                , route (Parser.s "sea-map" </> Parser.s "definition")
+                , route (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
                     (toDefinition model (Definition.init ()))
-                , route (Parser.s "sea-map" </> Parser.s "get-help")
+                , route (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
                     (toGetHelp model)
-                , route (Parser.s "sea-map" </> Parser.s "help-self")
+                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfPageSlug))
                     (toHelpSelf model (HelpSelf.init ()))
                 ]
     in

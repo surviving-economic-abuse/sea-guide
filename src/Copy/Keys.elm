@@ -3,6 +3,13 @@ module Copy.Keys exposing (Key(..))
 
 type Key
     = SiteTitle
+      --- Internal Href slugs
+    | NotAlonePageSlug
+    | DefinitionPageSlug
+    | GetHelpPageSlug
+    | HelpSelfPageSlug
+      --- External Hrefs
+    | StatsOnEconomicAbuseHref
       -- Not Alone page
     | NotAloneTitle
     | QuoteRelatable1

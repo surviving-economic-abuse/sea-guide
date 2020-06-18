@@ -1,5 +1,7 @@
 module Page.HelpSelf exposing (Model, Msg, init, view)
 
+import Copy.Keys exposing (..)
+import Copy.Text exposing (t)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 
@@ -31,8 +33,8 @@ view model =
     div []
         [ div [] [ text "Help Self page - grid and singles" ]
         , ul []
-            [ li [] [ a [ href "get-help" ] [ text "Get Help" ] ]
-            , li [] [ a [ href "not-alone" ] [ text "Read about others" ] ]
-            , li [] [ a [ href "definition" ] [ text "What is Economic Abuse" ] ]
+            [ li [] [ a [ href (t GetHelpPageSlug) ] [ text "Get Help" ] ]
+            , li [] [ a [ href (t NotAlonePageSlug) ] [ text "Read about others" ] ]
+            , li [] [ a [ href (t DefinitionPageSlug) ] [ text "What is Economic Abuse" ] ]
             ]
         ]

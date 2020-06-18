@@ -1,5 +1,7 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
@@ -33,7 +35,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text "[cCc] You Are Not Alone" ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
             ]
         , div [ css [ gridStyle ] ]
             [ card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "22"
@@ -43,7 +45,7 @@ view model =
             , card "[cCc] A short quote about a recognisable experience" "My Name" "55"
             , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "44"
             ]
-        , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
+        , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
         ]
 
 

@@ -1,5 +1,7 @@
 module HelpSelfTest exposing (suite)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
@@ -32,20 +34,20 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "get-help") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                     |> Query.has [ text "Get Help" ]
         , test "HelpSelf view has nav link to not-alone" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "not-alone") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
                     |> Query.has [ text "Read about others" ]
         , test "HelpSelf view has nav link to definition" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "definition") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text "What is Economic Abuse" ]
         ]

@@ -29,18 +29,25 @@ suite =
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
                     |> Query.count (Expect.equal 3)
+        , test "Definition view has nav link to stats resource" <|
+            \() ->
+                view {}
+                    |> Html.Styled.toUnstyled
+                    |> Query.fromHtml
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t StatsOnEconomicAbuseHref)) ]
+                    |> Query.has [ text (t DefinitionMoreLink) ]
         , test "Definition view has nav link to get-help" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "get-help") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                     |> Query.has [ text (t ToGetHelpFromDefinitionLink) ]
         , test "Definition view has nav link to help-self" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "help-self") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfPageSlug)) ]
                     |> Query.has [ text (t ToHelpSelfFromDefinitionLink) ]
         ]
