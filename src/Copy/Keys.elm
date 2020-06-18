@@ -126,3 +126,16 @@ type Key
     | HelpSelfCategoryTitle5
       -- Get Help page
     | GetHelpTitle
+    | GetHelpSection1Title
+    | GetHelpSection1Quote1
+    | GetHelpSection1Quote2
+    | GetHelpSection1Description
+    | GetHelpSection2Title
+    | GetHelpSection2Quote1
+    | GetHelpSection2Quote2
+    | GetHelpSection2Description
+    | GetHelpSection3Title
+    | GetHelpSection3Quote1
+    | GetHelpSection3Quote2
+    | GetHelpSection3Description
+    | ToHelpSelfFromGetHelpLink
