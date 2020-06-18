@@ -232,3 +232,130 @@ t key =
 
         ToHelpSelfFromDefinitionLink ->
             "[cCc] Things you can find out about and actions you can take"
+
+        -- Help Self page
+        HelpSelfTitle ->
+            ""
+
+        HelpSelfCategoryLink1 ->
+            ""
+
+        HelpSelfCategoryLink2 ->
+            ""
+
+        HelpSelfCategoryLink3 ->
+            ""
+
+        HelpSelfCategoryLink4 ->
+            ""
+
+        HelpSelfCategoryLink5 ->
+            ""
+
+        ToDefinitionFromHelpSelfLink ->
+            ""
+
+        ToNotAloneFromHelpSelfLink ->
+            ""
+
+        ToGetHelpFromHelpSelfLink ->
+            ""
+
+        ToSelfHelpFromSingleCategoryLink ->
+            ""
+
+        -- Help Self Single Category1
+        HelpSelfCategoryTitle1 ->
+            ""
+
+        HelpSelfCategoryResource1Title1 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteOne1 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteTwo1 ->
+            ""
+
+        HelpSelfCategoryResource1Summary1 ->
+            ""
+
+        -- Help Self Single Category2
+        HelpSelfCategoryTitle2 ->
+            ""
+
+        HelpSelfCategoryResource1Title2 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteOne2 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteTwo2 ->
+            ""
+
+        HelpSelfCategoryResource1Summary2 ->
+            ""
+
+        HelpSelfCategoryResource2Title2 ->
+            ""
+
+        HelpSelfCategoryResource2QuoteOne2 ->
+            ""
+
+        HelpSelfCategoryResource2QuoteTwo2 ->
+            ""
+
+        HelpSelfCategoryResource2Summary2 ->
+            ""
+
+        HelpSelfCategoryResource3Title2 ->
+            ""
+
+        HelpSelfCategoryResource3QuoteOne2 ->
+            ""
+
+        HelpSelfCategoryResource3QuoteTwo2 ->
+            ""
+
+        HelpSelfCategoryResource3Summary2 ->
+            ""
+
+        -- Help Self Single Category3
+        HelpSelfCategoryTitle3 ->
+            ""
+
+        HelpSelfCategoryResource1Title3 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteOne3 ->
+            ""
+
+        HelpSelfCategoryResource1QuoteTwo3 ->
+            ""
+
+        HelpSelfCategoryResource1Summary3 ->
+            ""
+
+        HelpSelfCategoryResource2Title3 ->
+            ""
+
+        HelpSelfCategoryResource2QuoteOne3 ->
+            ""
+
+        HelpSelfCategoryResource2QuoteTwo3 ->
+            ""
+
+        HelpSelfCategoryResource2Summary3 ->
+            ""
+
+        -- Help Self Single Category4
+        HelpSelfCategoryTitle4 ->
+            ""
+
+        -- Help Self Single Category5
+        HelpSelfCategoryTitle5 ->
+            ""
+
+        -- Get Help page
+        GetHelpTitle ->
+            ""
