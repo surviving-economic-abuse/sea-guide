@@ -20,7 +20,7 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text "[cCc] What is Economic Abuse?" ]
-        , test "Definition view has 2 nav links" <|
+        , test "Definition view has 3 nav links" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled

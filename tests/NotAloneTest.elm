@@ -19,7 +19,7 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "Not Alone page" ]
+                    |> Query.contains [ Html.text "[cCc] You Are Not Alone" ]
         , test "NotAlone view has 1 nav link" <|
             \() ->
                 view {}
@@ -27,7 +27,7 @@ suite =
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
                     |> Query.count (Expect.equal 1)
-        , test "NotAlone view has nav link to get-help" <|
+        , test "NotAlone view has nav link to definition" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
