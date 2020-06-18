@@ -19,14 +19,7 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "Help Self page - grid and singles" ]
-        , test "HelpSelf view has 3 nav links" <|
-            \() ->
-                view {}
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
-                    |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 3)
+                    |> Query.contains [ Html.text "[cCc] Help Me With.." ]
         , test "HelpSelf view has nav link to get-help" <|
             \() ->
                 view {}
