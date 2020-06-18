@@ -38,7 +38,7 @@ view model =
             , p [ css [ pageDescription ] ]
                 [ text (t DefinitionConcise)
                 , text " "
-                , a [ href "/[cCc]somewhere" ] [ text (t DefinitionMoreLink) ]
+                , a [ href (t StatsOnEconomicAbuseHref) ] [ text (t DefinitionMoreLink) ]
                 ]
             ]
         , ul []
@@ -50,8 +50,8 @@ view model =
             ]
         , p [] [ text (t SplitterAffirmation) ]
         , ul []
-            [ li [] [ a [ href "help-self" ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
-            , li [] [ a [ href "get-help" ] [ text (t ToGetHelpFromDefinitionLink) ] ]
+            [ li [] [ a [ href (t HelpSelfPageSlug) ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+            , li [] [ a [ href (t GetHelpPageSlug) ] [ text (t ToGetHelpFromDefinitionLink) ] ]
             ]
         ]
 

@@ -1,5 +1,7 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 
@@ -29,6 +31,6 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ div [] [ text "Not Alone page" ]
-        , a [ href "definition" ] [ text "Find out more about Economic Abuse" ]
+        [ div [] [ text (t NotAloneTitle) ]
+        , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
         ]
