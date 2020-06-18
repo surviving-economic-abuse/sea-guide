@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle)
+import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
 
 
 type alias Model =
@@ -55,7 +55,7 @@ card quote name age =
         [ css
             [ cardStyle
             , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-                [ flex3 zero zero oneColumn ]
+                [ flex3 zero zero twoColumn ]
             ]
         ]
         [ span [ css [ quoteStyle ] ] [ text quote ]
