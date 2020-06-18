@@ -134,7 +134,7 @@ layout =
         , displayFlex
         , flexDirection column
         , minHeight (vh 100)
-        , padding2 zero (rem 2)
+        , padding2 zero (rem 1)
         ]
 
 

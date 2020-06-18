@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, pageHeadingStyle)
+import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
 
 
 type alias Model =
@@ -49,22 +49,13 @@ view model =
         ]
 
 
-gridStyle : Style
-gridStyle =
-    batch
-        [ displayFlex
-        , flexWrap wrap
-        , justifyContent spaceBetween
-        ]
-
-
 card : String -> String -> String -> Html msg
 card quote name age =
     div
         [ css
             [ cardStyle
             , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-                [ flex3 zero zero desktopWidth ]
+                [ flex3 zero zero twoColumn ]
             ]
         ]
         [ span [ css [ quoteStyle ] ] [ text quote ]
@@ -72,24 +63,16 @@ card quote name age =
         ]
 
 
-desktopWidth =
-    calc (pct 50) minus (rem 1)
-
-
-mobileWidth =
-    calc (pct 100) minus (rem 1)
-
-
 cardStyle : Style
 cardStyle =
     batch
         [ border3 (px 2) solid Theme.colours.grey
         , borderRadius (rem 1)
-        , flex3 zero zero mobileWidth
+        , flex3 zero zero oneColumn
         , displayFlex
         , flexDirection column
         , justifyContent center
-        , margin2 (rem 1) zero
+        , margin (rem 1)
         , padding (rem 1)
         , Css.minHeight (px 200)
         , textAlign center
