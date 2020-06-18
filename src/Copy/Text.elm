@@ -35,7 +35,7 @@ t key =
             "[cCc] Not Alone page title"
 
         QuoteRelatable1 ->
-            ""
+            "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience."
 
         QuoteHopeful1 ->
             ""
@@ -44,13 +44,13 @@ t key =
             ""
 
         QuoteName1 ->
-            ""
+            "My Name"
 
         QuoteAge1 ->
-            ""
+            "22"
 
         QuoteRelatable2 ->
-            ""
+            "[cCc] A short quote about a recognisable experience"
 
         QuoteHopeful2 ->
             ""
@@ -59,13 +59,13 @@ t key =
             ""
 
         QuoteName2 ->
-            ""
+            "My Name"
 
         QuoteAge2 ->
-            ""
+            "33"
 
         QuoteRelatable3 ->
-            ""
+            "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience."
 
         QuoteHopeful3 ->
             ""
@@ -74,13 +74,13 @@ t key =
             ""
 
         QuoteName3 ->
-            ""
+            "My Name"
 
         QuoteAge3 ->
-            ""
+            "62"
 
         QuoteRelatable4 ->
-            ""
+            "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience."
 
         QuoteHopeful4 ->
             ""
@@ -89,13 +89,13 @@ t key =
             ""
 
         QuoteName4 ->
-            ""
+            "My Name"
 
         QuoteAge4 ->
-            ""
+            "33"
 
         QuoteRelatable5 ->
-            ""
+            "[cCc] A short quote about a recognisable experience"
 
         QuoteHopeful5 ->
             ""
@@ -104,13 +104,13 @@ t key =
             ""
 
         QuoteName5 ->
-            ""
+            "My Name"
 
         QuoteAge5 ->
-            ""
+            "55"
 
         QuoteRelatable6 ->
-            ""
+            "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience."
 
         QuoteHopeful6 ->
             ""
@@ -119,10 +119,10 @@ t key =
             ""
 
         QuoteName6 ->
-            ""
+            "My Name"
 
         QuoteAge6 ->
-            ""
+            "44"
 
         ToDefinitionFromNotAloneLink ->
             "[cCc] Find out more about Economic Abuse"
