@@ -174,21 +174,21 @@ toUrl url model =
             aPage
 
         Nothing ->
-            ( { model | page = NotAlonePage NotAlone.Model }
+            ( { model | page = NotAlonePage {} }
             , Cmd.none
             )
 
 
 toNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd Msg )
 toNotAlone model ( notAloneModel, cmds ) =
-    ( { model | page = NotAlonePage NotAlone.Model }
+    ( { model | page = NotAlonePage notAloneModel }
     , Cmd.map NotAloneMsg cmds
     )
 
 
 toDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
 toDefinition model ( definitionModel, cmds ) =
-    ( { model | page = DefinitionPage Definition.Model }
+    ( { model | page = DefinitionPage definitionModel }
     , Cmd.map DefinitionMsg cmds
     )
 
@@ -209,7 +209,7 @@ toHelpSelfGrid model =
 
 toHelpSelfSingle : Model -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
 toHelpSelfSingle model ( helpSelfSingleModel, cmds ) =
-    ( { model | page = HelpSelfSinglePage HelpSelfSingle.Model }
+    ( { model | page = HelpSelfSinglePage helpSelfSingleModel }
     , Cmd.map HelpSelfSingleMsg cmds
     )
 
