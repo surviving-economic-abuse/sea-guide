@@ -29,7 +29,7 @@ suite =
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
                     |> Query.count (Expect.equal 1)
-        , test "NotAlone view has nav link to get-help" <|
+        , test "NotAlone view has nav link to definition" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled

@@ -5,7 +5,7 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (Html, a, div, h1, h2, header, li, p, text, ul)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, pageHeading)
+import Theme exposing (colours, pageHeadingStyle)
 
 
 type alias Model =
@@ -34,19 +34,19 @@ view : Model -> Html Msg
 view model =
     div []
         [ header []
-            [ h1 [ css [ pageHeading ] ] [ text (t DefinitionTitle) ]
-            , p [ css [ pageDescription ] ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+            , p [ css [ introStyle ] ]
                 [ text (t DefinitionConcise)
                 , text " "
                 , a [ href (t StatsOnEconomicAbuseHref) ] [ text (t DefinitionMoreLink) ]
                 ]
             ]
         , ul []
-            [ li [ css [ category ] ] [ h2 [] [ text (t DefinitionCategoryTitle1) ] ]
-            , li [ css [ category ] ] [ h2 [] [ text (t DefinitionCategoryTitle2) ] ]
-            , li [ css [ category ] ] [ h2 [] [ text (t DefinitionCategoryTitle3) ] ]
-            , li [ css [ category ] ] [ h2 [] [ text (t DefinitionCategoryTitle4) ] ]
-            , li [ css [ category ] ] [ h2 [] [ text (t DefinitionCategoryTitle5) ] ]
+            [ li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle1) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle2) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle3) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle4) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle5) ] ]
             ]
         , p [] [ text (t SplitterAffirmation) ]
         , ul []
@@ -56,14 +56,14 @@ view model =
         ]
 
 
-category : Style
-category =
+categoryStyle : Style
+categoryStyle =
     Css.batch
         [ margin2 (rem 2) zero ]
 
 
-pageDescription : Style
-pageDescription =
+introStyle : Style
+introStyle =
     Css.batch
         [ color colours.purple
         , fontFamilies [ "Raleway", sansSerif.value ]
