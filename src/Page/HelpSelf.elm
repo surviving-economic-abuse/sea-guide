@@ -1,15 +1,12 @@
 module Page.HelpSelf exposing (Model, Msg, init, view)
 
-<<<<<<< HEAD
-import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-=======
 import Copy.Keys exposing (..)
 import Copy.Text exposing (t)
->>>>>>> release
+import Css exposing (..)
+import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
+import Theme exposing (colours, gridStyle, pageHeadingStyle, threeColumn, twoColumn)
 
 
 type alias Model =
