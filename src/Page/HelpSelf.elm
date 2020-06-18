@@ -33,14 +33,14 @@ view : Model -> Html Msg
 view model =
     div []
         [ header []
-            [ h1 [ css [ pageHeading ] ] [ text "[cCc] Help Me With.." ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text "[cCc] Help Me With.." ]
             ]
-        , ul [ css [ grid ] ]
-            [ li [ css [ cardStyle ] ] [ a [ css [ blockLinks ], href "#" ] [ div [] [ text "Stuff" ] ] ]
-            , li [ css [ cardStyle ] ] [ a [ css [ blockLinks ], href "#" ] [ div [] [ text "Stuff" ] ] ]
-            , li [ css [ cardStyle ] ] [ a [ css [ blockLinks ], href "#" ] [ div [] [ text "Stuff" ] ] ]
-            , li [ css [ cardStyle ] ] [ a [ css [ blockLinks ], href "#" ] [ div [] [ text "Stuff" ] ] ]
-            , li [ css [ cardStyle ] ] [ a [ css [ blockLinks ], href "#" ] [ div [] [ text "Stuff" ] ] ]
+        , ul [ css [ gridStyle ] ]
+            [ infoLink "COVID-19" "#"
+            , infoLink "Understanding Economic Abuse" "#"
+            , infoLink "Banking" "#"
+            , infoLink "Debt" "#"
+            , infoLink "Housing" "#"
             ]
         , ul []
             [ li [] [ a [ href "get-help" ] [ text "Get Help" ] ]
@@ -50,12 +50,16 @@ view model =
         ]
 
 
-grid : Style
-grid =
-    batch
-        [ displayFlex
-        , flexWrap wrap
-        , justifyContent spaceAround
+infoLink : String -> String -> Html msg
+infoLink title link =
+    li
+        [ css
+            [ cardStyle
+            , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+                [ flex3 zero zero threeColumn ]
+            ]
+        ]
+        [ a [ css [ blockLinks ], href link ] [ div [] [ text title ] ]
         ]
 
 
@@ -63,15 +67,15 @@ blockLinks : Style
 blockLinks =
     batch
         [ color colours.purple
+        , displayFlex
+        , flexDirection column
         , fontFamilies [ "Raleway", sansSerif.value ]
-        , display block
+        , fontSize (rem 1.25)
         , Css.height (pct 100)
+        , justifyContent center
+        , textDecoration none
         , Css.width (pct 100)
         ]
-
-
-three =
-    calc (pct 33) minus (rem 1)
 
 
 cardStyle : Style
@@ -79,11 +83,8 @@ cardStyle =
     batch
         [ border3 (px 2) solid Theme.colours.grey
         , borderRadius (rem 1)
-        , flex3 zero zero three
-        , displayFlex
-        , flexDirection column
-        , justifyContent center
-        , margin2 (rem 1) zero
+        , flex3 zero zero twoColumn
+        , margin (rem 1)
         , Css.minHeight (px 150)
         , textAlign center
         ]
