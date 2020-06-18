@@ -61,12 +61,12 @@ infoLink title link =
                 [ flex3 zero zero threeColumn ]
             ]
         ]
-        [ a [ css [ blockLinks ], href link ] [ div [] [ text title ] ]
+        [ a [ css [ blockLinkStyle ], href link ] [ div [] [ text title ] ]
         ]
 
 
-blockLinks : Style
-blockLinks =
+blockLinkStyle : Style
+blockLinkStyle =
     batch
         [ color colours.purple
         , displayFlex
