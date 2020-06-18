@@ -1,5 +1,7 @@
 module GetHelpTest exposing (suite)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
@@ -32,6 +34,6 @@ suite =
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "help-self") ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfPageSlug)) ]
                     |> Query.has [ text "Find out more" ]
         ]

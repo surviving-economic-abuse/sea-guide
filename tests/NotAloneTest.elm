@@ -1,5 +1,7 @@
 module NotAloneTest exposing (suite)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
@@ -19,7 +21,7 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "[cCc] You Are Not Alone" ]
+                    |> Query.contains [ Html.text (t NotAloneTitle) ]
         , test "NotAlone view has 1 nav link" <|
             \() ->
                 view {}
@@ -32,6 +34,6 @@ suite =
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href "definition") ]
-                    |> Query.has [ text "Find out more about Economic Abuse" ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
+                    |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
         ]

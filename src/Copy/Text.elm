@@ -13,9 +13,26 @@ t key =
         SiteTitle ->
             "[cCc] SEA MAP"
 
+        --- Internal Href slugs
+        NotAlonePageSlug ->
+            "not-alone"
+
+        DefinitionPageSlug ->
+            "definition"
+
+        GetHelpPageSlug ->
+            "get-help"
+
+        HelpSelfPageSlug ->
+            "help-self"
+
+        --- External Hrefs
+        StatsOnEconomicAbuseHref ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
+
         -- Not Alone page
         NotAloneTitle ->
-            ""
+            "[cCc] Not Alone page title"
 
         QuoteRelatable1 ->
             ""
@@ -108,7 +125,7 @@ t key =
             ""
 
         ToDefinitionFromNotAloneLink ->
-            ""
+            "[cCc] Find out more about Economic Abuse"
 
         EmergencyButton ->
             ""

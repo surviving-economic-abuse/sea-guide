@@ -1,7 +1,12 @@
 module Page.HelpSelf exposing (Model, Msg, init, view)
 
+<<<<<<< HEAD
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
+=======
+import Copy.Keys exposing (..)
+import Copy.Text exposing (t)
+>>>>>>> release
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
@@ -43,9 +48,9 @@ view model =
             , infoLink "Housing" "#"
             ]
         , ul []
-            [ li [] [ a [ href "get-help" ] [ text "Get Help" ] ]
-            , li [] [ a [ href "not-alone" ] [ text "Read about others" ] ]
-            , li [] [ a [ href "definition" ] [ text "What is Economic Abuse" ] ]
+            [ li [] [ a [ href (t GetHelpPageSlug) ] [ text "Get Help" ] ]
+            , li [] [ a [ href (t NotAlonePageSlug) ] [ text "Read about others" ] ]
+            , li [] [ a [ href (t DefinitionPageSlug) ] [ text "What is Economic Abuse" ] ]
             ]
         ]
 
