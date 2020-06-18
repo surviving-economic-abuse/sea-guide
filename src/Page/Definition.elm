@@ -1,5 +1,7 @@
 module Page.Definition exposing (Model, Msg, init, view)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (Html, a, div, h1, h2, header, li, p, text, ul)
 import Html.Styled.Attributes exposing (css, href)
@@ -32,17 +34,24 @@ view : Model -> Html Msg
 view model =
     div []
         [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text "[cCc] What is Economic Abuse?" ]
-            , p [ css [ introStyle ] ] [ text "[cCc] A concise definition of economic abuse in accessible language, and that spans a few sentences so that a small intro paragraph doesn't look strange here.", text " ", a [ href "/[cCc]somewhere" ] [ text "[cCc] more information" ] ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+            , p [ css [ introStyle ] ]
+                [ text (t DefinitionConcise)
+                , text " "
+                , a [ href "/[cCc]somewhere" ] [ text (t DefinitionMoreLink) ]
+                ]
             ]
         , ul []
-            [ li [ css [ categoryStyle ] ] [ h2 [] [ text "[cCc] A Category" ] ]
-            , li [ css [ categoryStyle ] ] [ h2 [] [ text "[cCc] A Category" ] ]
-            , li [ css [ categoryStyle ] ] [ h2 [] [ text "[cCc] A Category" ] ]
+            [ li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle1) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle2) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle3) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle4) ] ]
+            , li [ css [ categoryStyle ] ] [ h2 [] [ text (t DefinitionCategoryTitle5) ] ]
             ]
+        , p [] [ text (t SplitterAffirmation) ]
         , ul []
-            [ li [] [ a [ href "help-self" ] [ text "Find out more" ] ]
-            , li [] [ a [ href "get-help" ] [ text "Get help" ] ]
+            [ li [] [ a [ href "help-self" ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+            , li [] [ a [ href "get-help" ] [ text (t ToGetHelpFromDefinitionLink) ] ]
             ]
         ]
 
