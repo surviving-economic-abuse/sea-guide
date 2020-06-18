@@ -28,7 +28,7 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 1)
+                    |> Query.count (Expect.equal 4)
         , test "GetHelp view has nav link to help-self" <|
             \() ->
                 view
