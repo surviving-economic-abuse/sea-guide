@@ -38,12 +38,12 @@ view model =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
             ]
         , div [ css [ gridStyle ] ]
-            [ card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "22"
-            , card "[cCc] A short quote about a recognisable experience" "My Name" "33"
-            , card "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience." "My Name" "62"
-            , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "33"
-            , card "[cCc] A short quote about a recognisable experience" "My Name" "55"
-            , card "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience." "My Name" "44"
+            [ card (t QuoteRelatable1) (t QuoteName1) (t QuoteAge1)
+            , card (t QuoteRelatable2) (t QuoteName2) (t QuoteAge2)
+            , card (t QuoteRelatable3) (t QuoteName3) (t QuoteAge3)
+            , card (t QuoteRelatable4) (t QuoteName4) (t QuoteAge4)
+            , card (t QuoteRelatable5) (t QuoteName5) (t QuoteAge5)
+            , card (t QuoteRelatable6) (t QuoteName6) (t QuoteAge6)
             ]
         , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
         ]
