@@ -54,3 +54,30 @@ pageHeadingStyle =
         , margin2 (rem 2) zero
         , textAlign center
         ]
+
+
+gridStyle : Style
+gridStyle =
+    batch
+        [ displayFlex
+        , flexWrap wrap
+        , margin2 zero (rem -1)
+        ]
+
+
+{-| A flex row item width for a single column layout
+-}
+oneColumn =
+    calc (pct 100) minus (rem 2)
+
+
+{-| A flex row item width for a double column layout
+-}
+twoColumn =
+    calc (pct 50) minus (rem 2)
+
+
+{-| A flex row item width for a triple column layout
+-}
+threeColumn =
+    calc (pct 33) minus (rem 2)

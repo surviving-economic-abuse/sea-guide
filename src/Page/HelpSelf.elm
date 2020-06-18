@@ -4,7 +4,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, pageHeading)
+import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
 
 
 type alias Model =
