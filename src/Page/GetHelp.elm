@@ -10,5 +10,5 @@ view : Html never
 view =
     div []
         [ div [] [ text "Get Help page" ]
-        , a [ href (t HelpSelfPageSlug) ] [ text "Find out more" ]
+        , a [ href (t HelpSelfGridPageSlug) ] [ text "Find out more" ]
         ]

@@ -8,7 +8,8 @@ import Css exposing (..)
 import Html.Styled exposing (..)
 import Page.Definition as Definition
 import Page.GetHelp as GetHelp
-import Page.HelpSelf as HelpSelf
+import Page.HelpSelfGrid as HelpSelfGrid
+import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
 import Theme exposing (globalStyles)
 import Url
@@ -38,7 +39,8 @@ type alias Model =
 type Page
     = DefinitionPage Definition.Model
     | GetHelpPage
-    | HelpSelfPage HelpSelf.Model
+    | HelpSelfGridPage
+    | HelpSelfSinglePage HelpSelfSingle.Model
     | NotAlonePage NotAlone.Model
 
 
@@ -59,7 +61,7 @@ type Msg
     | PageLinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
     | DefinitionMsg Definition.Msg
-    | HelpSelfMsg HelpSelf.Msg
+    | HelpSelfSingleMsg HelpSelfSingle.Msg
     | NotAloneMsg NotAlone.Msg
 
 
@@ -87,7 +89,7 @@ update msg model =
         DefinitionMsg subMsg ->
             ( model, Cmd.none )
 
-        HelpSelfMsg subMsg ->
+        HelpSelfSingleMsg subMsg ->
             ( model, Cmd.none )
 
         NotAloneMsg subMsg ->
@@ -112,8 +114,11 @@ view model =
         GetHelpPage ->
             layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) GetHelp.view ]
 
-        HelpSelfPage helpSelf ->
-            layout [] [ globalStyles, Html.Styled.map HelpSelfMsg (HelpSelf.view helpSelf) ]
+        HelpSelfGridPage ->
+            layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view ]
+
+        HelpSelfSinglePage helpSelf ->
+            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view helpSelf) ]
 
         NotAlonePage notAlone ->
             layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
@@ -148,16 +153,20 @@ toUrl url model =
                     (toDefinition model (Definition.init ()))
                 , route (Parser.s (t GetHelpPageSlug))
                     (toGetHelp model)
-                , route (Parser.s (t HelpSelfPageSlug))
-                    (toHelpSelf model (HelpSelf.init ()))
+                , route (Parser.s (t HelpSelfGridPageSlug))
+                    (toHelpSelfGrid model)
+                , route (Parser.s (t HelpSelfSinglePageSlug))
+                    (toHelpSelfSingle model (HelpSelfSingle.init ()))
 
                 -- The "sea-map" alternatives are to support gh-pages url nesting
                 , route (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
                     (toDefinition model (Definition.init ()))
                 , route (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
                     (toGetHelp model)
-                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfPageSlug))
-                    (toHelpSelf model (HelpSelf.init ()))
+                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
+                    (toHelpSelfGrid model)
+                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfSinglePageSlug))
+                    (toHelpSelfSingle model (HelpSelfSingle.init ()))
                 ]
     in
     case Parser.parse parser url of
@@ -191,10 +200,17 @@ toGetHelp model =
     )
 
 
-toHelpSelf : Model -> ( HelpSelf.Model, Cmd HelpSelf.Msg ) -> ( Model, Cmd Msg )
-toHelpSelf model ( helpSelfModel, cmds ) =
-    ( { model | page = HelpSelfPage HelpSelf.Model }
-    , Cmd.map HelpSelfMsg cmds
+toHelpSelfGrid : Model -> ( Model, Cmd Msg )
+toHelpSelfGrid model =
+    ( { model | page = HelpSelfGridPage }
+    , Cmd.none
+    )
+
+
+toHelpSelfSingle : Model -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
+toHelpSelfSingle model ( helpSelfSingleModel, cmds ) =
+    ( { model | page = HelpSelfSinglePage HelpSelfSingle.Model }
+    , Cmd.map HelpSelfSingleMsg cmds
     )
 
 

@@ -7,7 +7,8 @@ type Key
     | NotAlonePageSlug
     | DefinitionPageSlug
     | GetHelpPageSlug
-    | HelpSelfPageSlug
+    | HelpSelfGridPageSlug
+    | HelpSelfSinglePageSlug
       --- External Hrefs
     | StatsOnEconomicAbuseHref
       -- Not Alone page

@@ -23,8 +23,11 @@ t key =
         GetHelpPageSlug ->
             "get-help"
 
-        HelpSelfPageSlug ->
+        HelpSelfGridPageSlug ->
             "help-self"
+
+        HelpSelfSinglePageSlug ->
+            "help-self/single"
 
         --- External Hrefs
         StatsOnEconomicAbuseHref ->
