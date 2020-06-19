@@ -23,8 +23,12 @@ t key =
         GetHelpPageSlug ->
             "get-help"
 
-        HelpSelfPageSlug ->
+        HelpSelfGridPageSlug ->
             "help-self"
+
+        -- add string arg here with case for each category
+        HelpSelfSinglePageSlug category ->
+            category
 
         --- External Hrefs
         StatsOnEconomicAbuseHref ->
@@ -275,7 +279,7 @@ t key =
 
         -- Help Self Single Category1
         HelpSelfCategory1Title ->
-            ""
+            "COVID"
 
         HelpSelfCategory1Resource1Title ->
             ""
@@ -291,7 +295,7 @@ t key =
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
-            ""
+            "Anything other than COVID"
 
         HelpSelfCategory2Resource1Title ->
             ""

@@ -34,6 +34,6 @@ suite =
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfPageSlug)) ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                     |> Query.has [ text (t ToHelpSelfFromGetHelpLink) ]
         ]

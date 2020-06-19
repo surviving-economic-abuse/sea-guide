@@ -50,7 +50,7 @@ view model =
             ]
         , p [] [ text (t SplitterAffirmation) ]
         , ul []
-            [ li [] [ a [ href (t HelpSelfPageSlug) ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+            [ li [] [ a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
             , li [] [ a [ href (t GetHelpPageSlug) ] [ text (t ToGetHelpFromDefinitionLink) ] ]
             ]
         ]

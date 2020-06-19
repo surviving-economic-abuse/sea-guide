@@ -19,7 +19,7 @@ view =
             , card (t GetHelpSection2Title) (t GetHelpSection2Link) (t SeaMapFinancialSupportHref)
             , card (t GetHelpSection3Title) (t GetHelpSection3Link) (t SeaOrganisationsResourceHref)
             ]
-        , a [ href (t HelpSelfPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
+        , a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
         ]
 
 
