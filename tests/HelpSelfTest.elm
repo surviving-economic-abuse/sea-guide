@@ -6,7 +6,7 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Html.Styled
-import Page.HelpSelf exposing (view)
+import Page.HelpSelfGrid exposing (view)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
@@ -18,27 +18,27 @@ suite =
     describe "HelpSelf View"
         [ test "HelpSelf view has title" <|
             \() ->
-                view {}
+                view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text "[cCc] Help Me With.." ]
         , test "HelpSelf view has nav link to get-help" <|
             \() ->
-                view {}
+                view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                     |> Query.has [ text "Get Help" ]
         , test "HelpSelf view has nav link to not-alone" <|
             \() ->
-                view {}
+                view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
                     |> Query.has [ text "Read about others" ]
         , test "HelpSelf view has nav link to definition" <|
             \() ->
-                view {}
+                view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
