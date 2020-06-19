@@ -1,11 +1,14 @@
 module Page.NotAlone exposing (Model, Msg, init, view)
 
+import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
+import Html.Styled.Events exposing (onClick)
+import Task
 import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
 
 
@@ -22,6 +25,7 @@ init _ =
 
 type Msg
     = NoOp
+    | ScrollTo
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -30,13 +34,16 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
+        ScrollTo ->
+            ( model, Task.perform (always NoOp) (Dom.setViewport 0 500) )
+
 
 view : Model -> Html Msg
 view model =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
-            , a [ href "#emergency" ] [ text (t EmergencyButton) ]
+            , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
             ]
         , div [ css [ gridStyle ] ]
             [ card (t QuoteRelatable1) (t QuoteName1) (t QuoteAge1)
