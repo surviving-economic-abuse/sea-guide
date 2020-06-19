@@ -128,7 +128,7 @@ t key =
             "[cCc] Find out more about Economic Abuse"
 
         EmergencyButton ->
-            ""
+            "[cCc] Help Me now"
 
         EmergencyReassure ->
             "[cCc] Immediate help is available."

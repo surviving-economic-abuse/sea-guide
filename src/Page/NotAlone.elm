@@ -5,7 +5,7 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (css, href, id)
 import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
 
 
@@ -36,6 +36,7 @@ view model =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+            , a [ href "#emergency" ] [ text (t EmergencyButton) ]
             ]
         , div [ css [ gridStyle ] ]
             [ card (t QuoteRelatable1) (t QuoteName1) (t QuoteAge1)
@@ -46,6 +47,19 @@ view model =
             , card (t QuoteRelatable6) (t QuoteName6) (t QuoteAge6)
             ]
         , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
+        , div [ css [ emergencyContactStyle ], id "emergency" ]
+            [ p [] [ text (t EmergencyReassure) ]
+            , ul [ css [ emergencyContactListStyle ] ]
+                [ li []
+                    [ div [] [ text (t EmergencyContactDV) ]
+                    , div [ css [ numberStyle ] ] [ text (t EmergencyContactDVNumber) ]
+                    ]
+                , li []
+                    [ div [] [ text (t EmergencyContact999) ]
+                    , div [ css [ numberStyle ] ] [ text (t EmergencyContact999Number) ]
+                    ]
+                ]
+            ]
         ]
 
 
@@ -91,4 +105,30 @@ detailsStyle =
     batch
         [ alignSelf flexEnd
         , Css.flex3 zero zero (pct 20)
+        ]
+
+
+emergencyContactStyle : Style
+emergencyContactStyle =
+    batch
+        [ margin auto
+        , maxWidth (pct 100)
+        , backgroundColor colours.grey
+        , color (hex "fff")
+        , padding (rem 1)
+        ]
+
+
+emergencyContactListStyle : Style
+emergencyContactListStyle =
+    batch
+        [ listStyle none
+        ]
+
+
+numberStyle : Style
+numberStyle =
+    batch
+        [ fontWeight bold
+        , marginLeft (rem 2)
         ]

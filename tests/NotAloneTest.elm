@@ -22,13 +22,13 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 1 nav link" <|
+        , test "NotAlone view has 2 nav links" <|
             \() ->
                 view {}
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 1)
+                    |> Query.count (Expect.equal 2)
         , test "NotAlone view has nav link to definition" <|
             \() ->
                 view {}
