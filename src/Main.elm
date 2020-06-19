@@ -117,7 +117,7 @@ view model =
             layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view ]
 
         HelpSelfSinglePage helpSelfSingle category ->
-            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view helpSelfSingle) ]
+            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view category helpSelfSingle) ]
 
         NotAlonePage notAlone ->
             layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]

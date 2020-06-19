@@ -28,8 +28,8 @@ update msg model =
             ( model, Cmd.none )
 
 
-view : Model -> Html msg
-view model =
+view : String -> Model -> Html msg
+view category model =
     div []
         [ div [] [ text "Help Self Single" ]
         , ul []
