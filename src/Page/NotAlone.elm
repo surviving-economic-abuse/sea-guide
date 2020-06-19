@@ -108,6 +108,19 @@ detailsStyle =
         ]
 
 
+emergencyButtonStyle : Style
+emergencyButtonStyle =
+    batch
+        [ backgroundColor colours.grey
+        , padding2 (rem 0.5) (rem 1)
+        , borderRadius (rem 0.5)
+        , color colours.white
+        , fontWeight (int 400)
+        , margin auto
+        , border zero
+        ]
+
+
 emergencyContactStyle : Style
 emergencyContactStyle =
     batch
