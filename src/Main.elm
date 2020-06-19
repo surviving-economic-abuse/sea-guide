@@ -13,7 +13,7 @@ import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
 import Theme exposing (globalStyles)
 import Url
-import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, top)
+import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
 
 main : Program () Model Msg
@@ -40,7 +40,7 @@ type Page
     = DefinitionPage Definition.Model
     | GetHelpPage
     | HelpSelfGridPage
-    | HelpSelfSinglePage HelpSelfSingle.Model
+    | HelpSelfSinglePage String HelpSelfSingle.Model
     | NotAlonePage NotAlone.Model
 
 
@@ -117,8 +117,8 @@ view model =
         HelpSelfGridPage ->
             layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view ]
 
-        HelpSelfSinglePage helpSelf ->
-            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view helpSelf) ]
+        HelpSelfSinglePage category helpSelfSingle ->
+            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view category helpSelfSingle) ]
 
         NotAlonePage notAlone ->
             layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
@@ -142,6 +142,10 @@ layout =
 -- ROUTER
 
 
+stringFromFragment fragment =
+    Maybe.withDefault "" fragment
+
+
 toUrl : Url.Url -> Model -> ( Model, Cmd Msg )
 toUrl url model =
     let
@@ -155,8 +159,8 @@ toUrl url model =
                     (toGetHelp model)
                 , route (Parser.s (t HelpSelfGridPageSlug))
                     (toHelpSelfGrid model)
-                , route (Parser.s (t HelpSelfSinglePageSlug))
-                    (toHelpSelfSingle model (HelpSelfSingle.init ()))
+                , route (Parser.s (t HelpSelfGridPageSlug) </> string)
+                    (toHelpSelfSingle (stringFromFragment url.fragment) model (HelpSelfSingle.init ()))
 
                 -- The "sea-map" alternatives are to support gh-pages url nesting
                 , route (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
@@ -165,8 +169,8 @@ toUrl url model =
                     (toGetHelp model)
                 , route (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
                     (toHelpSelfGrid model)
-                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfSinglePageSlug))
-                    (toHelpSelfSingle model (HelpSelfSingle.init ()))
+                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug) </> Parser.s (t (HelpSelfSinglePageSlug "category1")))
+                    (toHelpSelfSingle (stringFromFragment url.fragment) model (HelpSelfSingle.init ()))
                 ]
     in
     case Parser.parse parser url of
@@ -207,9 +211,9 @@ toHelpSelfGrid model =
     )
 
 
-toHelpSelfSingle : Model -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
-toHelpSelfSingle model ( helpSelfSingleModel, cmds ) =
-    ( { model | page = HelpSelfSinglePage helpSelfSingleModel }
+toHelpSelfSingle : String -> Model -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
+toHelpSelfSingle category model ( helpSelfSingleModel, cmds ) =
+    ( { model | page = HelpSelfSinglePage category helpSelfSingleModel }
     , Cmd.map HelpSelfSingleMsg cmds
     )
 

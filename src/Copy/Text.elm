@@ -26,8 +26,9 @@ t key =
         HelpSelfGridPageSlug ->
             "help-self"
 
-        HelpSelfSinglePageSlug ->
-            "help-self/single"
+        -- add string arg here with case for each category
+        HelpSelfSinglePageSlug category ->
+            category
 
         --- External Hrefs
         StatsOnEconomicAbuseHref ->
