@@ -80,7 +80,7 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
-                    Maybe.withDefault (NotAlonePage NotAlone.Model) (pageFromUrl url model)
+                    Maybe.withDefault (NotAlonePage {}) (pageFromUrl url model)
             in
             -- If not a page default to NotAlone
             ( { model | page = newPage }, Cmd.none )
@@ -162,6 +162,5 @@ routeParser =
 
 pageFromUrl : Url.Url -> Model -> Maybe Page
 pageFromUrl url model =
-    -- The fragment and path are the same for our purposes.
-    { url | path = Maybe.withDefault "" url.fragment, fragment = Nothing }
+    { url | path = url.path }
         |> Parser.parse routeParser
