@@ -244,7 +244,7 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            "[cCc] "
+            ""
 
         HelpSelfCategoryLink1 ->
             ""
