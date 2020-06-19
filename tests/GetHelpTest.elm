@@ -21,19 +21,19 @@ suite =
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "Get Help page" ]
+                    |> Query.contains [ Html.text (t GetHelpTitle) ]
         , test "GetHelp view has 1 nav link" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 1)
+                    |> Query.count (Expect.equal 4)
         , test "GetHelp view has nav link to help-self" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfPageSlug)) ]
-                    |> Query.has [ text "Find out more" ]
+                    |> Query.has [ text (t ToHelpSelfFromGetHelpLink) ]
         ]
