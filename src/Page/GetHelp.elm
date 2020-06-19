@@ -12,31 +12,44 @@ view : Html never
 view =
     div []
         [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text "Get Help page" ]
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
             ]
         , div [ css [ columnStyle ] ]
-            [ card "SEA-MAP" "#" "link destination"
-            , card "SEA-MAP" "#" "link destination"
-            , card "SEA-MAP" "#" "link destination"
+            [ card (t GetHelpSection1Title) (t GetHelpSection1LinkName) (t SeaSurvivorForumHref)
+            , card (t GetHelpSection2Title) (t GetHelpSection2LinkName) (t SeaFinancialSupportHref)
+            , card (t GetHelpSection3Title) (t GetHelpSection3LinkName) (t SeaOrganisationsResourceHref)
             ]
-        , a [ href (t HelpSelfPageSlug) ] [ text "Find out more" ]
+        , a [ href (t HelpSelfPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
         ]
 
 
 columnStyle : Style
 columnStyle =
     batch
-        [ displayFlex
+        [ alignItems center
+        , displayFlex
         , flexDirection column
         ]
 
 
 card : String -> String -> String -> Html msg
-card name link linktext =
-    div []
-        [ p []
-            [ text name ]
+card title linkName linkHref =
+    div [ css [ cardStyle ] ]
+        [ h2 []
+            [ text title ]
         , a
-            [ href link ]
-            [ text linktext ]
+            [ href linkHref ]
+            [ text linkName ]
+        ]
+
+
+cardStyle : Style
+cardStyle =
+    batch
+        [ border3 (px 2) solid Theme.colours.grey
+        , borderRadius (rem 1)
+        , maxWidth (pct 100)
+        , Css.width (rem 24)
+        , padding (rem 1)
+        , margin2 (rem 1) zero
         ]

@@ -53,7 +53,7 @@ view model =
 
 
 infoLink : String -> String -> Html msg
-infoLink title link =
+infoLink linkName linkHref =
     li
         [ css
             [ cardStyle
@@ -61,7 +61,7 @@ infoLink title link =
                 [ flex3 zero zero threeColumn ]
             ]
         ]
-        [ a [ css [ blockLinkStyle ], href link ] [ div [] [ text title ] ]
+        [ a [ css [ blockLinkStyle ], href linkHref ] [ div [] [ text linkName ] ]
         ]
 
 
