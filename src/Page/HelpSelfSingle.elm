@@ -7,12 +7,12 @@ import Html.Styled.Attributes exposing (..)
 
 
 type alias Model =
-    { category : String }
+    {}
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( { category = "None" }
+    ( {}
     , Cmd.none
     )
 
@@ -28,8 +28,8 @@ update msg model =
             ( model, Cmd.none )
 
 
-view : String -> Model -> Html msg
-view model category =
+view : Model -> Html msg
+view model =
     div []
         [ div [] [ text "Help Self Single" ]
         , ul []

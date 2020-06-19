@@ -36,20 +36,14 @@ type alias Model =
     { key : Browser.Navigation.Key, page : Page }
 
 
-type Page
-    = DefinitionPage Definition.Model
-    | GetHelpPage
-    | HelpSelfGridPage
-    | HelpSelfSinglePage String HelpSelfSingle.Model
-    | NotAlonePage NotAlone.Model
-
-
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    toUrl url
-        { key = key
-        , page = NotAlonePage NotAlone.Model
-        }
+    let
+        maybePage =
+            pageFromUrl url { key = key, page = NotAlonePage NotAlone.Model }
+    in
+    -- If not a page default to NotAlone
+    ( { key = key, page = Maybe.withDefault (NotAlonePage NotAlone.Model) maybePage }, Cmd.none )
 
 
 
@@ -84,7 +78,12 @@ update msg model =
                     )
 
         UrlChanged url ->
-            toUrl url model
+            let
+                newPage =
+                    Maybe.withDefault (NotAlonePage NotAlone.Model) (pageFromUrl url model)
+            in
+            -- If not a page default to NotAlone
+            ( { model | page = newPage }, Cmd.none )
 
         DefinitionMsg subMsg ->
             ( model, Cmd.none )
@@ -117,8 +116,8 @@ view model =
         HelpSelfGridPage ->
             layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view ]
 
-        HelpSelfSinglePage category helpSelfSingle ->
-            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view category helpSelfSingle) ]
+        HelpSelfSinglePage helpSelfSingle category ->
+            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view helpSelfSingle) ]
 
         NotAlonePage notAlone ->
             layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
@@ -139,85 +138,30 @@ layout =
 
 
 
--- ROUTER
+-- ROUTING
 
 
-stringFromFragment fragment =
-    Maybe.withDefault "" fragment
+type Page
+    = DefinitionPage Definition.Model
+    | GetHelpPage
+    | HelpSelfGridPage
+    | HelpSelfSinglePage HelpSelfSingle.Model String
+    | NotAlonePage NotAlone.Model
 
 
-toUrl : Url.Url -> Model -> ( Model, Cmd Msg )
-toUrl url model =
-    let
-        parser =
-            Parser.oneOf
-                [ route Parser.top
-                    (toNotAlone model (NotAlone.init ()))
-                , route (Parser.s (t DefinitionPageSlug))
-                    (toDefinition model (Definition.init ()))
-                , route (Parser.s (t GetHelpPageSlug))
-                    (toGetHelp model)
-                , route (Parser.s (t HelpSelfGridPageSlug))
-                    (toHelpSelfGrid model)
-                , route (Parser.s (t HelpSelfGridPageSlug) </> string)
-                    (toHelpSelfSingle (stringFromFragment url.fragment) model (HelpSelfSingle.init ()))
-
-                -- The "sea-map" alternatives are to support gh-pages url nesting
-                , route (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
-                    (toDefinition model (Definition.init ()))
-                , route (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
-                    (toGetHelp model)
-                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
-                    (toHelpSelfGrid model)
-                , route (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug) </> Parser.s (t (HelpSelfSinglePageSlug "category1")))
-                    (toHelpSelfSingle (stringFromFragment url.fragment) model (HelpSelfSingle.init ()))
-                ]
-    in
-    case Parser.parse parser url of
-        Just aPage ->
-            aPage
-
-        Nothing ->
-            ( { model | page = NotAlonePage {} }
-            , Cmd.none
-            )
+routeParser : Parser (Page -> a) a
+routeParser =
+    oneOf
+        [ Parser.map (NotAlonePage NotAlone.Model) Parser.top
+        , Parser.map (DefinitionPage Definition.Model) (Parser.s (t DefinitionPageSlug))
+        , Parser.map GetHelpPage (Parser.s (t GetHelpPageSlug))
+        , Parser.map HelpSelfGridPage (Parser.s (t HelpSelfGridPageSlug))
+        , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "help-self" </> string)
+        ]
 
 
-toNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd Msg )
-toNotAlone model ( notAloneModel, cmds ) =
-    ( { model | page = NotAlonePage notAloneModel }
-    , Cmd.map NotAloneMsg cmds
-    )
-
-
-toDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
-toDefinition model ( definitionModel, cmds ) =
-    ( { model | page = DefinitionPage definitionModel }
-    , Cmd.map DefinitionMsg cmds
-    )
-
-
-toGetHelp : Model -> ( Model, Cmd Msg )
-toGetHelp model =
-    ( { model | page = GetHelpPage }
-    , Cmd.none
-    )
-
-
-toHelpSelfGrid : Model -> ( Model, Cmd Msg )
-toHelpSelfGrid model =
-    ( { model | page = HelpSelfGridPage }
-    , Cmd.none
-    )
-
-
-toHelpSelfSingle : String -> Model -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
-toHelpSelfSingle category model ( helpSelfSingleModel, cmds ) =
-    ( { model | page = HelpSelfSinglePage category helpSelfSingleModel }
-    , Cmd.map HelpSelfSingleMsg cmds
-    )
-
-
-route : Parser.Parser a b -> a -> Parser.Parser (b -> c) c
-route parser handler =
-    Parser.map handler parser
+pageFromUrl : Url.Url -> Model -> Maybe Page
+pageFromUrl url model =
+    -- The fragment and path are the same for our purposes.
+    { url | path = Maybe.withDefault "" url.fragment, fragment = Nothing }
+        |> Parser.parse routeParser
