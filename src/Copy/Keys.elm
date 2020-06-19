@@ -19,6 +19,7 @@ type Key
     | SeaOrganisationsResourceHref
     | SeaMapFinancialSupportHref
     | SeaSurvivorForumHref
+    | HelpSelfCategory1Resource1Href
       -- Not Alone page
     | NotAloneTitle
     | QuoteRelatable1

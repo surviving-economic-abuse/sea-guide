@@ -67,7 +67,15 @@ getCategoryKeys : String -> CategoryData
 getCategoryKeys category =
     if category == t HelpSelfCategory1Slug then
         { title = HelpSelfCategory1Title
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfCategory1Resource1Title
+                  , quotes = [ HelpSelfCategory1Resource1Quote1, HelpSelfCategory1Resource1Quote2 ]
+                  , summary = HelpSelfCategory1Resource1Summary
+                  , linkName = HelpSelfCategory1Resource1Link
+                  , linkHref = HelpSelfCategory1Resource1Href
+                  }
+                ]
         }
 
     else if category == t HelpSelfCategory2Slug then

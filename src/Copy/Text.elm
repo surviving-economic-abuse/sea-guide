@@ -58,6 +58,9 @@ t key =
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
 
+        HelpSelfCategory1Resource1Href ->
+            "https://example.com/[cCc]"
+
         -- Not Alone page
         NotAloneTitle ->
             "[cCc] Not Alone page title"
@@ -269,7 +272,7 @@ t key =
             "[cCc] COVID-19"
 
         HelpSelfCategory2Link ->
-            "[ccc] Banking"
+            "[cCc] Banking"
 
         HelpSelfCategory3Link ->
             "[cCc] Debt"
