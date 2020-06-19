@@ -10,6 +10,9 @@ type Key
     | HelpSelfPageSlug
       --- External Hrefs
     | StatsOnEconomicAbuseHref
+    | SeaOrganisationsResourceHref
+    | SeaFinancialSupportHref
+    | SeaSurvivorForumHref
       -- Not Alone page
     | NotAloneTitle
     | QuoteRelatable1
@@ -130,12 +133,15 @@ type Key
     | GetHelpSection1Quote1
     | GetHelpSection1Quote2
     | GetHelpSection1Description
+    | GetHelpSection1LinkName
     | GetHelpSection2Title
     | GetHelpSection2Quote1
     | GetHelpSection2Quote2
     | GetHelpSection2Description
+    | GetHelpSection2LinkName
     | GetHelpSection3Title
     | GetHelpSection3Quote1
     | GetHelpSection3Quote2
     | GetHelpSection3Description
+    | GetHelpSection3LinkName
     | ToHelpSelfFromGetHelpLink
