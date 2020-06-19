@@ -21,7 +21,7 @@ suite =
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "Get Help page" ]
+                    |> Query.contains [ Html.text "[cCc] People You Can Talk To" ]
         , test "GetHelp view has 1 nav link" <|
             \() ->
                 view
