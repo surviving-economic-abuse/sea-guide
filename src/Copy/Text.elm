@@ -31,13 +31,13 @@ t key =
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
 
         SeaOrganisationsResourceHref ->
-            "https//example.com"
+            "https://example.com"
 
         SeaFinancialSupportHref ->
-            "https//example.com"
+            "https://example.com"
 
         SeaSurvivorForumHref ->
-            "https//example.com"
+            "https://example.com"
 
         -- Not Alone page
         NotAloneTitle ->
