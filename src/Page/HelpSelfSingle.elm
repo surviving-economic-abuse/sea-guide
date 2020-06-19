@@ -48,26 +48,49 @@ view category model =
         ]
 
 
+type alias CategoryResource =
+    { title : Key
+    , quotes : List Key
+    , summary : Key
+    , linkName : Key
+    , linkHref : Key
+    }
+
+
 type alias CategoryData =
-    { title : Key }
+    { title : Key
+    , resources : Maybe (List CategoryResource)
+    }
 
 
 getCategoryKeys : String -> CategoryData
 getCategoryKeys category =
     if category == t HelpSelfCategory1Slug then
-        { title = HelpSelfCategory1Title }
+        { title = HelpSelfCategory1Title
+        , resources = Nothing
+        }
 
     else if category == t HelpSelfCategory2Slug then
-        { title = HelpSelfCategory2Title }
+        { title = HelpSelfCategory2Title
+        , resources = Nothing
+        }
 
     else if category == t HelpSelfCategory3Slug then
-        { title = HelpSelfCategory3Title }
+        { title = HelpSelfCategory3Title
+        , resources = Nothing
+        }
 
     else if category == t HelpSelfCategory4Slug then
-        { title = HelpSelfCategory4Title }
+        { title = HelpSelfCategory4Title
+        , resources = Nothing
+        }
 
     else if category == t HelpSelfCategory5Slug then
-        { title = HelpSelfCategory5Title }
+        { title = HelpSelfCategory5Title
+        , resources = Nothing
+        }
 
     else
-        { title = HelpSelfCategoryNotFoundTitle }
+        { title = HelpSelfCategoryNotFoundTitle
+        , resources = Nothing
+        }

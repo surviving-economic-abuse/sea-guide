@@ -301,84 +301,102 @@ t key =
             "[cCc] Help in times of COVID"
 
         HelpSelfCategory1Resource1Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory1Resource1Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory1Resource1Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory1Resource1Summary ->
-            ""
+            "[cCc] summary"
+
+        HelpSelfCategory1Resource1Link ->
+            "[cCc] Link to resource"
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
             "[cCc] Help with Banking"
 
         HelpSelfCategory2Resource1Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory2Resource1Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource1Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource1Summary ->
-            ""
+            "[cCc] summary"
+
+        HelpSelfCategory2Resource1Link ->
+            "[cCc] Link to resource"
 
         HelpSelfCategory2Resource2Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory2Resource2Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource2Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource2Summary ->
-            ""
+            "[cCc] summary"
+
+        HelpSelfCategory2Resource2Link ->
+            "[cCc] Link to resource"
 
         HelpSelfCategory2Resource3Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory2Resource3Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource3Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory2Resource3Summary ->
-            ""
+            "[cCc] summary"
+
+        HelpSelfCategory2Resource3Link ->
+            "[cCc] Link to resource"
 
         -- Help Self Single Category3
         HelpSelfCategory3Title ->
             "[cCc] Help with Debt"
 
         HelpSelfCategory3Resource1Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory3Resource1Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory3Resource1Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory3Resource1Summary ->
-            ""
+            "[cCc] summary"
+
+        HelpSelfCategory3Resource1Link ->
+            "[cCc] Link to resource"
 
         HelpSelfCategory3Resource2Title ->
-            ""
+            "[cCc] title"
 
         HelpSelfCategory3Resource2Quote1 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory3Resource2Quote2 ->
-            ""
+            "[cCc] quote"
 
         HelpSelfCategory3Resource2Summary ->
-            ""
+            "[cCc] Summary"
+
+        HelpSelfCategory3Resource2Link ->
+            "[cCc] Link to resource"
 
         -- Help Self Single Category4
         HelpSelfCategory4Title ->
