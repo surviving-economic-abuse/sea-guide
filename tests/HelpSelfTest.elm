@@ -21,7 +21,7 @@ suite =
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.contains [ Html.text "[cCc] Help Me With.." ]
+                    |> Query.contains [ Html.text (t HelpSelfTitle) ]
         , test "HelpSelf view has nav link to get-help" <|
             \() ->
                 view
