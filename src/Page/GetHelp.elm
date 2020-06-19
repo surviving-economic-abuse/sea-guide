@@ -15,9 +15,9 @@ view =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
             ]
         , div [ css [ columnStyle ] ]
-            [ card (t GetHelpSection1Title) (t GetHelpSection1LinkName) (t SeaSurvivorForumHref)
-            , card (t GetHelpSection2Title) (t GetHelpSection2LinkName) (t SeaFinancialSupportHref)
-            , card (t GetHelpSection3Title) (t GetHelpSection3LinkName) (t SeaOrganisationsResourceHref)
+            [ card (t GetHelpSection1Title) (t GetHelpSection1Link) (t SeaSurvivorForumHref)
+            , card (t GetHelpSection2Title) (t GetHelpSection2Link) (t SeaMapFinancialSupportHref)
+            , card (t GetHelpSection3Title) (t GetHelpSection3Link) (t SeaOrganisationsResourceHref)
             ]
         , a [ href (t HelpSelfPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
         ]

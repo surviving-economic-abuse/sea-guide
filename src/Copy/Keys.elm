@@ -11,7 +11,7 @@ type Key
       --- External Hrefs
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
-    | SeaFinancialSupportHref
+    | SeaMapFinancialSupportHref
     | SeaSurvivorForumHref
       -- Not Alone page
     | NotAloneTitle
@@ -133,15 +133,15 @@ type Key
     | GetHelpSection1Quote1
     | GetHelpSection1Quote2
     | GetHelpSection1Description
-    | GetHelpSection1LinkName
+    | GetHelpSection1Link
     | GetHelpSection2Title
     | GetHelpSection2Quote1
     | GetHelpSection2Quote2
     | GetHelpSection2Description
-    | GetHelpSection2LinkName
+    | GetHelpSection2Link
     | GetHelpSection3Title
     | GetHelpSection3Quote1
     | GetHelpSection3Quote2
     | GetHelpSection3Description
-    | GetHelpSection3LinkName
+    | GetHelpSection3Link
     | ToHelpSelfFromGetHelpLink

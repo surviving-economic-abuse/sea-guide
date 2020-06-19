@@ -31,13 +31,13 @@ t key =
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
 
         SeaOrganisationsResourceHref ->
-            "https://example.com"
+            "https://example.com/[cCc]"
 
-        SeaFinancialSupportHref ->
-            "https://example.com"
+        SeaMapFinancialSupportHref ->
+            "https://example.com/[cCc]"
 
         SeaSurvivorForumHref ->
-            "https://example.com"
+            "https://example.com/[cCc]"
 
         -- Not Alone page
         NotAloneTitle ->
@@ -381,7 +381,7 @@ t key =
         GetHelpSection1Description ->
             ""
 
-        GetHelpSection1LinkName ->
+        GetHelpSection1Link ->
             "[cCc] SEA Survivor Forum"
 
         GetHelpSection2Title ->
@@ -396,7 +396,7 @@ t key =
         GetHelpSection2Description ->
             ""
 
-        GetHelpSection2LinkName ->
+        GetHelpSection2Link ->
             "[cCc] SEA-MAP Financial Support"
 
         GetHelpSection3Title ->
@@ -411,8 +411,8 @@ t key =
         GetHelpSection3Description ->
             ""
 
-        GetHelpSection3LinkName ->
+        GetHelpSection3Link ->
             "[cCc] Support Organisations"
 
         ToHelpSelfFromGetHelpLink ->
-            "Find out more"
+            "[cCc] Find out more"
