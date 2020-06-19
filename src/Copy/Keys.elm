@@ -9,6 +9,11 @@ type Key
     | GetHelpPageSlug
     | HelpSelfGridPageSlug
     | HelpSelfSinglePageSlug String
+    | HelpSelfCategory1Slug
+    | HelpSelfCategory2Slug
+    | HelpSelfCategory3Slug
+    | HelpSelfCategory4Slug
+    | HelpSelfCategory5Slug
       --- External Hrefs
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
@@ -85,15 +90,17 @@ type Key
     | ToHelpSelfFromDefinitionLink
       -- Help Self page
     | HelpSelfTitle
-    | HelpSelfCategoryLink1
-    | HelpSelfCategoryLink2
-    | HelpSelfCategoryLink3
-    | HelpSelfCategoryLink4
-    | HelpSelfCategoryLink5
+    | HelpSelfCategory1Link
+    | HelpSelfCategory2Link
+    | HelpSelfCategory3Link
+    | HelpSelfCategory4Link
+    | HelpSelfCategory5Link
     | ToDefinitionFromHelpSelfLink
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
     | ToSelfHelpFromSingleCategoryLink
+      -- Help Self Single Category 404
+    | HelpSelfCategoryNotFoundTitle
       -- Help Self Single Category1
     | HelpSelfCategory1Title
     | HelpSelfCategory1Resource1Title

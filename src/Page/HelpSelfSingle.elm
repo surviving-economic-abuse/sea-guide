@@ -5,7 +5,6 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
-import Page.HelpSelfGrid exposing (Category(..), categoryFromString)
 import Theme exposing (pageHeadingStyle)
 
 
@@ -35,7 +34,7 @@ view : String -> Model -> Html msg
 view category model =
     let
         categoryData =
-            getCategoryStrings category
+            getCategoryKeys category
     in
     div []
         [ header []
@@ -53,11 +52,22 @@ type alias CategoryData =
     { title : Key }
 
 
-getCategoryStrings : String -> CategoryData
-getCategoryStrings category =
-    case categoryFromString category of
-        COVID ->
-            { title = HelpSelfCategory1Title }
+getCategoryKeys : String -> CategoryData
+getCategoryKeys category =
+    if category == t HelpSelfCategory1Slug then
+        { title = HelpSelfCategory1Title }
 
-        _ ->
-            { title = HelpSelfCategory2Title }
+    else if category == t HelpSelfCategory2Slug then
+        { title = HelpSelfCategory2Title }
+
+    else if category == t HelpSelfCategory3Slug then
+        { title = HelpSelfCategory3Title }
+
+    else if category == t HelpSelfCategory4Slug then
+        { title = HelpSelfCategory4Title }
+
+    else if category == t HelpSelfCategory5Slug then
+        { title = HelpSelfCategory5Title }
+
+    else
+        { title = HelpSelfCategoryNotFoundTitle }

@@ -26,6 +26,21 @@ t key =
         HelpSelfGridPageSlug ->
             "help-self"
 
+        HelpSelfCategory1Slug ->
+            "covid"
+
+        HelpSelfCategory2Slug ->
+            "banking"
+
+        HelpSelfCategory3Slug ->
+            "debt"
+
+        HelpSelfCategory4Slug ->
+            "housing"
+
+        HelpSelfCategory5Slug ->
+            "facts-about-economic-abuse"
+
         -- add string arg here with case for each category
         HelpSelfSinglePageSlug category ->
             category
@@ -248,38 +263,42 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            ""
+            "[cCc] Help Me with..."
 
-        HelpSelfCategoryLink1 ->
-            ""
+        HelpSelfCategory1Link ->
+            "[cCc] COVID-19"
 
-        HelpSelfCategoryLink2 ->
-            ""
+        HelpSelfCategory2Link ->
+            "[ccc] Banking"
 
-        HelpSelfCategoryLink3 ->
-            ""
+        HelpSelfCategory3Link ->
+            "[cCc] Debt"
 
-        HelpSelfCategoryLink4 ->
-            ""
+        HelpSelfCategory4Link ->
+            "[cCc] Housing"
 
-        HelpSelfCategoryLink5 ->
-            ""
+        HelpSelfCategory5Link ->
+            "[cCc] Economic Abuse, Statistics and the Law"
 
         ToDefinitionFromHelpSelfLink ->
-            ""
+            "[cCc] What is Economic Abuse?"
 
         ToNotAloneFromHelpSelfLink ->
-            ""
+            "[cCc] Read about others"
 
         ToGetHelpFromHelpSelfLink ->
-            ""
+            "[cCc] Get Help"
 
         ToSelfHelpFromSingleCategoryLink ->
-            ""
+            "[cCc] Choose another topic"
+
+        -- Help Self Single Category 404
+        HelpSelfCategoryNotFoundTitle ->
+            "[cCc] 404 Not found"
 
         -- Help Self Single Category1
         HelpSelfCategory1Title ->
-            "COVID"
+            "[cCc] Help in times of COVID"
 
         HelpSelfCategory1Resource1Title ->
             ""
@@ -295,7 +314,7 @@ t key =
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
-            "Anything other than COVID"
+            "[cCc] Help with Banking"
 
         HelpSelfCategory2Resource1Title ->
             ""
@@ -335,7 +354,7 @@ t key =
 
         -- Help Self Single Category3
         HelpSelfCategory3Title ->
-            ""
+            "[cCc] Help with Debt"
 
         HelpSelfCategory3Resource1Title ->
             ""
@@ -363,11 +382,11 @@ t key =
 
         -- Help Self Single Category4
         HelpSelfCategory4Title ->
-            ""
+            "[cCc] Help with Housing"
 
         -- Help Self Single Category5
         HelpSelfCategory5Title ->
-            ""
+            "[cCc] Help understanding Economic Abuse"
 
         -- Get Help page
         GetHelpTitle ->
