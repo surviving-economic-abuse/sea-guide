@@ -157,6 +157,12 @@ routeParser =
         , Parser.map GetHelpPage (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s (t HelpSelfGridPageSlug))
         , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "help-self" </> string)
+
+        -- Hardcoded to include staging prefix
+        , Parser.map (DefinitionPage Definition.Model) (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
+        , Parser.map GetHelpPage (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
+        , Parser.map HelpSelfGridPage (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
+        , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "sea-map" </> Parser.s "help-self" </> string)
         ]
 
 
