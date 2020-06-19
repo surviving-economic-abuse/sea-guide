@@ -1,4 +1,4 @@
-module Page.HelpSelfGrid exposing (view)
+module Page.HelpSelfGrid exposing (Category(..), categoryFromString, view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -7,6 +7,21 @@ import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Theme exposing (colours, gridStyle, pageHeadingStyle, threeColumn, twoColumn)
+
+
+type Category
+    = COVID
+    | NotCOVID
+
+
+categoryFromString : String -> Category
+categoryFromString category =
+    case category of
+        "covid" ->
+            COVID
+
+        _ ->
+            NotCOVID
 
 
 view : Html never
