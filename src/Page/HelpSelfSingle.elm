@@ -39,13 +39,38 @@ view category model =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
+            , case categoryData.resources of
+                Just resources ->
+                    div [] [ renderResources resources ]
+
+                Nothing ->
+                    text ""
             ]
         , ul []
-            [ li [] [ a [ href (t GetHelpPageSlug) ] [ text "Get Help" ] ]
-            , li [] [ a [ href (t NotAlonePageSlug) ] [ text "Read about others" ] ]
-            , li [] [ a [ href (t DefinitionPageSlug) ] [ text "What is Economic Abuse" ] ]
+            [ li [] [ a [ href ("../" ++ t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromSingleCategoryLink) ] ]
             ]
         ]
+
+
+renderResources : List CategoryResource -> Html msg
+renderResources resources =
+    div []
+        (List.map
+            (\resource ->
+                div []
+                    [ p [] [ text (t resource.title) ]
+                    , renderQuotes resource.quotes
+                    , p [] [ text (t resource.summary) ]
+                    , div [] [ a [ href (t resource.linkHref) ] [ text (t resource.linkName) ] ]
+                    ]
+            )
+            resources
+        )
+
+
+renderQuotes : List Key -> Html msg
+renderQuotes quoteKeys =
+    div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
 
 
 type alias CategoryResource =
@@ -80,12 +105,46 @@ getCategoryKeys category =
 
     else if category == t HelpSelfCategory2Slug then
         { title = HelpSelfCategory2Title
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfCategory2Resource1Title
+                  , quotes = [ HelpSelfCategory2Resource1Quote1, HelpSelfCategory2Resource1Quote2 ]
+                  , summary = HelpSelfCategory2Resource1Summary
+                  , linkName = HelpSelfCategory2Resource1Link
+                  , linkHref = HelpSelfCategory2Resource1Href
+                  }
+                , { title = HelpSelfCategory2Resource2Title
+                  , quotes = [ HelpSelfCategory2Resource2Quote1, HelpSelfCategory2Resource2Quote2 ]
+                  , summary = HelpSelfCategory2Resource2Summary
+                  , linkName = HelpSelfCategory2Resource2Link
+                  , linkHref = HelpSelfCategory2Resource2Href
+                  }
+                , { title = HelpSelfCategory2Resource3Title
+                  , quotes = [ HelpSelfCategory2Resource3Quote1, HelpSelfCategory2Resource3Quote2 ]
+                  , summary = HelpSelfCategory2Resource3Summary
+                  , linkName = HelpSelfCategory2Resource3Link
+                  , linkHref = HelpSelfCategory2Resource3Href
+                  }
+                ]
         }
 
     else if category == t HelpSelfCategory3Slug then
         { title = HelpSelfCategory3Title
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfCategory3Resource1Title
+                  , quotes = [ HelpSelfCategory3Resource1Quote1, HelpSelfCategory3Resource1Quote2 ]
+                  , summary = HelpSelfCategory3Resource1Summary
+                  , linkName = HelpSelfCategory3Resource1Link
+                  , linkHref = HelpSelfCategory3Resource1Href
+                  }
+                , { title = HelpSelfCategory3Resource2Title
+                  , quotes = [ HelpSelfCategory3Resource2Quote1, HelpSelfCategory3Resource2Quote2 ]
+                  , summary = HelpSelfCategory3Resource2Summary
+                  , linkName = HelpSelfCategory3Resource2Link
+                  , linkHref = HelpSelfCategory3Resource2Href
+                  }
+                ]
         }
 
     else if category == t HelpSelfCategory4Slug then

@@ -20,6 +20,11 @@ type Key
     | SeaMapFinancialSupportHref
     | SeaSurvivorForumHref
     | HelpSelfCategory1Resource1Href
+    | HelpSelfCategory2Resource1Href
+    | HelpSelfCategory2Resource2Href
+    | HelpSelfCategory2Resource3Href
+    | HelpSelfCategory3Resource1Href
+    | HelpSelfCategory3Resource2Href
       -- Not Alone page
     | NotAloneTitle
     | QuoteRelatable1
@@ -99,7 +104,7 @@ type Key
     | ToDefinitionFromHelpSelfLink
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
-    | ToSelfHelpFromSingleCategoryLink
+    | ToHelpSelfFromSingleCategoryLink
       -- Help Self Single Category 404
     | HelpSelfCategoryNotFoundTitle
       -- Help Self Single Category1

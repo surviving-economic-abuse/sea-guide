@@ -32,6 +32,10 @@ view =
 
 infoLink : String -> String -> Html msg
 infoLink linkName linkHref =
+    let
+        path =
+            t HelpSelfGridPageSlug ++ "/" ++ linkHref
+    in
     li
         [ css
             [ cardStyle
@@ -39,7 +43,7 @@ infoLink linkName linkHref =
                 [ flex3 zero zero threeColumn ]
             ]
         ]
-        [ a [ css [ blockLinkStyle ], href linkHref ] [ div [] [ text linkName ] ]
+        [ a [ css [ blockLinkStyle ], href path ] [ div [] [ text linkName ] ]
         ]
 
 
