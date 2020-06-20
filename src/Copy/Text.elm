@@ -23,12 +23,25 @@ t key =
         GetHelpPageSlug ->
             "get-help"
 
-        HelpSelfPageSlug ->
+        HelpSelfGridPageSlug ->
             "help-self"
+
+        -- add string arg here with case for each category
+        HelpSelfSinglePageSlug category ->
+            category
 
         --- External Hrefs
         StatsOnEconomicAbuseHref ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
+
+        SeaOrganisationsResourceHref ->
+            "https://example.com/[cCc]"
+
+        SeaMapFinancialSupportHref ->
+            "https://example.com/[cCc]"
+
+        SeaSurvivorForumHref ->
+            "https://example.com/[cCc]"
 
         -- Not Alone page
         NotAloneTitle ->
@@ -272,7 +285,7 @@ t key =
 
         -- Help Self Single Category1
         HelpSelfCategory1Title ->
-            ""
+            "COVID"
 
         HelpSelfCategory1Resource1Title ->
             ""
@@ -288,7 +301,7 @@ t key =
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
-            ""
+            "Anything other than COVID"
 
         HelpSelfCategory2Resource1Title ->
             ""
@@ -364,10 +377,10 @@ t key =
 
         -- Get Help page
         GetHelpTitle ->
-            ""
+            "[cCc] People You Can Talk To"
 
         GetHelpSection1Title ->
-            ""
+            "[cCc] Support from Survivors"
 
         GetHelpSection1Quote1 ->
             ""
@@ -378,8 +391,11 @@ t key =
         GetHelpSection1Description ->
             ""
 
+        GetHelpSection1Link ->
+            "[cCc] SEA Survivor Forum"
+
         GetHelpSection2Title ->
-            ""
+            "[cCc] Specialist Debt Advice"
 
         GetHelpSection2Quote1 ->
             ""
@@ -390,8 +406,11 @@ t key =
         GetHelpSection2Description ->
             ""
 
+        GetHelpSection2Link ->
+            "[cCc] SEA-MAP Financial Support"
+
         GetHelpSection3Title ->
-            ""
+            "[cCc] List of Support Services"
 
         GetHelpSection3Quote1 ->
             ""
@@ -402,5 +421,8 @@ t key =
         GetHelpSection3Description ->
             ""
 
+        GetHelpSection3Link ->
+            "[cCc] Support Organisations"
+
         ToHelpSelfFromGetHelpLink ->
-            ""
+            "[cCc] Find out more"

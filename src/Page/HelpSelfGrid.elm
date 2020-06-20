@@ -1,6 +1,6 @@
-module Page.HelpSelf exposing (Model, Msg, init, view)
+module Page.HelpSelfGrid exposing (Category(..), categoryFromString, view)
 
-import Copy.Keys exposing (..)
+import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
@@ -9,30 +9,23 @@ import Html.Styled.Attributes exposing (css, href)
 import Theme exposing (colours, gridStyle, pageHeadingStyle, threeColumn, twoColumn)
 
 
-type alias Model =
-    {}
+type Category
+    = COVID
+    | NotCOVID
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( {}
-    , Cmd.none
-    )
+categoryFromString : String -> Category
+categoryFromString category =
+    case category of
+        "covid" ->
+            COVID
+
+        _ ->
+            NotCOVID
 
 
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        NoOp ->
-            ( model, Cmd.none )
-
-
-view : Model -> Html Msg
-view model =
+view : Html never
+view =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text "[cCc] Help Me With.." ]
@@ -53,7 +46,7 @@ view model =
 
 
 infoLink : String -> String -> Html msg
-infoLink title link =
+infoLink linkName linkHref =
     li
         [ css
             [ cardStyle
@@ -61,7 +54,7 @@ infoLink title link =
                 [ flex3 zero zero threeColumn ]
             ]
         ]
-        [ a [ css [ blockLinkStyle ], href link ] [ div [] [ text title ] ]
+        [ a [ css [ blockLinkStyle ], href linkHref ] [ div [] [ text linkName ] ]
         ]
 
 
