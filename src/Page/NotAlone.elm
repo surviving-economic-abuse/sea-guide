@@ -1,4 +1,4 @@
-module Page.NotAlone exposing (Model, Msg, init, view)
+module Page.NotAlone exposing (Model, Msg, init, update, view)
 
 import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
