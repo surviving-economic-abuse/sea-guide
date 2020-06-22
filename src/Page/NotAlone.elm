@@ -134,7 +134,7 @@ emergencyContactStyle =
         [ margin auto
         , maxWidth (pct 100)
         , backgroundColor colours.grey
-        , color (hex "fff")
+        , color colours.white
         , padding (rem 1)
         ]
 
