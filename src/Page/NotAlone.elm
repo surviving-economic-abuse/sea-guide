@@ -1,11 +1,14 @@
-module Page.NotAlone exposing (Model, Msg, init, view)
+module Page.NotAlone exposing (Model, Msg, init, update, view)
 
+import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (css, href, id)
+import Html.Styled.Events exposing (onClick)
+import Task
 import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
 
 
@@ -22,6 +25,7 @@ init _ =
 
 type Msg
     = NoOp
+    | ScrollTo
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -30,12 +34,16 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
+        ScrollTo ->
+            ( model, Task.perform (always NoOp) (Dom.setViewport 0 500) )
+
 
 view : Model -> Html Msg
 view model =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+            , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
             ]
         , div [ css [ gridStyle ] ]
             [ card (t QuoteRelatable1) (t QuoteName1) (t QuoteAge1)
@@ -46,6 +54,19 @@ view model =
             , card (t QuoteRelatable6) (t QuoteName6) (t QuoteAge6)
             ]
         , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
+        , div [ css [ emergencyContactStyle ], id "emergency" ]
+            [ p [] [ text (t EmergencyReassure) ]
+            , ul [ css [ emergencyContactListStyle ] ]
+                [ li []
+                    [ div [] [ text (t EmergencyContactDV) ]
+                    , div [ css [ numberStyle ] ] [ text (t EmergencyContactDVNumber) ]
+                    ]
+                , li []
+                    [ div [] [ text (t EmergencyContact999) ]
+                    , div [ css [ numberStyle ] ] [ text (t EmergencyContact999Number) ]
+                    ]
+                ]
+            ]
         ]
 
 
@@ -91,4 +112,43 @@ detailsStyle =
     batch
         [ alignSelf flexEnd
         , Css.flex3 zero zero (pct 20)
+        ]
+
+
+emergencyButtonStyle : Style
+emergencyButtonStyle =
+    batch
+        [ backgroundColor colours.grey
+        , padding2 (rem 0.5) (rem 1)
+        , borderRadius (rem 0.5)
+        , color colours.white
+        , fontWeight (int 400)
+        , margin auto
+        , border zero
+        ]
+
+
+emergencyContactStyle : Style
+emergencyContactStyle =
+    batch
+        [ margin auto
+        , maxWidth (pct 100)
+        , backgroundColor colours.grey
+        , color colours.white
+        , padding (rem 1)
+        ]
+
+
+emergencyContactListStyle : Style
+emergencyContactListStyle =
+    batch
+        [ listStyle none
+        ]
+
+
+numberStyle : Style
+numberStyle =
+    batch
+        [ fontWeight bold
+        , marginLeft (rem 2)
         ]
