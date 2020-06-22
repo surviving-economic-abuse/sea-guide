@@ -50,7 +50,9 @@ type Key
     | EmergencyButton
     | EmergencyReassure
     | EmergencyContact999
+    | EmergencyContact999Number
     | EmergencyContactDV
+    | EmergencyContactDVNumber
       -- Definition page
     | DefinitionTitle
     | DefinitionConcise

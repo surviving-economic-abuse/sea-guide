@@ -141,16 +141,22 @@ t key =
             "[cCc] Find out more about Economic Abuse"
 
         EmergencyButton ->
-            ""
+            "[cCc] Help Me Now"
 
         EmergencyReassure ->
-            ""
+            "[cCc] Immediate help is available."
 
         EmergencyContact999 ->
-            ""
+            "[cCc] If you are in immediate danger, call the police:"
+
+        EmergencyContact999Number ->
+            "999"
 
         EmergencyContactDV ->
-            ""
+            "[cCc] Contact the National Domestic Violence Helpline run in partnership between Women’s Aid and Refuge:"
+
+        EmergencyContactDVNumber ->
+            "0808 2000 247"
 
         -- Definition page
         DefinitionTitle ->

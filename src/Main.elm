@@ -92,7 +92,19 @@ update msg model =
             ( model, Cmd.none )
 
         NotAloneMsg subMsg ->
-            ( model, Cmd.none )
+            case model.page of
+                NotAlonePage notAlone ->
+                    updateNotAlone model (NotAlone.update subMsg notAlone)
+
+                _ ->
+                    ( model, Cmd.none )
+
+
+updateNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd Msg )
+updateNotAlone model ( notAlone, cmds ) =
+    ( { model | page = NotAlonePage notAlone }
+    , Cmd.map NotAloneMsg cmds
+    )
 
 
 
