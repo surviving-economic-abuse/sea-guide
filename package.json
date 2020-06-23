@@ -5,7 +5,6 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "rm -r dist && parcel build src/index.html --public-url ./",
-    "build:nofollow": "rm -r dist && parcel build src/index.html --public-url ./ && cp robots-nofollow.txt dist/robots.txt" ,
     "format": "elm-format src",
     "test": "elm-test"
   },

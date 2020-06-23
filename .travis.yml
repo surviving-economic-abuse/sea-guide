@@ -6,8 +6,9 @@ elm-format: 0.8.2
 before_install: npm install parcel-bundler
 script:
 - npm test
-- ls
-- parcel build:no-follow src/index.html --public-url ./
+- parcel build src/index.html --public-url ./
+after_script:
+- cp robots-nofollow.txt dist/robots.txt
 deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
