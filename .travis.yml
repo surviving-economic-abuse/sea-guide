@@ -6,7 +6,7 @@ elm-format: 0.8.2
 before_install: npm install parcel-bundler
 script:
 - npm test
-- parcel build src/index.html --public-url ./
+- parcel build:no-follow src/index.html --public-url ./
 deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
