@@ -7,7 +7,7 @@ before_install: npm install parcel-bundler
 script:
 - npm test
 - parcel build src/index.html --public-url ./
-after_script:
+before_deploy:
 - cp robots-nofollow.txt dist/robots.txt
 deploy:
   github_token: "$GITHUB_TOKEN"
