@@ -26,6 +26,21 @@ t key =
         HelpSelfGridPageSlug ->
             "help-self"
 
+        HelpSelfCategory1Slug ->
+            "covid"
+
+        HelpSelfCategory2Slug ->
+            "banking"
+
+        HelpSelfCategory3Slug ->
+            "debt"
+
+        HelpSelfCategory4Slug ->
+            "housing"
+
+        HelpSelfCategory5Slug ->
+            "facts-about-economic-abuse"
+
         -- add string arg here with case for each category
         HelpSelfSinglePageSlug category ->
             category
@@ -41,6 +56,24 @@ t key =
             "https://example.com/[cCc]"
 
         SeaSurvivorForumHref ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory1Resource1Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory2Resource1Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory2Resource2Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory2Resource3Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory3Resource1Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfCategory3Resource2Href ->
             "https://example.com/[cCc]"
 
         -- Not Alone page
@@ -254,126 +287,148 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            ""
+            "[cCc] Help Me with..."
 
-        HelpSelfCategoryLink1 ->
-            ""
+        HelpSelfCategory1Link ->
+            "[cCc] COVID-19"
 
-        HelpSelfCategoryLink2 ->
-            ""
+        HelpSelfCategory2Link ->
+            "[cCc] Banking"
 
-        HelpSelfCategoryLink3 ->
-            ""
+        HelpSelfCategory3Link ->
+            "[cCc] Debt"
 
-        HelpSelfCategoryLink4 ->
-            ""
+        HelpSelfCategory4Link ->
+            "[cCc] Housing"
 
-        HelpSelfCategoryLink5 ->
-            ""
+        HelpSelfCategory5Link ->
+            "[cCc] Economic Abuse, Statistics and the Law"
 
         ToDefinitionFromHelpSelfLink ->
-            ""
+            "[cCc] What is Economic Abuse?"
 
         ToNotAloneFromHelpSelfLink ->
-            ""
+            "[cCc] Read about others"
 
         ToGetHelpFromHelpSelfLink ->
-            ""
+            "[cCc] Get Help"
 
-        ToSelfHelpFromSingleCategoryLink ->
-            ""
+        ToHelpSelfFromSingleCategoryLink ->
+            "[cCc] Choose another topic"
+
+        -- Help Self Single Category 404
+        HelpSelfCategoryNotFoundTitle ->
+            "[cCc] 404 Not found"
 
         -- Help Self Single Category1
         HelpSelfCategory1Title ->
-            "COVID"
+            "[cCc] Help in times of COVID"
 
         HelpSelfCategory1Resource1Title ->
-            ""
+            "[cCc] title covid 1"
 
         HelpSelfCategory1Resource1Quote1 ->
-            ""
+            "[cCc] quote covid 1 1"
 
         HelpSelfCategory1Resource1Quote2 ->
-            ""
+            "[cCc] quote covid 1 2"
 
         HelpSelfCategory1Resource1Summary ->
-            ""
+            "[cCc] summary covid 1"
+
+        HelpSelfCategory1Resource1Link ->
+            "[cCc] Link to resource covid 1"
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
-            "Anything other than COVID"
+            "[cCc] Help with Banking"
 
         HelpSelfCategory2Resource1Title ->
-            ""
+            "[cCc] title banking 1"
 
         HelpSelfCategory2Resource1Quote1 ->
-            ""
+            "[cCc] quote banking 1 1"
 
         HelpSelfCategory2Resource1Quote2 ->
-            ""
+            "[cCc] quote banking 1 2"
 
         HelpSelfCategory2Resource1Summary ->
-            ""
+            "[cCc] summary banking 1"
+
+        HelpSelfCategory2Resource1Link ->
+            "[cCc] Link to resource banking 1"
 
         HelpSelfCategory2Resource2Title ->
-            ""
+            "[cCc] title banking 2"
 
         HelpSelfCategory2Resource2Quote1 ->
-            ""
+            "[cCc] quote banking 2 1"
 
         HelpSelfCategory2Resource2Quote2 ->
-            ""
+            "[cCc] quote banking 2 2"
 
         HelpSelfCategory2Resource2Summary ->
-            ""
+            "[cCc] summary banking 2"
+
+        HelpSelfCategory2Resource2Link ->
+            "[cCc] Link to resource banking 2"
 
         HelpSelfCategory2Resource3Title ->
-            ""
+            "[cCc] title banking 3"
 
         HelpSelfCategory2Resource3Quote1 ->
-            ""
+            "[cCc] quote banking 3 1"
 
         HelpSelfCategory2Resource3Quote2 ->
-            ""
+            "[cCc] quote banking 3 2"
 
         HelpSelfCategory2Resource3Summary ->
-            ""
+            "[cCc] summary banking  3"
+
+        HelpSelfCategory2Resource3Link ->
+            "[cCc] Link to resource banking 3"
 
         -- Help Self Single Category3
         HelpSelfCategory3Title ->
-            ""
+            "[cCc] Help with Debt"
 
         HelpSelfCategory3Resource1Title ->
-            ""
+            "[cCc] title debt 1"
 
         HelpSelfCategory3Resource1Quote1 ->
-            ""
+            "[cCc] quote debt 1 1"
 
         HelpSelfCategory3Resource1Quote2 ->
-            ""
+            "[cCc] quote debt 1 2"
 
         HelpSelfCategory3Resource1Summary ->
-            ""
+            "[cCc] summary debt 1"
+
+        HelpSelfCategory3Resource1Link ->
+            "[cCc] Link to resource debt 1"
 
         HelpSelfCategory3Resource2Title ->
-            ""
+            "[cCc] title debt 2"
 
         HelpSelfCategory3Resource2Quote1 ->
-            ""
+            "[cCc] quote debt 2 1"
 
         HelpSelfCategory3Resource2Quote2 ->
-            ""
+            "[cCc] quote debt 2 2"
 
         HelpSelfCategory3Resource2Summary ->
-            ""
+            "[cCc] Summary debt 2"
+
+        HelpSelfCategory3Resource2Link ->
+            "[cCc] Link to resource debt 2"
 
         -- Help Self Single Category4
         HelpSelfCategory4Title ->
-            ""
+            "[cCc] Help with Housing"
 
         -- Help Self Single Category5
         HelpSelfCategory5Title ->
-            ""
+            "[cCc] Help understanding Economic Abuse"
 
         -- Get Help page
         GetHelpTitle ->

@@ -9,11 +9,22 @@ type Key
     | GetHelpPageSlug
     | HelpSelfGridPageSlug
     | HelpSelfSinglePageSlug String
+    | HelpSelfCategory1Slug
+    | HelpSelfCategory2Slug
+    | HelpSelfCategory3Slug
+    | HelpSelfCategory4Slug
+    | HelpSelfCategory5Slug
       --- External Hrefs
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
     | SeaMapFinancialSupportHref
     | SeaSurvivorForumHref
+    | HelpSelfCategory1Resource1Href
+    | HelpSelfCategory2Resource1Href
+    | HelpSelfCategory2Resource2Href
+    | HelpSelfCategory2Resource3Href
+    | HelpSelfCategory3Resource1Href
+    | HelpSelfCategory3Resource2Href
       -- Not Alone page
     | NotAloneTitle
     | QuoteRelatable1
@@ -87,45 +98,53 @@ type Key
     | ToHelpSelfFromDefinitionLink
       -- Help Self page
     | HelpSelfTitle
-    | HelpSelfCategoryLink1
-    | HelpSelfCategoryLink2
-    | HelpSelfCategoryLink3
-    | HelpSelfCategoryLink4
-    | HelpSelfCategoryLink5
+    | HelpSelfCategory1Link
+    | HelpSelfCategory2Link
+    | HelpSelfCategory3Link
+    | HelpSelfCategory4Link
+    | HelpSelfCategory5Link
     | ToDefinitionFromHelpSelfLink
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
-    | ToSelfHelpFromSingleCategoryLink
+    | ToHelpSelfFromSingleCategoryLink
+      -- Help Self Single Category 404
+    | HelpSelfCategoryNotFoundTitle
       -- Help Self Single Category1
     | HelpSelfCategory1Title
     | HelpSelfCategory1Resource1Title
     | HelpSelfCategory1Resource1Quote1
     | HelpSelfCategory1Resource1Quote2
     | HelpSelfCategory1Resource1Summary
+    | HelpSelfCategory1Resource1Link
       -- Help Self Single Category2
     | HelpSelfCategory2Title
     | HelpSelfCategory2Resource1Title
     | HelpSelfCategory2Resource1Quote1
     | HelpSelfCategory2Resource1Quote2
     | HelpSelfCategory2Resource1Summary
+    | HelpSelfCategory2Resource1Link
     | HelpSelfCategory2Resource2Title
     | HelpSelfCategory2Resource2Quote1
     | HelpSelfCategory2Resource2Quote2
     | HelpSelfCategory2Resource2Summary
+    | HelpSelfCategory2Resource2Link
     | HelpSelfCategory2Resource3Title
     | HelpSelfCategory2Resource3Quote1
     | HelpSelfCategory2Resource3Quote2
     | HelpSelfCategory2Resource3Summary
+    | HelpSelfCategory2Resource3Link
       -- Help Self Single Category3
     | HelpSelfCategory3Title
     | HelpSelfCategory3Resource1Title
     | HelpSelfCategory3Resource1Quote1
     | HelpSelfCategory3Resource1Quote2
     | HelpSelfCategory3Resource1Summary
+    | HelpSelfCategory3Resource1Link
     | HelpSelfCategory3Resource2Title
     | HelpSelfCategory3Resource2Quote1
     | HelpSelfCategory3Resource2Quote2
     | HelpSelfCategory3Resource2Summary
+    | HelpSelfCategory3Resource2Link
       -- Help Self Single Category4
     | HelpSelfCategory4Title
       -- Help Self Single Category5
