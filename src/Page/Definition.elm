@@ -1,4 +1,4 @@
-module Page.Definition exposing (Model, Msg, init, view)
+module Page.Definition exposing (Model, Msg, view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)

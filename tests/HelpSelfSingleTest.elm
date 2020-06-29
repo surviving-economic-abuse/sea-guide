@@ -10,7 +10,7 @@ import Page.HelpSelfSingle exposing (view)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (attribute, tag, text)
+import Test.Html.Selector exposing (attribute, containing, tag, text)
 
 
 suite : Test
@@ -29,4 +29,19 @@ suite =
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href ("../" ++ t HelpSelfGridPageSlug)) ]
                     |> Query.has [ text (t ToHelpSelfFromSingleCategoryLink) ]
+        , test "HelpSelfSingle view can have well formed resources" <|
+            \() ->
+                view (t HelpSelfCategory2Slug) {}
+                    |> Html.Styled.toUnstyled
+                    |> Query.fromHtml
+                    |> Query.findAll [ tag "div", containing [ text (t HelpSelfCategory2Resource1Title) ] ]
+                    -- This is the 3rd div which contains the 1st resource
+                    |> Query.index 2
+                    |> Query.has
+                        [ text (t HelpSelfCategory2Resource1Quote1)
+                        , text (t HelpSelfCategory2Resource1Quote2)
+                        , text (t HelpSelfCategory2Resource1Summary)
+                        , text (t HelpSelfCategory2Resource1Link)
+                        , attribute (Html.Attributes.href (t HelpSelfCategory2Resource1Href))
+                        ]
         ]
