@@ -2,7 +2,7 @@
 
 ## Site URLs
 
-- [Staging](http://neontribe.github.io/sea-map)
+- [Staging (for Alpha)](http://neontribe.github.io/sea-map)
 
 ## Development
 
