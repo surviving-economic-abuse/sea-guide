@@ -1,4 +1,4 @@
-module HelpSelfTest exposing (suite)
+module HelpSelfGridTest exposing (suite)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -15,28 +15,28 @@ import Test.Html.Selector exposing (attribute, tag, text)
 
 suite : Test
 suite =
-    describe "HelpSelf View"
-        [ test "HelpSelf view has title" <|
+    describe "HelpSelf grid View"
+        [ test "HelpSelf grid view has title" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t HelpSelfTitle) ]
-        , test "HelpSelf view has nav link to get-help" <|
+        , test "HelpSelf grid view has nav link to get-help" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                     |> Query.has [ text "Get Help" ]
-        , test "HelpSelf view has nav link to not-alone" <|
+        , test "HelpSelf grid view has nav link to not-alone" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
                     |> Query.has [ text "Read about others" ]
-        , test "HelpSelf view has nav link to definition" <|
+        , test "HelpSelf grid view has nav link to definition" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
