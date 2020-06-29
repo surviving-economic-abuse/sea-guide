@@ -11,6 +11,7 @@ import Page.GetHelp as GetHelp
 import Page.HelpSelfGrid as HelpSelfGrid
 import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
+import Set
 import Theme exposing (globalStyles)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
@@ -86,7 +87,12 @@ update msg model =
             ( { model | page = newPage }, Cmd.none )
 
         DefinitionMsg subMsg ->
-            ( model, Cmd.none )
+            case model.page of
+                DefinitionPage definition ->
+                    updateDefinition model (Definition.update subMsg definition)
+
+                _ ->
+                    ( model, Cmd.none )
 
         HelpSelfSingleMsg subMsg ->
             ( model, Cmd.none )
@@ -104,6 +110,13 @@ updateNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd M
 updateNotAlone model ( notAlone, cmds ) =
     ( { model | page = NotAlonePage notAlone }
     , Cmd.map NotAloneMsg cmds
+    )
+
+
+updateDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
+updateDefinition model ( notAlone, cmds ) =
+    ( { model | page = DefinitionPage notAlone }
+    , Cmd.map DefinitionMsg cmds
     )
 
 
@@ -165,13 +178,13 @@ routeParser : Parser (Page -> a) a
 routeParser =
     oneOf
         [ Parser.map (NotAlonePage NotAlone.Model) Parser.top
-        , Parser.map (DefinitionPage Definition.Model) (Parser.s (t DefinitionPageSlug))
+        , Parser.map (DefinitionPage (Definition.Model Set.empty)) (Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelpPage (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s (t HelpSelfGridPageSlug))
         , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "help-self" </> string)
 
         -- Hardcoded to include staging prefix
-        , Parser.map (DefinitionPage Definition.Model) (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
+        , Parser.map (DefinitionPage (Definition.Model Set.empty)) (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelpPage (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
         , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "sea-map" </> Parser.s "help-self" </> string)

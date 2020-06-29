@@ -31,10 +31,10 @@ update msg model =
 
 
 view : String -> Model -> Html msg
-view category model =
+view slug model =
     let
         categoryData =
-            getCategoryKeys category
+            categoryKeysFromSlug slug
     in
     div []
         [ header []
@@ -88,9 +88,9 @@ type alias CategoryData =
     }
 
 
-getCategoryKeys : String -> CategoryData
-getCategoryKeys category =
-    if category == t HelpSelfCategory1Slug then
+categoryKeysFromSlug : String -> CategoryData
+categoryKeysFromSlug slug =
+    if slug == t HelpSelfCategory1Slug then
         { title = HelpSelfCategory1Title
         , resources =
             Just
@@ -103,7 +103,7 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory2Slug then
+    else if slug == t HelpSelfCategory2Slug then
         { title = HelpSelfCategory2Title
         , resources =
             Just
@@ -128,7 +128,7 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory3Slug then
+    else if slug == t HelpSelfCategory3Slug then
         { title = HelpSelfCategory3Title
         , resources =
             Just
@@ -147,12 +147,12 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory4Slug then
+    else if slug == t HelpSelfCategory4Slug then
         { title = HelpSelfCategory4Title
         , resources = Nothing
         }
 
-    else if category == t HelpSelfCategory5Slug then
+    else if slug == t HelpSelfCategory5Slug then
         { title = HelpSelfCategory5Title
         , resources = Nothing
         }
