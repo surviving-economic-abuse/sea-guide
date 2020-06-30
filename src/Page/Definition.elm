@@ -32,16 +32,16 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
-        ToggleCategory aTitle ->
+        ToggleCategory categoryTitle ->
             let
                 action =
-                    if isExpanded model aTitle then
+                    if isExpanded model categoryTitle then
                         Set.remove
 
                     else
                         Set.insert
             in
-            ( { model | openCategories = action (t aTitle) model.openCategories }, Cmd.none )
+            ( { model | openCategories = action (t categoryTitle ) model.openCategories }, Cmd.none )
 
 
 view : Model -> Html Msg
