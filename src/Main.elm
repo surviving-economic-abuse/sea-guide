@@ -33,14 +33,16 @@ main =
 
 
 type alias Model =
-    { key : Browser.Navigation.Key, page : Page }
+    { key : Browser.Navigation.Key
+    , page : Page
+    }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     let
         maybePage =
-            pageFromUrl url { key = key, page = NotAlonePage NotAlone.Model }
+            pageFromUrl url
     in
     -- If not a page default to NotAlone
     ( { key = key, page = Maybe.withDefault (NotAlonePage NotAlone.Model) maybePage }, Cmd.none )
@@ -80,16 +82,26 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
-                    Maybe.withDefault (NotAlonePage {}) (pageFromUrl url model)
+                    Maybe.withDefault (NotAlonePage {}) (pageFromUrl url)
             in
             -- If not a page default to NotAlone
             ( { model | page = newPage }, Cmd.none )
 
         DefinitionMsg subMsg ->
-            ( model, Cmd.none )
+            case model.page of
+                DefinitionPage definition ->
+                    updateDefinition model (Definition.update subMsg definition)
+
+                _ ->
+                    ( model, Cmd.none )
 
         HelpSelfSingleMsg subMsg ->
-            ( model, Cmd.none )
+            case model.page of
+                HelpSelfSinglePage helpSelf category ->
+                    updateHelpSelfSingle model category (HelpSelfSingle.update subMsg helpSelf)
+
+                _ ->
+                    ( model, Cmd.none )
 
         NotAloneMsg subMsg ->
             case model.page of
@@ -98,6 +110,24 @@ update msg model =
 
                 _ ->
                     ( model, Cmd.none )
+
+
+
+-- Helpers to run updates from individual page modules
+
+
+updateDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
+updateDefinition model ( definition, cmds ) =
+    ( { model | page = DefinitionPage definition }
+    , Cmd.map DefinitionMsg cmds
+    )
+
+
+updateHelpSelfSingle : Model -> String -> ( HelpSelfSingle.Model, Cmd HelpSelfSingle.Msg ) -> ( Model, Cmd Msg )
+updateHelpSelfSingle model category ( helpSelf, cmds ) =
+    ( { model | page = HelpSelfSinglePage helpSelf category }
+    , Cmd.map HelpSelfSingleMsg cmds
+    )
 
 
 updateNotAlone : Model -> ( NotAlone.Model, Cmd NotAlone.Msg ) -> ( Model, Cmd Msg )
@@ -178,7 +208,7 @@ routeParser =
         ]
 
 
-pageFromUrl : Url.Url -> Model -> Maybe Page
-pageFromUrl url model =
+pageFromUrl : Url.Url -> Maybe Page
+pageFromUrl url =
     { url | path = url.path }
         |> Parser.parse routeParser

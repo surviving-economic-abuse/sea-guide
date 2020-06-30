@@ -1,4 +1,4 @@
-module Page.HelpSelfSingle exposing (Model, Msg, view)
+module Page.HelpSelfSingle exposing (Model, Msg, update, view)
 
 import Copy.Keys exposing (..)
 import Copy.Text exposing (t)
