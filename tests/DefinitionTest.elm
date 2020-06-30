@@ -6,7 +6,7 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Html.Styled
-import Page.Definition exposing (Msg(..), view)
+import Page.Definition exposing (Msg(..), update, view)
 import Set
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
@@ -167,7 +167,7 @@ suite =
                     { initModel
                         | openCategories = Set.insert (t DefinitionCategory1Title) initModel.openCategories
                     }
-                        |> Page.Definition.update (ToggleCategory DefinitionCategory1Title)
+                        |> update (ToggleCategory DefinitionCategory1Title)
                         |> Expect.equal
                             ( { openCategories = Set.empty }
                             , Cmd.none
