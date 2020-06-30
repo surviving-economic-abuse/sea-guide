@@ -138,13 +138,6 @@ updateNotAlone model ( notAlone, cmds ) =
     )
 
 
-updateDefinition : Model -> ( Definition.Model, Cmd Definition.Msg ) -> ( Model, Cmd Msg )
-updateDefinition model ( notAlone, cmds ) =
-    ( { model | page = DefinitionPage notAlone }
-    , Cmd.map DefinitionMsg cmds
-    )
-
-
 
 -- VIEW
 
