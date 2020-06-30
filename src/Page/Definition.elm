@@ -3,7 +3,7 @@ module Page.Definition exposing (Model, Msg(..), update, view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, a, button, div, h1, h2, header, li, p, text, ul)
+import Html.Styled exposing (Html, a, button, dd, div, dl, dt, h1, h2, header, li, p, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
@@ -55,13 +55,16 @@ view model =
                 , a [ href (t StatsOnEconomicAbuseHref) ] [ text (t DefinitionMoreLink) ]
                 ]
             ]
-        , ul []
-            [ expandableCategory model DefinitionCategory1
-            , expandableCategory model DefinitionCategory2
-            , expandableCategory model DefinitionCategory3
-            , expandableCategory model DefinitionCategory4
-            , expandableCategory model DefinitionCategory5
-            ]
+        , dl [ css [ categoryListStyle ] ]
+            (renderExpandableCategories
+                model
+                [ DefinitionCategory1
+                , DefinitionCategory2
+                , DefinitionCategory3
+                , DefinitionCategory4
+                , DefinitionCategory5
+                ]
+            )
         , p [] [ text (t SplitterAffirmation) ]
         , ul []
             [ li [] [ a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
@@ -75,23 +78,34 @@ renderQuotes quoteKeys =
     div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
 
 
-expandableCategory : Model -> DefinitionCategory -> Html Msg
-expandableCategory model listPosition =
-    let
-        category =
-            categoryKeysFromListPosition listPosition
-    in
-    li [ css [ categoryStyle ] ]
-        [ h2 [] [ button [ onClick (ToggleCategory category.title) ] [ text (t category.title) ] ]
-        , if isExpanded model category.title then
+renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
+renderExpandableCategories model categories =
+    List.map
+        (\listPosition ->
+            -- We maybe want to ditch this div for valid html - but this is simple
             div []
-                [ p [] [ text (t category.info) ]
-                , renderQuotes category.quotes
+                [ renderTerm (categoryKeysFromListPosition listPosition)
+                , renderDefinition model (categoryKeysFromListPosition listPosition)
                 ]
+        )
+        categories
 
-          else
-            text ""
-        ]
+
+renderTerm : CategoryDefinition -> Html Msg
+renderTerm category =
+    dt [] [ button [ onClick (ToggleCategory category.title) ] [ text (t category.title) ] ]
+
+
+renderDefinition : Model -> CategoryDefinition -> Html Msg
+renderDefinition model category =
+    if isExpanded model category.title then
+        dd []
+            [ p [] [ text (t category.info) ]
+            , renderQuotes category.quotes
+            ]
+
+    else
+        text ""
 
 
 isExpanded : Model -> Key -> Bool
@@ -176,8 +190,8 @@ categoryKeysFromListPosition listPosition =
             }
 
 
-categoryStyle : Style
-categoryStyle =
+categoryListStyle : Style
+categoryListStyle =
     Css.batch
         [ margin2 (rem 2) zero ]
 
