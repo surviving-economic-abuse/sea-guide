@@ -72,7 +72,7 @@ suite =
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
                         |> Query.find
-                            [ tag "li"
+                            [ tag "div"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
                             ]
                         |> Query.has
@@ -90,7 +90,7 @@ suite =
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
                         |> Query.find
-                            [ tag "li"
+                            [ tag "dt"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
                             ]
                         |> Query.hasNot
@@ -132,11 +132,7 @@ suite =
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
                         |> Query.findAll
-                            [ tag "ul"
-
-                            -- Use an arbitrary button to find the right ul
-                            , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
-                            ]
+                            [ tag "dl" ]
                         |> Query.each
                             (Expect.all
                                 -- Look for title and one arbitray item from each of the categories
