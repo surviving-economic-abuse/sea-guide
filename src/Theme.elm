@@ -1,4 +1,4 @@
-module Theme exposing (..)
+module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
 
 import Css exposing (..)
 import Css.Global exposing (global, typeSelector)
@@ -67,18 +67,21 @@ gridStyle =
 
 
 {-| A flex row item width for a single column layout
+oneColumn : Css.CalculatedLength (not exposed by <https://github.com/rtfeldman/elm-css/pull/519>)
 -}
 oneColumn =
     calc (pct 100) minus (rem 2)
 
 
 {-| A flex row item width for a double column layout
+twoColumn : Css.CalculatedLength
 -}
 twoColumn =
     calc (pct 50) minus (rem 2)
 
 
 {-| A flex row item width for a triple column layout
+threeColumn : Css.CalculatedLength
 -}
 threeColumn =
     calc (pct 33) minus (rem 2)
