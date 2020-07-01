@@ -53,7 +53,7 @@ t key =
             "https://example.com/[cCc]"
 
         SeaMapFinancialSupportHref ->
-            "https://example.com/[cCc]"
+            ""
 
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
@@ -432,52 +432,43 @@ t key =
 
         -- Get Help page
         GetHelpTitle ->
-            "[cCc] People You Can Talk To"
+            "People you can talk to"
 
         GetHelpSection1Title ->
-            "[cCc] Support from Survivors"
+            "Join the SEA survivors’ forum"
 
         GetHelpSection1Quote1 ->
-            ""
-
-        GetHelpSection1Quote2 ->
-            ""
+            "“Meeting other people who’ve been through what I’ve been through is such a massive help. It’s amazing to know people who can really understand what I went through.”"
 
         GetHelpSection1Description ->
-            ""
+            "To share your experience with others in our supportive community of economic abuse survivors, sign up to SEA’s Survivor Forum."
 
         GetHelpSection1Link ->
-            "[cCc] SEA Survivor Forum"
+            "[cCc] Join SEA Survivor Forum"
 
         GetHelpSection2Title ->
-            "[cCc] Specialist Debt Advice"
+            "The Financial Support Line for Victims of Domestic Abuse"
 
         GetHelpSection2Quote1 ->
-            ""
-
-        GetHelpSection2Quote2 ->
-            ""
+            "“When I found this number, I was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understand.”"
 
         GetHelpSection2Description ->
-            ""
+            "Run in partnership between Surviving Economic Abuse and Money Advice Plus 01273 664 000 (Mon–Fri, 9am–1pm & 2pm–5pm). Offers specialist advice to victim-survivors of domestic abuse in financial difficulty"
 
         GetHelpSection2Link ->
-            "[cCc] SEA-MAP Financial Support"
+            "[cCc] Call 01273 664 000"
 
         GetHelpSection3Title ->
-            "[cCc] List of Support Services"
+            "Other organisations that can support"
 
         GetHelpSection3Quote1 ->
-            ""
-
-        GetHelpSection3Quote2 ->
-            ""
+            "“I truly believe in the power of shared information. Sharing information is vital to help victims and try to stop abuse.”"
 
         GetHelpSection3Description ->
-            ""
+            "The following organisations may be able to help you with specialist information and advice. If you are confident to do so, explain that you are a victim of domestic abuse. This will help them take your safety into account and discuss appropriate options with you."
 
         GetHelpSection3Link ->
-            "[cCc] Support Organisations"
+            "[cCc] See Support Organisations"
 
         ToHelpSelfFromGetHelpLink ->
             "[cCc] Find out more"
