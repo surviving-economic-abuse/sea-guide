@@ -22,13 +22,13 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t GetHelpTitle) ]
-        , test "GetHelp view has 1 nav link" <|
+        , test "GetHelp view has 3 links" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 4)
+                    |> Query.count (Expect.equal 3)
         , test "GetHelp view has nav link to help-self" <|
             \() ->
                 view
