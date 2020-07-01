@@ -1,8 +1,9 @@
-module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
+module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
 
 import Css exposing (..)
 import Css.Global exposing (global, typeSelector)
-import Html.Styled exposing (Html)
+import Html.Styled exposing (Html, div)
+import Html.Styled.Attributes exposing (css)
 
 
 colours : { purple : Color, green : Color, teal : Color, grey : Color, white : Color }
@@ -85,3 +86,17 @@ threeColumn : Css.CalculatedLength
 -}
 threeColumn =
     calc (pct 33) minus (rem 2)
+
+
+{-| A div with known vertical margin
+-}
+verticalSpacing : Html msg
+verticalSpacing =
+    div [ css [ verticalSpacingStyle ] ] []
+
+
+verticalSpacingStyle : Style
+verticalSpacingStyle =
+    batch
+        [ margin2 (rem 2) zero
+        ]
