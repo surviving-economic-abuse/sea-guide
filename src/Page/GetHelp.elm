@@ -46,8 +46,6 @@ card title quote1 description linkName linkHref =
         , verticalSpacing
         , blockquote [ css [ quoteStyle ] ]
             [ p [] [ text quote1 ] ]
-
-        -- make this able to take a list
         , verticalSpacing
         , p [] [ text description ]
         , verticalSpacing
