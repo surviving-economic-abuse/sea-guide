@@ -71,26 +71,33 @@ renderResources model resources =
     ul []
         (List.map
             (\resource ->
-                h2 []
-                    [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
-                    , if isExpanded model resource.title then
-                        div []
-                            [ renderQuotes resource.quotes
-                            , p [] [ text (t resource.summary) ]
-                            , div [] [ a [ href (t resource.linkHref) ] [ text (t resource.linkName) ] ]
-                            ]
-
-                      else
-                        text ""
-                    ]
+                div []
+                    ([ h2 []
+                        [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
+                        ]
+                     ]
+                        ++ renderResource model resource
+                    )
             )
             resources
         )
 
 
-renderQuotes : List Key -> Html msg
+renderResource : Model -> CategoryResource -> List (Html msg)
+renderResource model resource =
+    if isExpanded model resource.title then
+        renderQuotes resource.quotes
+            ++ [ p [] [ text (t resource.summary) ]
+               , a [ href (t resource.linkHref) ] [ text (t resource.linkName) ]
+               ]
+
+    else
+        [ text "" ]
+
+
+renderQuotes : List Key -> List (Html msg)
 renderQuotes quoteKeys =
-    div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
+    List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys
 
 
 isExpanded : Model -> Key -> Bool
