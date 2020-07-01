@@ -6,12 +6,13 @@ import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
 
-colours : { purple : Color, green : Color, teal : Color, grey : Color, white : Color }
+colours : { purple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, white : Color }
 colours =
     { purple = hex "4F2F8D"
     , green = hex "9CCC54"
     , teal = hex "3CC0BE"
     , grey = hex "58585A"
+    , lightgrey = hex "f4f4f6"
     , white = hex "FFFFFF"
     }
 
@@ -23,10 +24,9 @@ globalStyles : Html msg
 globalStyles =
     global
         [ typeSelector "body"
-            [ backgroundColor (hex "eee")
-            , color colours.grey
+            [ color colours.grey
             , fontFamilies [ "Poppins", sansSerif.value ]
-            , fontWeight (int 300)
+            , fontWeight (int 400)
             ]
         , typeSelector "h1"
             [ color colours.purple
