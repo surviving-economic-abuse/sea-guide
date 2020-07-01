@@ -41,7 +41,7 @@ update msg model =
                     else
                         Set.insert
             in
-            ( { model | openCategories = action (t categoryTitle ) model.openCategories }, Cmd.none )
+            ( { model | openCategories = action (t categoryTitle) model.openCategories }, Cmd.none )
 
 
 view : Model -> Html Msg
@@ -110,11 +110,7 @@ renderDefinition model category =
 
 isExpanded : Model -> Key -> Bool
 isExpanded model titleKey =
-    if Set.member (t titleKey) model.openCategories then
-        True
-
-    else
-        False
+    Set.member (t titleKey) model.openCategories
 
 
 type alias CategoryDefinition =

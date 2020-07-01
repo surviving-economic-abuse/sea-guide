@@ -76,23 +76,24 @@ renderResources model resources =
                         [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
                         ]
                      ]
-                        ++ renderResource model resource
+                        ++ (if isExpanded model resource.title then
+                                renderResource resource
+
+                            else
+                                [ text "" ]
+                           )
                     )
             )
             resources
         )
 
 
-renderResource : Model -> CategoryResource -> List (Html msg)
-renderResource model resource =
-    if isExpanded model resource.title then
-        renderQuotes resource.quotes
-            ++ [ p [] [ text (t resource.summary) ]
-               , a [ href (t resource.linkHref) ] [ text (t resource.linkName) ]
-               ]
-
-    else
-        [ text "" ]
+renderResource : CategoryResource -> List (Html msg)
+renderResource resource =
+    renderQuotes resource.quotes
+        ++ [ p [] [ text (t resource.summary) ]
+           , a [ href (t resource.linkHref) ] [ text (t resource.linkName) ]
+           ]
 
 
 renderQuotes : List Key -> List (Html msg)
@@ -102,11 +103,7 @@ renderQuotes quoteKeys =
 
 isExpanded : Model -> Key -> Bool
 isExpanded model titleKey =
-    if Set.member (t titleKey) model.openResources then
-        True
-
-    else
-        False
+    Set.member (t titleKey) model.openResources
 
 
 type alias CategoryResource =
