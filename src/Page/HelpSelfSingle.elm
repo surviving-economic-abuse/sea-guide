@@ -5,22 +5,25 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
+import Html.Styled.Events exposing (onClick)
+import Set
 import Theme exposing (pageHeadingStyle)
 
 
 type alias Model =
-    {}
+    { openResources : Set.Set String }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}
+    ( { openResources = Set.empty }
     , Cmd.none
     )
 
 
 type Msg
     = NoOp
+    | ToggleResource Key
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -29,8 +32,19 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
+        ToggleResource resourceTitle ->
+            let
+                action =
+                    if isExpanded model resourceTitle then
+                        Set.remove
 
-view : String -> Model -> Html msg
+                    else
+                        Set.insert
+            in
+            ( { model | openResources = action (t resourceTitle) model.openResources }, Cmd.none )
+
+
+view : String -> Model -> Html Msg
 view slug model =
     let
         categoryData =
@@ -41,7 +55,7 @@ view slug model =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
             , case categoryData.resources of
                 Just resources ->
-                    div [] [ renderResources resources ]
+                    div [] [ renderResources model resources ]
 
                 Nothing ->
                     text ""
@@ -52,16 +66,22 @@ view slug model =
         ]
 
 
-renderResources : List CategoryResource -> Html msg
-renderResources resources =
-    div []
+renderResources : Model -> List CategoryResource -> Html Msg
+renderResources model resources =
+    ul []
         (List.map
             (\resource ->
-                div []
-                    [ p [] [ text (t resource.title) ]
-                    , renderQuotes resource.quotes
-                    , p [] [ text (t resource.summary) ]
-                    , div [] [ a [ href (t resource.linkHref) ] [ text (t resource.linkName) ] ]
+                h2 []
+                    [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
+                    , if isExpanded model resource.title then
+                        div []
+                            [ renderQuotes resource.quotes
+                            , p [] [ text (t resource.summary) ]
+                            , div [] [ a [ href (t resource.linkHref) ] [ text (t resource.linkName) ] ]
+                            ]
+
+                      else
+                        text ""
                     ]
             )
             resources
@@ -71,6 +91,15 @@ renderResources resources =
 renderQuotes : List Key -> Html msg
 renderQuotes quoteKeys =
     div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
+
+
+isExpanded : Model -> Key -> Bool
+isExpanded model titleKey =
+    if Set.member (t titleKey) model.openResources then
+        True
+
+    else
+        False
 
 
 type alias CategoryResource =
