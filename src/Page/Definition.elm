@@ -3,7 +3,7 @@ module Page.Definition exposing (Model, Msg(..), update, view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, a, button, dd, div, dl, dt, h1, h2, header, li, p, text, ul)
+import Html.Styled exposing (Html, a, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
@@ -41,7 +41,7 @@ update msg model =
                     else
                         Set.insert
             in
-            ( { model | openCategories = action (t categoryTitle ) model.openCategories }, Cmd.none )
+            ( { model | openCategories = action (t categoryTitle) model.openCategories }, Cmd.none )
 
 
 view : Model -> Html Msg
@@ -93,7 +93,12 @@ renderExpandableCategories model categories =
 
 renderTerm : CategoryDefinition -> Html Msg
 renderTerm category =
-    dt [] [ button [ onClick (ToggleCategory category.title) ] [ text (t category.title) ] ]
+    dt []
+        [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
+            [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
+            , span [] [ text "+" ]
+            ]
+        ]
 
 
 renderDefinition : Model -> CategoryDefinition -> Html Msg
@@ -203,4 +208,23 @@ introStyle =
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1.25)
         , margin2 (rem 2) zero
+        ]
+
+
+expanderButtonStyle : Style
+expanderButtonStyle =
+    batch
+        [ backgroundColor (hex "4f2f8d")
+        , border zero
+        , textAlign left
+        , displayFlex
+        , padding (rem 0.5)
+        , width (pct 100)
+        ]
+
+
+expanderHeadingStyle : Style
+expanderHeadingStyle =
+    batch
+        [ color colours.white
         ]
