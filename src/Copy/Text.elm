@@ -325,53 +325,53 @@ t key =
             "[cCc] Help in times of COVID"
 
         HelpSelfCategory1Resource1Title ->
-            "[cCc] title covid 1"
+            "[cCc] Economic abuse and the coronavirus outbreak"
 
         HelpSelfCategory1Resource1Quote1 ->
-            "[cCc] quote covid 1 1"
+            "[cCc] I was worried about stuff during the outbreak, but this information sheet helped me take steps towards feeling safer."
 
         HelpSelfCategory1Resource1Quote2 ->
-            "[cCc] quote covid 1 2"
+            "[cCc] I wasn't sure what to do about work when I found out my kids couldn't go in to school, but then I read that I was entitled to take time off. It helped me know what to say to my boss."
 
         HelpSelfCategory1Resource1Summary ->
-            "[cCc] summary covid 1"
+            "[cCc] This pdf has suggestions for a lot of little things you can do to help during lockdown. I can help with understanding rights around employment, benefits and bills and advice around supporting your chilren."
 
         HelpSelfCategory1Resource1Link ->
-            "[cCc] Link to resource covid 1"
+            "[cCc] Get information to help you during the outbreak"
 
         -- Help Self Single Category2
         HelpSelfCategory2Title ->
             "[cCc] Help with Banking"
 
         HelpSelfCategory2Resource1Title ->
-            "[cCc] title banking 1"
+            "[cCc] How banks can help"
 
         HelpSelfCategory2Resource1Quote1 ->
-            "[cCc] quote banking 1 1"
+            "[cCc] After reading about banking and economic abuse, I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
 
         HelpSelfCategory2Resource1Quote2 ->
-            "[cCc] quote banking 1 2"
+            "[cCc] Another short quote about experience using the resource."
 
         HelpSelfCategory2Resource1Summary ->
-            "[cCc] summary banking 1"
+            "[cCc] If a current or former partner has interfered with your money or other economic resources in some way to limit your choices, this information is for you. It outlines how your bank or building society can support you if you have experienced economic abuse."
 
         HelpSelfCategory2Resource1Link ->
-            "[cCc] Link to resource banking 1"
+            "[cCc] Find more information about how banks can help"
 
         HelpSelfCategory2Resource2Title ->
-            "[cCc] title banking 2"
+            "[cCc] Opening a new bank account safely"
 
         HelpSelfCategory2Resource2Quote1 ->
-            "[cCc] quote banking 2 1"
+            "[cCc] I found out I could ask to speak to the vulnerable customer team. After that the bank always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
         HelpSelfCategory2Resource2Quote2 ->
-            "[cCc] quote banking 2 2"
+            "[cCc] Another quote about how the resource can help."
 
         HelpSelfCategory2Resource2Summary ->
-            "[cCc] summary banking 2"
+            "[cCc] If you are experiencing economic abuse, opening a bank account independent of the abuser, can be one of the most important steps you take towards regaining control of your finances. This information is designed to provide practical tips on opening a new bank account safely, and to guide your interactions with the bank if you wish to open a new account."
 
         HelpSelfCategory2Resource2Link ->
-            "[cCc] Link to resource banking 2"
+            "[cCc] Find out how to get help from your bank"
 
         HelpSelfCategory2Resource3Title ->
             "[cCc] title banking 3"
