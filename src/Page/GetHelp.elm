@@ -73,7 +73,7 @@ cardStyle =
         , Css.width (rem 30)
         ]
 
-    -- Allow more space one desktop
+    -- Allow more padding space on larger screens
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
         [ padding (rem 2) ]
     ]
