@@ -52,9 +52,6 @@ t key =
         SeaOrganisationsResourceHref ->
             "https://example.com/[cCc]"
 
-        SeaMapFinancialSupportHref ->
-            ""
-
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
 

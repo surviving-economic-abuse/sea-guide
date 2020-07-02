@@ -17,7 +17,6 @@ type Key
       --- External Hrefs
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
-    | SeaMapFinancialSupportHref
     | SeaSurvivorForumHref
     | HelpSelfCategory1Resource1Href
     | HelpSelfCategory2Resource1Href
