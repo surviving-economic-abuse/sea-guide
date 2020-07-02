@@ -17,12 +17,37 @@ view =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
             ]
         , div [ css [ columnStyle ] ]
-            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote1) (t GetHelpSection1Description) (t GetHelpSection1Link) (t SeaSurvivorForumHref)
-            , card (t GetHelpSection2Title) (t GetHelpSection2Quote1) (t GetHelpSection2Description) (t GetHelpSection2Link) (t SeaMapFinancialSupportHref)
-            , card (t GetHelpSection3Title) (t GetHelpSection3Quote1) (t GetHelpSection3Description) (t GetHelpSection3Link) (t SeaOrganisationsResourceHref)
+            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote1) (t GetHelpSection1Description) JoinForum
+            , card (t GetHelpSection2Title) (t GetHelpSection2Quote1) (t GetHelpSection2Description) CallSupport
+            , card (t GetHelpSection3Title) (t GetHelpSection3Quote1) (t GetHelpSection3Description) SeeOrgs
             ]
         , a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
         ]
+
+
+type CallToAction
+    = JoinForum
+    | CallSupport
+    | SeeOrgs
+
+
+renderCallToAction : CallToAction -> Html msg
+renderCallToAction call =
+    case call of
+        JoinForum ->
+            a
+                [ href (t SeaSurvivorForumHref), css [ linkStyle ] ]
+                [ span [] [ text (t GetHelpSection1Link) ]
+                ]
+
+        CallSupport ->
+            div [ css [ infoStyle ] ] [ text (t GetHelpSection2Link) ]
+
+        SeeOrgs ->
+            a
+                [ href (t SeaOrganisationsResourceHref), css [ linkStyle ] ]
+                [ span [] [ text (t GetHelpSection3Link) ]
+                ]
 
 
 columnStyle : Style
@@ -34,29 +59,18 @@ columnStyle =
         ]
 
 
-
--- There is currently only one quote in the copy, so a second paragraph is only displayed if one is added
-
-
-card : String -> String -> String -> String -> String -> Html msg
-card title quote1 description linkName linkHref =
+card : String -> String -> String -> CallToAction -> Html msg
+card title quote description call =
     div [ css cardStyle ]
         [ h2 []
             [ text title ]
         , verticalSpacing
-        , blockquote [ css [ quoteStyle ] ]
-            [ p [] [ text quote1 ] ]
+        , blockquote []
+            [ p [ css [ quoteStyle ] ] [ text quote ] ]
         , verticalSpacing
         , p [] [ text description ]
         , verticalSpacing
-        , if String.length linkHref > 0 then
-            a
-                [ href linkHref, css [ linkStyle ] ]
-                [ span [] [ text linkName ]
-                ]
-
-          else
-            div [ css [ infoStyle ] ] [ text linkName ]
+        , renderCallToAction call
         ]
 
 
@@ -82,6 +96,8 @@ quoteStyle =
     batch
         [ fontSize (rem 1.1)
         , fontWeight (int 300)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
         ]
 
 
