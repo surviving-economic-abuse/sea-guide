@@ -25,13 +25,13 @@ view =
         ]
 
 
-type callToAction
+type CallToAction
     = JoinForum
     | CallSupport
     | SeeOrgs
 
 
-renderCallToAction : callToAction -> Html msg
+renderCallToAction : CallToAction -> Html msg
 renderCallToAction call =
     case call of
         JoinForum ->
@@ -59,7 +59,7 @@ columnStyle =
         ]
 
 
-card : String -> String -> String -> callToAction -> Html msg
+card : String -> String -> String -> CallToAction -> Html msg
 card title quote description call =
     div [ css cardStyle ]
         [ h2 []
