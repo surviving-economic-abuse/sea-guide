@@ -25,14 +25,14 @@ view =
         ]
 
 
-type CTA
+type callToAction
     = JoinForum
     | CallSupport
     | SeeOrgs
 
 
-callToAction : CTA -> Html msg
-callToAction call =
+renderCallToAction : callToAction -> Html msg
+renderCallToAction call =
     case call of
         JoinForum ->
             a
@@ -59,7 +59,7 @@ columnStyle =
         ]
 
 
-card : String -> String -> String -> CTA -> Html msg
+card : String -> String -> String -> callToAction -> Html msg
 card title quote description call =
     div [ css cardStyle ]
         [ h2 []
@@ -70,7 +70,7 @@ card title quote description call =
         , verticalSpacing
         , p [] [ text description ]
         , verticalSpacing
-        , callToAction call
+        , renderCallToAction call
         ]
 
 
