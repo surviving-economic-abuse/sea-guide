@@ -44,8 +44,7 @@ globalStyles =
             [ color colours.purple
             , fontFamilies [ "Raleway", "sansSerif" ]
             ]
-        , typeSelector
-            "p"
+        , typeSelector "p"
             [ adjacentSiblings
                 [ typeSelector "p"
                     [ marginTop (rem 1)
