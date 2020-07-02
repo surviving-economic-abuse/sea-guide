@@ -44,8 +44,8 @@ card title quote1 description linkName linkHref =
         [ h2 []
             [ text title ]
         , verticalSpacing
-        , blockquote [ css [ quoteStyle ] ]
-            [ p [] [ text quote1 ] ]
+        , blockquote []
+            [ p [ css [ quoteStyle ] ] [ text quote1 ] ]
         , verticalSpacing
         , p [] [ text description ]
         , verticalSpacing
@@ -82,6 +82,8 @@ quoteStyle =
     batch
         [ fontSize (rem 1.1)
         , fontWeight (int 300)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
         ]
 
 
