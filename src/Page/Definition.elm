@@ -127,11 +127,7 @@ renderDefinition model category =
 
 isExpanded : Model -> Key -> Bool
 isExpanded model titleKey =
-    if Set.member (t titleKey) model.openCategories then
-        True
-
-    else
-        False
+    Set.member (t titleKey) model.openCategories
 
 
 type alias CategoryDefinition =
