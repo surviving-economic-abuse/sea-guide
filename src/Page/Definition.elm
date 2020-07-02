@@ -4,10 +4,11 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (Html, a, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
+import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
-import Theme exposing (colours, pageHeadingStyle)
+import Theme exposing (colours, pageHeadingStyle, verticalSpacing)
 
 
 type alias Model =
@@ -75,7 +76,7 @@ view model =
 
 renderQuotes : List Key -> Html Msg
 renderQuotes quoteKeys =
-    div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
+    blockquote [] (List.map (\quoteKey -> p [ css quoteStyle ] [ text (t quoteKey) ]) quoteKeys)
 
 
 renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
@@ -106,6 +107,7 @@ renderDefinition model category =
     if isExpanded model category.title then
         dd []
             [ p [] [ text (t category.info) ]
+            , verticalSpacing
             , renderQuotes category.quotes
             ]
 
@@ -206,7 +208,7 @@ introStyle =
     Css.batch
         [ color colours.purple
         , fontFamilies [ "Raleway", sansSerif.value ]
-        , fontSize (rem 1.25)
+        , fontSize (rem 1)
         , margin2 (rem 2) zero
         ]
 
@@ -214,8 +216,10 @@ introStyle =
 expanderButtonStyle : Style
 expanderButtonStyle =
     batch
-        [ backgroundColor (hex "4f2f8d")
+        [ alignItems center
+        , backgroundColor (hex "4f2f8d")
         , border zero
+        , justifyContent spaceBetween
         , textAlign left
         , displayFlex
         , padding (rem 0.5)
@@ -227,4 +231,17 @@ expanderHeadingStyle : Style
 expanderHeadingStyle =
     batch
         [ color colours.white
+        , fontSize (rem 1.25)
+        , flex2 (int 1) (int 1)
+        ]
+
+
+expanderSymbolStyle : Style
+expanderSymbolStyle =
+    batch
+        [ color colours.white
+        , flex3 zero (int 1) (rem 3)
+        , textAlign center
+        , fontWeight (int 700)
+        ]
         ]
