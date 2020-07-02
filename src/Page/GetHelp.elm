@@ -59,18 +59,14 @@ columnStyle =
         ]
 
 
-
--- There is currently only one quote in the copy, so a second paragraph is only displayed if one is added
-
-
 card : String -> String -> String -> CTA -> Html msg
-card title quote1 description call =
+card title quote description call =
     div [ css cardStyle ]
         [ h2 []
             [ text title ]
         , verticalSpacing
         , blockquote []
-            [ p [ css [ quoteStyle ] ] [ text quote1 ] ]
+            [ p [ css [ quoteStyle ] ] [ text quote ] ]
         , verticalSpacing
         , p [] [ text description ]
         , verticalSpacing
