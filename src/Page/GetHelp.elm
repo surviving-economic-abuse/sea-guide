@@ -17,9 +17,9 @@ view =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
             ]
         , div [ css [ columnStyle ] ]
-            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote1) (t GetHelpSection1Description) JoinForum
-            , card (t GetHelpSection2Title) (t GetHelpSection2Quote1) (t GetHelpSection2Description) CallSupport
-            , card (t GetHelpSection3Title) (t GetHelpSection3Quote1) (t GetHelpSection3Description) SeeOrgs
+            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
+            , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
+            , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
             ]
         , a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
         ]
