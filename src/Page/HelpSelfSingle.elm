@@ -1,26 +1,29 @@
-module Page.HelpSelfSingle exposing (Model, Msg, init, update, view)
+module Page.HelpSelfSingle exposing (Model, Msg(..), update, view)
 
 import Copy.Keys exposing (..)
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
+import Html.Styled.Events exposing (onClick)
+import Set
 import Theme exposing (pageHeadingStyle)
 
 
 type alias Model =
-    {}
+    { openResources : Set.Set String }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}
+    ( { openResources = Set.empty }
     , Cmd.none
     )
 
 
 type Msg
     = NoOp
+    | ToggleResource Key
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -29,19 +32,30 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
+        ToggleResource resourceTitle ->
+            let
+                action =
+                    if isExpanded model resourceTitle then
+                        Set.remove
 
-view : String -> Model -> Html msg
-view category model =
+                    else
+                        Set.insert
+            in
+            ( { model | openResources = action (t resourceTitle) model.openResources }, Cmd.none )
+
+
+view : String -> Model -> Html Msg
+view slug model =
     let
         categoryData =
-            getCategoryKeys category
+            categoryKeysFromSlug slug
     in
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
             , case categoryData.resources of
                 Just resources ->
-                    div [] [ renderResources resources ]
+                    div [] [ renderResourceList model resources ]
 
                 Nothing ->
                     text ""
@@ -52,25 +66,44 @@ view category model =
         ]
 
 
-renderResources : List CategoryResource -> Html msg
-renderResources resources =
-    div []
+renderResourceList : Model -> List CategoryResource -> Html Msg
+renderResourceList model resources =
+    ul []
         (List.map
             (\resource ->
-                div []
-                    [ p [] [ text (t resource.title) ]
-                    , renderQuotes resource.quotes
-                    , p [] [ text (t resource.summary) ]
-                    , div [] [ a [ href (t resource.linkHref) ] [ text (t resource.linkName) ] ]
-                    ]
+                li []
+                    ([ h2 []
+                        [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
+                        ]
+                     ]
+                        ++ (if isExpanded model resource.title then
+                                renderResourceDetails resource
+
+                            else
+                                [ text "" ]
+                           )
+                    )
             )
             resources
         )
 
 
-renderQuotes : List Key -> Html msg
+renderResourceDetails : CategoryResource -> List (Html msg)
+renderResourceDetails resource =
+    renderQuotes resource.quotes
+        ++ [ p [] [ text (t resource.summary) ]
+           , a [ href (t resource.linkHref) ] [ text (t resource.linkName) ]
+           ]
+
+
+renderQuotes : List Key -> List (Html msg)
 renderQuotes quoteKeys =
-    div [] (List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys)
+    List.map (\quoteKey -> p [] [ text (t quoteKey) ]) quoteKeys
+
+
+isExpanded : Model -> Key -> Bool
+isExpanded model titleKey =
+    Set.member (t titleKey) model.openResources
 
 
 type alias CategoryResource =
@@ -88,9 +121,9 @@ type alias CategoryData =
     }
 
 
-getCategoryKeys : String -> CategoryData
-getCategoryKeys category =
-    if category == t HelpSelfCategory1Slug then
+categoryKeysFromSlug : String -> CategoryData
+categoryKeysFromSlug slug =
+    if slug == t HelpSelfCategory1Slug then
         { title = HelpSelfCategory1Title
         , resources =
             Just
@@ -103,7 +136,7 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory2Slug then
+    else if slug == t HelpSelfCategory2Slug then
         { title = HelpSelfCategory2Title
         , resources =
             Just
@@ -128,7 +161,7 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory3Slug then
+    else if slug == t HelpSelfCategory3Slug then
         { title = HelpSelfCategory3Title
         , resources =
             Just
@@ -147,12 +180,12 @@ getCategoryKeys category =
                 ]
         }
 
-    else if category == t HelpSelfCategory4Slug then
+    else if slug == t HelpSelfCategory4Slug then
         { title = HelpSelfCategory4Title
         , resources = Nothing
         }
 
-    else if category == t HelpSelfCategory5Slug then
+    else if slug == t HelpSelfCategory5Slug then
         { title = HelpSelfCategory5Title
         , resources = Nothing
         }

@@ -6,11 +6,11 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Html.Styled
-import Page.NotAlone exposing (view)
+import Page.NotAlone exposing (Msg(..), view)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (attribute, tag, text)
+import Test.Html.Selector exposing (attribute, containing, tag, text)
 
 
 suite : Test
@@ -36,4 +36,12 @@ suite =
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
+        , test "When I click the Emergency button, the NotAlone page scrolls to #emergency" <|
+            \() ->
+                view {}
+                    |> Html.Styled.toUnstyled
+                    |> Query.fromHtml
+                    |> Query.find [ tag "button", containing [ text (t EmergencyButton) ] ]
+                    |> Event.simulate Event.click
+                    |> Event.expect ScrollTo
         ]

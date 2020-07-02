@@ -1,4 +1,4 @@
-module HelpSelfTest exposing (suite)
+module HelpSelfGridTest exposing (suite)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -15,32 +15,39 @@ import Test.Html.Selector exposing (attribute, tag, text)
 
 suite : Test
 suite =
-    describe "HelpSelf View"
-        [ test "HelpSelf view has title" <|
+    describe "HelpSelfGrid View"
+        [ test "HelpSelfGrid view has title" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t HelpSelfTitle) ]
-        , test "HelpSelf view has nav link to get-help" <|
+        , test "HelpSelfGrid view has nav link to get-help" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
-                    |> Query.has [ text "Get Help" ]
-        , test "HelpSelf view has nav link to not-alone" <|
+                    |> Query.has [ text (t ToGetHelpFromHelpSelfLink) ]
+        , test "HelpSelfGid view has nav link to not-alone" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
-                    |> Query.has [ text "Read about others" ]
-        , test "HelpSelf view has nav link to definition" <|
+                    |> Query.has [ text (t ToNotAloneFromHelpSelfLink) ]
+        , test "HelpSelfGrid view has nav link to definition" <|
             \() ->
                 view
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
-                    |> Query.has [ text "What is Economic Abuse" ]
+                    |> Query.has [ text (t ToDefinitionFromHelpSelfLink) ]
+        , test "HelpSelfGrid view has 8 links (5 categories, 3 navigation)" <|
+            \() ->
+                view
+                    |> Html.Styled.toUnstyled
+                    |> Query.fromHtml
+                    |> Query.findAll [ tag "a" ]
+                    |> Query.count (Expect.equal 8)
         ]

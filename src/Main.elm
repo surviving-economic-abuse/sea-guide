@@ -11,6 +11,7 @@ import Page.GetHelp as GetHelp
 import Page.HelpSelfGrid as HelpSelfGrid
 import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
+import Set
 import Theme exposing (globalStyles)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
@@ -195,16 +196,16 @@ routeParser : Parser (Page -> a) a
 routeParser =
     oneOf
         [ Parser.map (NotAlonePage NotAlone.Model) Parser.top
-        , Parser.map (DefinitionPage Definition.Model) (Parser.s (t DefinitionPageSlug))
+        , Parser.map (DefinitionPage (Definition.Model Set.empty)) (Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelpPage (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s (t HelpSelfGridPageSlug))
-        , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "help-self" </> string)
+        , Parser.map (HelpSelfSinglePage (HelpSelfSingle.Model Set.empty)) (Parser.s "help-self" </> string)
 
         -- Hardcoded to include staging prefix
-        , Parser.map (DefinitionPage Definition.Model) (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
+        , Parser.map (DefinitionPage (Definition.Model Set.empty)) (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelpPage (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
-        , Parser.map (HelpSelfSinglePage HelpSelfSingle.Model) (Parser.s "sea-map" </> Parser.s "help-self" </> string)
+        , Parser.map (HelpSelfSinglePage (HelpSelfSingle.Model Set.empty)) (Parser.s "sea-map" </> Parser.s "help-self" </> string)
         ]
 
 
