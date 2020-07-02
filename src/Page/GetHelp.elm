@@ -37,16 +37,16 @@ renderCallToAction call =
         JoinForum ->
             a
                 [ href (t SeaSurvivorForumHref), css [ linkStyle ] ]
-                [ span [] [ text (t GetHelpSection1Link) ]
+                [ span [] [ text (t GetHelpSection1CallToAction) ]
                 ]
 
         CallSupport ->
-            div [ css [ infoStyle ] ] [ text (t GetHelpSection2Link) ]
+            div [ css [ infoStyle ] ] [ text (t GetHelpSection2CallToAction) ]
 
         SeeOrgs ->
             a
                 [ href (t SeaOrganisationsResourceHref), css [ linkStyle ] ]
-                [ span [] [ text (t GetHelpSection3Link) ]
+                [ span [] [ text (t GetHelpSection3CallToAction) ]
                 ]
 
 

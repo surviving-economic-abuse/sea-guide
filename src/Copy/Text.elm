@@ -440,7 +440,7 @@ t key =
         GetHelpSection1Description ->
             "Share your experience with others in our supportive community of economic abuse survivors."
 
-        GetHelpSection1Link ->
+        GetHelpSection1CallToAction ->
             "Join SEA's survivor forum"
 
         GetHelpSection2Title ->
@@ -452,7 +452,7 @@ t key =
         GetHelpSection2Description ->
             "Call The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
-        GetHelpSection2Link ->
+        GetHelpSection2CallToAction ->
             "Call 01273 664 000"
 
         GetHelpSection3Title ->
@@ -464,7 +464,7 @@ t key =
         GetHelpSection3Description ->
             "There are many organisations who may be able to help you with specialist information and advice."
 
-        GetHelpSection3Link ->
+        GetHelpSection3CallToAction ->
             "See this directory for contact information"
 
         ToHelpSelfFromGetHelpLink ->
