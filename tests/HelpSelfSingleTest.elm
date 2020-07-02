@@ -43,9 +43,7 @@ suite =
                     view (t HelpSelfCategory2Slug) resource2expandedModel
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
-                        |> Query.findAll [ tag "div", containing [ text (t HelpSelfCategory2Resource1Title) ] ]
-                        -- This is the 2nd div which contains the 1st resource
-                        |> Query.index 1
+                        |> Query.find [ tag "li", containing [ text (t HelpSelfCategory2Resource1Title) ] ]
                         |> Query.has
                             [ text (t HelpSelfCategory2Resource1Quote1)
                             , text (t HelpSelfCategory2Resource1Quote2)

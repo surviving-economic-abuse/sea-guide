@@ -55,7 +55,7 @@ view slug model =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
             , case categoryData.resources of
                 Just resources ->
-                    div [] [ renderResources model resources ]
+                    div [] [ renderResourceList model resources ]
 
                 Nothing ->
                     text ""
@@ -66,18 +66,18 @@ view slug model =
         ]
 
 
-renderResources : Model -> List CategoryResource -> Html Msg
-renderResources model resources =
+renderResourceList : Model -> List CategoryResource -> Html Msg
+renderResourceList model resources =
     ul []
         (List.map
             (\resource ->
-                div []
+                li []
                     ([ h2 []
                         [ button [ onClick (ToggleResource resource.title) ] [ text (t resource.title) ]
                         ]
                      ]
                         ++ (if isExpanded model resource.title then
-                                renderResource resource
+                                renderResourceDetails resource
 
                             else
                                 [ text "" ]
@@ -88,8 +88,8 @@ renderResources model resources =
         )
 
 
-renderResource : CategoryResource -> List (Html msg)
-renderResource resource =
+renderResourceDetails : CategoryResource -> List (Html msg)
+renderResourceDetails resource =
     renderQuotes resource.quotes
         ++ [ p [] [ text (t resource.summary) ]
            , a [ href (t resource.linkHref) ] [ text (t resource.linkName) ]
