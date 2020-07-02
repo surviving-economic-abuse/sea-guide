@@ -3,7 +3,8 @@ module Page.Definition exposing (Model, Msg(..), update, view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, a, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
+import Css.Media as Media exposing (minWidth, only, screen, withMedia)
+import Css.Transitions exposing (easeInOut, transition)
 import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
@@ -85,27 +86,36 @@ renderExpandableCategories model categories =
         (\listPosition ->
             -- We maybe want to ditch this div for valid html - but this is simple
             div []
-                [ renderTerm (categoryKeysFromListPosition listPosition)
+                [ renderTerm model (categoryKeysFromListPosition listPosition)
                 , renderDefinition model (categoryKeysFromListPosition listPosition)
                 ]
         )
         categories
 
 
-renderTerm : CategoryDefinition -> Html Msg
-renderTerm category =
-    dt []
-        [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
-            [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-            , span [] [ text "+" ]
+renderTerm : Model -> CategoryDefinition -> Html Msg
+renderTerm model category =
+    if isExpanded model category.title then
+        dt [ css [ expanderItemStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
+                [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
+                , span [ css [ expanderSymbolStyle, rotate90Style ] ] [ text ">" ]
+                ]
             ]
-        ]
+
+    else
+        dt [ css [ expanderItemStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
+                [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
+                , span [ css [ expanderSymbolStyle ] ] [ text ">" ]
+                ]
+            ]
 
 
 renderDefinition : Model -> CategoryDefinition -> Html Msg
 renderDefinition model category =
     if isExpanded model category.title then
-        dd []
+        dd [ css expanderDefinitionStyle ]
             [ p [] [ text (t category.info) ]
             , verticalSpacing
             , renderQuotes category.quotes
@@ -243,5 +253,51 @@ expanderSymbolStyle =
         , flex3 zero (int 1) (rem 3)
         , textAlign center
         , fontWeight (int 700)
+        , fontSize (rem 2.5)
+        , lineHeight (int 1)
+        , transform (rotate (deg 0))
+        , transition
+            [ Css.Transitions.transform 200
+            ]
         ]
+
+
+rotate90Style : Style
+rotate90Style =
+    batch
+        [ transform (rotate (deg 90))
+        , transition
+            [ Css.Transitions.transform 200
+            ]
         ]
+
+
+expanderItemStyle : Style
+expanderItemStyle =
+    batch [ marginTop (rem 1) ]
+
+
+expanderDefinitionStyle : List Style
+expanderDefinitionStyle =
+    [ batch
+        [ backgroundColor colours.lightgrey
+        , borderBottomLeftRadius (rem 1)
+        , borderBottomRightRadius (rem 1)
+        , padding (rem 1)
+        ]
+
+    -- Allow more padding space on larger screens
+    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        [ padding (rem 2) ]
+    ]
+
+
+quoteStyle : List Style
+quoteStyle =
+    [ batch
+        [ fontSize (rem 1.1)
+        , fontWeight (int 300)
+        ]
+    , before [ property "content" "'\"'" ]
+    , after [ property "content" "'\"'" ]
+    ]

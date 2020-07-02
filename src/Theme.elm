@@ -1,7 +1,7 @@
 module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
 
 import Css exposing (..)
-import Css.Global exposing (global, typeSelector)
+import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
@@ -43,6 +43,14 @@ globalStyles =
         , typeSelector "h4"
             [ color colours.purple
             , fontFamilies [ "Raleway", "sansSerif" ]
+            ]
+        , typeSelector
+            "p"
+            [ adjacentSiblings
+                [ typeSelector "p"
+                    [ marginTop (rem 1)
+                    ]
+                ]
             ]
         ]
 
