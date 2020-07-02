@@ -1,16 +1,18 @@
-module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn)
+module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
 
 import Css exposing (..)
-import Css.Global exposing (global, typeSelector)
-import Html.Styled exposing (Html)
+import Css.Global exposing (adjacentSiblings, global, typeSelector)
+import Html.Styled exposing (Html, div)
+import Html.Styled.Attributes exposing (css)
 
 
-colours : { purple : Color, green : Color, teal : Color, grey : Color, white : Color }
+colours : { purple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, white : Color }
 colours =
     { purple = hex "4F2F8D"
     , green = hex "9CCC54"
     , teal = hex "3CC0BE"
     , grey = hex "58585A"
+    , lightgrey = hex "f4f4f6"
     , white = hex "FFFFFF"
     }
 
@@ -22,10 +24,9 @@ globalStyles : Html msg
 globalStyles =
     global
         [ typeSelector "body"
-            [ backgroundColor (hex "eee")
-            , color colours.grey
+            [ color colours.grey
             , fontFamilies [ "Poppins", sansSerif.value ]
-            , fontWeight (int 300)
+            , fontWeight (int 400)
             ]
         , typeSelector "h1"
             [ color colours.purple
@@ -42,6 +43,13 @@ globalStyles =
         , typeSelector "h4"
             [ color colours.purple
             , fontFamilies [ "Raleway", "sansSerif" ]
+            ]
+        , typeSelector "p"
+            [ adjacentSiblings
+                [ typeSelector "p"
+                    [ marginTop (rem 1)
+                    ]
+                ]
             ]
         ]
 
@@ -85,3 +93,17 @@ threeColumn : Css.CalculatedLength
 -}
 threeColumn =
     calc (pct 33) minus (rem 2)
+
+
+{-| A div with known vertical margin
+-}
+verticalSpacing : Html msg
+verticalSpacing =
+    div [ css [ verticalSpacingStyle ] ] []
+
+
+verticalSpacingStyle : Style
+verticalSpacingStyle =
+    batch
+        [ margin2 (rem 2) zero
+        ]
