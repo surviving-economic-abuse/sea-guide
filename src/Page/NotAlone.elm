@@ -5,6 +5,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
+import Css.Transitions exposing (linear, transition)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
@@ -99,8 +100,8 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     ]
 
 
@@ -110,10 +111,10 @@ renderRevealedCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , span [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
-    , span [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
-    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
+    , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     ]
 
 
@@ -204,11 +205,13 @@ cardStyles =
         , flex3 zero zero oneColumn
         , displayFlex
         , flexDirection column
-        , justifyContent start
         , margin (rem 1)
         , padding (rem 1)
         , Css.minHeight (px 200)
-        , textAlign center
+        , textAlign left
+        , transition
+            [ Css.Transitions.height3 200 0.5 linear
+            ]
         ]
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
         [ flex3 zero zero twoColumn ]
