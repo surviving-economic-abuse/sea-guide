@@ -65,20 +65,15 @@ view model =
 card : String -> String -> String -> Html msg
 card quote name age =
     div
-        [ css
-            [ cardStyle
-            , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-                [ flex3 zero zero twoColumn ]
-            ]
-        ]
+        [ css cardStyle ]
         [ span [ css [ quoteStyle ] ] [ text quote ]
         , span [ css [ detailsStyle ] ] [ text ("- " ++ name ++ ", " ++ age) ]
         ]
 
 
-cardStyle : Style
+cardStyle : List Style
 cardStyle =
-    batch
+    [ batch
         [ border3 (px 2) solid Theme.colours.grey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
@@ -90,6 +85,9 @@ cardStyle =
         , Css.minHeight (px 200)
         , textAlign center
         ]
+    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        [ flex3 zero zero twoColumn ]
+    ]
 
 
 quoteStyle : Style
