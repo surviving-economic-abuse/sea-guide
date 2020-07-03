@@ -1,4 +1,4 @@
-module Page.GetHelp exposing (infoStyle, view)
+module Page.GetHelp exposing (view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
