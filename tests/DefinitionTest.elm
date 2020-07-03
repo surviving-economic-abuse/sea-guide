@@ -35,12 +35,21 @@ suite =
                         |> Query.fromHtml
                         |> Query.findAll [ tag "a" ]
                         |> Query.count (Expect.equal 3)
-            , test "Definition view has nav link to stats resource" <|
+            , test "Definition view has link to facts and stats resources page" <|
                 \() ->
                     view initModel
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
-                        |> Query.find [ tag "a", attribute (Html.Attributes.href (t StatsOnEconomicAbuseHref)) ]
+                        |> Query.find
+                            [ tag "a"
+                            , attribute
+                                (Html.Attributes.href
+                                    (t HelpSelfGridPageSlug
+                                        ++ "/"
+                                        ++ t HelpSelfCategory5Slug
+                                    )
+                                )
+                            ]
                         |> Query.has [ text (t DefinitionMoreLink) ]
             , test "Definition view has nav link to get-help" <|
                 \() ->
