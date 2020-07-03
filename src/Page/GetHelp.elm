@@ -6,8 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import String
-import Theme exposing (colours, pageHeadingStyle, verticalSpacing)
+import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, verticalSpacing)
 
 
 view : Html never
