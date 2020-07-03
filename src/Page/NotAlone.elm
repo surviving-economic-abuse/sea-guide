@@ -13,12 +13,13 @@ import Theme exposing (colours, gridStyle, navItemStyles, navLinkStyle, navListS
 
 
 type alias Model =
-    {}
+    { revealedJourney : Maybe JourneyCard }
 
 
 type Msg
     = NoOp
     | ScrollTo
+    | ToggleJourney JourneyCard
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -30,6 +31,18 @@ update msg model =
         ScrollTo ->
             ( model, Task.perform (always NoOp) (Dom.setViewport 0 500) )
 
+        ToggleJourney journeyCardPosition ->
+            let
+                revealedCard =
+                    -- We've clicked a revealed card
+                    if isRevealed model journeyCardPosition then
+                        Nothing
+
+                    else
+                        Just journeyCardPosition
+            in
+            ( { model | revealedJourney = revealedCard }, Cmd.none )
+
 
 view : Model -> Html Msg
 view model =
@@ -39,12 +52,12 @@ view model =
             , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
             ]
         , div [ css [ gridStyle ] ]
-            [ card (t Journey1Relatable) (t Journey1Name) (t Journey1Age)
-            , card (t Journey2Relatable) (t Journey2Name) (t Journey2Age)
-            , card (t Journey3Relatable) (t Journey3Name) (t Journey3Age)
-            , card (t Journey4Relatable) (t Journey4Name) (t Journey4Age)
-            , card (t Journey5Relatable) (t Journey5Name) (t Journey5Age)
-            , card (t Journey6Relatable) (t Journey6Name) (t Journey6Age)
+            [ card model JourneyCard1
+            , card model JourneyCard2
+            , card model JourneyCard3
+            , card model JourneyCard4
+            , card model JourneyCard5
+            , card model JourneyCard6
             ]
         , verticalSpacing
         , nav [ css [ navListStyle ] ]
@@ -62,18 +75,129 @@ view model =
         ]
 
 
-card : String -> String -> String -> Html msg
-card quote name age =
+card : Model -> JourneyCard -> Html Msg
+card model journeyCardPosition =
     div
         [ css
             [ cardStyle
             , withMedia [ only screen [ Media.minWidth (px 576) ] ]
                 [ flex3 zero zero twoColumn ]
             ]
+        , onClick (ToggleJourney journeyCardPosition)
         ]
-        [ span [ css [ quoteStyle ] ] [ text quote ]
-        , span [ css [ detailsStyle ] ] [ text ("- " ++ name ++ ", " ++ age) ]
-        ]
+        (renderCard model journeyCardPosition)
+
+
+renderCard : Model -> JourneyCard -> List (Html msg)
+renderCard model journeyCardPosition =
+    if isRevealed model journeyCardPosition then
+        renderRevealedCard journeyCardPosition
+
+    else
+        renderInitCard journeyCardPosition
+
+
+renderInitCard : JourneyCard -> List (Html msg)
+renderInitCard journeyCardPosition =
+    let
+        journeyContent =
+            journeyContentFromCardPosition journeyCardPosition
+    in
+    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    ]
+
+
+renderRevealedCard : JourneyCard -> List (Html msg)
+renderRevealedCard journeyCardPosition =
+    let
+        journeyContent =
+            journeyContentFromCardPosition journeyCardPosition
+    in
+    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , span [] [ text (t journeyContent.hopeful) ]
+    , span [] [ text (t journeyContent.statement) ]
+    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    ]
+
+
+isRevealed : Model -> JourneyCard -> Bool
+isRevealed model journeyCard =
+    model.revealedJourney == Just journeyCard
+
+
+type alias JourneyContent =
+    { relatable : Key
+    , hopeful : Key
+    , statement : Key
+    , name : Key
+    , age : Key
+    }
+
+
+
+-- We have 6 cards
+
+
+type JourneyCard
+    = JourneyCard1
+    | JourneyCard2
+    | JourneyCard3
+    | JourneyCard4
+    | JourneyCard5
+    | JourneyCard6
+
+
+journeyContentFromCardPosition : JourneyCard -> JourneyContent
+journeyContentFromCardPosition cardPosition =
+    case cardPosition of
+        JourneyCard1 ->
+            { relatable = Journey1Relatable
+            , hopeful = Journey1Hopeful
+            , statement = Journey1Statement
+            , name = Journey1Name
+            , age = Journey1Age
+            }
+
+        JourneyCard2 ->
+            { relatable = Journey2Relatable
+            , hopeful = Journey2Hopeful
+            , statement = Journey2Statement
+            , name = Journey2Name
+            , age = Journey2Age
+            }
+
+        JourneyCard3 ->
+            { relatable = Journey3Relatable
+            , hopeful = Journey3Hopeful
+            , statement = Journey3Statement
+            , name = Journey3Name
+            , age = Journey3Age
+            }
+
+        JourneyCard4 ->
+            { relatable = Journey4Relatable
+            , hopeful = Journey4Hopeful
+            , statement = Journey4Statement
+            , name = Journey4Name
+            , age = Journey4Age
+            }
+
+        JourneyCard5 ->
+            { relatable = Journey5Relatable
+            , hopeful = Journey5Hopeful
+            , statement = Journey5Statement
+            , name = Journey5Name
+            , age = Journey5Age
+            }
+
+        JourneyCard6 ->
+            { relatable = Journey6Relatable
+            , hopeful = Journey6Hopeful
+            , statement = Journey6Statement
+            , name = Journey6Name
+            , age = Journey6Age
+            }
 
 
 cardStyle : Style
