@@ -5,7 +5,7 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (..)
+import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, li, nav, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
@@ -73,7 +73,7 @@ view slug model =
 
 renderResourceList : Model -> List CategoryResource -> Html Msg
 renderResourceList model resources =
-    ul [ css [] ]
+    ul [ css [ resourceListStyle ] ]
         (List.map
             (\resource ->
                 if isExpanded model resource.title then
@@ -102,11 +102,12 @@ renderResourceList model resources =
 
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
-    renderQuotes resource.quotes
-        ++ [ p [] [ text (t resource.summary) ]
-           , verticalSpacing
-           , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
-           ]
+    [ blockquote [] ([] ++ renderQuotes resource.quotes)
+    , verticalSpacing
+    , p [] [ text (t resource.summary) ]
+    , verticalSpacing
+    , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
+    ]
 
 
 renderQuotes : List Key -> List (Html msg)
@@ -219,7 +220,7 @@ expanderButtonStyle =
         , textAlign left
         , displayFlex
         , padding (rem 0.5)
-        , Css.width (pct 100)
+        , width (pct 100)
         ]
 
 
@@ -295,3 +296,9 @@ resourceLinkStyle =
         [ color colours.purple
         , fontWeight (int 700)
         ]
+
+
+resourceListStyle : Style
+resourceListStyle =
+    batch
+        [ listStyle none ]
