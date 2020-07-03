@@ -459,7 +459,7 @@ t key =
             "There are many organisations who may be able to help you with specialist information and advice."
 
         GetHelpSection3CallToAction ->
-            "See this directory for contact information"
+            "Find contact information for support organisations"
 
         ToHelpSelfReassuringText ->
             "If you are experiencing economic abuse, you are not alone."
