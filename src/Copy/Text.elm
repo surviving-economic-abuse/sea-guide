@@ -305,7 +305,7 @@ t key =
             "Find people to talk to"
 
         ToHelpSelfFromSingleCategoryLink ->
-            "[cCc] Choose another topic"
+            "Choose another topic"
 
         -- Help Self Single Category 404
         HelpSelfCategoryNotFoundTitle ->

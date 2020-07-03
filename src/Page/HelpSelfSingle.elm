@@ -7,7 +7,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Html.Styled.Events exposing (onClick)
 import Set
-import Theme exposing (pageHeadingStyle)
+import Theme exposing (navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, verticalSpacing)
 
 
 type alias Model =
@@ -60,8 +60,11 @@ view slug model =
                 Nothing ->
                     text ""
             ]
-        , ul []
-            [ li [] [ a [ href ("../" ++ t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromSingleCategoryLink) ] ]
+        , verticalSpacing
+        , nav [ css [ navListStyle ] ]
+            [ a
+                [ href ("../" ++ t HelpSelfGridPageSlug), css (navLinkStyle :: navItemStyles) ]
+                [ span [] [ text (t ToHelpSelfFromSingleCategoryLink) ] ]
             ]
         ]
 
