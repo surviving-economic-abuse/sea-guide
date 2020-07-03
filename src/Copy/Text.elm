@@ -50,7 +50,7 @@ t key =
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
 
         SeaOrganisationsResourceHref ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
 
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
@@ -423,40 +423,40 @@ t key =
             "People you can talk to"
 
         GetHelpSection1Title ->
-            "Join the SEA survivors' forum"
+            "Support from survivors"
 
-        GetHelpSection1Quote1 ->
+        GetHelpSection1Quote ->
             "Meeting other people who've been through what I've been through is such a massive help. It's amazing to know people who can really understand what I went through."
 
         GetHelpSection1Description ->
-            "To share your experience with others in our supportive community of economic abuse survivors, sign up to SEA's Survivor Forum."
+            "Share your experience with others in our supportive community of economic abuse survivors."
 
-        GetHelpSection1Link ->
-            "[cCc] Join SEA Survivor Forum"
+        GetHelpSection1CallToAction ->
+            "Join SEA's survivor forum"
 
         GetHelpSection2Title ->
-            "The Financial Support Line for Victims of Domestic Abuse"
+            "The Financial Support Line"
 
-        GetHelpSection2Quote1 ->
-            "When I found this number, I was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understand."
+        GetHelpSection2Quote ->
+            "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "[cCc] Run in partnership between Surviving Economic Abuse and Money Advice Plus, the support line is open Mon–Fri, 9am–1pm & 2pm–5pm. It offers specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Call The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
-        GetHelpSection2Link ->
-            "[cCc] Call 01273 664 000"
+        GetHelpSection2CallToAction ->
+            "Call 01273 664 000"
 
         GetHelpSection3Title ->
-            "Other organisations that can support"
+            "Support from other organisations"
 
-        GetHelpSection3Quote1 ->
-            "I truly believe in the power of shared information. Sharing information is vital to help victims and try to stop abuse."
+        GetHelpSection3Quote ->
+            "I'd done loads of googling but didn't really know where to start. Finding this directory was really reassuring. I didn't know there was so much help out there."
 
         GetHelpSection3Description ->
-            "The following organisations may be able to help you with specialist information and advice. If you are confident to do so, explain that you are a victim of domestic abuse. This will help them take your safety into account and discuss appropriate options with you."
+            "There are many organisations who may be able to help you with specialist information and advice."
 
-        GetHelpSection3Link ->
-            "[cCc] See Support Organisations"
+        GetHelpSection3CallToAction ->
+            "See this directory for contact information"
 
         ToHelpSelfFromGetHelpLink ->
             "[cCc] Find out more"

@@ -148,15 +148,15 @@ type Key
       -- Get Help page
     | GetHelpTitle
     | GetHelpSection1Title
-    | GetHelpSection1Quote1
+    | GetHelpSection1Quote
     | GetHelpSection1Description
-    | GetHelpSection1Link
+    | GetHelpSection1CallToAction
     | GetHelpSection2Title
-    | GetHelpSection2Quote1
+    | GetHelpSection2Quote
     | GetHelpSection2Description
-    | GetHelpSection2Link
+    | GetHelpSection2CallToAction
     | GetHelpSection3Title
-    | GetHelpSection3Quote1
+    | GetHelpSection3Quote
     | GetHelpSection3Description
-    | GetHelpSection3Link
+    | GetHelpSection3CallToAction
     | ToHelpSelfFromGetHelpLink
