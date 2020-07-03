@@ -16,13 +16,6 @@ type alias Model =
     {}
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( {}
-    , Cmd.none
-    )
-
-
 type Msg
     = NoOp
     | ScrollTo
@@ -46,12 +39,12 @@ view model =
             , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
             ]
         , div [ css [ gridStyle ] ]
-            [ card (t QuoteRelatable1) (t QuoteName1) (t QuoteAge1)
-            , card (t QuoteRelatable2) (t QuoteName2) (t QuoteAge2)
-            , card (t QuoteRelatable3) (t QuoteName3) (t QuoteAge3)
-            , card (t QuoteRelatable4) (t QuoteName4) (t QuoteAge4)
-            , card (t QuoteRelatable5) (t QuoteName5) (t QuoteAge5)
-            , card (t QuoteRelatable6) (t QuoteName6) (t QuoteAge6)
+            [ card (t Journey1Relatable) (t Journey1Name) (t Journey1Age)
+            , card (t Journey2Relatable) (t Journey2Name) (t Journey2Age)
+            , card (t Journey3Relatable) (t Journey3Name) (t Journey3Age)
+            , card (t Journey4Relatable) (t Journey4Name) (t Journey4Age)
+            , card (t Journey5Relatable) (t Journey5Name) (t Journey5Age)
+            , card (t Journey6Relatable) (t Journey6Name) (t Journey6Age)
             ]
         , verticalSpacing
         , nav [ css [ navListStyle ] ]
@@ -64,16 +57,7 @@ view model =
         , verticalSpacing
         , div [ css [ emergencyContactStyle ], id "emergency" ]
             [ p [] [ text (t EmergencyReassure) ]
-            , ul [ css [ emergencyContactListStyle ] ]
-                [ li []
-                    [ div [] [ text (t EmergencyContactDV) ]
-                    , div [ css [ numberStyle ] ] [ text (t EmergencyContactDVNumber) ]
-                    ]
-                , li []
-                    [ div [] [ text (t EmergencyContact999) ]
-                    , div [ css [ numberStyle ] ] [ text (t EmergencyContact999Number) ]
-                    ]
-                ]
+            , p [] [ text (t EmergencyContactInfo) ]
             ]
         ]
 
@@ -144,21 +128,6 @@ emergencyContactStyle =
         , backgroundColor colours.grey
         , color colours.white
         , padding (rem 1)
-        ]
-
-
-emergencyContactListStyle : Style
-emergencyContactListStyle =
-    batch
-        [ listStyle none
-        ]
-
-
-numberStyle : Style
-numberStyle =
-    batch
-        [ fontWeight bold
-        , marginLeft (rem 2)
         ]
 
 

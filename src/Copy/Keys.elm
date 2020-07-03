@@ -26,44 +26,41 @@ type Key
     | HelpSelfCategory3Resource2Href
       -- Not Alone page
     | NotAloneTitle
-    | QuoteRelatable1
-    | QuoteHopeful1
-    | QuoteStatement1
-    | QuoteName1
-    | QuoteAge1
-    | QuoteRelatable2
-    | QuoteHopeful2
-    | QuoteStatement2
-    | QuoteName2
-    | QuoteAge2
-    | QuoteRelatable3
-    | QuoteHopeful3
-    | QuoteStatement3
-    | QuoteName3
-    | QuoteAge3
-    | QuoteRelatable4
-    | QuoteHopeful4
-    | QuoteStatement4
-    | QuoteName4
-    | QuoteAge4
-    | QuoteRelatable5
-    | QuoteHopeful5
-    | QuoteStatement5
-    | QuoteName5
-    | QuoteAge5
-    | QuoteRelatable6
-    | QuoteHopeful6
-    | QuoteStatement6
-    | QuoteName6
-    | QuoteAge6
+    | Journey1Relatable
+    | Journey1Hopeful
+    | Journey1Statement
+    | Journey1Name
+    | Journey1Age
+    | Journey2Relatable
+    | Journey2Hopeful
+    | Journey2Statement
+    | Journey2Name
+    | Journey2Age
+    | Journey3Relatable
+    | Journey3Hopeful
+    | Journey3Statement
+    | Journey3Name
+    | Journey3Age
+    | Journey4Relatable
+    | Journey4Hopeful
+    | Journey4Statement
+    | Journey4Name
+    | Journey4Age
+    | Journey5Relatable
+    | Journey5Hopeful
+    | Journey5Statement
+    | Journey5Name
+    | Journey5Age
+    | Journey6Relatable
+    | Journey6Hopeful
+    | Journey6Statement
+    | Journey6Name
+    | Journey6Age
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
     | EmergencyButton
     | EmergencyReassure
-    | EmergencyContact999
-    | EmergencyContact999Number
-    | EmergencyContactDV
-    | EmergencyContactDVNumber
+    | EmergencyContactInfo
       -- Definition page
     | DefinitionTitle
     | DefinitionConcise
