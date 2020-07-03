@@ -4,12 +4,12 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (easeInOut, transition)
-import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h2, header, li, p, span, text, ul)
+import Css.Transitions exposing (transition)
+import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h2, header, li, nav, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
-import Theme exposing (colours, pageHeadingStyle, verticalSpacing)
+import Theme exposing (colours, navLinkStyle, pageHeadingStyle, verticalSpacing)
 
 
 type alias Model =
@@ -68,9 +68,18 @@ view model =
                 ]
             )
         , p [] [ text (t SplitterAffirmation) ]
-        , ul []
-            [ li [] [ a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
-            , li [] [ a [ href (t GetHelpPageSlug) ] [ text (t ToGetHelpFromDefinitionLink) ] ]
+        , verticalSpacing
+        , nav []
+            [ ul [ css [ navListStyle ] ]
+                [ li [ css navItemStyles ]
+                    [ a [ href (t HelpSelfGridPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+                    ]
+                , li [ css navItemStyles ]
+                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToGetHelpFromDefinitionLink) ] ]
+                    ]
+                ]
             ]
         ]
 
@@ -217,6 +226,38 @@ introStyle =
         , fontSize (rem 1)
         , margin2 (rem 2) zero
         ]
+
+
+
+-- End of page navigation styling
+
+
+navStyle : Style
+navStyle =
+    Css.batch
+        [ margin2 (rem 2) zero
+        ]
+
+
+navListStyle : Style
+navListStyle =
+    batch
+        [ listStyle none
+        , displayFlex
+        , flexWrap wrap
+        , justifyContent spaceAround
+        ]
+
+
+navItemStyles : List Style
+navItemStyles =
+    [ batch
+        [ flex3 zero zero (pct 100)
+        , marginBottom (rem 1)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ flex3 zero zero (pct 33) ]
+        ]
+    ]
 
 
 expanderButtonStyle : Style

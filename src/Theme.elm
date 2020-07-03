@@ -1,14 +1,16 @@
-module Theme exposing (colours, globalStyles, gridStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
+module Theme exposing (colours, globalStyles, gridStyle, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
+import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
 
-colours : { purple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, white : Color }
+colours : { purple : Color, darkpurple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, white : Color }
 colours =
     { purple = hex "4F2F8D"
+    , darkpurple = hex "321f40"
     , green = hex "9CCC54"
     , teal = hex "3CC0BE"
     , grey = hex "58585A"
@@ -106,4 +108,41 @@ verticalSpacingStyle : Style
 verticalSpacingStyle =
     batch
         [ margin2 (rem 2) zero
+        ]
+
+
+{-| Bottom navigation common styles
+-}
+navListStyle : Style
+navListStyle =
+    batch
+        [ listStyle none
+        , displayFlex
+        , flexWrap wrap
+        , justifyContent spaceAround
+        ]
+
+
+navItemStyles : List Style
+navItemStyles =
+    [ batch
+        [ flex3 zero zero (pct 100)
+        , marginBottom (rem 1)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ flex3 zero zero threeColumn ]
+        ]
+    ]
+
+
+navLinkStyle : Style
+navLinkStyle =
+    batch
+        [ backgroundColor colours.darkpurple
+        , Css.borderRadius (rem 0.5)
+        , color colours.white
+        , display block
+        , padding (rem 0.5)
+        , textAlign center
+        , textDecoration none
+        , width (pct 100)
         ]

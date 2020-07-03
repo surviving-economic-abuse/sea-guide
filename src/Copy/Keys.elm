@@ -56,6 +56,7 @@ type Key
     | Journey6Statement
     | Journey6Name
     | Journey6Age
+    | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
     | EmergencyButton
     | EmergencyReassure
@@ -159,4 +160,5 @@ type Key
     | GetHelpSection3Quote
     | GetHelpSection3Description
     | GetHelpSection3CallToAction
+    | ToHelpSelfReassuringText
     | ToHelpSelfFromGetHelpLink
