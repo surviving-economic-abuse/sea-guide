@@ -153,7 +153,7 @@ suite =
             [ test "Toggling a closed category adds it to the set of openCategories" <|
                 \() ->
                     initModel
-                        |> Page.Definition.update (ToggleCategory DefinitionCategory1Title)
+                        |> update (ToggleCategory DefinitionCategory1Title)
                         |> Expect.equal
                             ( { openCategories = Set.fromList [ t DefinitionCategory1Title ] }
                             , Cmd.none
