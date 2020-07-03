@@ -167,8 +167,11 @@ t key =
         QuoteAge6 ->
             "44"
 
+        ToDefinitionReassuringText ->
+            "If this sounds familiar know that you’re not alone. "
+
         ToDefinitionFromNotAloneLink ->
-            "[cCc] Find out more about Economic Abuse"
+            "Find out about economic abuse"
 
         EmergencyButton ->
             "[cCc] Help Me Now"
@@ -277,10 +280,10 @@ t key =
             "It’s not your fault and you are not alone. 1 in 5 people in the UK experience economic abuse from a partner or ex-partner. It can take time but help is out there."
 
         ToGetHelpFromDefinitionLink ->
-            "[cCc] People you can talk to"
+            "Find people to talk to"
 
         ToHelpSelfFromDefinitionLink ->
-            "[cCc] Things you can find out about and actions you can take"
+            "Find information that can help"
 
         -- Help Self page
         HelpSelfTitle ->
@@ -302,13 +305,13 @@ t key =
             "[cCc] Economic Abuse, Statistics and the Law"
 
         ToDefinitionFromHelpSelfLink ->
-            "[cCc] What is Economic Abuse?"
+            "[cCc] Read an intro to economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            "[cCc] Read about others"
+            "Read about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
-            "[cCc] Get Help"
+            "Find people to talk to"
 
         ToHelpSelfFromSingleCategoryLink ->
             "[cCc] Choose another topic"
@@ -467,5 +470,8 @@ t key =
         GetHelpSection3Link ->
             "[cCc] See Support Organisations"
 
+        ToHelpSelfReassuringText ->
+            "If you are experiencing economic abuse, you are not alone."
+
         ToHelpSelfFromGetHelpLink ->
-            "[cCc] Find out more"
+            "Find information that can help"

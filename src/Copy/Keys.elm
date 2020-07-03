@@ -56,6 +56,7 @@ type Key
     | QuoteStatement6
     | QuoteName6
     | QuoteAge6
+    | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
     | EmergencyButton
     | EmergencyReassure
@@ -162,4 +163,5 @@ type Key
     | GetHelpSection3Quote1
     | GetHelpSection3Description
     | GetHelpSection3Link
+    | ToHelpSelfReassuringText
     | ToHelpSelfFromGetHelpLink
