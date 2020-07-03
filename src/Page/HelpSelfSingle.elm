@@ -102,17 +102,17 @@ renderResourceList model resources =
 
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
-    [ blockquote [] ([] ++ renderQuotes resource.quotes)
-    , verticalSpacing
-    , p [] [ text (t resource.summary) ]
-    , verticalSpacing
-    , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
-    ]
+    renderQuotes resource.quotes
+        ++ [ verticalSpacing
+           , p [] [ text (t resource.summary) ]
+           , verticalSpacing
+           , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
+           ]
 
 
 renderQuotes : List Key -> List (Html msg)
 renderQuotes quoteKeys =
-    List.map (\quoteKey -> p [ css quoteStyles ] [ text (t quoteKey) ]) quoteKeys
+    List.map (\quoteKey -> blockquote [] [ p [ css quoteStyles ] [ text (t quoteKey) ] ]) quoteKeys
 
 
 isExpanded : Model -> Key -> Bool
