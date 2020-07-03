@@ -46,7 +46,7 @@ init _ url key =
             pageFromUrl url
     in
     -- If not a page default to NotAlone
-    ( { key = key, page = Maybe.withDefault (NotAlonePage NotAlone.Model) maybePage }, Cmd.none )
+    ( { key = key, page = Maybe.withDefault (NotAlonePage { revealedJourney = Nothing }) maybePage }, Cmd.none )
 
 
 
@@ -83,7 +83,7 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
-                    Maybe.withDefault (NotAlonePage {}) (pageFromUrl url)
+                    Maybe.withDefault (NotAlonePage { revealedJourney = Nothing }) (pageFromUrl url)
             in
             -- If not a page default to NotAlone
             ( { model | page = newPage }, Cmd.none )
@@ -195,7 +195,7 @@ type Page
 routeParser : Parser (Page -> a) a
 routeParser =
     oneOf
-        [ Parser.map (NotAlonePage NotAlone.Model) Parser.top
+        [ Parser.map (NotAlonePage { revealedJourney = Nothing }) Parser.top
         , Parser.map (DefinitionPage (Definition.Model Set.empty)) (Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelpPage (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGridPage (Parser.s (t HelpSelfGridPageSlug))
