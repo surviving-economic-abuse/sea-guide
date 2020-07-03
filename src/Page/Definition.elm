@@ -54,7 +54,7 @@ view model =
             , p [ css [ introStyle ] ]
                 [ text (t DefinitionConcise)
                 , text " "
-                , a [ href (t StatsOnEconomicAbuseHref) ] [ text (t DefinitionMoreLink) ]
+                , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfCategory5Slug) ] [ text (t DefinitionMoreLink) ]
                 ]
             ]
         , dl [ css [ categoryListStyle ] ]
