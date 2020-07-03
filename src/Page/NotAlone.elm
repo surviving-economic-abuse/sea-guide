@@ -9,7 +9,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Task
-import Theme exposing (colours, gridStyle, oneColumn, pageHeadingStyle, twoColumn)
+import Theme exposing (colours, gridStyle, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
 
 
 type alias Model =
@@ -53,7 +53,15 @@ view model =
             , card (t QuoteRelatable5) (t QuoteName5) (t QuoteAge5)
             , card (t QuoteRelatable6) (t QuoteName6) (t QuoteAge6)
             ]
-        , a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromNotAloneLink) ]
+        , verticalSpacing
+        , nav [ css [ navListStyle ] ]
+            [ p [ css [ reassuringStyle ] ]
+                [ text (t ToDefinitionReassuringText) ]
+            , a
+                [ href (t DefinitionPageSlug), css (navLinkStyle :: navItemStyles) ]
+                [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
+            ]
+        , verticalSpacing
         , div [ css [ emergencyContactStyle ], id "emergency" ]
             [ p [] [ text (t EmergencyReassure) ]
             , ul [ css [ emergencyContactListStyle ] ]
@@ -151,4 +159,13 @@ numberStyle =
     batch
         [ fontWeight bold
         , marginLeft (rem 2)
+        ]
+
+
+reassuringStyle : Style
+reassuringStyle =
+    batch
+        [ flex3 zero zero oneColumn
+        , textAlign center
+        , marginBottom (rem 1)
         ]

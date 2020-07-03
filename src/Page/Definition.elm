@@ -68,13 +68,17 @@ view model =
                 ]
             )
         , p [] [ text (t SplitterAffirmation) ]
-        , nav
-            [ css [ navStyle ] ]
+        , verticalSpacing
+        , nav []
             [ ul [ css [ navListStyle ] ]
-                [ li [ css [ navItemStyle ] ]
-                    [ a [ href (t HelpSelfGridPageSlug), css [ linkStyle ] ] [ text (t ToHelpSelfFromDefinitionLink) ] ]
-                , li [ css [ navItemStyle ] ]
-                    [ a [ href (t GetHelpPageSlug), css [ linkStyle ] ] [ text (t ToGetHelpFromDefinitionLink) ] ]
+                [ li [ css navItemStyles ]
+                    [ a [ href (t HelpSelfGridPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+                    ]
+                , li [ css navItemStyles ]
+                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToGetHelpFromDefinitionLink) ] ]
+                    ]
                 ]
             ]
         ]
@@ -237,28 +241,23 @@ navStyle =
 
 navListStyle : Style
 navListStyle =
-    Css.batch
+    batch
         [ listStyle none
         , displayFlex
         , flexWrap wrap
+        , justifyContent spaceAround
         ]
 
 
-navItemStyle : Style
-navItemStyle =
-    Css.batch
-        [ Css.borderRadius (rem 1)
-        , flex3 (int 1) zero (pct 100)
-        , margin2 (rem 1) zero
+navItemStyles : List Style
+navItemStyles =
+    [ batch
+        [ flex3 zero zero (pct 100)
+        , marginBottom (rem 1)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ flex3 zero zero (pct 33) ]
         ]
-
-
-linkStyle : Style
-linkStyle =
-    Css.batch
-        [ fontWeight bold
-        , margin2 (rem 2) zero
-        ]
+    ]
 
 
 expanderButtonStyle : Style

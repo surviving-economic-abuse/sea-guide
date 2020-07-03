@@ -1,4 +1,4 @@
-module Page.GetHelp exposing (view)
+module Page.GetHelp exposing (infoStyle, view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, verticalSpacing)
+import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, verticalSpacing)
 
 
 view : Html never
@@ -20,7 +20,14 @@ view =
             , card (t GetHelpSection2Title) (t GetHelpSection2Quote1) (t GetHelpSection2Description) CallSupport
             , card (t GetHelpSection3Title) (t GetHelpSection3Quote1) (t GetHelpSection3Description) SeeOrgs
             ]
-        , a [ href (t HelpSelfGridPageSlug) ] [ text (t ToHelpSelfFromGetHelpLink) ]
+        , verticalSpacing
+        , nav [ css [ navListStyle ] ]
+            [ p [ css [ reassuringStyle ] ]
+                [ text (t ToHelpSelfReassuringText) ]
+            , a
+                [ href (t HelpSelfGridPageSlug), css (navLinkStyle :: navItemStyles) ]
+                [ span [] [ text (t ToHelpSelfFromGetHelpLink) ] ]
+            ]
         ]
 
 
@@ -120,4 +127,13 @@ infoStyle =
         , fontSize (rem 1.35)
         , fontWeight (int 700)
         , textAlign center
+        ]
+
+
+reassuringStyle : Style
+reassuringStyle =
+    batch
+        [ flex3 zero zero oneColumn
+        , textAlign center
+        , marginBottom (rem 1)
         ]

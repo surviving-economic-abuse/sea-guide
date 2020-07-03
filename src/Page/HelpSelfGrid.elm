@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, gridStyle, pageHeadingStyle, threeColumn, twoColumn)
+import Theme exposing (colours, gridStyle, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
@@ -22,10 +22,22 @@ view =
             , infoLink (t HelpSelfCategory4Link) (t HelpSelfCategory4Slug)
             , infoLink (t HelpSelfCategory5Link) (t HelpSelfCategory5Slug)
             ]
-        , ul []
-            [ li [] [ a [ href (t GetHelpPageSlug) ] [ text (t ToGetHelpFromHelpSelfLink) ] ]
-            , li [] [ a [ href (t NotAlonePageSlug) ] [ text (t ToNotAloneFromHelpSelfLink) ] ]
-            , li [] [ a [ href (t DefinitionPageSlug) ] [ text (t ToDefinitionFromHelpSelfLink) ] ]
+        , verticalSpacing
+        , nav []
+            [ ul [ css [ navListStyle ] ]
+                [ li [ css navItemStyles ]
+                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToGetHelpFromHelpSelfLink) ] ]
+                    ]
+                , li [ css navItemStyles ]
+                    [ a [ href (t NotAlonePageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToNotAloneFromHelpSelfLink) ] ]
+                    ]
+                , li [ css navItemStyles ]
+                    [ a [ href (t DefinitionPageSlug), css [ navLinkStyle ] ]
+                        [ span [] [ text (t ToDefinitionFromHelpSelfLink) ] ]
+                    ]
+                ]
             ]
         ]
 
