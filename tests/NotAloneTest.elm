@@ -10,7 +10,7 @@ import Page.NotAlone exposing (Msg(..), view)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (attribute, containing, tag, text)
+import Test.Html.Selector exposing (attribute, containing, id, tag, text)
 
 
 suite : Test
@@ -36,6 +36,18 @@ suite =
                     |> Query.fromHtml
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
+        , test "NotAlone view has emergency contact information" <|
+            \() ->
+                view {}
+                    |> Html.Styled.toUnstyled
+                    |> Query.fromHtml
+                    |> Query.find [ id "emergency" ]
+                    |> Query.has
+                        [ tag "p"
+                        , containing [ text (t EmergencyReassure) ]
+                        , tag "p"
+                        , containing [ text (t EmergencyContactInfo) ]
+                        ]
         , test "When I click the Emergency button, the NotAlone page scrolls to #emergency" <|
             \() ->
                 view {}
