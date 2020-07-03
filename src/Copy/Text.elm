@@ -75,122 +75,113 @@ t key =
 
         -- Not Alone page
         NotAloneTitle ->
-            "[cCc] Not Alone page title"
+            "You are not alone"
 
-        QuoteRelatable1 ->
-            "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience."
+        Journey1Relatable ->
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
-        QuoteHopeful1 ->
-            ""
+        Journey1Hopeful ->
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
-        QuoteStatement1 ->
-            ""
+        Journey1Statement ->
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
-        QuoteName1 ->
-            "My Name"
+        Journey1Name ->
+            "Zahara"
 
-        QuoteAge1 ->
-            "22"
+        Journey1Age ->
+            "27"
 
-        QuoteRelatable2 ->
-            "[cCc] A short quote about a recognisable experience"
+        Journey2Relatable ->
+            "My partner used to give me a shopping list telling me what I had to buy with the £10 food allowance. He'd check the receipt when I got in to make sure I'd got everything. Sometimes I couldn't and then he'd beat me up."
 
-        QuoteHopeful2 ->
-            ""
+        Journey2Hopeful ->
+            "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
 
-        QuoteStatement2 ->
-            ""
+        Journey2Statement ->
+            "We are happy, and he no longer has control over our lives."
 
-        QuoteName2 ->
-            "My Name"
+        Journey2Name ->
+            "Caris"
 
-        QuoteAge2 ->
-            "33"
+        Journey2Age ->
+            "34"
 
-        QuoteRelatable3 ->
-            "[cCc] A medium quote about a recognisable experience. A medium quote about a recognisable experience."
+        Journey3Relatable ->
+            "To be so powerless, I can't explain what it's like, it's overwhelming. Not being able to provide for your children. You have absolutely no control over your life."
 
-        QuoteHopeful3 ->
-            ""
+        Journey3Hopeful ->
+            "Advocacy is so important, especially when you are fearing homelessness and losing the children. I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
 
-        QuoteStatement3 ->
-            ""
+        Journey3Statement ->
+            "This will end and normality will return."
 
-        QuoteName3 ->
-            "My Name"
+        Journey3Name ->
+            "Amina"
 
-        QuoteAge3 ->
-            "62"
+        Journey3Age ->
+            "39"
 
-        QuoteRelatable4 ->
-            "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience."
+        Journey4Relatable ->
+            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
 
-        QuoteHopeful4 ->
-            ""
+        Journey4Hopeful ->
+            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
-        QuoteStatement4 ->
-            ""
+        Journey4Statement ->
+            "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
-        QuoteName4 ->
-            "My Name"
+        Journey4Name ->
+            "Catherine"
 
-        QuoteAge4 ->
-            "33"
+        Journey4Age ->
+            "43"
 
-        QuoteRelatable5 ->
-            "[cCc] A short quote about a recognisable experience"
+        Journey5Relatable ->
+            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
 
-        QuoteHopeful5 ->
-            ""
+        Journey5Hopeful ->
+            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
-        QuoteStatement5 ->
-            ""
+        Journey5Statement ->
+            "I feel like I've got my life back. I can take the kids on holiday and we are free."
 
-        QuoteName5 ->
-            "My Name"
+        Journey5Name ->
+            "Aja"
 
-        QuoteAge5 ->
-            "55"
+        Journey5Age ->
+            "48"
 
-        QuoteRelatable6 ->
-            "[cCc] A long quote about a recognisable experience. A long quote about a recognisable experience, A long quote about a recognisable experience."
+        Journey6Relatable ->
+            "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
 
-        QuoteHopeful6 ->
-            ""
+        Journey6Hopeful ->
+            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life. Before, I was constantly anxious about whether I would have enough money in my account to make the payments every month."
 
-        QuoteStatement6 ->
-            ""
+        Journey6Statement ->
+            "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
 
-        QuoteName6 ->
-            "My Name"
+        Journey6Name ->
+            "Sarah"
 
-        QuoteAge6 ->
-            "44"
+        Journey6Age ->
+            "61"
 
         ToDefinitionFromNotAloneLink ->
             "[cCc] Find out more about Economic Abuse"
 
         EmergencyButton ->
-            "[cCc] Help Me Now"
+            "I need immediate help"
 
         EmergencyReassure ->
-            "[cCc] Immediate help is available."
+            "If you are in immediate danger, there is help available."
 
-        EmergencyContact999 ->
-            "[cCc] If you are in immediate danger, call the police:"
-
-        EmergencyContact999Number ->
-            "999"
-
-        EmergencyContactDV ->
-            "[cCc] Contact the National Domestic Violence Helpline run in partnership between Women’s Aid and Refuge:"
-
-        EmergencyContactDVNumber ->
-            "0808 2000 247"
+        EmergencyContactInfo ->
+            "Call the police on 999 or contact the 24-hour Freephone National Domestic Abuse Helpline run by Refuge on 0808 2000 247 or the Men's Advice Line on 0808 801 0327. Contact Galop on 0800 999 5428 for LGBTQ+ support. These numbers are free to call."
 
         -- Definition page
         DefinitionTitle ->
-            "A name for what’s happening"
+            "A name for what's happening"
 
         DefinitionConcise ->
             "No one has the right to control your access to money, housing, and food or limit your right to work or learn. This is a controlling type of abuse called economic abuse. Financial abuse is a type of economic abuse focused on money. All economic abuse can be slow to happen and difficult to see. Sometimes it starts after a relationship has ended. Abusers have many tools."
@@ -208,10 +199,10 @@ t key =
             "I stayed at home to look after the children. It made sense, I felt like he could earn a lot more than me. But nothing was in my name. I hated having to ask for my allowance every week."
 
         DefinitionCategory1Quote2 ->
-            "We were struggling. He would spend any money as soon as I earned it. But he told me that we weren’t scroungers and I couldn’t go and get benefits."
+            "We were struggling. He would spend any money as soon as I earned it. But he told me that we weren't scroungers and I couldn't go and get benefits."
 
         DefinitionCategory1Quote3 ->
-            "Even after we separated, he said that if I didn’t do his washing and cooking, he wouldn’t pay any child maintenance."
+            "Even after we separated, he said that if I didn't do his washing and cooking, he wouldn't pay any child maintenance."
 
         DefinitionCategory2Title ->
             "Limiting how you use what you have"
@@ -220,13 +211,13 @@ t key =
             "You should be able to make your own decisions about how you spend money. Your partner shouldn't make you ask, check your receipts or demand to see a diary. They shouldn't keep financial things secret from you. It's wrong for them to want houses, car, savings and phones to be in their name only or control how you use them."
 
         DefinitionCategory2Quote1 ->
-            "He had access to all of my bank statements and accounts. I didn’t know anything about his finances."
+            "He had access to all of my bank statements and accounts. I didn't know anything about his finances."
 
         DefinitionCategory2Quote2 ->
-            "If I bought anything, anything at all - like one time I needed something to wear to an interview - he’d demand to see exactly how much it cost, then tell me I was wasteful"
+            "If I bought anything, anything at all - like one time I needed something to wear to an interview - he'd demand to see exactly how much it cost, then tell me I was wasteful."
 
         DefinitionCategory2Quote3 ->
-            "We had a joint account but he never paid anything into it. All the bills came out, even the repayments from the car. But it was in his name, not mine. And he wouldn’t let me drive it without begging."
+            "We had a joint account but he never paid anything into it. All the bills came out, even the repayments from the car. But it was in his name, not mine. And he wouldn't let me drive it without begging."
 
         DefinitionCategory3Title ->
             "Sabotaging your status"
@@ -238,7 +229,7 @@ t key =
             "When I found out his new girlfriend was buying big things for him on her credit card the way I had, that sowed the seed of actually, is this a deliberate thing?"
 
         DefinitionCategory3Quote2 ->
-            "He’d walk out of jobs, I was having to work more and more, and he continued to spend as if he was a millionaire. So I was buying from charity shops, even though I had a really good wage."
+            "He'd walk out of jobs, I was having to work more and more, and he continued to spend as if he was a millionaire. So I was buying from charity shops, even though I had a really good wage."
 
         DefinitionCategory3Quote3 ->
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
@@ -256,7 +247,7 @@ t key =
             "I had not consciously realised that economic abuse was taking place… I was so focused on trying to protect myself from physical harm and keep my family safe that I only became aware of the economic abuse and the extent of it once I had left."
 
         DefinitionCategory4Quote3 ->
-            "It’s those subtle ones, isn’t it, like making the sale of a property, the economic abuse through the justice system really. They totally gave him power to carry on the economic abuse, totally."
+            "It's those subtle ones, isn't it, like making the sale of a property, the economic abuse through the justice system really. They totally gave him power to carry on the economic abuse, totally."
 
         DefinitionCategory5Title ->
             "Blaming you"
@@ -268,13 +259,13 @@ t key =
             "I am not a stupid woman. This could happen to anybody."
 
         DefinitionCategory5Quote2 ->
-            "Even after I came out of refuge and a debt charity helped me, I don’t think it clicked that it wasn’t half my fault anyway. Because I think it takes a long time to get over that kind of, “Well, you must be just crap with money then” thinking."
+            "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, “Well, you must be just crap with money then” thinking."
 
         DefinitionCategory5Quote3 ->
-            "If I tried to ask him about money, or show him a bank statement, he’d throw it all back in my face. He’d tell me I drove him to spending the money or that he’d earned up for putting up with me."
+            "If I tried to ask him about money, or show him a bank statement, he'd throw it all back in my face. He'd tell me I drove him to spending the money or that he'd earned up for putting up with me."
 
         SplitterAffirmation ->
-            "It’s not your fault and you are not alone. 1 in 5 people in the UK experience economic abuse from a partner or ex-partner. It can take time but help is out there."
+            "It's not your fault and you are not alone. 1 in 5 people in the UK experience economic abuse from a partner or ex-partner. It can take time but help is out there."
 
         ToGetHelpFromDefinitionLink ->
             "[cCc] People you can talk to"
@@ -435,7 +426,7 @@ t key =
             "Support from survivors"
 
         GetHelpSection1Quote ->
-            "Meeting other people who’ve been through what I’ve been through is such a massive help. It’s amazing to know people who can really understand what I went through."
+            "Meeting other people who've been through what I've been through is such a massive help. It's amazing to know people who can really understand what I went through."
 
         GetHelpSection1Description ->
             "Share your experience with others in our supportive community of economic abuse survivors."
