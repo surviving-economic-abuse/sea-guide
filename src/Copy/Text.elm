@@ -168,7 +168,7 @@ t key =
             "61"
 
         ToDefinitionReassuringText ->
-            "If this sounds familiar know that you’re not alone. "
+            "If this sounds familiar know that you’re not alone."
 
         ToDefinitionFromNotAloneLink ->
             "Find out about economic abuse"
