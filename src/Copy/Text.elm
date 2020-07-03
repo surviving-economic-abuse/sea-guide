@@ -296,7 +296,7 @@ t key =
             "[cCc] Economic Abuse, Statistics and the Law"
 
         ToDefinitionFromHelpSelfLink ->
-            "[cCc] Read an intro to economic abuse"
+            "Read an introduction to economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
             "Read about survivors' experiences"
