@@ -16,13 +16,6 @@ type alias Model =
     { openResources : Set.Set String }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( { openResources = Set.empty }
-    , Cmd.none
-    )
-
-
 type Msg
     = NoOp
     | ToggleResource Key
