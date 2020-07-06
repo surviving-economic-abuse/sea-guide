@@ -65,13 +65,13 @@ suite =
                         |> Query.fromHtml
                         |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromDefinitionLink) ]
-            , test "Definition view has 5 category expander buttons" <|
+            , test "Definition view has 6 category expander buttons" <|
                 \() ->
                     view initModel
                         |> Html.Styled.toUnstyled
                         |> Query.fromHtml
                         |> Query.findAll [ tag "button" ]
-                        |> Query.count (Expect.equal 5)
+                        |> Query.count (Expect.equal 6)
             , test "An open expander shows definition info and quotes" <|
                 \() ->
                     view

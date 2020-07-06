@@ -51,10 +51,15 @@ view model =
     div []
         [ header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
-            , p [ css [ introStyle ] ]
-                [ text (t DefinitionConcise)
-                , text " "
-                , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfCategory5Slug) ] [ text (t DefinitionMoreLink) ]
+            , div [ css [ introStyle ] ]
+                [ p [] [ text (t DefinitionConciseP1) ]
+                , p [] [ text (t DefinitionConciseP2) ]
+                , p []
+                    [ text (t DefinitionConciseP3)
+                    , text " "
+                    , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfCategory5Slug) ]
+                        [ text (t DefinitionMoreLink) ]
+                    ]
                 ]
             ]
         , dl [ css [ categoryListStyle ] ]
@@ -65,6 +70,7 @@ view model =
                 , DefinitionCategory3
                 , DefinitionCategory4
                 , DefinitionCategory5
+                , DefinitionCategory6
                 ]
             )
         , p [] [ text (t SplitterAffirmation) ]
@@ -156,6 +162,7 @@ type DefinitionCategory
     | DefinitionCategory3
     | DefinitionCategory4
     | DefinitionCategory5
+    | DefinitionCategory6
 
 
 categoryKeysFromListPosition : DefinitionCategory -> CategoryDefinition
@@ -208,6 +215,16 @@ categoryKeysFromListPosition listPosition =
                 [ DefinitionCategory5Quote1
                 , DefinitionCategory5Quote2
                 , DefinitionCategory5Quote3
+                ]
+            }
+
+        DefinitionCategory6 ->
+            { title = DefinitionCategory6Title
+            , info = DefinitionCategory6Info
+            , quotes =
+                [ DefinitionCategory6Quote1
+                , DefinitionCategory6Quote2
+                , DefinitionCategory6Quote3
                 ]
             }
 
