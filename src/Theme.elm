@@ -80,6 +80,7 @@ gridStyle =
         [ displayFlex
         , flexWrap wrap
         , margin2 zero (rem -1)
+        , alignItems start
         ]
 
 

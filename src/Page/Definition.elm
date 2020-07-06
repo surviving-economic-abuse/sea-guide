@@ -232,13 +232,6 @@ introStyle =
 -- End of page navigation styling
 
 
-navStyle : Style
-navStyle =
-    Css.batch
-        [ margin2 (rem 2) zero
-        ]
-
-
 navListStyle : Style
 navListStyle =
     batch
