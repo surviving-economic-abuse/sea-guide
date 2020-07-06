@@ -30,7 +30,7 @@ suite =
                     -- Use the first title to ID the div containing all 3 sections
                     |> Query.findAll [ tag "div", containing [ text (t GetHelpSection1Title) ] ]
                     |> Query.first
-                    -- This may be a little granular and repetative
+                    -- This may be a little granular and repetitive
                     |> Query.has
                         [ tag "h2"
                         , containing [ text (t GetHelpSection1Title) ]

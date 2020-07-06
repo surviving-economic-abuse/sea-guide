@@ -26,20 +26,20 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 1 nav link" <|
+        , test "NotAlone view has 7 nav links" <|
             \() ->
                 view initModel
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 1)
-        , test "NotAlone view has nav link to definition" <|
+                    |> Query.count (Expect.equal 7)
+        , test "NotAlone view has nav links to definition" <|
             \() ->
                 view initModel
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
-                    |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
+                    |> Query.findAll [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
+                    |> Query.each (Query.has [ text (t ToDefinitionFromNotAloneLink) ])
         , test "NotAlone view has emergency contact information" <|
             \() ->
                 view initModel
