@@ -5,13 +5,13 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Html.Styled
 import Page.Definition exposing (Msg(..), update, view)
 import Set
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
+import TestUtils exposing (queryFromStyledHtml)
 
 
 suite : Test
@@ -19,27 +19,24 @@ suite =
     let
         initModel =
             { openCategories = Set.empty }
+
+        definition2expandedModel =
+            { openCategories = Set.fromList [ t DefinitionCategory2Title ] }
     in
     describe "Definition Page"
         [ describe "View tests"
             [ test "Definition view has title" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.contains [ Html.text (t DefinitionTitle) ]
             , test "Definition view has 3 nav links" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.findAll [ tag "a" ]
                         |> Query.count (Expect.equal 3)
             , test "Definition view has link to facts and stats resources page" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.find
                             [ tag "a"
                             , attribute
@@ -53,33 +50,22 @@ suite =
                         |> Query.has [ text (t DefinitionMoreLink) ]
             , test "Definition view has nav link to get-help" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                         |> Query.has [ text (t ToGetHelpFromDefinitionLink) ]
             , test "Definition view has nav link to help-self" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromDefinitionLink) ]
             , test "Definition view has 6 category expander buttons" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.findAll [ tag "button" ]
                         |> Query.count (Expect.equal 6)
             , test "An open expander shows definition info and quotes" <|
                 \() ->
-                    view
-                        { initModel
-                            | openCategories = Set.insert (t DefinitionCategory2Title) initModel.openCategories
-                        }
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view definition2expandedModel)
                         |> Query.find
                             [ tag "div"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
@@ -92,12 +78,7 @@ suite =
                             ]
             , test "An open expander does not show info for a different category" <|
                 \() ->
-                    view
-                        { initModel
-                            | openCategories = Set.insert (t DefinitionCategory2Title) initModel.openCategories
-                        }
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view definition2expandedModel)
                         |> Query.find
                             [ tag "dt"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
@@ -112,9 +93,7 @@ suite =
                             ]
             , test "I can toggle a closed expander" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.find
                             [ tag "button"
                             , containing [ text (t DefinitionCategory2Title) ]
@@ -123,12 +102,7 @@ suite =
                         |> Event.expect (ToggleCategory DefinitionCategory2Title)
             , test "I can toggle an open expander" <|
                 \() ->
-                    view
-                        { initModel
-                            | openCategories = Set.insert (t DefinitionCategory2Title) initModel.openCategories
-                        }
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view definition2expandedModel)
                         |> Query.find
                             [ tag "button"
                             , containing [ text (t DefinitionCategory2Title) ]
@@ -137,9 +111,7 @@ suite =
                         |> Event.expect (ToggleCategory DefinitionCategory2Title)
             , test "When all expanders closed, I cannot see info and quotes" <|
                 \() ->
-                    view initModel
-                        |> Html.Styled.toUnstyled
-                        |> Query.fromHtml
+                    queryFromStyledHtml (view initModel)
                         |> Query.findAll
                             [ tag "dl" ]
                         |> Query.each

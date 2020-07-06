@@ -5,12 +5,12 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Html.Styled
 import Page.NotAlone exposing (Msg(..), view)
 import Test exposing (Test, describe, test, todo)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, id, tag, text)
+import TestUtils exposing (..)
 
 
 suite : Test
@@ -22,29 +22,21 @@ suite =
     describe "NotAlone View"
         [ test "NotAlone view has title" <|
             \() ->
-                view initModel
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml (view initModel)
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
         , test "NotAlone view has 1 nav link" <|
             \() ->
-                view initModel
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml (view initModel)
                     |> Query.findAll [ tag "a" ]
                     |> Query.count (Expect.equal 1)
         , test "NotAlone view has nav link to definition" <|
             \() ->
-                view initModel
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml (view initModel)
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
         , test "NotAlone view has emergency contact information" <|
             \() ->
-                view initModel
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml (view initModel)
                     |> Query.find [ id "emergency" ]
                     |> Query.has
                         [ tag "p"
@@ -54,9 +46,7 @@ suite =
                         ]
         , test "When I click the Emergency button, the NotAlone page scrolls to #emergency" <|
             \() ->
-                view initModel
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml (view initModel)
                     |> Query.find [ tag "button", containing [ text (t EmergencyButton) ] ]
                     |> Event.simulate Event.click
                     |> Event.expect ScrollTo
