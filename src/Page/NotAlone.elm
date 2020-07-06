@@ -203,19 +203,38 @@ cardStyles =
         [ backgroundColor colours.lightgrey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
-        , displayFlex
-        , flexDirection column
+        , height auto
         , margin (rem 1)
+        , minHeight (px 200)
         , padding (rem 1)
-        , Css.minHeight (px 200)
         , textAlign left
-        , transition
-            [ Css.Transitions.height3 200 0.5 linear
-            ]
         ]
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
         [ flex3 zero zero twoColumn ]
     ]
+
+
+squashedStyle : Style
+squashedStyle =
+    batch
+        [ maxHeight zero
+        , overflow hidden
+        , transition
+            [ Css.Transitions.maxHeight3 3000 0 easeOut
+            ]
+        ]
+
+
+notSquashedStyle : Style
+notSquashedStyle =
+    batch
+        [ maxHeight (px 500)
+        , height auto
+        , overflow hidden
+        , transition
+            [ Css.Transitions.maxHeight3 3000 0 easeOut
+            ]
+        ]
 
 
 quoteStyle : Style
@@ -228,11 +247,31 @@ quoteStyle =
         ]
 
 
+continueButtonStyle : Style
+continueButtonStyle =
+    batch
+        [ backgroundColor colours.lightgrey
+        , border zero
+        , display block
+        , margin auto
+        , after [ property "content" "' →'" ]
+        ]
+
+
+continueTextStyle : Style
+continueTextStyle =
+    batch
+        [ textDecoration underline
+        ]
+
+
 detailsStyle : Style
 detailsStyle =
     batch
-        [ alignSelf flexEnd
-        , Css.flex3 zero zero (pct 20)
+        [ textAlign right
+        , Css.marginInlineEnd (rem 1)
+        , color colours.purple
+        , fontWeight (int 700)
         ]
 
 
