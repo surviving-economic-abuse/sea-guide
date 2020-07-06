@@ -1,6 +1,6 @@
 module Page.HelpSelfSingle exposing (Model, Msg(..), update, view)
 
-import Copy.Keys exposing (..)
+import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
