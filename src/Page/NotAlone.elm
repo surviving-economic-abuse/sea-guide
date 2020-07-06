@@ -5,6 +5,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
+import Css.Transitions exposing (linear, transition)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
@@ -78,11 +79,7 @@ view model =
 card : Model -> JourneyCard -> Html Msg
 card model journeyCardPosition =
     div
-        [ css
-            [ cardStyle
-            , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-                [ flex3 zero zero twoColumn ]
-            ]
+        [ css cardStyles
         , onClick (ToggleJourney journeyCardPosition)
         ]
         (renderCard model journeyCardPosition)
@@ -103,8 +100,8 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     ]
 
 
@@ -114,10 +111,10 @@ renderRevealedCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ span [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , span [] [ text (t journeyContent.hopeful) ]
-    , span [] [ text (t journeyContent.statement) ]
-    , span [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
+    , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     ]
 
 
@@ -200,26 +197,34 @@ journeyContentFromCardPosition cardPosition =
             }
 
 
-cardStyle : Style
-cardStyle =
-    batch
-        [ border3 (px 2) solid Theme.colours.grey
+cardStyles : List Style
+cardStyles =
+    [ batch
+        [ backgroundColor colours.lightgrey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
         , displayFlex
         , flexDirection column
-        , justifyContent center
         , margin (rem 1)
         , padding (rem 1)
         , Css.minHeight (px 200)
-        , textAlign center
+        , textAlign left
+        , transition
+            [ Css.Transitions.height3 200 0.5 linear
+            ]
         ]
+    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        [ flex3 zero zero twoColumn ]
+    ]
 
 
 quoteStyle : Style
 quoteStyle =
     batch
-        [ Css.flex3 zero zero (pct 60)
+        [ fontSize (rem 1.1)
+        , fontWeight (int 300)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
         ]
 
 
