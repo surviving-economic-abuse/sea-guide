@@ -92,7 +92,7 @@ view model =
 
 renderQuotes : List Key -> Html Msg
 renderQuotes quoteKeys =
-    blockquote [] (List.map (\quoteKey -> p [ css quoteStyle ] [ text (t quoteKey) ]) quoteKeys)
+    blockquote [] (List.map (\quoteKey -> p [ css quoteStyles ] [ text (t quoteKey) ]) quoteKeys)
 
 
 renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
@@ -130,7 +130,7 @@ renderTerm model category =
 renderDefinition : Model -> CategoryDefinition -> Html Msg
 renderDefinition model category =
     if isExpanded model category.title then
-        dd [ css expanderDefinitionStyle ]
+        dd [ css expanderDefinitionStyles ]
             [ p [] [ text (t category.info) ]
             , verticalSpacing
             , renderQuotes category.quotes
@@ -249,13 +249,6 @@ introStyle =
 -- End of page navigation styling
 
 
-navStyle : Style
-navStyle =
-    Css.batch
-        [ margin2 (rem 2) zero
-        ]
-
-
 navListStyle : Style
 navListStyle =
     batch
@@ -331,8 +324,8 @@ expanderItemStyle =
     batch [ marginTop (rem 1) ]
 
 
-expanderDefinitionStyle : List Style
-expanderDefinitionStyle =
+expanderDefinitionStyles : List Style
+expanderDefinitionStyles =
     [ batch
         [ backgroundColor colours.lightgrey
         , borderBottomLeftRadius (rem 1)
@@ -346,8 +339,8 @@ expanderDefinitionStyle =
     ]
 
 
-quoteStyle : List Style
-quoteStyle =
+quoteStyles : List Style
+quoteStyles =
     [ batch
         [ fontSize (rem 1.1)
         , fontWeight (int 300)

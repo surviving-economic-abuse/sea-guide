@@ -53,6 +53,13 @@ globalStyles =
                     ]
                 ]
             ]
+        , typeSelector "blockquote"
+            [ adjacentSiblings
+                [ typeSelector "blockquote"
+                    [ marginTop (rem 1)
+                    ]
+                ]
+            ]
         ]
 
 
@@ -73,6 +80,7 @@ gridStyle =
         [ displayFlex
         , flexWrap wrap
         , margin2 zero (rem -1)
+        , alignItems start
         ]
 
 
