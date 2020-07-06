@@ -16,13 +16,6 @@ type alias Model =
     { openCategories : Set.Set String }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( { openCategories = Set.empty }
-    , Cmd.none
-    )
-
-
 type Msg
     = NoOp
     | ToggleCategory Key
