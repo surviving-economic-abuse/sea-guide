@@ -53,6 +53,13 @@ globalStyles =
                     ]
                 ]
             ]
+        , typeSelector "blockquote"
+            [ adjacentSiblings
+                [ typeSelector "blockquote"
+                    [ marginTop (rem 1)
+                    ]
+                ]
+            ]
         ]
 
 
