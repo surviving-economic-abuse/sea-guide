@@ -30,7 +30,7 @@ update msg model =
             ( model, Cmd.none )
 
         ScrollTo ->
-            ( model, Task.perform (always NoOp) (Dom.setViewport 0 500) )
+            ( model, Task.perform (always NoOp) (Dom.setViewport 0 99999) )
 
         ToggleJourney journeyCardPosition ->
             let
