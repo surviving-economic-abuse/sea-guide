@@ -61,14 +61,6 @@ view model =
             , card model JourneyCard6
             ]
         , verticalSpacing
-        , nav [ css [ navListStyle ] ]
-            [ p [ css [ reassuringStyle ] ]
-                [ text (t ToDefinitionReassuringText) ]
-            , a
-                [ href (t DefinitionPageSlug), css (navLinkStyle :: navItemStyles) ]
-                [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
-            ]
-        , verticalSpacing
         , div [ css [ emergencyContactStyle ], id "emergency" ]
             [ p [] [ text (t EmergencyReassure) ]
             , p [] [ text (t EmergencyContactInfo) ]
