@@ -89,7 +89,7 @@ cardStyle =
         , margin2 (rem 1) zero
         , maxWidth (pct 100)
         , padding (rem 1)
-        , Css.width (rem 30)
+        , width (rem 30)
         ]
 
     -- Allow more padding space on larger screens
@@ -116,7 +116,7 @@ linkStyle : Style
 linkStyle =
     batch
         [ backgroundColor colours.purple
-        , Css.borderRadius (rem 0.5)
+        , borderRadius (rem 0.5)
         , color colours.white
         , display block
         , padding (rem 0.5)

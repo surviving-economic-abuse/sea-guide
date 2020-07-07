@@ -67,10 +67,10 @@ blockLinkStyle =
         , flexDirection column
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1.25)
-        , Css.height (pct 100)
+        , height (pct 100)
         , justifyContent center
         , textDecoration none
-        , Css.width (pct 100)
+        , width (pct 100)
         ]
 
 
@@ -81,6 +81,6 @@ cardStyle =
         , borderRadius (rem 1)
         , flex3 zero zero twoColumn
         , margin (rem 1)
-        , Css.minHeight (px 150)
+        , minHeight (px 150)
         , textAlign center
         ]

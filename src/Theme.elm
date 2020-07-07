@@ -68,7 +68,7 @@ globalStyles =
 -}
 pageHeadingStyle : Style
 pageHeadingStyle =
-    Css.batch
+    batch
         [ fontSize (rem 1.8)
         , margin2 (rem 2) zero
         , textAlign center
@@ -149,7 +149,7 @@ navLinkStyle : Style
 navLinkStyle =
     batch
         [ backgroundColor colours.darkpurple
-        , Css.borderRadius (rem 0.5)
+        , borderRadius (rem 0.5)
         , color colours.white
         , display block
         , padding (rem 0.5)

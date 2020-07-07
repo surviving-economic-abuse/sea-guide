@@ -224,13 +224,13 @@ categoryKeysFromListPosition listPosition =
 
 categoryListStyle : Style
 categoryListStyle =
-    Css.batch
+    batch
         [ margin2 (rem 2) zero ]
 
 
 introStyle : Style
 introStyle =
-    Css.batch
+    batch
         [ color colours.purple
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1)
