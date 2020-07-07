@@ -105,7 +105,7 @@ twoColumn =
 threeColumn : Css.CalculatedLength
 -}
 threeColumn =
-    calc (pct 33) minus (rem 2)
+    calc (pct 33.33) minus (rem 2)
 
 
 {-| A div with known vertical margin
@@ -151,8 +151,11 @@ navLinkStyle =
         [ backgroundColor colours.darkpurple
         , borderRadius (rem 0.5)
         , color colours.white
-        , display block
+        , displayFlex
+        , flexDirection column
+        , justifyContent center
         , padding (rem 0.5)
+        , minHeight (rem 4)
         , textAlign center
         , textDecoration none
         , width (pct 100)
