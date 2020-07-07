@@ -10,7 +10,7 @@ import Test exposing (Test, describe, test, todo)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, id, tag, text)
-import TestUtils exposing (..)
+import TestUtils exposing (queryFromStyledHtml)
 
 
 suite : Test
