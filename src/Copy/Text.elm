@@ -171,7 +171,7 @@ t key =
             "read how things got better"
 
         ToDefinitionReassuringText ->
-            "If this sounds familiar know that you’re not alone."
+            "If this sounds familiar know that you're not alone."
 
         ToDefinitionFromNotAloneLink ->
             "Find out about economic abuse"
@@ -187,19 +187,25 @@ t key =
 
         -- Definition page
         DefinitionTitle ->
-            "A name for what's happening"
+            "Understanding what's happening to you"
 
-        DefinitionConcise ->
-            "No one has the right to control your access to money, housing, and food or limit your right to work or learn. This is a controlling type of abuse called economic abuse. Financial abuse is a type of economic abuse focused on money. All economic abuse can be slow to happen and difficult to see. Sometimes it starts after a relationship has ended. Abusers have many tools."
+        DefinitionConciseP1 ->
+            "Has your partner used your bank cards without asking? Do they stop you from earning money or going to work? Have they ever stolen money from you? Or damaged or destroyed your things?"
+
+        DefinitionConciseP2 ->
+            "Who has control over all the finances? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
+
+        DefinitionConciseP3 ->
+            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control and sabotage other areas of your life including housing, food and clothing. This is known as economic abuse, and it is commonly experienced within a context of abuse known as coercive control."
 
         DefinitionMoreLink ->
-            "Link to Legal definition and statistics"
+            "Find out more about the signs of economic abuse."
 
         DefinitionCategory1Title ->
-            "Controlling how you get money and resources"
+            "Controlling how you access money"
 
         DefinitionCategory1Info ->
-            "Your partner should not stop you going to work, decide your hours or prevent you learning. They should never take your pay. You have a right to your own bank account and to claim benefits if you need them. They should never demand things from you in return for money."
+            "An abuser may try to stop you from accessing money. Maybe they've said you should no longer be working, or told you to limit the hours you do. They might tell you your salary should be paid into their personal account and that you don't need your own bank account. If you're not working, they might have told you not to claim any benefits."
 
         DefinitionCategory1Quote1 ->
             "I stayed at home to look after the children. It made sense, I felt like he could earn a lot more than me. But nothing was in my name. I hated having to ask for my allowance every week."
@@ -211,10 +217,10 @@ t key =
             "Even after we separated, he said that if I didn't do his washing and cooking, he wouldn't pay any child maintenance."
 
         DefinitionCategory2Title ->
-            "Limiting how you use what you have"
+            "Controlling what you spend money on"
 
         DefinitionCategory2Info ->
-            "You should be able to make your own decisions about how you spend money. Your partner shouldn't make you ask, check your receipts or demand to see a diary. They shouldn't keep financial things secret from you. It's wrong for them to want houses, car, savings and phones to be in their name only or control how you use them."
+            "An abuser may tell you what you can and can't spend your money on and when. They might ask to see receipts from the weekly food shop or give you an allowance spending. You might have to count every penny or justify every single purchase. An abuser might take control of your things - from your phone to your car. Or they may have insisted that all assets, such as savings or the house, are put in their name. While demanding this from you, they might keep their own finances very secret."
 
         DefinitionCategory2Quote1 ->
             "He had access to all of my bank statements and accounts. I didn't know anything about his finances."
@@ -226,10 +232,10 @@ t key =
             "We had a joint account but he never paid anything into it. All the bills came out, even the repayments from the car. But it was in his name, not mine. And he wouldn't let me drive it without begging."
 
         DefinitionCategory3Title ->
-            "Sabotaging your status"
+            "Sabotaging your finances and economic resources"
 
         DefinitionCategory3Info ->
-            "Your partner or ex has no right to put bills, loans, credit cards and other debts in your name and leave you to pay them. It is wrong for them to make you pay for all the household costs and wrong to take money that you need for bills. These are all as wrong as stealing money or things from you or damaging your things."
+            "An abuser may try to sabotage your finances or whatever economic resources you do have. They might steal money or property from you or may cause damage to your property to devalue the house. Abusers might spend the money set aside for savings or holidays or bills or force all credit cards and bills to be in your name."
 
         DefinitionCategory3Quote1 ->
             "When I found out his new girlfriend was buying big things for him on her credit card the way I had, that sowed the seed of actually, is this a deliberate thing?"
@@ -241,37 +247,52 @@ t key =
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         DefinitionCategory4Title ->
-            "Threatening you"
+            "Taking advantage of your finances and economic resources"
 
         DefinitionCategory4Info ->
-            "Abusers use threats to make their abuse worse. It is not your fault. If your partner threatens you with violence and you spend money to stay safe, those debts are their fault not yours. If you make decisions to keep your children safe that is their fault not yours. If they threaten you with the legal system, with their power and knowledge that is even more abuse."
+            "An abuser may attempt to take advantage of the economic resources you do have. This may mean refusing to contribute to household costs like utility bills or the running of the car, taking your wages or benefits from you, or running up debt in your name."
 
         DefinitionCategory4Quote1 ->
-            "He watched me entering my PIN and stole money from my bank account, threatening harm if I changed it."
+            "My salary had gone into his business account, of which he had sole sign-off on. I suddenly had very limited access to money, and would have to have a very specific need for him to grant me any."
 
         DefinitionCategory4Quote2 ->
-            "I had not consciously realised that economic abuse was taking place… I was so focused on trying to protect myself from physical harm and keep my family safe that I only became aware of the economic abuse and the extent of it once I had left."
+            "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
 
         DefinitionCategory4Quote3 ->
-            "It's those subtle ones, isn't it, like making the sale of a property, the economic abuse through the justice system really. They totally gave him power to carry on the economic abuse, totally."
+            "I was with an abusive partner for five years. Throughout the relationship he managed to get me into £30,000 worth of debt. I will be in debt for the next 20 years of my life."
 
         DefinitionCategory5Title ->
-            "Blaming you"
+            "Threatening you"
 
         DefinitionCategory5Info ->
-            "Abusers will try to make you believe their abuse is your fault.It is not true that you let your partner run up debts or that you make them destroy your things. It is not true that you are worthless or silly or that you are not capable of managing your own money. These are weapons they use."
+            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone. In immediate danger? [cCc] LINK Get help here."
 
         DefinitionCategory5Quote1 ->
-            "I am not a stupid woman. This could happen to anybody."
+            "He watched me entering my PIN and stole money from my bank account, threatening me if I changed it."
 
         DefinitionCategory5Quote2 ->
-            "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, “Well, you must be just crap with money then” thinking."
+            "My ex made me run up debts on them which are now unaffordable for me to repay. He would push me against a wall, put his hands around my throat if I didn't give him money."
 
         DefinitionCategory5Quote3 ->
-            "If I tried to ask him about money, or show him a bank statement, he'd throw it all back in my face. He'd tell me I drove him to spending the money or that he'd earned up for putting up with me."
+            "If I didn't have enough cash to pay for what he wanted, he would give me an ultimatum – what would cost more: to buy him what he wanted or the cost of the damage he would do when he smashed everything in sight. So I got my credit card out and ended up with £3,000 worth of debt."
+
+        DefinitionCategory6Title ->
+            "Manipulating or coercing you"
+
+        DefinitionCategory6Info ->
+            "Economic abuse can be hard to spot and often happens without you realising. It can start slowly and could begin with behaviour that at first seems protective or caring. E.g. offering to take care of all the finances or encouraging you not to work so that you can look after the children. Overspending, and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing, and it can continue after leaving."
+
+        DefinitionCategory6Quote1 ->
+            "I am not a stupid woman. This could happen to anybody."
+
+        DefinitionCategory6Quote2 ->
+            "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, \"Well, you must be just crap with money then\" thinking."
+
+        DefinitionCategory6Quote3 ->
+            "I often wonder how I got here. I got married to this charming man in the legal profession and we had children. But it was after I got married that I was systematically and unwittingly socially isolated, psychologically, emotionally, financially abused and controlled."
 
         SplitterAffirmation ->
-            "It's not your fault and you are not alone. 1 in 5 people in the UK experience economic abuse from a partner or ex-partner. It can take time but help is out there."
+            "If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point. And more than ever before, there are people and organisations who understand and who can help."
 
         ToGetHelpFromDefinitionLink ->
             "Find people to talk to"

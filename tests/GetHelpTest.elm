@@ -5,11 +5,11 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Html.Styled
 import Page.GetHelp exposing (view)
 import Test exposing (Test, describe, test)
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
+import TestUtils exposing (queryFromStyledHtml)
 
 
 suite : Test
@@ -17,15 +17,11 @@ suite =
     describe "GetHelp View"
         [ test "GetHelp view has title" <|
             \() ->
-                view
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml view
                     |> Query.contains [ Html.text (t GetHelpTitle) ]
         , test "GetHelp view has 3 well formed call to action sections" <|
             \() ->
-                view
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml view
                     -- Use the first title to ID the div containing all 3 sections
                     |> Query.findAll [ tag "div", containing [ text (t GetHelpSection1Title) ] ]
                     |> Query.first
@@ -58,9 +54,7 @@ suite =
                         ]
         , test "GetHelp view has nav link to help-self" <|
             \() ->
-                view
-                    |> Html.Styled.toUnstyled
-                    |> Query.fromHtml
+                queryFromStyledHtml view
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                     |> Query.has [ text (t ToHelpSelfFromGetHelpLink) ]
         ]

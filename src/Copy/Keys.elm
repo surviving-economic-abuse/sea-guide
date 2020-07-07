@@ -64,7 +64,9 @@ type Key
     | EmergencyContactInfo
       -- Definition page
     | DefinitionTitle
-    | DefinitionConcise
+    | DefinitionConciseP1
+    | DefinitionConciseP2
+    | DefinitionConciseP3
     | DefinitionMoreLink
     | DefinitionCategory1Title
     | DefinitionCategory1Info
@@ -91,6 +93,11 @@ type Key
     | DefinitionCategory5Quote1
     | DefinitionCategory5Quote2
     | DefinitionCategory5Quote3
+    | DefinitionCategory6Title
+    | DefinitionCategory6Info
+    | DefinitionCategory6Quote1
+    | DefinitionCategory6Quote2
+    | DefinitionCategory6Quote3
     | SplitterAffirmation
     | ToGetHelpFromDefinitionLink
     | ToHelpSelfFromDefinitionLink
