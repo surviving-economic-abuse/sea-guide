@@ -84,6 +84,7 @@ cardStyle : List Style
 cardStyle =
     [ batch
         [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
         , borderRadius (rem 1)
         , margin2 (rem 1) zero
         , maxWidth (pct 100)
@@ -100,8 +101,12 @@ cardStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ fontSize (rem 1.1)
+        [ borderLeft3 (px 5) solid colours.midgrey
+        , borderRadius (px 5)
+        , fontSize (rem 1.1)
+        , fontStyle italic
         , fontWeight (int 300)
+        , paddingLeft (px 10)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         ]
