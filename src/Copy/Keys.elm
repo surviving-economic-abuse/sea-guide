@@ -56,6 +56,7 @@ type Key
     | Journey6Statement
     | Journey6Name
     | Journey6Age
+    | ExpandQuoteButton
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
     | EmergencyButton

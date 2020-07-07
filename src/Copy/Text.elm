@@ -167,6 +167,9 @@ t key =
         Journey6Age ->
             "61"
 
+        ExpandQuoteButton ->
+            "read how things got better"
+
         ToDefinitionReassuringText ->
             "If this sounds familiar know that you're not alone."
 

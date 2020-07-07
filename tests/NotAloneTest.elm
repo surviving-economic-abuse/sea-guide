@@ -6,7 +6,7 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Page.NotAlone exposing (Msg(..), view)
-import Test exposing (Test, describe, test, todo)
+import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, id, tag, text)
@@ -24,16 +24,17 @@ suite =
             \() ->
                 queryFromStyledHtml (view initModel)
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 1 nav link" <|
+        , test "NotAlone view has 6 nav links" <|
             \() ->
                 queryFromStyledHtml (view initModel)
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 1)
-        , test "NotAlone view has nav link to definition" <|
+                    |> Query.count (Expect.equal 6)
+        , test "NotAlone view has nav links to definition" <|
             \() ->
                 queryFromStyledHtml (view initModel)
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
-                    |> Query.has [ text (t ToDefinitionFromNotAloneLink) ]
+                    |> Query.findAll [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
+                    |> Query.each (Query.has [ text (t ToDefinitionFromNotAloneLink) ])
+
         , test "NotAlone view has emergency contact information" <|
             \() ->
                 queryFromStyledHtml (view initModel)
@@ -52,6 +53,7 @@ suite =
                     |> Event.expect ScrollTo
 
         -- todo "I can toggle journey content from hidden to revealed"
+        -- todo "If a card is open, there is a nav link that isn't display: none"
         -- todo "I can toggle journey content from revealed to hidden"
         -- todo "More coverage?"
         ]
