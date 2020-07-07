@@ -269,6 +269,7 @@ expanderButtonStyle =
         [ alignItems center
         , backgroundColor (hex "4f2f8d")
         , border zero
+        , cursor pointer
         , justifyContent spaceBetween
         , textAlign left
         , displayFlex
