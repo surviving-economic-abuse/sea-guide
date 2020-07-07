@@ -26,20 +26,26 @@ t key =
         HelpSelfGridPageSlug ->
             "help-self"
 
-        HelpSelfCategory1Slug ->
-            "covid"
-
-        HelpSelfCategory2Slug ->
+        HelpSelfBankingSlug ->
             "banking"
 
-        HelpSelfCategory3Slug ->
+        HelpSelfDebtSlug ->
             "debt"
 
-        HelpSelfCategory4Slug ->
+        HelpSelfHousingSlug ->
             "housing"
 
-        HelpSelfCategory5Slug ->
+        HelpSelfFinancialSlug ->
+            "financial-support"
+
+        HelpSelfCovidSlug ->
+            "covid-and-finances"
+
+        HelpSelfInfoLawSlug ->
             "facts-about-economic-abuse"
+
+        HelpSelfSeparatingSlug ->
+            "separating-finances"
 
         -- add string arg here with case for each category
         HelpSelfSinglePageSlug category ->
@@ -55,22 +61,22 @@ t key =
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory1Resource1Href ->
+        HelpSelfBankingResource1Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory2Resource1Href ->
+        HelpSelfDebtResource1Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory2Resource2Href ->
+        HelpSelfDebtResource2Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory2Resource3Href ->
+        HelpSelfDebtResource3Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory3Resource1Href ->
+        HelpSelfHousingResource1Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfCategory3Resource2Href ->
+        HelpSelfHousingResource2Href ->
             "https://example.com/[cCc]"
 
         -- Not Alone page
@@ -302,148 +308,162 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            "[cCc] Help Me with..."
+            "Help me with..."
 
-        HelpSelfCategory1Link ->
-            "[cCc] COVID-19"
+        HelpSelfBankingLink ->
+            ""
 
-        HelpSelfCategory2Link ->
-            "[cCc] Banking"
+        HelpSelfDebtLink ->
+            ""
 
-        HelpSelfCategory3Link ->
-            "[cCc] Debt"
+        HelpSelfHousingLink ->
+            ""
 
-        HelpSelfCategory4Link ->
-            "[cCc] Housing"
+        HelpSelfFinancialLink ->
+            ""
 
-        HelpSelfCategory5Link ->
-            "[cCc] Economic Abuse, Statistics and the Law"
+        HelpSelfCovidLink ->
+            ""
+
+        HelpSelfInfoLawLink ->
+            ""
+
+        HelpSelfSeparatingLink ->
+            ""
 
         ToDefinitionFromHelpSelfLink ->
-            "Read an introduction to economic abuse"
+            ""
 
         ToNotAloneFromHelpSelfLink ->
-            "Read about survivors' experiences"
+            ""
 
         ToGetHelpFromHelpSelfLink ->
-            "Find people to talk to"
+            ""
 
         ToHelpSelfFromSingleCategoryLink ->
-            "Choose another topic"
+            ""
 
-        -- Help Self Single Category 404
+        -- Help Self single Category 404
         HelpSelfCategoryNotFoundTitle ->
-            "[cCc] 404 Not found"
+            "404 Topic not found."
 
-        -- Help Self Single Category1
-        HelpSelfCategory1Title ->
-            "[cCc] Help in times of COVID"
+        -- Help Self single Banking
+        HelpSelfBankingTitle ->
+            ""
 
-        HelpSelfCategory1Resource1Title ->
-            "[cCc] Economic abuse and the coronavirus outbreak"
+        HelpSelfBankingResource1Title ->
+            ""
 
-        HelpSelfCategory1Resource1Quote1 ->
-            "[cCc] I was worried about stuff during the outbreak, but this information sheet helped me take steps towards feeling safer."
+        HelpSelfBankingResource1Quote1 ->
+            ""
 
-        HelpSelfCategory1Resource1Quote2 ->
-            "[cCc] I wasn't sure what to do about work when I found out my kids couldn't go in to school, but then I read that I was entitled to take time off. It helped me know what to say to my boss."
+        HelpSelfBankingResource1Quote2 ->
+            ""
 
-        HelpSelfCategory1Resource1Summary ->
-            "[cCc] This pdf has suggestions for a lot of little things you can do to help during lockdown. I can help with understanding rights around employment, benefits and bills and advice around supporting your chilren."
+        HelpSelfBankingResource1Summary ->
+            ""
 
-        HelpSelfCategory1Resource1Link ->
-            "[cCc] Get information to help you during the outbreak"
+        HelpSelfBankingResource1Link ->
+            ""
 
-        -- Help Self Single Category2
-        HelpSelfCategory2Title ->
-            "[cCc] Help with Banking"
+        -- Help Self single Debt
+        HelpSelfDebtTitle ->
+            ""
 
-        HelpSelfCategory2Resource1Title ->
-            "[cCc] How banks can help"
+        HelpSelfDebtResource1Title ->
+            ""
 
-        HelpSelfCategory2Resource1Quote1 ->
-            "[cCc] After reading about banking and economic abuse, I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
+        HelpSelfDebtResource1Quote1 ->
+            ""
 
-        HelpSelfCategory2Resource1Quote2 ->
-            "[cCc] Another short quote about experience using the resource."
+        HelpSelfDebtResource1Quote2 ->
+            ""
 
-        HelpSelfCategory2Resource1Summary ->
-            "[cCc] If a current or former partner has interfered with your money or other economic resources in some way to limit your choices, this information is for you. It outlines how your bank or building society can support you if you have experienced economic abuse."
+        HelpSelfDebtResource1Summary ->
+            ""
 
-        HelpSelfCategory2Resource1Link ->
-            "[cCc] Find more information about how banks can help"
+        HelpSelfDebtResource1Link ->
+            ""
 
-        HelpSelfCategory2Resource2Title ->
-            "[cCc] Opening a new bank account safely"
+        HelpSelfDebtResource2Title ->
+            ""
 
-        HelpSelfCategory2Resource2Quote1 ->
-            "[cCc] I found out I could ask to speak to the vulnerable customer team. After that the bank always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
+        HelpSelfDebtResource2Quote1 ->
+            ""
 
-        HelpSelfCategory2Resource2Quote2 ->
-            "[cCc] Another quote about how the resource can help."
+        HelpSelfDebtResource2Quote2 ->
+            ""
 
-        HelpSelfCategory2Resource2Summary ->
-            "[cCc] If you are experiencing economic abuse, opening a bank account independent of the abuser, can be one of the most important steps you take towards regaining control of your finances. This information is designed to provide practical tips on opening a new bank account safely, and to guide your interactions with the bank if you wish to open a new account."
+        HelpSelfDebtResource2Summary ->
+            ""
 
-        HelpSelfCategory2Resource2Link ->
-            "[cCc] Find out how to get help from your bank"
+        HelpSelfDebtResource2Link ->
+            ""
 
-        HelpSelfCategory2Resource3Title ->
-            "[cCc] title banking 3"
+        HelpSelfDebtResource3Title ->
+            ""
 
-        HelpSelfCategory2Resource3Quote1 ->
-            "[cCc] quote banking 3 1"
+        HelpSelfDebtResource3Quote1 ->
+            ""
 
-        HelpSelfCategory2Resource3Quote2 ->
-            "[cCc] quote banking 3 2"
+        HelpSelfDebtResource3Quote2 ->
+            ""
 
-        HelpSelfCategory2Resource3Summary ->
-            "[cCc] summary banking  3"
+        HelpSelfDebtResource3Summary ->
+            ""
 
-        HelpSelfCategory2Resource3Link ->
-            "[cCc] Link to resource banking 3"
+        HelpSelfDebtResource3Link ->
+            ""
 
-        -- Help Self Single Category3
-        HelpSelfCategory3Title ->
-            "[cCc] Help with Debt"
+        -- Help Self single Housing
+        HelpSelfHousingTitle ->
+            ""
 
-        HelpSelfCategory3Resource1Title ->
-            "[cCc] title debt 1"
+        HelpSelfHousingResource1Title ->
+            ""
 
-        HelpSelfCategory3Resource1Quote1 ->
-            "[cCc] quote debt 1 1"
+        HelpSelfHousingResource1Quote1 ->
+            ""
 
-        HelpSelfCategory3Resource1Quote2 ->
-            "[cCc] quote debt 1 2"
+        HelpSelfHousingResource1Quote2 ->
+            ""
 
-        HelpSelfCategory3Resource1Summary ->
-            "[cCc] summary debt 1"
+        HelpSelfHousingResource1Summary ->
+            ""
 
-        HelpSelfCategory3Resource1Link ->
-            "[cCc] Link to resource debt 1"
+        HelpSelfHousingResource1Link ->
+            ""
 
-        HelpSelfCategory3Resource2Title ->
-            "[cCc] title debt 2"
+        HelpSelfHousingResource2Title ->
+            ""
 
-        HelpSelfCategory3Resource2Quote1 ->
-            "[cCc] quote debt 2 1"
+        HelpSelfHousingResource2Quote1 ->
+            ""
 
-        HelpSelfCategory3Resource2Quote2 ->
-            "[cCc] quote debt 2 2"
+        HelpSelfHousingResource2Quote2 ->
+            ""
 
-        HelpSelfCategory3Resource2Summary ->
-            "[cCc] Summary debt 2"
+        HelpSelfHousingResource2Summary ->
+            ""
 
-        HelpSelfCategory3Resource2Link ->
-            "[cCc] Link to resource debt 2"
+        HelpSelfHousingResource2Link ->
+            ""
 
-        -- Help Self Single Category4
-        HelpSelfCategory4Title ->
-            "[cCc] Help with Housing"
+        -- Help Self Single Financial Support
+        HelpSelfFinancialTitle ->
+            ""
 
-        -- Help Self Single Category5
-        HelpSelfCategory5Title ->
-            "[cCc] Help understanding Economic Abuse"
+        -- Help Self Single Covid
+        HelpSelfCovidTitle ->
+            ""
+
+        -- Help Self Single Info, Stats and Law
+        HelpSelfInfoLawTitle ->
+            ""
+
+        -- Help Self Single Separating Finances from Ex
+        HelpSelfSeparatingTitle ->
+            ""
 
         -- Get Help page
         GetHelpTitle ->
