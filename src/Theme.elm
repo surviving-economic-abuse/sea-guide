@@ -69,9 +69,11 @@ globalStyles =
 pageHeadingStyle : Style
 pageHeadingStyle =
     Css.batch
-        [ fontSize (rem 2.5)
+        [ fontSize (rem 1.8)
         , margin2 (rem 2) zero
         , textAlign center
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ fontSize (rem 2.5) ]
         ]
 
 
