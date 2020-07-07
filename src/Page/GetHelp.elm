@@ -122,6 +122,9 @@ linkStyle =
         , padding (rem 0.5)
         , textAlign center
         , textDecoration none
+        , hover
+            [ backgroundColor colours.darkpurple
+            ]
         ]
 
 

@@ -71,6 +71,9 @@ blockLinkStyle =
         , justifyContent center
         , textDecoration none
         , width (pct 100)
+        , hover
+            [ borderColor colours.purple
+            ]
         ]
 
 

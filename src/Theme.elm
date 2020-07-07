@@ -156,4 +156,7 @@ navLinkStyle =
         , textAlign center
         , textDecoration none
         , width (pct 100)
+        , hover
+            [ backgroundColor colours.purple
+            ]
         ]
