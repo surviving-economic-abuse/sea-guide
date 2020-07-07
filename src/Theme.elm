@@ -7,13 +7,14 @@ import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
 
-colours : { purple : Color, darkpurple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, white : Color }
+colours : { purple : Color, darkpurple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, midgrey : Color, white : Color }
 colours =
     { purple = hex "4F2F8D"
     , darkpurple = hex "321f40"
     , green = hex "9CCC54"
     , teal = hex "3CC0BE"
     , grey = hex "58585A"
+    , midgrey = hex "dedae7"
     , lightgrey = hex "f4f4f6"
     , white = hex "FFFFFF"
     }

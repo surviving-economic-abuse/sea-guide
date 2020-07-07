@@ -10,7 +10,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Task
-import Theme exposing (colours, gridStyle, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
+import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
 
 
 type alias Model =
@@ -100,19 +100,20 @@ renderInitCard journeyCardPosition =
             journeyContentFromCardPosition journeyCardPosition
     in
     [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , div [ css [ squashedStyle ] ]
+    , div [ css [ closedStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
         ]
     , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
+    , verticalSpacing
     , button [ css [ continueButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
-        [ span [ css [ continueTextStyle ] ] [ text "continue journey" ]
+        [ span [ css [ continueTextStyle ] ] [ text (t ExpandQuoteButton) ]
         ]
-    , div [ css [ squashedStyle ] ]
-        [ p [ css [ reassuringStyle ] ]
+    , div [ css [ closedStyle ] ]
+        [ p []
             [ text (t ToDefinitionReassuringText) ]
         , a
-            [ href (t DefinitionPageSlug), css (navLinkStyle :: navItemStyles) ]
+            [ href (t DefinitionPageSlug) ]
             [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
         ]
     ]
@@ -125,16 +126,16 @@ renderRevealedCard journeyCardPosition =
             journeyContentFromCardPosition journeyCardPosition
     in
     [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , div [ css [ notSquashedStyle ] ]
+    , div [ css [ openStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
         ]
     , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
-    , div [ css [ notSquashedStyle ] ]
+    , div [ css [ openStyle ] ]
         [ p [ css [ reassuringStyle ] ]
             [ text (t ToDefinitionReassuringText) ]
         , a
-            [ href (t DefinitionPageSlug), css (navLinkStyle :: navItemStyles) ]
+            [ href (t DefinitionPageSlug), css [ navLinkStyle ] ]
             [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
         ]
     ]
@@ -223,38 +224,42 @@ cardStyles : List Style
 cardStyles =
     [ batch
         [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
         , height auto
         , margin (rem 1)
-        , minHeight (px 200)
         , padding (rem 1)
         , textAlign left
         ]
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-        [ flex3 zero zero twoColumn ]
+        [ flex3 zero zero twoColumn
+        , padding (rem 2)
+        ]
     ]
 
 
-squashedStyle : Style
-squashedStyle =
+closedStyle : Style
+closedStyle =
     batch
         [ maxHeight zero
         , overflow hidden
+        , display none
         , transition
-            [ Css.Transitions.maxHeight3 3000 0 easeOut
+            [ Css.Transitions.maxHeight3 0 0 easeOut
             ]
         ]
 
 
-notSquashedStyle : Style
-notSquashedStyle =
+openStyle : Style
+openStyle =
     batch
         [ maxHeight (px 500)
         , height auto
+        , marginTop (rem 1)
         , overflow hidden
         , transition
-            [ Css.Transitions.maxHeight3 3000 0 easeOut
+            [ Css.Transitions.maxHeight3 1000 0 easeOut
             ]
         ]
 
@@ -284,6 +289,7 @@ continueTextStyle : Style
 continueTextStyle =
     batch
         [ textDecoration underline
+        , color colours.grey
         ]
 
 
