@@ -8,7 +8,6 @@ import Html.Attributes
 import Html.Styled
 import Page.GetHelp exposing (view)
 import Test exposing (Test, describe, test)
-import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
 

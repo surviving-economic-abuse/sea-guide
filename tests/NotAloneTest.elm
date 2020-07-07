@@ -7,7 +7,7 @@ import Html
 import Html.Attributes
 import Html.Styled
 import Page.NotAlone exposing (Msg(..), view)
-import Test exposing (Test, describe, test, todo)
+import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, id, tag, text)
@@ -26,13 +26,13 @@ suite =
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 7 nav links" <|
+        , test "NotAlone view has 6 nav links" <|
             \() ->
                 view initModel
                     |> Html.Styled.toUnstyled
                     |> Query.fromHtml
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 7)
+                    |> Query.count (Expect.equal 6)
         , test "NotAlone view has nav links to definition" <|
             \() ->
                 view initModel
@@ -62,6 +62,7 @@ suite =
                     |> Event.expect ScrollTo
 
         -- todo "I can toggle journey content from hidden to revealed"
+        -- todo "If a card is open, there is a nav link that isn't display: none"
         -- todo "I can toggle journey content from revealed to hidden"
         -- todo "More coverage?"
         ]
