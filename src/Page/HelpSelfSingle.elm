@@ -105,7 +105,7 @@ renderResourceDetails resource =
 
 renderQuotes : List Key -> List (Html msg)
 renderQuotes quoteKeys =
-    List.map (\quoteKey -> blockquote [] [ p [ css quoteStyles ] [ text (t quoteKey) ] ]) quoteKeys
+    List.map (\quoteKey -> blockquote [] [ p [ css [ quoteStyle ] ] [ text (t quoteKey) ] ]) quoteKeys
 
 
 isExpanded : Model -> Key -> Bool
@@ -209,6 +209,7 @@ expanderButtonStyle =
         [ alignItems center
         , backgroundColor (hex "4f2f8d")
         , border zero
+        , cursor pointer
         , justifyContent spaceBetween
         , textAlign left
         , displayFlex
@@ -261,6 +262,7 @@ expanderDefinitionStyle : List Style
 expanderDefinitionStyle =
     [ batch
         [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
         , borderBottomLeftRadius (rem 1)
         , borderBottomRightRadius (rem 1)
         , padding (rem 1)
@@ -272,15 +274,18 @@ expanderDefinitionStyle =
     ]
 
 
-quoteStyles : List Style
-quoteStyles =
-    [ batch
-        [ fontSize (rem 1.1)
+quoteStyle : Style
+quoteStyle =
+    batch
+        [ borderLeft3 (px 5) solid colours.midgrey
+        , borderRadius (px 5)
+        , fontSize (rem 1.1)
+        , fontStyle italic
         , fontWeight (int 300)
+        , paddingLeft (px 10)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
         ]
-    , before [ property "content" "'\"'" ]
-    , after [ property "content" "'\"'" ]
-    ]
 
 
 resourceLinkStyle : Style

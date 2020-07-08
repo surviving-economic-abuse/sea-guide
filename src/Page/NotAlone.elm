@@ -290,7 +290,7 @@ detailsStyle : Style
 detailsStyle =
     batch
         [ textAlign right
-        , Css.marginInlineEnd (rem 1)
+        , marginInlineEnd (rem 1)
         , color colours.purple
         , fontWeight (int 700)
         ]
