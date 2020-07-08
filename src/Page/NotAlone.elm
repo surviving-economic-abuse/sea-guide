@@ -30,7 +30,8 @@ update msg model =
             ( model, Cmd.none )
 
         ScrollTo ->
-            ( model, Task.perform (always NoOp) (Dom.setViewport 0 500) )
+            -- setViewport to a large number forces it to the bottom of the page
+            ( model, Task.perform (always NoOp) (Dom.setViewport 0 99999) )
 
         ToggleJourney journeyCardPosition ->
             let
