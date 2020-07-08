@@ -62,31 +62,31 @@ t key =
             "https://example.com/[cCc]"
 
         HelpSelfBankingResource1Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
 
         HelpSelfBankingResource2Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Opening-a-bank-account.pdf"
 
         HelpSelfDebtResource1Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Coerced-debt.pdf"
 
         HelpSelfDebtResource2Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/04/Asking-for-a-debt-to-be-written-off.pdf"
 
         HelpSelfDebtResource3Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-your-credit-report.pdf"
 
         HelpSelfHousingResource1Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/11/A-safe-place-to-live.pdf"
 
         HelpSelfFinancialResource1Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/02/Grants-and-financial-help.pdf"
 
         HelpSelfFinancialResource2Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/02/Economic-abuse-and-supporting-children.pdf"
 
         HelpSelfFinancialResource3Href ->
-            "https://example.com/[cCc]"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-no-recourse.pdf"
 
         -- Not Alone page
         NotAloneTitle ->
