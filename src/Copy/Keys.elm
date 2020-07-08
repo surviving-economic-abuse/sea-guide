@@ -21,11 +21,14 @@ type Key
     | SeaOrganisationsResourceHref
     | SeaSurvivorForumHref
     | HelpSelfBankingResource1Href
+    | HelpSelfBankingResource2Href
     | HelpSelfDebtResource1Href
     | HelpSelfDebtResource2Href
     | HelpSelfDebtResource3Href
     | HelpSelfHousingResource1Href
-    | HelpSelfHousingResource2Href
+    | HelpSelfFinancialResource1Href
+    | HelpSelfFinancialResource2Href
+    | HelpSelfFinancialResource3Href
       -- Not Alone page
     | NotAloneTitle
     | Journey1Relatable
@@ -125,6 +128,11 @@ type Key
     | HelpSelfBankingResource1Quote2
     | HelpSelfBankingResource1Summary
     | HelpSelfBankingResource1Link
+    | HelpSelfBankingResource2Title
+    | HelpSelfBankingResource2Quote1
+    | HelpSelfBankingResource2Quote2
+    | HelpSelfBankingResource2Summary
+    | HelpSelfBankingResource2Link
       -- Help Self single Debt
     | HelpSelfDebtTitle
     | HelpSelfDebtResource1Title
@@ -149,13 +157,23 @@ type Key
     | HelpSelfHousingResource1Quote2
     | HelpSelfHousingResource1Summary
     | HelpSelfHousingResource1Link
-    | HelpSelfHousingResource2Title
-    | HelpSelfHousingResource2Quote1
-    | HelpSelfHousingResource2Quote2
-    | HelpSelfHousingResource2Summary
-    | HelpSelfHousingResource2Link
       -- Help Self single Financial Support
     | HelpSelfFinancialTitle
+    | HelpSelfFinancialResource1Title
+    | HelpSelfFinancialResource1Quote1
+    | HelpSelfFinancialResource1Quote2
+    | HelpSelfFinancialResource1Summary
+    | HelpSelfFinancialResource1Link
+    | HelpSelfFinancialResource2Title
+    | HelpSelfFinancialResource2Quote1
+    | HelpSelfFinancialResource2Quote2
+    | HelpSelfFinancialResource2Summary
+    | HelpSelfFinancialResource2Link
+    | HelpSelfFinancialResource3Title
+    | HelpSelfFinancialResource3Quote1
+    | HelpSelfFinancialResource3Quote2
+    | HelpSelfFinancialResource3Summary
+    | HelpSelfFinancialResource3Link
       -- Help Self single Covid
     | HelpSelfCovidTitle
       -- Help Self single InfoLaw

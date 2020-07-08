@@ -64,6 +64,9 @@ t key =
         HelpSelfBankingResource1Href ->
             "https://example.com/[cCc]"
 
+        HelpSelfBankingResource2Href ->
+            "https://example.com/[cCc]"
+
         HelpSelfDebtResource1Href ->
             "https://example.com/[cCc]"
 
@@ -76,7 +79,13 @@ t key =
         HelpSelfHousingResource1Href ->
             "https://example.com/[cCc]"
 
-        HelpSelfHousingResource2Href ->
+        HelpSelfFinancialResource1Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfFinancialResource2Href ->
+            "https://example.com/[cCc]"
+
+        HelpSelfFinancialResource3Href ->
             "https://example.com/[cCc]"
 
         -- Not Alone page
@@ -311,37 +320,37 @@ t key =
             "Help me with..."
 
         HelpSelfBankingLink ->
-            ""
+            "Banking"
 
         HelpSelfDebtLink ->
-            ""
+            "Debt"
 
         HelpSelfHousingLink ->
-            ""
+            "Housing"
 
         HelpSelfFinancialLink ->
-            ""
+            "Getting financial support"
 
         HelpSelfCovidLink ->
-            ""
+            "COVID-19 and my finances"
 
         HelpSelfInfoLawLink ->
-            ""
+            "Economic abuse and the law"
 
         HelpSelfSeparatingLink ->
-            ""
+            "Separating my finances from an abusive partner"
 
         ToDefinitionFromHelpSelfLink ->
-            ""
+            "Read more about the signs of economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            ""
+            "Read about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
-            ""
+            "Find people to talk to"
 
         ToHelpSelfFromSingleCategoryLink ->
-            ""
+            "Choose another topic"
 
         -- Help Self single Category 404
         HelpSelfCategoryNotFoundTitle ->
@@ -349,121 +358,166 @@ t key =
 
         -- Help Self single Banking
         HelpSelfBankingTitle ->
-            ""
+            "Information to support you with banking"
 
         HelpSelfBankingResource1Title ->
-            ""
+            "How banks can help"
 
         HelpSelfBankingResource1Quote1 ->
-            ""
+            "I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
 
         HelpSelfBankingResource1Quote2 ->
-            ""
+            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
         HelpSelfBankingResource1Summary ->
-            ""
+            "Approaching your bank about abuse can be daunting, but your bank or building society could be an important source of information and support. This information sets out how your bank can help you to regain control of your money, including separating your finances from the abuser, and making sure any new banking information is safe and secure."
 
         HelpSelfBankingResource1Link ->
-            ""
+            "How banks can help [PDF 600kB]"
+
+        HelpSelfBankingResource2Title ->
+            "Opening a new bank account safely"
+
+        HelpSelfBankingResource2Quote1 ->
+            "My salary went into his business account, and he had sole sign off. I suddenly had very limited access to money."
+
+        HelpSelfBankingResource2Quote2 ->
+            "Setting up a new bank account just for myself felt like a first step to freedom."
+
+        HelpSelfBankingResource2Summary ->
+            "Opening a bank account independent of an abuser can be one of the most important steps you take towards regaining control of your finances. This information provides practical tips on opening a new bank account safely including choosing a bank, gathering documents and selecting the right account."
+
+        HelpSelfBankingResource2Link ->
+            "Opening a new bank account [PDF 469kB]"
 
         -- Help Self single Debt
         HelpSelfDebtTitle ->
-            ""
+            "Information to support you with debt"
 
         HelpSelfDebtResource1Title ->
-            ""
+            "What is Coerced Debt?"
 
         HelpSelfDebtResource1Quote1 ->
-            ""
+            "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         HelpSelfDebtResource1Quote2 ->
-            ""
+            "The debt has been written off and I feel like I’ve got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            ""
+            "Forcing or coercing someone into debt is a common form of economic abuse. If you have been forced to make transactions that led you into debt, or if you have had debts fraudulently built up in your name, this information will help."
 
         HelpSelfDebtResource1Link ->
-            ""
+            "What is coerced debt? [PDF 542kB]"
 
         HelpSelfDebtResource2Title ->
-            ""
+            "Asking a lender for a debt write-off"
 
         HelpSelfDebtResource2Quote1 ->
-            ""
+            "I was already feeling vulnerable in my home life and worried about keeping myself and my children safe. But dealing with creditors chasing me for money amplified my anxiety of the whole world collapsing on top of me."
 
         HelpSelfDebtResource2Quote2 ->
-            ""
+            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It’s one less thing hanging over me while I start my new life."
 
         HelpSelfDebtResource2Summary ->
-            ""
+            "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn’t a guaranteed solution but the information in this guide will help you understand your options."
 
         HelpSelfDebtResource2Link ->
-            ""
+            "Asking a lender for a debt write-off [PDF 541kB]"
 
         HelpSelfDebtResource3Title ->
-            ""
+            "Economic abuse and your credit report"
 
         HelpSelfDebtResource3Quote1 ->
-            ""
+            "The impact of economic abuse is practical – I have struggled to get a mortgage because he has left such an impact on my credit rating."
 
         HelpSelfDebtResource3Quote2 ->
-            ""
+            "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
 
         HelpSelfDebtResource3Summary ->
-            ""
+            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you have moved."
 
         HelpSelfDebtResource3Link ->
-            ""
+            "Economic abuse and your credit report [PDF 535kB]"
 
         -- Help Self single Housing
         HelpSelfHousingTitle ->
-            ""
+            "Information to support you with housing"
 
         HelpSelfHousingResource1Title ->
-            ""
+            "Finding a safe place to live"
 
         HelpSelfHousingResource1Quote1 ->
-            ""
+            "This is the reality – me and the kids sleeping at my friend's and he's in our old home, which I jointly owned."
 
         HelpSelfHousingResource1Quote2 ->
-            ""
+            "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-            ""
+            "The nature of economic abuse may make your housing situation complex. This information lays out some of the options that you may have and the support that may be available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
-            ""
-
-        HelpSelfHousingResource2Title ->
-            ""
-
-        HelpSelfHousingResource2Quote1 ->
-            ""
-
-        HelpSelfHousingResource2Quote2 ->
-            ""
-
-        HelpSelfHousingResource2Summary ->
-            ""
-
-        HelpSelfHousingResource2Link ->
-            ""
+            "Finding a safe place to live [PDF 507kB]"
 
         -- Help Self Single Financial Support
         HelpSelfFinancialTitle ->
-            ""
+            "Information to help you find financial support"
+
+        HelpSelfFinancialResource1Title ->
+            "Grants, benefits and financial help"
+
+        HelpSelfFinancialResource1Quote1 ->
+            "He applied for multiple loans in my name by using the app on my  phone. Loans for over £50,000 in total."
+
+        HelpSelfFinancialResource1Quote2 ->
+            "I had been putting off speaking to anyone as I didn’t know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+
+        HelpSelfFinancialResource1Summary ->
+            "Find information on charities and organisations that can support you with money, debt information and advice. There are also many organisations that support people in financial difficulty with grants to help with day-to-day expenses."
+
+        HelpSelfFinancialResource1Link ->
+            "Grants, benefits and financial help [PDF 622kB]"
+
+        HelpSelfFinancialResource2Title ->
+            "Economic abuse and supporting children"
+
+        HelpSelfFinancialResource2Quote1 ->
+            "When we had a baby, he took it upon himself to go and register their births while I was in hospital so he could claim child benefit."
+
+        HelpSelfFinancialResource2Quote2 ->
+            "We don't have much to live off at the moment but knowing that my child is now safe is the most important thing to me. I'm now more positive that we will find our feet financially"
+
+        HelpSelfFinancialResource2Summary ->
+            "If you are experiencing economic abuse and have children, caring for them may be a lot more  challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety, and financial support."
+
+        HelpSelfFinancialResource2Link ->
+            "Economic abuse and supporting children [PDF 533kB]"
+
+        HelpSelfFinancialResource3Title ->
+            "Economic abuse and eligibility for benefits and public funds "
+
+        HelpSelfFinancialResource3Quote1 ->
+            "I have no recourse to public funds here in the UK. As such I have no money and so he is able to control and dictate my life."
+
+        HelpSelfFinancialResource3Quote2 ->
+            "Learning about my rights and what help there is out there has been the first step to regaining some control. I didn't even realise there were advisors who could help me."
+
+        HelpSelfFinancialResource3Summary ->
+            "If you are in the UK on a spousal visa or another visa the 'no recourse to public funds' rule means that you are not entitled to key welfare benefits and local authority housing. This can be a major barrier to escaping abuse. This information will provide steps you can take and places you can turn to for legal, housing, welfare and practical support."
+
+        HelpSelfFinancialResource3Link ->
+            "Economic abuse and no recourse to public funds [PDF 560kB]"
 
         -- Help Self Single Covid
         HelpSelfCovidTitle ->
-            ""
+            "Information about COVID-19 and your finances"
 
-        -- Help Self Single Info, Stats and Law
+        -- Help Self Single Info and Law
         HelpSelfInfoLawTitle ->
-            ""
+            "Information about economic abuse and the law"
 
-        -- Help Self Single Separating Finances from Ex
+        -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
-            ""
+            "Information to help you separate your finances from the abuser"
 
         -- Get Help page
         GetHelpTitle ->

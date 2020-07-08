@@ -99,6 +99,7 @@ renderResourceDetails resource =
         ++ [ verticalSpacing
            , p [] [ text (t resource.summary) ]
            , verticalSpacing
+           , text "Full guide: "
            , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
            ]
 
@@ -140,6 +141,12 @@ categoryKeysFromSlug slug =
                   , linkName = HelpSelfBankingResource1Link
                   , linkHref = HelpSelfBankingResource1Href
                   }
+                , { title = HelpSelfBankingResource2Title
+                  , quotes = [ HelpSelfBankingResource2Quote1, HelpSelfBankingResource2Quote2 ]
+                  , summary = HelpSelfBankingResource2Summary
+                  , linkName = HelpSelfBankingResource2Link
+                  , linkHref = HelpSelfBankingResource2Href
+                  }
                 ]
         }
 
@@ -178,18 +185,32 @@ categoryKeysFromSlug slug =
                   , linkName = HelpSelfHousingResource1Link
                   , linkHref = HelpSelfHousingResource1Href
                   }
-                , { title = HelpSelfHousingResource2Title
-                  , quotes = [ HelpSelfHousingResource2Quote1, HelpSelfHousingResource2Quote2 ]
-                  , summary = HelpSelfHousingResource2Summary
-                  , linkName = HelpSelfHousingResource2Link
-                  , linkHref = HelpSelfHousingResource2Href
-                  }
                 ]
         }
 
     else if slug == t HelpSelfFinancialSlug then
         { title = HelpSelfFinancialTitle
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfFinancialResource1Title
+                  , quotes = [ HelpSelfFinancialResource1Quote1, HelpSelfFinancialResource1Quote2 ]
+                  , summary = HelpSelfFinancialResource1Summary
+                  , linkName = HelpSelfFinancialResource1Link
+                  , linkHref = HelpSelfFinancialResource1Href
+                  }
+                , { title = HelpSelfFinancialResource2Title
+                  , quotes = [ HelpSelfFinancialResource2Quote1, HelpSelfFinancialResource2Quote2 ]
+                  , summary = HelpSelfFinancialResource2Summary
+                  , linkName = HelpSelfFinancialResource2Link
+                  , linkHref = HelpSelfFinancialResource2Href
+                  }
+                , { title = HelpSelfFinancialResource3Title
+                  , quotes = [ HelpSelfFinancialResource3Quote1, HelpSelfFinancialResource3Quote2 ]
+                  , summary = HelpSelfFinancialResource3Summary
+                  , linkName = HelpSelfFinancialResource3Link
+                  , linkHref = HelpSelfFinancialResource3Href
+                  }
+                ]
         }
 
     else if slug == t HelpSelfCovidSlug then
