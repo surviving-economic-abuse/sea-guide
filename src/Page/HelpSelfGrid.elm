@@ -50,39 +50,39 @@ infoLink linkName linkHref =
         path =
             t HelpSelfGridPageSlug ++ "/" ++ linkHref
     in
-    li
-        [ css
-            [ cardStyle
-            , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-                [ flex3 zero zero threeColumn ]
-            ]
-        ]
-        [ a [ css [ blockLinkStyle ], href path ] [ div [] [ text linkName ] ]
+    li [ css [ gridItemStyle ] ]
+        [ a
+            [ css [ gridCardStyle ], href path ]
+            [ span [] [ text linkName ] ]
         ]
 
 
-blockLinkStyle : Style
-blockLinkStyle =
+gridCardStyle : Style
+gridCardStyle =
     batch
-        [ color colours.purple
+        [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
+        , borderRadius (rem 1)
+        , color colours.purple
         , displayFlex
         , flexDirection column
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1.25)
-        , Css.height (pct 100)
         , justifyContent center
+        , minHeight (px 150)
+        , textAlign center
         , textDecoration none
-        , Css.width (pct 100)
+        , hover
+            [ borderColor colours.purple
+            ]
         ]
 
 
-cardStyle : Style
-cardStyle =
+gridItemStyle : Style
+gridItemStyle =
     batch
-        [ border3 (px 2) solid Theme.colours.grey
-        , borderRadius (rem 1)
-        , flex3 zero zero twoColumn
+        [ flex3 zero zero twoColumn
         , margin (rem 1)
-        , Css.minHeight (px 150)
-        , textAlign center
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ flex3 zero zero threeColumn ]
         ]

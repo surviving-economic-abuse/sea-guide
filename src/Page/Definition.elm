@@ -85,7 +85,7 @@ view model =
 
 renderQuotes : List Key -> Html Msg
 renderQuotes quoteKeys =
-    blockquote [] (List.map (\quoteKey -> p [ css quoteStyles ] [ text (t quoteKey) ]) quoteKeys)
+    blockquote [] (List.map (\quoteKey -> p [ css [ quoteStyle ] ] [ text (t quoteKey) ]) quoteKeys)
 
 
 renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
@@ -224,13 +224,13 @@ categoryKeysFromListPosition listPosition =
 
 categoryListStyle : Style
 categoryListStyle =
-    Css.batch
+    batch
         [ margin2 (rem 2) zero ]
 
 
 introStyle : Style
 introStyle =
-    Css.batch
+    batch
         [ color colours.purple
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1)
@@ -269,6 +269,7 @@ expanderButtonStyle =
         [ alignItems center
         , backgroundColor (hex "4f2f8d")
         , border zero
+        , cursor pointer
         , justifyContent spaceBetween
         , textAlign left
         , displayFlex
@@ -321,6 +322,7 @@ expanderDefinitionStyles : List Style
 expanderDefinitionStyles =
     [ batch
         [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
         , borderBottomLeftRadius (rem 1)
         , borderBottomRightRadius (rem 1)
         , padding (rem 1)
@@ -332,12 +334,15 @@ expanderDefinitionStyles =
     ]
 
 
-quoteStyles : List Style
-quoteStyles =
-    [ batch
-        [ fontSize (rem 1.1)
+quoteStyle : Style
+quoteStyle =
+    batch
+        [ borderLeft3 (px 5) solid colours.midgrey
+        , borderRadius (px 5)
+        , fontSize (rem 1.1)
+        , fontStyle italic
         , fontWeight (int 300)
+        , paddingLeft (px 10)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
         ]
-    , before [ property "content" "'\"'" ]
-    , after [ property "content" "'\"'" ]
-    ]

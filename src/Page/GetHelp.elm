@@ -84,11 +84,12 @@ cardStyle : List Style
 cardStyle =
     [ batch
         [ backgroundColor colours.lightgrey
+        , border3 (px 1) solid colours.midgrey
         , borderRadius (rem 1)
         , margin2 (rem 1) zero
         , maxWidth (pct 100)
         , padding (rem 1)
-        , Css.width (rem 30)
+        , width (rem 30)
         ]
 
     -- Allow more padding space on larger screens
@@ -100,8 +101,12 @@ cardStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ fontSize (rem 1.1)
+        [ borderLeft3 (px 5) solid colours.midgrey
+        , borderRadius (px 5)
+        , fontSize (rem 1.1)
+        , fontStyle italic
         , fontWeight (int 300)
+        , paddingLeft (px 10)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         ]
@@ -111,12 +116,15 @@ linkStyle : Style
 linkStyle =
     batch
         [ backgroundColor colours.purple
-        , Css.borderRadius (rem 0.5)
+        , borderRadius (rem 0.5)
         , color colours.white
         , display block
         , padding (rem 0.5)
         , textAlign center
         , textDecoration none
+        , hover
+            [ backgroundColor colours.darkpurple
+            ]
         ]
 
 

@@ -68,10 +68,12 @@ globalStyles =
 -}
 pageHeadingStyle : Style
 pageHeadingStyle =
-    Css.batch
-        [ fontSize (rem 2.5)
+    batch
+        [ fontSize (rem 1.8)
         , margin2 (rem 2) zero
         , textAlign center
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ fontSize (rem 2.5) ]
         ]
 
 
@@ -103,7 +105,7 @@ twoColumn =
 threeColumn : Css.CalculatedLength
 -}
 threeColumn =
-    calc (pct 33) minus (rem 2)
+    calc (pct 33.33) minus (rem 2)
 
 
 {-| A div with known vertical margin
@@ -147,11 +149,17 @@ navLinkStyle : Style
 navLinkStyle =
     batch
         [ backgroundColor colours.darkpurple
-        , Css.borderRadius (rem 0.5)
+        , borderRadius (rem 0.5)
         , color colours.white
-        , display block
+        , displayFlex
+        , flexDirection column
+        , justifyContent center
         , padding (rem 0.5)
+        , minHeight (rem 4)
         , textAlign center
         , textDecoration none
         , width (pct 100)
+        , hover
+            [ backgroundColor colours.purple
+            ]
         ]
