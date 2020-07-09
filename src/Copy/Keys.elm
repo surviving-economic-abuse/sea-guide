@@ -9,21 +9,28 @@ type Key
     | GetHelpPageSlug
     | HelpSelfGridPageSlug
     | HelpSelfSinglePageSlug String
-    | HelpSelfCategory1Slug
-    | HelpSelfCategory2Slug
-    | HelpSelfCategory3Slug
-    | HelpSelfCategory4Slug
-    | HelpSelfCategory5Slug
+    | HelpSelfBankingSlug
+    | HelpSelfDebtSlug
+    | HelpSelfHousingSlug
+    | HelpSelfFinancialSlug
+    | HelpSelfCovidSlug
+    | HelpSelfInfoLawSlug
+    | HelpSelfSeparatingSlug
       --- External Hrefs
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
     | SeaSurvivorForumHref
-    | HelpSelfCategory1Resource1Href
-    | HelpSelfCategory2Resource1Href
-    | HelpSelfCategory2Resource2Href
-    | HelpSelfCategory2Resource3Href
-    | HelpSelfCategory3Resource1Href
-    | HelpSelfCategory3Resource2Href
+      -- Resource pdfs
+    | HelpSelfPdfDownloadLabel
+    | HelpSelfBankingResource1Href
+    | HelpSelfBankingResource2Href
+    | HelpSelfDebtResource1Href
+    | HelpSelfDebtResource2Href
+    | HelpSelfDebtResource3Href
+    | HelpSelfHousingResource1Href
+    | HelpSelfFinancialResource1Href
+    | HelpSelfFinancialResource2Href
+    | HelpSelfFinancialResource3Href
       -- Not Alone page
     | NotAloneTitle
     | Journey1Relatable
@@ -101,59 +108,80 @@ type Key
     | SplitterAffirmation
     | ToGetHelpFromDefinitionLink
     | ToHelpSelfFromDefinitionLink
-      -- Help Self page
+      -- Help Self grid page
     | HelpSelfTitle
-    | HelpSelfCategory1Link
-    | HelpSelfCategory2Link
-    | HelpSelfCategory3Link
-    | HelpSelfCategory4Link
-    | HelpSelfCategory5Link
+    | HelpSelfBankingLink
+    | HelpSelfDebtLink
+    | HelpSelfHousingLink
+    | HelpSelfFinancialLink
+    | HelpSelfCovidLink
+    | HelpSelfInfoLawLink
+    | HelpSelfSeparatingLink
     | ToDefinitionFromHelpSelfLink
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
     | ToHelpSelfFromSingleCategoryLink
-      -- Help Self Single Category 404
+      -- Help Self single Category 404
     | HelpSelfCategoryNotFoundTitle
-      -- Help Self Single Category1
-    | HelpSelfCategory1Title
-    | HelpSelfCategory1Resource1Title
-    | HelpSelfCategory1Resource1Quote1
-    | HelpSelfCategory1Resource1Quote2
-    | HelpSelfCategory1Resource1Summary
-    | HelpSelfCategory1Resource1Link
-      -- Help Self Single Category2
-    | HelpSelfCategory2Title
-    | HelpSelfCategory2Resource1Title
-    | HelpSelfCategory2Resource1Quote1
-    | HelpSelfCategory2Resource1Quote2
-    | HelpSelfCategory2Resource1Summary
-    | HelpSelfCategory2Resource1Link
-    | HelpSelfCategory2Resource2Title
-    | HelpSelfCategory2Resource2Quote1
-    | HelpSelfCategory2Resource2Quote2
-    | HelpSelfCategory2Resource2Summary
-    | HelpSelfCategory2Resource2Link
-    | HelpSelfCategory2Resource3Title
-    | HelpSelfCategory2Resource3Quote1
-    | HelpSelfCategory2Resource3Quote2
-    | HelpSelfCategory2Resource3Summary
-    | HelpSelfCategory2Resource3Link
-      -- Help Self Single Category3
-    | HelpSelfCategory3Title
-    | HelpSelfCategory3Resource1Title
-    | HelpSelfCategory3Resource1Quote1
-    | HelpSelfCategory3Resource1Quote2
-    | HelpSelfCategory3Resource1Summary
-    | HelpSelfCategory3Resource1Link
-    | HelpSelfCategory3Resource2Title
-    | HelpSelfCategory3Resource2Quote1
-    | HelpSelfCategory3Resource2Quote2
-    | HelpSelfCategory3Resource2Summary
-    | HelpSelfCategory3Resource2Link
-      -- Help Self Single Category4
-    | HelpSelfCategory4Title
-      -- Help Self Single Category5
-    | HelpSelfCategory5Title
+      -- Help Self single Banking
+    | HelpSelfBankingTitle
+    | HelpSelfBankingResource1Title
+    | HelpSelfBankingResource1Quote1
+    | HelpSelfBankingResource1Quote2
+    | HelpSelfBankingResource1Summary
+    | HelpSelfBankingResource1Link
+    | HelpSelfBankingResource2Title
+    | HelpSelfBankingResource2Quote1
+    | HelpSelfBankingResource2Quote2
+    | HelpSelfBankingResource2Summary
+    | HelpSelfBankingResource2Link
+      -- Help Self single Debt
+    | HelpSelfDebtTitle
+    | HelpSelfDebtResource1Title
+    | HelpSelfDebtResource1Quote1
+    | HelpSelfDebtResource1Quote2
+    | HelpSelfDebtResource1Summary
+    | HelpSelfDebtResource1Link
+    | HelpSelfDebtResource2Title
+    | HelpSelfDebtResource2Quote1
+    | HelpSelfDebtResource2Quote2
+    | HelpSelfDebtResource2Summary
+    | HelpSelfDebtResource2Link
+    | HelpSelfDebtResource3Title
+    | HelpSelfDebtResource3Quote1
+    | HelpSelfDebtResource3Quote2
+    | HelpSelfDebtResource3Summary
+    | HelpSelfDebtResource3Link
+      -- Help Self single Housing
+    | HelpSelfHousingTitle
+    | HelpSelfHousingResource1Title
+    | HelpSelfHousingResource1Quote1
+    | HelpSelfHousingResource1Quote2
+    | HelpSelfHousingResource1Summary
+    | HelpSelfHousingResource1Link
+      -- Help Self single Financial Support
+    | HelpSelfFinancialTitle
+    | HelpSelfFinancialResource1Title
+    | HelpSelfFinancialResource1Quote1
+    | HelpSelfFinancialResource1Quote2
+    | HelpSelfFinancialResource1Summary
+    | HelpSelfFinancialResource1Link
+    | HelpSelfFinancialResource2Title
+    | HelpSelfFinancialResource2Quote1
+    | HelpSelfFinancialResource2Quote2
+    | HelpSelfFinancialResource2Summary
+    | HelpSelfFinancialResource2Link
+    | HelpSelfFinancialResource3Title
+    | HelpSelfFinancialResource3Quote1
+    | HelpSelfFinancialResource3Quote2
+    | HelpSelfFinancialResource3Summary
+    | HelpSelfFinancialResource3Link
+      -- Help Self single Covid
+    | HelpSelfCovidTitle
+      -- Help Self single InfoLaw
+    | HelpSelfInfoLawTitle
+      -- Help Self single Separating
+    | HelpSelfSeparatingTitle
       -- Get Help page
     | GetHelpTitle
     | GetHelpSection1Title

@@ -50,7 +50,7 @@ view model =
                 , p []
                     [ text (t DefinitionConciseP3)
                     , text " "
-                    , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfCategory5Slug) ]
+                    , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfInfoLawSlug) ]
                         [ text (t DefinitionMoreLink) ]
                     ]
                 ]
