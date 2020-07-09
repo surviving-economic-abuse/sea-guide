@@ -99,9 +99,15 @@ renderResourceDetails resource =
         ++ [ verticalSpacing
            , p [] [ text (t resource.summary) ]
            , verticalSpacing
-           , text "Full guide: "
-           , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
            ]
+        ++ renderPdfDownload resource
+
+
+renderPdfDownload : CategoryResource -> List (Html msg)
+renderPdfDownload resource =
+    [ text (t HelpSelfPdfDownloadLabel ++ " ")
+    , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
+    ]
 
 
 renderQuotes : List Key -> List (Html msg)

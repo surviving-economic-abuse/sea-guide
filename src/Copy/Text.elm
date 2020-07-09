@@ -51,7 +51,7 @@ t key =
         HelpSelfSinglePageSlug category ->
             category
 
-        --- External Hrefs
+        --- External Hrefs for People to talk to
         StatsOnEconomicAbuseHref ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
 
@@ -60,6 +60,10 @@ t key =
 
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
+
+        -- Resource pdfs
+        HelpSelfPdfDownloadLabel ->
+            "Full guide: "
 
         HelpSelfBankingResource1Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"

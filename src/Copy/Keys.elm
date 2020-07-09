@@ -20,6 +20,8 @@ type Key
     | StatsOnEconomicAbuseHref
     | SeaOrganisationsResourceHref
     | SeaSurvivorForumHref
+      -- Resource pdfs
+    | HelpSelfPdfDownloadLabel
     | HelpSelfBankingResource1Href
     | HelpSelfBankingResource2Href
     | HelpSelfDebtResource1Href
