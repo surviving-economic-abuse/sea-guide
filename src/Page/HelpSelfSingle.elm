@@ -99,8 +99,15 @@ renderResourceDetails resource =
         ++ [ verticalSpacing
            , p [] [ text (t resource.summary) ]
            , verticalSpacing
-           , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
            ]
+        ++ renderPdfDownload resource
+
+
+renderPdfDownload : CategoryResource -> List (Html msg)
+renderPdfDownload resource =
+    [ text (t HelpSelfPdfDownloadLabel ++ " ")
+    , a [ href (t resource.linkHref), css [ resourceLinkStyle ] ] [ text (t resource.linkName) ]
+    ]
 
 
 renderQuotes : List Key -> List (Html msg)
@@ -130,70 +137,100 @@ type alias CategoryData =
 
 categoryKeysFromSlug : String -> CategoryData
 categoryKeysFromSlug slug =
-    if slug == t HelpSelfCategory1Slug then
-        { title = HelpSelfCategory1Title
+    if slug == t HelpSelfBankingSlug then
+        { title = HelpSelfBankingTitle
         , resources =
             Just
-                [ { title = HelpSelfCategory1Resource1Title
-                  , quotes = [ HelpSelfCategory1Resource1Quote1, HelpSelfCategory1Resource1Quote2 ]
-                  , summary = HelpSelfCategory1Resource1Summary
-                  , linkName = HelpSelfCategory1Resource1Link
-                  , linkHref = HelpSelfCategory1Resource1Href
+                [ { title = HelpSelfBankingResource1Title
+                  , quotes = [ HelpSelfBankingResource1Quote1, HelpSelfBankingResource1Quote2 ]
+                  , summary = HelpSelfBankingResource1Summary
+                  , linkName = HelpSelfBankingResource1Link
+                  , linkHref = HelpSelfBankingResource1Href
+                  }
+                , { title = HelpSelfBankingResource2Title
+                  , quotes = [ HelpSelfBankingResource2Quote1, HelpSelfBankingResource2Quote2 ]
+                  , summary = HelpSelfBankingResource2Summary
+                  , linkName = HelpSelfBankingResource2Link
+                  , linkHref = HelpSelfBankingResource2Href
                   }
                 ]
         }
 
-    else if slug == t HelpSelfCategory2Slug then
-        { title = HelpSelfCategory2Title
+    else if slug == t HelpSelfDebtSlug then
+        { title = HelpSelfDebtTitle
         , resources =
             Just
-                [ { title = HelpSelfCategory2Resource1Title
-                  , quotes = [ HelpSelfCategory2Resource1Quote1, HelpSelfCategory2Resource1Quote2 ]
-                  , summary = HelpSelfCategory2Resource1Summary
-                  , linkName = HelpSelfCategory2Resource1Link
-                  , linkHref = HelpSelfCategory2Resource1Href
+                [ { title = HelpSelfDebtResource1Title
+                  , quotes = [ HelpSelfDebtResource1Quote1, HelpSelfDebtResource1Quote2 ]
+                  , summary = HelpSelfDebtResource1Summary
+                  , linkName = HelpSelfDebtResource1Link
+                  , linkHref = HelpSelfDebtResource1Href
                   }
-                , { title = HelpSelfCategory2Resource2Title
-                  , quotes = [ HelpSelfCategory2Resource2Quote1, HelpSelfCategory2Resource2Quote2 ]
-                  , summary = HelpSelfCategory2Resource2Summary
-                  , linkName = HelpSelfCategory2Resource2Link
-                  , linkHref = HelpSelfCategory2Resource2Href
+                , { title = HelpSelfDebtResource2Title
+                  , quotes = [ HelpSelfDebtResource2Quote1, HelpSelfDebtResource2Quote2 ]
+                  , summary = HelpSelfDebtResource2Summary
+                  , linkName = HelpSelfDebtResource2Link
+                  , linkHref = HelpSelfDebtResource2Href
                   }
-                , { title = HelpSelfCategory2Resource3Title
-                  , quotes = [ HelpSelfCategory2Resource3Quote1, HelpSelfCategory2Resource3Quote2 ]
-                  , summary = HelpSelfCategory2Resource3Summary
-                  , linkName = HelpSelfCategory2Resource3Link
-                  , linkHref = HelpSelfCategory2Resource3Href
+                , { title = HelpSelfDebtResource3Title
+                  , quotes = [ HelpSelfDebtResource3Quote1, HelpSelfDebtResource3Quote2 ]
+                  , summary = HelpSelfDebtResource3Summary
+                  , linkName = HelpSelfDebtResource3Link
+                  , linkHref = HelpSelfDebtResource3Href
                   }
                 ]
         }
 
-    else if slug == t HelpSelfCategory3Slug then
-        { title = HelpSelfCategory3Title
+    else if slug == t HelpSelfHousingSlug then
+        { title = HelpSelfHousingTitle
         , resources =
             Just
-                [ { title = HelpSelfCategory3Resource1Title
-                  , quotes = [ HelpSelfCategory3Resource1Quote1, HelpSelfCategory3Resource1Quote2 ]
-                  , summary = HelpSelfCategory3Resource1Summary
-                  , linkName = HelpSelfCategory3Resource1Link
-                  , linkHref = HelpSelfCategory3Resource1Href
-                  }
-                , { title = HelpSelfCategory3Resource2Title
-                  , quotes = [ HelpSelfCategory3Resource2Quote1, HelpSelfCategory3Resource2Quote2 ]
-                  , summary = HelpSelfCategory3Resource2Summary
-                  , linkName = HelpSelfCategory3Resource2Link
-                  , linkHref = HelpSelfCategory3Resource2Href
+                [ { title = HelpSelfHousingResource1Title
+                  , quotes = [ HelpSelfHousingResource1Quote1, HelpSelfHousingResource1Quote2 ]
+                  , summary = HelpSelfHousingResource1Summary
+                  , linkName = HelpSelfHousingResource1Link
+                  , linkHref = HelpSelfHousingResource1Href
                   }
                 ]
         }
 
-    else if slug == t HelpSelfCategory4Slug then
-        { title = HelpSelfCategory4Title
+    else if slug == t HelpSelfFinancialSlug then
+        { title = HelpSelfFinancialTitle
+        , resources =
+            Just
+                [ { title = HelpSelfFinancialResource1Title
+                  , quotes = [ HelpSelfFinancialResource1Quote1, HelpSelfFinancialResource1Quote2 ]
+                  , summary = HelpSelfFinancialResource1Summary
+                  , linkName = HelpSelfFinancialResource1Link
+                  , linkHref = HelpSelfFinancialResource1Href
+                  }
+                , { title = HelpSelfFinancialResource2Title
+                  , quotes = [ HelpSelfFinancialResource2Quote1, HelpSelfFinancialResource2Quote2 ]
+                  , summary = HelpSelfFinancialResource2Summary
+                  , linkName = HelpSelfFinancialResource2Link
+                  , linkHref = HelpSelfFinancialResource2Href
+                  }
+                , { title = HelpSelfFinancialResource3Title
+                  , quotes = [ HelpSelfFinancialResource3Quote1, HelpSelfFinancialResource3Quote2 ]
+                  , summary = HelpSelfFinancialResource3Summary
+                  , linkName = HelpSelfFinancialResource3Link
+                  , linkHref = HelpSelfFinancialResource3Href
+                  }
+                ]
+        }
+
+    else if slug == t HelpSelfCovidSlug then
+        { title = HelpSelfCovidTitle
         , resources = Nothing
         }
 
-    else if slug == t HelpSelfCategory5Slug then
-        { title = HelpSelfCategory5Title
+    else if slug == t HelpSelfInfoLawSlug then
+        { title = HelpSelfInfoLawTitle
+        , resources = Nothing
+        }
+
+    else if slug == t HelpSelfSeparatingSlug then
+        { title = HelpSelfSeparatingTitle
         , resources = Nothing
         }
 

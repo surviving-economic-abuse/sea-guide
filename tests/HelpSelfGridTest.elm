@@ -35,9 +35,9 @@ suite =
                 queryFromStyledHtml view
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text (t ToDefinitionFromHelpSelfLink) ]
-        , test "HelpSelfGrid view has 8 links (5 categories, 3 navigation)" <|
+        , test "HelpSelfGrid view has 10 links (7 categories, 3 navigation)" <|
             \() ->
                 queryFromStyledHtml view
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 8)
+                    |> Query.count (Expect.equal 10)
         ]

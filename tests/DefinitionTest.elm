@@ -43,7 +43,7 @@ suite =
                                 (Html.Attributes.href
                                     (t HelpSelfGridPageSlug
                                         ++ "/"
-                                        ++ t HelpSelfCategory5Slug
+                                        ++ t HelpSelfInfoLawSlug
                                     )
                                 )
                             ]

@@ -21,44 +21,44 @@ suite =
             { openResources = Set.empty }
 
         resource2expandedModel =
-            { openResources = Set.fromList [ t HelpSelfCategory2Resource1Title ] }
+            { openResources = Set.fromList [ t HelpSelfDebtResource1Title ] }
     in
     describe "HelpSelfSingle View"
         [ describe "View tests"
             [ test "HelpSelfSingle view has title" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfCategory1Slug) initModel)
-                        |> Query.contains [ Html.text (t HelpSelfCategory1Title) ]
+                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
+                        |> Query.contains [ Html.text (t HelpSelfBankingTitle) ]
             , test "HelpSelfSingle view has nav link to get-help" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfCategory1Slug) initModel)
+                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
                         |> Query.find [ tag "a", attribute (Html.Attributes.href ("../" ++ t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromSingleCategoryLink) ]
             , test "HelpSelfSingle view can have well formed resources" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfCategory2Slug) resource2expandedModel)
-                        |> Query.find [ tag "li", containing [ text (t HelpSelfCategory2Resource1Title) ] ]
+                    queryFromStyledHtml (view (t HelpSelfDebtSlug) resource2expandedModel)
+                        |> Query.find [ tag "li", containing [ text (t HelpSelfDebtResource1Title) ] ]
                         |> Query.has
-                            [ text (t HelpSelfCategory2Resource1Quote1)
-                            , text (t HelpSelfCategory2Resource1Quote2)
-                            , text (t HelpSelfCategory2Resource1Summary)
-                            , text (t HelpSelfCategory2Resource1Link)
-                            , attribute (Html.Attributes.href (t HelpSelfCategory2Resource1Href))
+                            [ text (t HelpSelfDebtResource1Quote1)
+                            , text (t HelpSelfDebtResource1Quote2)
+                            , text (t HelpSelfDebtResource1Summary)
+                            , text (t HelpSelfDebtResource1Link)
+                            , attribute (Html.Attributes.href (t HelpSelfDebtResource1Href))
                             ]
             ]
         , describe "Update tests"
             [ test "Toggling a closed resource adds it to the set of openResources" <|
                 \() ->
                     initModel
-                        |> update (ToggleResource HelpSelfCategory2Resource1Title)
+                        |> update (ToggleResource HelpSelfDebtResource1Title)
                         |> Expect.equal
-                            ( { openResources = Set.fromList [ t HelpSelfCategory2Resource1Title ] }
+                            ( { openResources = Set.fromList [ t HelpSelfDebtResource1Title ] }
                             , Cmd.none
                             )
             , test "Toggling an open resource removes it from the set of openResources" <|
                 \() ->
                     resource2expandedModel
-                        |> update (ToggleResource HelpSelfCategory2Resource1Title)
+                        |> update (ToggleResource HelpSelfDebtResource1Title)
                         |> Expect.equal
                             ( { openResources = Set.empty }
                             , Cmd.none

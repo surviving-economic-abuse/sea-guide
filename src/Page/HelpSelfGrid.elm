@@ -16,11 +16,13 @@ view =
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
             ]
         , ul [ css [ gridStyle ] ]
-            [ infoLink (t HelpSelfCategory1Link) (t HelpSelfCategory1Slug)
-            , infoLink (t HelpSelfCategory2Link) (t HelpSelfCategory2Slug)
-            , infoLink (t HelpSelfCategory3Link) (t HelpSelfCategory3Slug)
-            , infoLink (t HelpSelfCategory4Link) (t HelpSelfCategory4Slug)
-            , infoLink (t HelpSelfCategory5Link) (t HelpSelfCategory5Slug)
+            [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
+            , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
+            , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
+            , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
+            , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
+            , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
+            , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
             ]
         , verticalSpacing
         , nav []
