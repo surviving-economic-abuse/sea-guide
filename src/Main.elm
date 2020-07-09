@@ -1,6 +1,7 @@
 module Main exposing (main)
 
 import Browser
+import Browser.Dom
 import Browser.Navigation
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -12,6 +13,7 @@ import Page.HelpSelfGrid as HelpSelfGrid
 import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
 import Set
+import Task
 import Theme exposing (globalStyles)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
@@ -83,10 +85,10 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
+                    -- If not a page default to NotAlone
                     Maybe.withDefault (NotAlonePage { revealedJourney = Nothing }) (pageFromUrl url)
             in
-            -- If not a page default to NotAlone
-            ( { model | page = newPage }, Cmd.none )
+            ( { model | page = newPage }, resetViewportTop )
 
         DefinitionMsg subMsg ->
             case model.page of
@@ -213,3 +215,8 @@ pageFromUrl : Url.Url -> Maybe Page
 pageFromUrl url =
     { url | path = url.path }
         |> Parser.parse routeParser
+
+
+resetViewportTop : Cmd Msg
+resetViewportTop =
+    Task.perform (\_ -> NoOp) (Browser.Dom.setViewport 0 0)
