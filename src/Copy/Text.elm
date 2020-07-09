@@ -399,7 +399,7 @@ t key =
             "Information to support you with debt"
 
         HelpSelfDebtResource1Title ->
-            "What is Coerced Debt?"
+            "What is coerced debt?"
 
         HelpSelfDebtResource1Quote1 ->
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
