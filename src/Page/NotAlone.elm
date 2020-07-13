@@ -248,7 +248,7 @@ closedStyle =
 openStyle : Style
 openStyle =
     batch
-        [ maxHeight (px 510)
+        [ maxHeight (px 500)
         , height auto
         , marginTop (rem 1)
         , overflow hidden
