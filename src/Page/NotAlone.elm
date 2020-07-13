@@ -223,9 +223,9 @@ cardStyles =
         , flex3 zero zero oneColumn
         , height auto
         , margin (rem 1)
+        , minHeight (px 540)
         , padding (rem 1)
         , textAlign left
-        , minHeight (px 538)
         ]
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
         [ flex3 zero zero twoColumn
