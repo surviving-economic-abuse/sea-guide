@@ -14,7 +14,8 @@ import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingS
 
 
 type alias Model =
-    { revealedJourney : Maybe JourneyCard }
+    { revealedJourney : Maybe JourneyCard
+    }
 
 
 type Msg
@@ -92,7 +93,7 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    [ p [ css [ relatableQuoteStyle ] ] [ text (t journeyContent.relatable) ]
     , div [ css [ closedStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -118,7 +119,7 @@ renderRevealedCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    [ p [ css [ relatableQuoteStyle ] ] [ text (t journeyContent.relatable) ]
     , div [ css [ openStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -224,6 +225,7 @@ cardStyles =
         , margin (rem 1)
         , padding (rem 1)
         , textAlign left
+        , minHeight (px 538)
         ]
     , withMedia [ only screen [ Media.minWidth (px 576) ] ]
         [ flex3 zero zero twoColumn
@@ -246,7 +248,7 @@ closedStyle =
 openStyle : Style
 openStyle =
     batch
-        [ maxHeight (px 500)
+        [ maxHeight (px 510)
         , height auto
         , marginTop (rem 1)
         , overflow hidden
@@ -260,6 +262,16 @@ quoteStyle : Style
 quoteStyle =
     batch
         [ fontSize (rem 1.1)
+        , fontWeight (int 300)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
+        ]
+
+
+relatableQuoteStyle : Style
+relatableQuoteStyle =
+    batch
+        [ fontSize (rem 1.2)
         , fontWeight (int 300)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
