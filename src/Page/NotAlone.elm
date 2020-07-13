@@ -237,7 +237,6 @@ closedStyle =
     batch
         [ maxHeight zero
         , overflow hidden
-        , display none
         , transition
             [ Css.Transitions.maxHeight3 0 0 easeOut
             ]
