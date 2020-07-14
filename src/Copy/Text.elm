@@ -11,7 +11,7 @@ t : Key -> String
 t key =
     case key of
         SiteTitle ->
-            "Economic abuse support tool"
+            "Economic Abuse Support Tool"
 
         --- Internal Href slugs
         NotAlonePageSlug ->
