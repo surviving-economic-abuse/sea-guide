@@ -97,19 +97,19 @@ t key =
             "You are not alone"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
 
         Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
+            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
+            "I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         Journey1Name ->
-            "Zahara"
+            "Aja"
 
         Journey1Age ->
-            "27"
+            "48"
 
         Journey2Relatable ->
             "My partner used to give me a shopping list telling me what I had to buy with the £10 food allowance. He'd check the receipt when I got in to make sure I'd got everything. Sometimes I couldn't and then he'd beat me up."
@@ -142,34 +142,34 @@ t key =
             "39"
 
         Journey4Relatable ->
-            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey4Hopeful ->
-            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
         Journey4Statement ->
-            "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey4Name ->
-            "Catherine"
+            "Zahara"
 
         Journey4Age ->
-            "43"
+            "27"
 
         Journey5Relatable ->
-            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
 
         Journey5Hopeful ->
-            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
         Journey5Statement ->
-            "I feel like I've got my life back. I can take the kids on holiday and we are free."
+            "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
         Journey5Name ->
-            "Aja"
+            "Catherine"
 
         Journey5Age ->
-            "48"
+            "43"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
