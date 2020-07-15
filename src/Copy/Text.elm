@@ -11,7 +11,7 @@ t : Key -> String
 t key =
     case key of
         SiteTitle ->
-            "[cCc] SEA MAP"
+            "Economic Abuse Support Tool"
 
         --- Internal Href slugs
         NotAlonePageSlug ->
@@ -284,7 +284,7 @@ t key =
             "Threatening you"
 
         DefinitionCategory5Info ->
-            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone. In immediate danger? [cCc] LINK Get help here."
+            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone."
 
         DefinitionCategory5Quote1 ->
             "He watched me entering my PIN and stole money from my bank account, threatening me if I changed it."
