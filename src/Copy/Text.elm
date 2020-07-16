@@ -218,7 +218,7 @@ t key =
             "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control and sabotage other areas of your life including housing, food and clothing. This is known as economic abuse, and it is commonly experienced within a context of abuse known as coercive control."
 
         DefinitionMoreLink ->
-            "Find out more about the signs of economic abuse."
+            "Find out more about economic abuse and the law."
 
         DefinitionCategory1Title ->
             "Controlling how you access money"
