@@ -14,7 +14,8 @@ import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingS
 
 
 type alias Model =
-    { revealedJourney : Maybe JourneyCard }
+    { revealedJourney : Maybe JourneyCard
+    }
 
 
 type Msg
@@ -92,7 +93,7 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    [ p [ css [ relatableQuoteStyle ] ] [ text (t journeyContent.relatable) ]
     , div [ css [ closedStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -118,7 +119,7 @@ renderRevealedCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    [ p [ css [ relatableQuoteStyle ] ] [ text (t journeyContent.relatable) ]
     , div [ css [ openStyle ] ]
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -222,6 +223,7 @@ cardStyles =
         , flex3 zero zero oneColumn
         , height auto
         , margin (rem 1)
+        , minHeight (px 540)
         , padding (rem 1)
         , textAlign left
         ]
@@ -237,7 +239,6 @@ closedStyle =
     batch
         [ maxHeight zero
         , overflow hidden
-        , display none
         , transition
             [ Css.Transitions.maxHeight3 0 0 easeOut
             ]
@@ -259,6 +260,16 @@ openStyle =
 
 quoteStyle : Style
 quoteStyle =
+    batch
+        [ fontSize (rem 1.1)
+        , fontWeight (int 400)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
+        ]
+
+
+relatableQuoteStyle : Style
+relatableQuoteStyle =
     batch
         [ fontSize (rem 1.1)
         , fontWeight (int 300)
