@@ -206,7 +206,7 @@ t key =
 
         -- Definition page
         DefinitionTitle ->
-            "Understanding what's happening to you"
+            "What is economic abuse?"
 
         DefinitionConciseP1 ->
             "Has your partner used your bank cards without asking? Do they stop you from earning money or going to work? Have they ever stolen money from you? Or damaged or destroyed your things?"
