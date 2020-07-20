@@ -262,7 +262,7 @@ quoteStyle : Style
 quoteStyle =
     batch
         [ fontSize (rem 1.1)
-        , fontWeight (int 300)
+        , fontWeight (int 400)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         ]
@@ -271,7 +271,7 @@ quoteStyle =
 relatableQuoteStyle : Style
 relatableQuoteStyle =
     batch
-        [ fontSize (rem 1.2)
+        [ fontSize (rem 1.1)
         , fontWeight (int 300)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
