@@ -6,7 +6,8 @@ import Task
 
 
 type alias Model =
-    { revealedJourney : Maybe JourneyCard }
+    { revealedJourney : Maybe JourneyCard
+    }
 
 
 type Msg
