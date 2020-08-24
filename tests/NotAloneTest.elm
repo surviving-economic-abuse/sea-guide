@@ -5,12 +5,13 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Page.NotAlone exposing (Msg(..), view)
+import Page.NotAlone exposing (Msg(..))
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, id, tag, text)
 import TestUtils exposing (queryFromStyledHtml)
+import View.NotAlone exposing (view)
 
 
 suite : Test
@@ -34,7 +35,6 @@ suite =
                 queryFromStyledHtml (view initModel)
                     |> Query.findAll [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.each (Query.has [ text (t ToDefinitionFromNotAloneLink) ])
-
         , test "NotAlone view has emergency contact information" <|
             \() ->
                 queryFromStyledHtml (view initModel)

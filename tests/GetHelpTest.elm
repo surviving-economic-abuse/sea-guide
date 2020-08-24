@@ -5,11 +5,11 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Page.GetHelp exposing (view)
 import Test exposing (Test, describe, test)
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
 import TestUtils exposing (queryFromStyledHtml)
+import View.GetHelp exposing (view)
 
 
 suite : Test
