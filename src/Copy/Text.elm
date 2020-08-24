@@ -11,7 +11,7 @@ t : Key -> String
 t key =
     case key of
         SiteTitle ->
-            "[cCc] SEA MAP"
+            "Economic Abuse Support Tool"
 
         --- Internal Href slugs
         NotAlonePageSlug ->
@@ -97,19 +97,19 @@ t key =
             "You are not alone"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
 
         Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
+            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
+            "I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         Journey1Name ->
-            "Zahara"
+            "Aja"
 
         Journey1Age ->
-            "27"
+            "48"
 
         Journey2Relatable ->
             "My partner used to give me a shopping list telling me what I had to buy with the £10 food allowance. He'd check the receipt when I got in to make sure I'd got everything. Sometimes I couldn't and then he'd beat me up."
@@ -142,34 +142,34 @@ t key =
             "39"
 
         Journey4Relatable ->
-            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey4Hopeful ->
-            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
         Journey4Statement ->
-            "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey4Name ->
-            "Catherine"
+            "Zahara"
 
         Journey4Age ->
-            "43"
+            "27"
 
         Journey5Relatable ->
-            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
 
         Journey5Hopeful ->
-            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+            "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
         Journey5Statement ->
-            "I feel like I've got my life back. I can take the kids on holiday and we are free."
+            "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
         Journey5Name ->
-            "Aja"
+            "Catherine"
 
         Journey5Age ->
-            "48"
+            "43"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
@@ -206,7 +206,7 @@ t key =
 
         -- Definition page
         DefinitionTitle ->
-            "Understanding what's happening to you"
+            "What is economic abuse?"
 
         DefinitionConciseP1 ->
             "Has your partner used your bank cards without asking? Do they stop you from earning money or going to work? Have they ever stolen money from you? Or damaged or destroyed your things?"
@@ -218,7 +218,7 @@ t key =
             "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control and sabotage other areas of your life including housing, food and clothing. This is known as economic abuse, and it is commonly experienced within a context of abuse known as coercive control."
 
         DefinitionMoreLink ->
-            "Find out more about the signs of economic abuse."
+            "Find out more about economic abuse and the law."
 
         DefinitionCategory1Title ->
             "Controlling how you access money"
@@ -284,7 +284,7 @@ t key =
             "Threatening you"
 
         DefinitionCategory5Info ->
-            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone. In immediate danger? [cCc] LINK Get help here."
+            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone."
 
         DefinitionCategory5Quote1 ->
             "He watched me entering my PIN and stole money from my bank account, threatening me if I changed it."

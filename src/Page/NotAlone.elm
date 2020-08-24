@@ -14,7 +14,8 @@ import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingS
 
 
 type alias Model =
-    { revealedJourney : Maybe JourneyCard }
+    { revealedJourney : Maybe JourneyCard
+    }
 
 
 type Msg
