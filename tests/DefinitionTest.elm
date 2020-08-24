@@ -5,13 +5,14 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import Page.Definition exposing (Msg(..), update, view)
+import Page.Definition exposing (Msg(..), update)
 import Set
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
 import TestUtils exposing (queryFromStyledHtml)
+import View.Definition exposing (view)
 
 
 suite : Test
