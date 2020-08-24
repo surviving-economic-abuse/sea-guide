@@ -96,23 +96,23 @@ t key =
         NotAloneTitle ->
             "You are not alone"
 
+        Journey1Teaser ->
+            "He threw my phone on the floor and smashed it"
+
         Journey1Relatable ->
-            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+            "When I took a call from someone my boyfriend didn’t approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year"
 
         Journey1Hopeful ->
-            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+            "I spoke to a friend one day in the park who told me that wasn’t ok. It was just helpful to speak to someone you know."
 
         Journey1Statement ->
-            "I feel like I've got my life back. I can take the kids on holiday and we are free."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I’m free."
 
-        Journey1Name ->
-            "Aja"
-
-        Journey1Age ->
-            "48"
+        Journey2Teaser ->
+            "He would shame me at dinner parties"
 
         Journey2Relatable ->
-            "My partner used to give me a shopping list telling me what I had to buy with the £10 food allowance. He'd check the receipt when I got in to make sure I'd got everything. Sometimes I couldn't and then he'd beat me up."
+            "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
 
         Journey2Hopeful ->
             "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
@@ -120,11 +120,8 @@ t key =
         Journey2Statement ->
             "We are happy, and he no longer has control over our lives."
 
-        Journey2Name ->
-            "Caris"
-
-        Journey2Age ->
-            "34"
+        Journey3Teaser ->
+            "I had no control over my life"
 
         Journey3Relatable ->
             "To be so powerless, I can't explain what it's like, it's overwhelming. Not being able to provide for your children. You have absolutely no control over your life."
@@ -135,56 +132,41 @@ t key =
         Journey3Statement ->
             "This will end and normality will return."
 
-        Journey3Name ->
-            "Amina"
-
-        Journey3Age ->
-            "39"
+        Journey4Teaser ->
+            "He controlled what I wore and who I spoke to"
 
         Journey4Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn’t know who I was anymore."
 
         Journey4Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
-
-        Journey4Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
-
-        Journey4Name ->
-            "Zahara"
-
-        Journey4Age ->
-            "27"
-
-        Journey5Relatable ->
-            "He had access to all of my bank statements and accounts. I didn't know anything about his finances. For him it was just another method of control."
-
-        Journey5Hopeful ->
             "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
-        Journey5Statement ->
+        Journey4Statement ->
             "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
-        Journey5Name ->
-            "Catherine"
+        Journey5Teaser ->
+            "He took out loans in my name"
 
-        Journey5Age ->
-            "43"
+        Journey5Relatable ->
+            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+
+        Journey5Hopeful ->
+            "I had been putting off speaking to anyone as I didn’t know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+
+        Journey5Statement ->
+            "I  feel like I’ve got my life back. I can take the kids on holiday and we are free."
+
+        Journey6Teaser ->
+            "He transferred hiw own expenses to our joint direct debits"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
 
         Journey6Hopeful ->
-            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life. Before, I was constantly anxious about whether I would have enough money in my account to make the payments every month."
+            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
 
         Journey6Statement ->
             "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
-
-        Journey6Name ->
-            "Sarah"
-
-        Journey6Age ->
-            "61"
 
         ExpandQuoteButton ->
             "read how things got better"

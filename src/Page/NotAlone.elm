@@ -45,11 +45,10 @@ journeyIsRevealed model journeyCard =
 
 
 type alias JourneyContent =
-    { relatable : Key
+    { teaser : Key
+    , relatable : Key
     , hopeful : Key
     , statement : Key
-    , name : Key
-    , age : Key
     }
 
 
@@ -70,49 +69,43 @@ journeyContentFromCardPosition : JourneyCard -> JourneyContent
 journeyContentFromCardPosition cardPosition =
     case cardPosition of
         JourneyCard1 ->
-            { relatable = Journey1Relatable
+            { teaser = Journey1Teaser
+            , relatable = Journey1Relatable
             , hopeful = Journey1Hopeful
             , statement = Journey1Statement
-            , name = Journey1Name
-            , age = Journey1Age
             }
 
         JourneyCard2 ->
-            { relatable = Journey2Relatable
+            { teaser = Journey2Teaser
+            , relatable = Journey2Relatable
             , hopeful = Journey2Hopeful
             , statement = Journey2Statement
-            , name = Journey2Name
-            , age = Journey2Age
             }
 
         JourneyCard3 ->
-            { relatable = Journey3Relatable
+            { teaser = Journey4Teaser
+            , relatable = Journey3Relatable
             , hopeful = Journey3Hopeful
             , statement = Journey3Statement
-            , name = Journey3Name
-            , age = Journey3Age
             }
 
         JourneyCard4 ->
-            { relatable = Journey4Relatable
+            { teaser = Journey4Teaser
+            , relatable = Journey4Relatable
             , hopeful = Journey4Hopeful
             , statement = Journey4Statement
-            , name = Journey4Name
-            , age = Journey4Age
             }
 
         JourneyCard5 ->
-            { relatable = Journey5Relatable
+            { teaser = Journey5Teaser
+            , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
-            , name = Journey5Name
-            , age = Journey5Age
             }
 
         JourneyCard6 ->
-            { relatable = Journey6Relatable
+            { teaser = Journey6Teaser
+            , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
-            , name = Journey6Name
-            , age = Journey6Age
             }
