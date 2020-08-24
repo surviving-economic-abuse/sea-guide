@@ -1,4 +1,4 @@
-module Page.HelpSelfGrid exposing (view)
+module View.HelpSelfGrid exposing (view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
