@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, verticalSpacing)
+import Theme exposing (grey, lightGrey, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Html never
@@ -83,8 +83,8 @@ card title quote description call =
 cardStyle : List Style
 cardStyle =
     [ batch
-        [ backgroundColor colours.lightgrey
-        , border3 (px 1) solid colours.midgrey
+        [ backgroundColor lightGrey
+        , border3 (px 1) solid grey
         , borderRadius (rem 1)
         , margin2 (rem 1) zero
         , maxWidth (pct 100)
@@ -101,7 +101,7 @@ cardStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 5) solid colours.midgrey
+        [ borderLeft3 (px 5) solid grey
         , borderRadius (px 5)
         , fontSize (rem 1.1)
         , fontStyle italic
@@ -115,15 +115,15 @@ quoteStyle =
 linkStyle : Style
 linkStyle =
     batch
-        [ backgroundColor colours.purple
+        [ backgroundColor purple
         , borderRadius (rem 0.5)
-        , color colours.white
+        , color white
         , display block
         , padding (rem 0.5)
         , textAlign center
         , textDecoration none
         , hover
-            [ backgroundColor colours.darkpurple
+            [ backgroundColor purple
             ]
         ]
 
@@ -131,7 +131,7 @@ linkStyle =
 infoStyle : Style
 infoStyle =
     batch
-        [ color colours.purple
+        [ color purple
         , fontSize (rem 1.35)
         , fontWeight (int 700)
         , textAlign center

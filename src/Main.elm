@@ -14,7 +14,7 @@ import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
 import Set
 import Task
-import Theme exposing (globalStyles)
+import Theme exposing (globalStyles, white)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
@@ -174,7 +174,7 @@ layout =
         [ margin2 zero auto
         , maxWidth (px 1000)
         , width (pct 100)
-        , backgroundColor (hex "fff")
+        , backgroundColor white
         , displayFlex
         , flexDirection column
         , minHeight (vh 100)

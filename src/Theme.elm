@@ -1,4 +1,4 @@
-module Theme exposing (colours, globalStyles, gridStyle, navItemStyles, navLinkStyle, navListStyle, oneColumn, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
+module Theme exposing (globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, purple, teal, threeColumn, twoColumn, verticalSpacing, white)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -7,17 +7,85 @@ import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
 
-colours : { purple : Color, darkpurple : Color, green : Color, teal : Color, grey : Color, lightgrey : Color, midgrey : Color, white : Color }
-colours =
-    { purple = hex "4F2F8D"
-    , darkpurple = hex "321f40"
-    , green = hex "9CCC54"
-    , teal = hex "3CC0BE"
-    , grey = hex "58585A"
-    , midgrey = hex "dedae7"
-    , lightgrey = hex "f4f4f6"
-    , white = hex "FFFFFF"
-    }
+
+-- Main colours
+
+
+purple : Color
+purple =
+    hex "683e89"
+
+
+lightPurple : Color
+lightPurple =
+    hex "e9d0fd"
+
+
+
+-- Emergency colours
+
+
+orange : Color
+orange =
+    hex "ea5e4a"
+
+
+lightOrange : Color
+lightOrange =
+    hex "ffece8"
+
+
+
+-- Accent colours
+
+
+green : Color
+green =
+    hex "a4cc5a"
+
+
+lightGreen : Color
+lightGreen =
+    hex "effadc"
+
+
+pink : Color
+pink =
+    hex "e03088"
+
+
+lightPink : Color
+lightPink =
+    hex "ffddee"
+
+
+teal : Color
+teal =
+    hex "67c4ba"
+
+
+lightTeal : Color
+lightTeal =
+    hex "edfffd"
+
+
+
+-- Text and backgrounds
+
+
+grey : Color
+grey =
+    hex "4a4d50"
+
+
+lightGrey : Color
+lightGrey =
+    hex "fafafa"
+
+
+white : Color
+white =
+    hex "ededed"
 
 
 {-| Injects a <style> tag into the body, and can target element or
@@ -27,24 +95,24 @@ globalStyles : Html msg
 globalStyles =
     global
         [ typeSelector "body"
-            [ color colours.grey
+            [ color grey
             , fontFamilies [ "Poppins", sansSerif.value ]
             , fontWeight (int 400)
             ]
         , typeSelector "h1"
-            [ color colours.purple
+            [ color purple
             , fontFamilies [ "Raleway", sansSerif.value ]
             ]
         , typeSelector "h2"
-            [ color colours.purple
+            [ color purple
             , fontFamilies [ "Raleway", sansSerif.value ]
             ]
         , typeSelector "h3"
-            [ color colours.purple
+            [ color purple
             , fontFamilies [ "Raleway", sansSerif.value ]
             ]
         , typeSelector "h4"
-            [ color colours.purple
+            [ color purple
             , fontFamilies [ "Raleway", "sansSerif" ]
             ]
         , typeSelector "p"
@@ -148,9 +216,9 @@ navItemStyles =
 navLinkStyle : Style
 navLinkStyle =
     batch
-        [ backgroundColor colours.darkpurple
+        [ backgroundColor purple
         , borderRadius (rem 0.5)
-        , color colours.white
+        , color white
         , displayFlex
         , flexDirection column
         , justifyContent center
@@ -160,6 +228,6 @@ navLinkStyle =
         , textDecoration none
         , width (pct 100)
         , hover
-            [ backgroundColor colours.purple
+            [ backgroundColor purple
             ]
         ]

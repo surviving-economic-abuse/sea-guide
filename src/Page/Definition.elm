@@ -9,7 +9,7 @@ import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Set
-import Theme exposing (colours, navLinkStyle, pageHeadingStyle, verticalSpacing)
+import Theme exposing (grey, lightGrey, navLinkStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 type alias Model =
@@ -231,7 +231,7 @@ categoryListStyle =
 introStyle : Style
 introStyle =
     batch
-        [ color colours.purple
+        [ color purple
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1)
         , margin2 (rem 2) zero
@@ -267,7 +267,7 @@ expanderButtonStyle : Style
 expanderButtonStyle =
     batch
         [ alignItems center
-        , backgroundColor (hex "4f2f8d")
+        , backgroundColor purple
         , border zero
         , cursor pointer
         , justifyContent spaceBetween
@@ -281,7 +281,7 @@ expanderButtonStyle =
 expanderHeadingStyle : Style
 expanderHeadingStyle =
     batch
-        [ color colours.white
+        [ color white
         , fontSize (rem 1.25)
         , flex2 (int 1) (int 1)
         ]
@@ -290,7 +290,7 @@ expanderHeadingStyle =
 expanderSymbolStyle : Style
 expanderSymbolStyle =
     batch
-        [ color colours.white
+        [ color white
         , flex3 zero (int 1) (rem 3)
         , textAlign center
         , fontWeight (int 700)
@@ -321,8 +321,8 @@ expanderItemStyle =
 expanderDefinitionStyles : List Style
 expanderDefinitionStyles =
     [ batch
-        [ backgroundColor colours.lightgrey
-        , border3 (px 1) solid colours.midgrey
+        [ backgroundColor lightGrey
+        , border3 (px 1) solid grey
         , borderBottomLeftRadius (rem 1)
         , borderBottomRightRadius (rem 1)
         , padding (rem 1)
@@ -337,7 +337,7 @@ expanderDefinitionStyles =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 5) solid colours.midgrey
+        [ borderLeft3 (px 5) solid grey
         , borderRadius (px 5)
         , fontSize (rem 1.1)
         , fontStyle italic

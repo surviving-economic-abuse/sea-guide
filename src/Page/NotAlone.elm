@@ -10,7 +10,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Task
-import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
+import Theme exposing (grey, gridStyle, lightGrey, navLinkStyle, oneColumn, pageHeadingStyle, purple, twoColumn, verticalSpacing, white)
 
 
 type alias Model =
@@ -217,8 +217,8 @@ journeyContentFromCardPosition cardPosition =
 cardStyles : List Style
 cardStyles =
     [ batch
-        [ backgroundColor colours.lightgrey
-        , border3 (px 1) solid colours.midgrey
+        [ backgroundColor lightGrey
+        , border3 (px 1) solid grey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
         , height auto
@@ -281,7 +281,7 @@ relatableQuoteStyle =
 continueButtonStyle : Style
 continueButtonStyle =
     batch
-        [ backgroundColor colours.lightgrey
+        [ backgroundColor lightGrey
         , border zero
         , display block
         , margin auto
@@ -293,7 +293,7 @@ continueTextStyle : Style
 continueTextStyle =
     batch
         [ textDecoration underline
-        , color colours.grey
+        , color grey
         ]
 
 
@@ -302,7 +302,7 @@ detailsStyle =
     batch
         [ textAlign right
         , marginInlineEnd (rem 1)
-        , color colours.purple
+        , color purple
         , fontWeight (int 700)
         ]
 
@@ -310,10 +310,10 @@ detailsStyle =
 emergencyButtonStyle : Style
 emergencyButtonStyle =
     batch
-        [ backgroundColor colours.grey
+        [ backgroundColor grey
         , padding2 (rem 0.5) (rem 1)
         , borderRadius (rem 0.5)
-        , color colours.white
+        , color white
         , fontWeight (int 400)
         , margin auto
         , border zero
@@ -325,8 +325,8 @@ emergencyContactStyle =
     batch
         [ margin auto
         , maxWidth (pct 100)
-        , backgroundColor colours.grey
-        , color colours.white
+        , backgroundColor grey
+        , color white
         , padding (rem 1)
         ]
 
