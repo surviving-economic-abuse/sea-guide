@@ -11,6 +11,7 @@ import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
 import Route exposing (Route(..))
+import Set
 import Task
 import Theme exposing (globalStyles)
 import Url
@@ -39,18 +40,41 @@ main =
 
 type alias Model =
     { key : Browser.Navigation.Key
-    , page : Route
+    , page : Page
     }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    let
-        maybePage =
-            Route.fromUrl url
-    in
-    -- If not a page default to NotAlone
-    ( { key = key, page = Maybe.withDefault (NotAlonePage { revealedJourney = Nothing }) maybePage }, Cmd.none )
+    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url) }, Cmd.none )
+
+
+type Page
+    = DefinitionPage Page.Definition.Model
+    | GetHelpPage
+    | HelpSelfGridPage
+    | HelpSelfSinglePage Page.HelpSelfSingle.Model String
+    | NotAlonePage Page.NotAlone.Model
+
+
+pageFromMaybeRoute : Maybe Route -> Page
+pageFromMaybeRoute route =
+    case route of
+        Just Route.Definition ->
+            DefinitionPage { openCategories = Set.empty }
+
+        Just Route.GetHelp ->
+            GetHelpPage
+
+        Just Route.HelpSelfGrid ->
+            HelpSelfGridPage
+
+        Just (Route.HelpSelfSingle string) ->
+            HelpSelfSinglePage { openResources = Set.empty } string
+
+        -- Always fall back to home if route does not exist
+        _ ->
+            NotAlonePage { revealedJourney = Nothing }
 
 
 
@@ -87,8 +111,7 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
-                    -- If not a page default to NotAlone
-                    Maybe.withDefault (NotAlonePage { revealedJourney = Nothing }) (Route.fromUrl url)
+                    pageFromMaybeRoute (Route.fromUrl url)
             in
             ( { model | page = newPage }, resetViewportTop )
 

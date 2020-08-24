@@ -33,7 +33,7 @@ view slug model =
         , nav [ css [ navListStyle ] ]
             [ a
                 --todo base url implementation
-                [ href ("../" ++ Route.toString HelpSelfGridPage), css (navLinkStyle :: navItemStyles) ]
+                [ href ("../" ++ Route.toString HelpSelfGrid), css (navLinkStyle :: navItemStyles) ]
                 [ span [] [ text (t ToHelpSelfFromSingleCategoryLink) ] ]
             ]
         ]
