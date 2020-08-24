@@ -157,7 +157,7 @@ t key =
             "I  feel like I’ve got my life back. I can take the kids on holiday and we are free."
 
         Journey6Teaser ->
-            "He transferred hiw own expenses to our joint direct debits"
+            "He transferred his own expenses to our joint direct debits"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
