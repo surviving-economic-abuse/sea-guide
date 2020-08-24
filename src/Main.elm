@@ -8,15 +8,12 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Page.Definition
-import Page.GetHelp
 import Page.HelpSelfSingle
 import Page.NotAlone
 import Route exposing (Route(..))
-import Set
 import Task
 import Theme exposing (globalStyles)
 import Url
-import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 import View.Definition
 import View.GetHelp
 import View.HelpSelfGrid

@@ -9,7 +9,6 @@ import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
-import Set
 import Theme exposing (colours, navLinkStyle, pageHeadingStyle, verticalSpacing)
 
 

@@ -2,14 +2,7 @@ module Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryK
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
-import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, li, nav, p, span, text, ul)
-import Html.Styled.Attributes exposing (css, href)
-import Html.Styled.Events exposing (onClick)
 import Set
-import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, verticalSpacing)
 
 
 type alias Model =

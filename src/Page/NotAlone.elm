@@ -2,15 +2,7 @@ module Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFr
 
 import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
-import Copy.Text exposing (t)
-import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (easeOut, transition)
-import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href, id)
-import Html.Styled.Events exposing (onClick)
 import Task
-import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
 
 
 type alias Model =

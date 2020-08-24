@@ -1,6 +1,5 @@
 module View.NotAlone exposing (view)
 
-import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
@@ -10,7 +9,6 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Task
 import Theme exposing (colours, gridStyle, navLinkStyle, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing)
 
 
