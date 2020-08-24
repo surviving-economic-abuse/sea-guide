@@ -14,7 +14,6 @@ import Page.HelpSelfSingle as HelpSelfSingle
 import Page.NotAlone as NotAlone
 import Set
 import Task
-import Theme exposing (globalStyles, white)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
@@ -153,33 +152,19 @@ view : Model -> Html Msg
 view model =
     case model.page of
         DefinitionPage definition ->
-            layout [] [ globalStyles, Html.Styled.map DefinitionMsg (Definition.view definition) ]
+            Html.Styled.map DefinitionMsg (Definition.view definition)
 
         GetHelpPage ->
-            layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) GetHelp.view ]
+            Html.Styled.map (\_ -> NoOp) GetHelp.view
 
         HelpSelfGridPage ->
-            layout [] [ globalStyles, Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view ]
+            Html.Styled.map (\_ -> NoOp) HelpSelfGrid.view
 
         HelpSelfSinglePage helpSelfSingle category ->
-            layout [] [ globalStyles, Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view category helpSelfSingle) ]
+            Html.Styled.map HelpSelfSingleMsg (HelpSelfSingle.view category helpSelfSingle)
 
         NotAlonePage notAlone ->
-            layout [] [ globalStyles, Html.Styled.map NotAloneMsg (NotAlone.view notAlone) ]
-
-
-layout : List (Attribute msg) -> List (Html msg) -> Html msg
-layout =
-    styled div
-        [ margin2 zero auto
-        , maxWidth (px 1000)
-        , width (pct 100)
-        , backgroundColor white
-        , displayFlex
-        , flexDirection column
-        , minHeight (vh 100)
-        , padding2 zero (rem 1)
-        ]
+            Html.Styled.map NotAloneMsg (NotAlone.view notAlone)
 
 
 

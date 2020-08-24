@@ -1,4 +1,4 @@
-module Theme exposing (globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, purple, teal, threeColumn, twoColumn, verticalSpacing, white)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, purple, teal, threeColumn, twoColumn, verticalSpacing, white)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -80,12 +80,12 @@ grey =
 
 lightGrey : Color
 lightGrey =
-    hex "fafafa"
+    hex "ededed"
 
 
 white : Color
 white =
-    hex "ededed"
+    hex "fafafa"
 
 
 {-| Injects a <style> tag into the body, and can target element or
@@ -231,3 +231,13 @@ navLinkStyle =
             [ backgroundColor purple
             ]
         ]
+
+
+container : Color -> List (Html msg) -> Html msg
+container colour children =
+    div [ css [ backgroundColor colour, margin2 zero auto ] ] children
+
+
+containerContent : List (Html msg) -> Html msg
+containerContent children =
+    div [ css [ maxWidth (px 1000), width (pct 100), margin2 zero auto ] ] children
