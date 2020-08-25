@@ -66,7 +66,6 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory1Quote1
                 , DefinitionCategory1Quote2
-                , DefinitionCategory1Quote3
                 ]
             }
 
@@ -76,7 +75,6 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory2Quote1
                 , DefinitionCategory2Quote2
-                , DefinitionCategory2Quote3
                 ]
             }
 
@@ -86,7 +84,6 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory3Quote1
                 , DefinitionCategory3Quote2
-                , DefinitionCategory3Quote3
                 ]
             }
 
@@ -96,7 +93,6 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory4Quote1
                 , DefinitionCategory4Quote2
-                , DefinitionCategory4Quote3
                 ]
             }
 
@@ -106,7 +102,6 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory5Quote1
                 , DefinitionCategory5Quote2
-                , DefinitionCategory5Quote3
                 ]
             }
 
@@ -116,6 +111,5 @@ categoryKeysFromListPosition listPosition =
             , quotes =
                 [ DefinitionCategory6Quote1
                 , DefinitionCategory6Quote2
-                , DefinitionCategory6Quote3
                 ]
             }
