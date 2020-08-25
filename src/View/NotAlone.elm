@@ -59,12 +59,12 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.teaser) ]
     , div [ css [ closedStyle ] ]
-        [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
+        [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+        , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
         ]
-    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     , verticalSpacing
     , button [ css [ continueButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
         [ span [ css [ continueTextStyle ] ] [ text (t ExpandQuoteButton) ]
@@ -90,7 +90,6 @@ renderRevealedCard journeyCardPosition =
         [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
         , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
         ]
-    , p [ css [ detailsStyle ] ] [ text ("- " ++ t journeyContent.name ++ ", " ++ t journeyContent.age) ]
     , div [ css [ openStyle ] ]
         [ p [ css [ reassuringStyle ] ]
             [ text (t ToDefinitionReassuringText) ]

@@ -33,36 +33,30 @@ type Key
     | HelpSelfFinancialResource3Href
       -- Not Alone page
     | NotAloneTitle
+    | Journey1Teaser
     | Journey1Relatable
     | Journey1Hopeful
     | Journey1Statement
-    | Journey1Name
-    | Journey1Age
+    | Journey2Teaser
     | Journey2Relatable
     | Journey2Hopeful
     | Journey2Statement
-    | Journey2Name
-    | Journey2Age
+    | Journey3Teaser
     | Journey3Relatable
     | Journey3Hopeful
     | Journey3Statement
-    | Journey3Name
-    | Journey3Age
+    | Journey4Teaser
     | Journey4Relatable
     | Journey4Hopeful
     | Journey4Statement
-    | Journey4Name
-    | Journey4Age
+    | Journey5Teaser
     | Journey5Relatable
     | Journey5Hopeful
     | Journey5Statement
-    | Journey5Name
-    | Journey5Age
+    | Journey6Teaser
     | Journey6Relatable
     | Journey6Hopeful
     | Journey6Statement
-    | Journey6Name
-    | Journey6Age
     | ExpandQuoteButton
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
