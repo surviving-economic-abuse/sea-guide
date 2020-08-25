@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, purple, teal, threeColumn, twoColumn, verticalSpacing, white)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, white)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -83,9 +83,19 @@ lightGrey =
     hex "ededed"
 
 
+shadowGrey : Color
+shadowGrey =
+    rgba 74 77 80 0.3
+
+
 white : Color
 white =
     hex "fafafa"
+
+
+pureWhite : Color
+pureWhite =
+    hex "ffffff"
 
 
 {-| Injects a <style> tag into the body, and can target element or
