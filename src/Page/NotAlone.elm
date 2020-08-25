@@ -108,6 +108,4 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
-            , name = Journey6Name
-            , age = Journey6Age
             }
