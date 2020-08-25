@@ -6,13 +6,14 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (colours, gridStyle, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, threeColumn, twoColumn, verticalSpacing)
+import Theme exposing (globalStyles, grey, gridStyle, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
 view =
     div []
-        [ header []
+        [ globalStyles
+        , header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
             ]
         , ul [ css [ gridStyle ] ]
@@ -60,10 +61,10 @@ infoLink linkName linkHref =
 gridCardStyle : Style
 gridCardStyle =
     batch
-        [ backgroundColor colours.lightgrey
-        , border3 (px 1) solid colours.midgrey
+        [ backgroundColor lightGrey
+        , border3 (px 1) solid grey
         , borderRadius (rem 1)
-        , color colours.purple
+        , color purple
         , displayFlex
         , flexDirection column
         , fontFamilies [ "Raleway", sansSerif.value ]
@@ -73,7 +74,7 @@ gridCardStyle =
         , textAlign center
         , textDecoration none
         , hover
-            [ borderColor colours.purple
+            [ borderColor purple
             ]
         ]
 

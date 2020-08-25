@@ -10,7 +10,7 @@ import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Route(..), toString)
-import Theme exposing (colours, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, verticalSpacing)
+import Theme exposing (globalStyles, grey, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : String -> Model -> Html Msg
@@ -20,7 +20,8 @@ view slug model =
             categoryKeysFromSlug slug
     in
     div []
-        [ header []
+        [ globalStyles
+        , header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
             , case categoryData.resources of
                 Just resources ->
@@ -108,7 +109,7 @@ expanderButtonStyle =
 expanderHeadingStyle : Style
 expanderHeadingStyle =
     batch
-        [ color colours.white
+        [ color white
         , fontSize (rem 1.25)
         , flex2 (int 1) (int 1)
         ]
@@ -117,7 +118,7 @@ expanderHeadingStyle =
 expanderSymbolStyle : Style
 expanderSymbolStyle =
     batch
-        [ color colours.white
+        [ color white
         , flex3 zero (int 1) (rem 3)
         , textAlign center
         , fontWeight (int 700)
@@ -148,8 +149,8 @@ expanderItemStyle =
 expanderDefinitionStyle : List Style
 expanderDefinitionStyle =
     [ batch
-        [ backgroundColor colours.lightgrey
-        , border3 (px 1) solid colours.midgrey
+        [ backgroundColor lightGrey
+        , border3 (px 1) solid grey
         , borderBottomLeftRadius (rem 1)
         , borderBottomRightRadius (rem 1)
         , padding (rem 1)
@@ -164,7 +165,7 @@ expanderDefinitionStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 5) solid colours.midgrey
+        [ borderLeft3 (px 5) solid grey
         , borderRadius (px 5)
         , fontSize (rem 1.1)
         , fontStyle italic
@@ -178,7 +179,7 @@ quoteStyle =
 resourceLinkStyle : Style
 resourceLinkStyle =
     batch
-        [ color colours.purple
+        [ color purple
         , fontWeight (int 700)
         ]
 
