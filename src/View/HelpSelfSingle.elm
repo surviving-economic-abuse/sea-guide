@@ -9,8 +9,8 @@ import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, l
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
-import Route exposing (Direction(..), Route(..), renderNavLink, toString)
-import Theme exposing (globalStyles, grey, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Route exposing (Direction(..), Route(..), renderNavLink)
+import Theme exposing (globalStyles, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : String -> Model -> Html Msg

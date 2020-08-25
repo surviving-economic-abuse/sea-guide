@@ -33,7 +33,7 @@ suite =
             , test "HelpSelfSingle view has nav link to get-help" <|
                 \() ->
                     queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
-                        |> Query.find [ tag "a", attribute (Html.Attributes.href ("../" ++ t HelpSelfGridPageSlug)) ]
+                        |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromSingleCategoryLink) ]
             , test "HelpSelfSingle view can have well formed resources" <|
                 \() ->
