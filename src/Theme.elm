@@ -96,7 +96,7 @@ globalStyles =
     global
         [ typeSelector "body"
             [ color grey
-            , fontFamilies [ "sofia-pro" ]
+            , fontFamilies [ "sofia-pro", sansSerif.value ]
             , fontWeight (int 400)
             ]
         , typeSelector "h1"
