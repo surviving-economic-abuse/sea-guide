@@ -9,7 +9,8 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Theme exposing (grey, globalStyles, gridStyle, lightGrey, navLinkStyle, oneColumn, pageHeadingStyle, purple, twoColumn, verticalSpacing, white)
+import Route exposing (Direction(..), renderNavLink)
+import Theme exposing (globalStyles, grey, gridStyle, lightGrey, oneColumn, pageHeadingStyle, purple, twoColumn, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -29,6 +30,9 @@ view model =
             , card model JourneyCard6
             ]
         , verticalSpacing
+        , div []
+            [ renderNavLink Forward DefinitionPageSlug ToHelpSelfFromGetHelpLink
+            ]
         , div [ css [ emergencyContactStyle ], id "emergency" ]
             [ p [] [ text (t EmergencyReassure) ]
             , p [] [ text (t EmergencyContactInfo) ]
@@ -93,9 +97,7 @@ renderRevealedCard journeyCardPosition =
     , div [ css [ openStyle ] ]
         [ p [ css [ reassuringStyle ] ]
             [ text (t ToDefinitionReassuringText) ]
-        , a
-            [ href (t DefinitionPageSlug), css [ navLinkStyle ] ]
-            [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
+        , renderNavLink Forward DefinitionPageSlug ToHelpSelfFromGetHelpLink
         ]
     ]
 

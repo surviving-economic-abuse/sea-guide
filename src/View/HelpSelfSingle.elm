@@ -9,7 +9,7 @@ import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, l
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
-import Route exposing (Route(..), toString)
+import Route exposing (Direction(..), Route(..), renderNavLink, toString)
 import Theme exposing (globalStyles, grey, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
@@ -32,10 +32,7 @@ view slug model =
             ]
         , verticalSpacing
         , nav [ css [ navListStyle ] ]
-            [ a
-                --todo base url implementation
-                [ href ("../" ++ Route.toString HelpSelfGrid), css (navLinkStyle :: navItemStyles) ]
-                [ span [] [ text (t ToHelpSelfFromSingleCategoryLink) ] ]
+            [ renderNavLink Back HelpSelfGridPageSlug ToHelpSelfFromSingleCategoryLink
             ]
         ]
 

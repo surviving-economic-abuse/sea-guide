@@ -9,13 +9,15 @@ import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
-import Theme exposing (grey, lightGrey, navLinkStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Route exposing (Direction(..), renderNavLink)
+import Theme exposing (globalStyles, grey, lightGrey, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
 view model =
     div []
-        [ header []
+        [ globalStyles
+        , header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
             , div [ css [ introStyle ] ]
                 [ p [] [ text (t DefinitionConciseP1) ]
@@ -44,12 +46,10 @@ view model =
         , nav []
             [ ul [ css [ navListStyle ] ]
                 [ li [ css navItemStyles ]
-                    [ a [ href (t HelpSelfGridPageSlug), css [ navLinkStyle ] ]
-                        [ span [] [ text (t ToHelpSelfFromDefinitionLink) ] ]
+                    [ renderNavLink Forward HelpSelfGridPageSlug ToHelpSelfFromDefinitionLink
                     ]
                 , li [ css navItemStyles ]
-                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
-                        [ span [] [ text (t ToGetHelpFromDefinitionLink) ] ]
+                    [ renderNavLink Forward GetHelpPageSlug ToGetHelpFromDefinitionLink
                     ]
                 ]
             ]

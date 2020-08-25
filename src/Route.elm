@@ -3,6 +3,7 @@ module Route exposing (Direction(..), Route(..), fromUrl, renderNavLink, toStrin
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
+import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, a, img, span, text)
 import Html.Styled.Attributes exposing (alt, css, href, src)
@@ -86,8 +87,8 @@ navLinkStyle =
         , fontSize (rem 1)
         , fontWeight (int 700)
         , justifyContent center
-        , minHeight (rem 3.375)
-        , padding2 (rem 0.5) (rem 1)
+        , minHeight (rem 3)
+        , padding2 (rem 0.5) (rem 2)
         , textAlign center
         , textDecoration none
         , hover
@@ -98,6 +99,8 @@ navLinkStyle =
             [ Css.Transitions.backgroundColor 200
             , Css.Transitions.color 200
             ]
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ minHeight (rem 4) ]
         ]
 
 

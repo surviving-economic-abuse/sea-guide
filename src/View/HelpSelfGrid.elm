@@ -6,7 +6,8 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (globalStyles, grey, gridStyle, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
+import Route exposing (Direction(..), renderNavLink)
+import Theme exposing (globalStyles, grey, gridStyle, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
@@ -29,16 +30,13 @@ view =
         , nav []
             [ ul [ css [ navListStyle ] ]
                 [ li [ css navItemStyles ]
-                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
-                        [ span [] [ text (t ToGetHelpFromHelpSelfLink) ] ]
+                    [ renderNavLink None GetHelpPageSlug ToGetHelpFromHelpSelfLink
                     ]
                 , li [ css navItemStyles ]
-                    [ a [ href (t NotAlonePageSlug), css [ navLinkStyle ] ]
-                        [ span [] [ text (t ToNotAloneFromHelpSelfLink) ] ]
+                    [ renderNavLink None NotAlonePageSlug ToNotAloneFromHelpSelfLink
                     ]
                 , li [ css navItemStyles ]
-                    [ a [ href (t DefinitionPageSlug), css [ navLinkStyle ] ]
-                        [ span [] [ text (t ToDefinitionFromHelpSelfLink) ] ]
+                    [ renderNavLink None DefinitionPageSlug ToDefinitionFromHelpSelfLink
                     ]
                 ]
             ]
