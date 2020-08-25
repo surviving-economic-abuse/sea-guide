@@ -68,38 +68,32 @@ type Key
     | DefinitionConciseP1
     | DefinitionConciseP2
     | DefinitionConciseP3
-    | DefinitionMoreLink
+    | SplitterAffirmation
+    | DefinitionGetHelpLink
     | DefinitionCategory1Title
     | DefinitionCategory1Info
     | DefinitionCategory1Quote1
     | DefinitionCategory1Quote2
-    | DefinitionCategory1Quote3
     | DefinitionCategory2Title
     | DefinitionCategory2Info
     | DefinitionCategory2Quote1
     | DefinitionCategory2Quote2
-    | DefinitionCategory2Quote3
     | DefinitionCategory3Title
     | DefinitionCategory3Info
     | DefinitionCategory3Quote1
     | DefinitionCategory3Quote2
-    | DefinitionCategory3Quote3
     | DefinitionCategory4Title
     | DefinitionCategory4Info
     | DefinitionCategory4Quote1
     | DefinitionCategory4Quote2
-    | DefinitionCategory4Quote3
     | DefinitionCategory5Title
     | DefinitionCategory5Info
     | DefinitionCategory5Quote1
     | DefinitionCategory5Quote2
-    | DefinitionCategory5Quote3
     | DefinitionCategory6Title
     | DefinitionCategory6Info
     | DefinitionCategory6Quote1
     | DefinitionCategory6Quote2
-    | DefinitionCategory6Quote3
-    | SplitterAffirmation
     | ToGetHelpFromDefinitionLink
     | ToHelpSelfFromDefinitionLink
       -- Help Self grid page

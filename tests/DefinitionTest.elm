@@ -35,24 +35,10 @@ suite =
                     queryFromStyledHtml (view initModel)
                         |> Query.findAll [ tag "a" ]
                         |> Query.count (Expect.equal 3)
-            , test "Definition view has link to facts and stats resources page" <|
-                \() ->
-                    queryFromStyledHtml (view initModel)
-                        |> Query.find
-                            [ tag "a"
-                            , attribute
-                                (Html.Attributes.href
-                                    (t HelpSelfGridPageSlug
-                                        ++ "/"
-                                        ++ t HelpSelfInfoLawSlug
-                                    )
-                                )
-                            ]
-                        |> Query.has [ text (t DefinitionMoreLink) ]
             , test "Definition view has nav link to get-help" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
-                        |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
+                        |> Query.find [ tag "nav", containing [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ] ]
                         |> Query.has [ text (t ToGetHelpFromDefinitionLink) ]
             , test "Definition view has nav link to help-self" <|
                 \() ->
@@ -75,7 +61,6 @@ suite =
                             [ text (t DefinitionCategory2Info)
                             , text (t DefinitionCategory2Quote1)
                             , text (t DefinitionCategory2Quote2)
-                            , text (t DefinitionCategory2Quote3)
                             ]
             , test "An open expander does not show info for a different category" <|
                 \() ->
@@ -125,7 +110,7 @@ suite =
                                 , Query.has [ text (t DefinitionCategory3Title) ]
                                 , Query.hasNot [ text (t DefinitionCategory3Quote2) ]
                                 , Query.has [ text (t DefinitionCategory4Title) ]
-                                , Query.hasNot [ text (t DefinitionCategory4Quote3) ]
+                                , Query.hasNot [ text (t DefinitionCategory4Quote2) ]
                                 , Query.has [ text (t DefinitionCategory5Title) ]
                                 , Query.hasNot [ text (t DefinitionCategory5Info) ]
                                 ]
