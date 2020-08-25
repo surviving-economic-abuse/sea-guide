@@ -233,9 +233,9 @@ navLinkStyle =
         ]
 
 
-container : Color -> List (Html msg) -> Html msg
-container colour children =
-    div [ css [ backgroundColor colour, margin2 zero auto ] ] children
+container : List (Html msg) -> Html msg
+container children =
+    div [ css [ margin2 zero auto ] ] children
 
 
 containerContent : List (Html msg) -> Html msg

@@ -1,4 +1,4 @@
-module Page.HelpSelfGrid exposing (view)
+module View.HelpSelfGrid exposing (view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -6,13 +6,14 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
-import Theme exposing (grey, gridStyle, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
+import Theme exposing (globalStyles, grey, gridStyle, lightGrey, navItemStyles, navLinkStyle, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
 view =
     div []
-        [ header []
+        [ globalStyles
+        , header []
             [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
             ]
         , ul [ css [ gridStyle ] ]
