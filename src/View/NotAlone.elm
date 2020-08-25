@@ -173,16 +173,6 @@ continueTextStyle =
         ]
 
 
-detailsStyle : Style
-detailsStyle =
-    batch
-        [ textAlign right
-        , marginInlineEnd (rem 1)
-        , color purple
-        , fontWeight (int 700)
-        ]
-
-
 emergencyButtonStyle : Style
 emergencyButtonStyle =
     batch
