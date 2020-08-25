@@ -136,7 +136,7 @@ t key =
             "He controlled what I wore and who I spoke to"
 
         Journey4Relatable ->
-            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn’t know who I was anymore."
+            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
 
         Journey4Hopeful ->
             "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
@@ -154,7 +154,7 @@ t key =
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         Journey5Statement ->
-            "I feel like I’ve got my life back. I can take the kids on holiday and we are free."
+            "I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         Journey6Teaser ->
             "He transferred his own expenses to our joint direct debits"
@@ -188,55 +188,52 @@ t key =
 
         -- Definition page
         DefinitionTitle ->
-            "What is economic abuse?"
+            "Are you experiencing economic abuse?"
 
         DefinitionConciseP1 ->
-            "Has your partner used your bank cards without asking? Do they stop you from earning money or going to work? Have they ever stolen money from you? Or damaged or destroyed your things?"
+            "In your relationship, who has control over the money? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
 
         DefinitionConciseP2 ->
-            "Who has control over all the finances? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
+            "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
 
         DefinitionConciseP3 ->
-            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control and sabotage other areas of your life including housing, food and clothing. This is known as economic abuse, and it is commonly experienced within a context of abuse known as coercive control."
+            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
 
-        DefinitionMoreLink ->
-            "Find out more about economic abuse and the law."
+        SplitterAffirmation ->
+            "If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point. There are"
+
+        DefinitionGetHelpLink ->
+            "people and organisations who understand and who can help"
 
         DefinitionCategory1Title ->
-            "Controlling how you access money"
+            "Controlling how you access or earn money"
 
         DefinitionCategory1Info ->
-            "An abuser may try to stop you from accessing money. Maybe they've said you should no longer be working, or told you to limit the hours you do. They might tell you your salary should be paid into their personal account and that you don't need your own bank account. If you're not working, they might have told you not to claim any benefits."
+            "An abuser may try to stop you from accessing money. Maybe they've said you should no longer be working, or told you to limit the hours you do. They might tell you your salary should be paid into their personal account or a [joint account], and that you don't need your own bank account. If you're not working, they might have told you not to claim any [benefits]."
 
         DefinitionCategory1Quote1 ->
             "I stayed at home to look after the children. It made sense, I felt like he could earn a lot more than me. But nothing was in my name. I hated having to ask for my allowance every week."
 
         DefinitionCategory1Quote2 ->
-            "We were struggling. He would spend any money as soon as I earned it. But he told me that we weren't scroungers and I couldn't go and get benefits."
-
-        DefinitionCategory1Quote3 ->
-            "Even after we separated, he said that if I didn't do his washing and cooking, he wouldn't pay any child maintenance."
+            "“I'm always being offered extra shifts at work and chances to go on training, but my partner always stops me."
 
         DefinitionCategory2Title ->
             "Controlling what you spend money on"
 
         DefinitionCategory2Info ->
-            "An abuser may tell you what you can and can't spend your money on and when. They might ask to see receipts from the weekly food shop or give you an allowance spending. You might have to count every penny or justify every single purchase. An abuser might take control of your things - from your phone to your car. Or they may have insisted that all assets, such as savings or the house, are put in their name. While demanding this from you, they might keep their own finances very secret."
+            "An abuser may tell you what you can and can't spend your money on. They might ask to see receipts from the weekly food shop or give you an [allowance]. You might have to [justify every single purchase]. An abuser might take control of your things - from your phone to your car. Or they may have insisted that all [assets], such as savings or the house, are put in their name. While demanding this from you, they might keep their own finances very secret."
 
         DefinitionCategory2Quote1 ->
-            "He had access to all of my bank statements and accounts. I didn't know anything about his finances."
+            "If I bought anything, anything at all - like one time I needed something to wear to an interview — he'd demand to see exactly how much it cost, then tell me I was wasteful."
 
         DefinitionCategory2Quote2 ->
-            "If I bought anything, anything at all - like one time I needed something to wear to an interview - he'd demand to see exactly how much it cost, then tell me I was wasteful."
-
-        DefinitionCategory2Quote3 ->
-            "We had a joint account but he never paid anything into it. All the bills came out, even the repayments from the car. But it was in his name, not mine. And he wouldn't let me drive it without begging."
+            "We had a joint account but he never paid anything into it. All the bills came out, even the repayments for the car. But it was in his name, not mine. And he wouldn't let me drive it without begging."
 
         DefinitionCategory3Title ->
-            "Sabotaging your finances and economic resources"
+            "Destroying your resources and economic security"
 
         DefinitionCategory3Info ->
-            "An abuser may try to sabotage your finances or whatever economic resources you do have. They might steal money or property from you or may cause damage to your property to devalue the house. Abusers might spend the money set aside for savings or holidays or bills or force all credit cards and bills to be in your name."
+            "An abuser may try to weaken or sabotage your finances or whatever economic resources you do have. This could mean [stealing money or property] from you or damaging your house. It could also mean spending the money set aside for [savings, holidays or bills]. They could also force all credit cards and bills to be in your name, so they don't build up debt in their name."
 
         DefinitionCategory3Quote1 ->
             "When I found out his new girlfriend was buying big things for him on her credit card the way I had, that sowed the seed of actually, is this a deliberate thing?"
@@ -244,56 +241,41 @@ t key =
         DefinitionCategory3Quote2 ->
             "He'd walk out of jobs, I was having to work more and more, and he continued to spend as if he was a millionaire. So I was buying from charity shops, even though I had a really good wage."
 
-        DefinitionCategory3Quote3 ->
-            "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
-
         DefinitionCategory4Title ->
-            "Taking advantage of your finances and economic resources"
+            "Taking advantage of your money and economic resources"
 
         DefinitionCategory4Info ->
-            "An abuser may attempt to take advantage of the economic resources you do have. This may mean refusing to contribute to household costs like utility bills or the running of the car, taking your wages or benefits from you, or running up debt in your name."
+            "An abuser may attempt to take advantage of the economic resources you do have. They might refuse to contribute to household costs, like utility bills or the car. They might take wages or benefits from you, or run up [debt in your name]."
 
         DefinitionCategory4Quote1 ->
             "My salary had gone into his business account, of which he had sole sign-off on. I suddenly had very limited access to money, and would have to have a very specific need for him to grant me any."
 
         DefinitionCategory4Quote2 ->
-            "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
-
-        DefinitionCategory4Quote3 ->
-            "I was with an abusive partner for five years. Throughout the relationship he managed to get me into £30,000 worth of debt. I will be in debt for the next 20 years of my life."
+            "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         DefinitionCategory5Title ->
             "Threatening you"
 
         DefinitionCategory5Info ->
-            "Economic abuse normally happens alongside other kinds of abuse. You might find an abuser becomes violent or threatens violence if you don't agree with their demands around money and finances or refuse to do what they say. You are not alone."
+            "Economic abuse often happens alongside other kinds of abuse. An abuser could be violent or [threaten violence] if you don't agree with their demands."
 
         DefinitionCategory5Quote1 ->
-            "He watched me entering my PIN and stole money from my bank account, threatening me if I changed it."
-
-        DefinitionCategory5Quote2 ->
             "My ex made me run up debts on them which are now unaffordable for me to repay. He would push me against a wall, put his hands around my throat if I didn't give him money."
 
-        DefinitionCategory5Quote3 ->
-            "If I didn't have enough cash to pay for what he wanted, he would give me an ultimatum – what would cost more: to buy him what he wanted or the cost of the damage he would do when he smashed everything in sight. So I got my credit card out and ended up with £3,000 worth of debt."
+        DefinitionCategory5Quote2 ->
+            "If I didn't have enough cash to pay for what he wanted, he would give me an ultimatum - what would cost more: to buy him what he wanted or the cost of the damage he would do when he smashed everything in sight. So I got my credit card out and ended up with £3,000 worth of debt."
 
         DefinitionCategory6Title ->
             "Manipulating or coercing you"
 
         DefinitionCategory6Info ->
-            "Economic abuse can be hard to spot and often happens without you realising. It can start slowly and could begin with behaviour that at first seems protective or caring. E.g. offering to take care of all the finances or encouraging you not to work so that you can look after the children. Overspending, and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing, and it can continue after leaving."
+            "Economic abuse can be hard to spot and often happens without you realising. It could start with behaviour that seems protective or caring such as [offering to take care of all the finances or encouraging you not to work] so that you can look after the children. Overspending and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing. It can also continue after leaving or [divorce]."
 
         DefinitionCategory6Quote1 ->
-            "I am not a stupid woman. This could happen to anybody."
+            "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, 'Well, you must be just crap with money then' thinking."
 
         DefinitionCategory6Quote2 ->
-            "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, \"Well, you must be just crap with money then\" thinking."
-
-        DefinitionCategory6Quote3 ->
             "I often wonder how I got here. I got married to this charming man in the legal profession and we had children. But it was after I got married that I was systematically and unwittingly socially isolated, psychologically, emotionally, financially abused and controlled."
-
-        SplitterAffirmation ->
-            "If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point. And more than ever before, there are people and organisations who understand and who can help."
 
         ToGetHelpFromDefinitionLink ->
             "Find people to talk to"
@@ -387,7 +369,7 @@ t key =
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         HelpSelfDebtResource1Quote2 ->
-            "The debt has been written off and I feel like I’ve got my life back. I can take the kids on holiday and we are free."
+            "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
             "Forcing or coercing someone into debt is a common form of economic abuse. If you have been forced to make transactions that led you into debt, or if you have had debts fraudulently built up in your name, this information will help."
@@ -402,10 +384,10 @@ t key =
             "I was already feeling vulnerable in my home life and worried about keeping myself and my children safe. But dealing with creditors chasing me for money amplified my anxiety of the whole world collapsing on top of me."
 
         HelpSelfDebtResource2Quote2 ->
-            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It’s one less thing hanging over me while I start my new life."
+            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
 
         HelpSelfDebtResource2Summary ->
-            "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn’t a guaranteed solution but the information in this guide will help you understand your options."
+            "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn't a guaranteed solution but the information in this guide will help you understand your options."
 
         HelpSelfDebtResource2Link ->
             "Asking a lender for a debt write-off [PDF 541kB]"
@@ -455,7 +437,7 @@ t key =
             "He applied for multiple loans in my name by using the app on my  phone. Loans for over £50,000 in total."
 
         HelpSelfFinancialResource1Quote2 ->
-            "I had been putting off speaking to anyone as I didn’t know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         HelpSelfFinancialResource1Summary ->
             "Find information on charities and organisations that can support you with money, debt information and advice. There are also many organisations that support people in financial difficulty with grants to help with day-to-day expenses."
