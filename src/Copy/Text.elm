@@ -100,13 +100,13 @@ t key =
             "He threw my phone on the floor and smashed it"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn’t approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year"
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year"
 
         Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn’t ok. It was just helpful to speak to someone you know."
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
         Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I’m free."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey2Teaser ->
             "He would shame me at dinner parties"
@@ -151,10 +151,10 @@ t key =
             "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
 
         Journey5Hopeful ->
-            "I had been putting off speaking to anyone as I didn’t know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
+            "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         Journey5Statement ->
-            "I  feel like I’ve got my life back. I can take the kids on holiday and we are free."
+            "I feel like I’ve got my life back. I can take the kids on holiday and we are free."
 
         Journey6Teaser ->
             "He transferred his own expenses to our joint direct debits"

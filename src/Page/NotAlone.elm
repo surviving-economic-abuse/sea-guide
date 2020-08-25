@@ -83,7 +83,7 @@ journeyContentFromCardPosition cardPosition =
             }
 
         JourneyCard3 ->
-            { teaser = Journey4Teaser
+            { teaser = Journey3Teaser
             , relatable = Journey3Relatable
             , hopeful = Journey3Hopeful
             , statement = Journey3Statement
