@@ -27,7 +27,7 @@ view =
         , nav [ css [ navListStyle ] ]
             [ p [ css [ reassuringStyle ] ]
                 [ text (t ToHelpSelfReassuringText) ]
-            , renderNavLink Back HelpSelfGrid ToHelpSelfFromGetHelpLink
+            , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
             ]
         ]
 

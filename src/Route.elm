@@ -52,27 +52,21 @@ toString route =
 type Direction
     = Back
     | Forward
-    | None
 
 
 renderNavLink : Direction -> Route -> Key -> Html msg
-renderNavLink direction url copyKey =
+renderNavLink direction route copyKey =
     case direction of
         Back ->
-            a [ href (toString url), css [ navLinkStyle ] ]
+            a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
                 [ img [ src "Arrow.svg", alt "", css [ backArrowStyle ] ] []
                 , span [] [ text (t copyKey) ]
                 ]
 
         Forward ->
-            a [ href (toString url), css [ navLinkStyle ] ]
+            a [ href (toString route), css [ navLinkStyle ] ]
                 [ span [] [ text (t copyKey) ]
                 , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
-                ]
-
-        None ->
-            a [ href (toString url), css [ navLinkStyle ] ]
-                [ span [] [ text (t copyKey) ]
                 ]
 
 
