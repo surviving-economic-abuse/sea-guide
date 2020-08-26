@@ -21,7 +21,11 @@ import View.HelpSelfSingle
 import View.NotAlone
 
 
-main : Program () Model Msg
+type alias Flags =
+    { basePath : String }
+
+
+main : Program Flags Model Msg
 main =
     Browser.application
         { init = init
@@ -38,14 +42,15 @@ main =
 
 
 type alias Model =
-    { key : Browser.Navigation.Key
+    { flags : Flags
+    , key : Browser.Navigation.Key
     , page : Page
     }
 
 
-init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
-init _ url key =
-    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url) }, Cmd.none )
+init : Flags -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
+init flags url key =
+    ( { flags = flags, key = key, page = pageFromMaybeRoute (Route.fromUrl flags.basePath url) }, Cmd.none )
 
 
 type Page
@@ -110,7 +115,7 @@ update msg model =
         UrlChanged url ->
             let
                 newPage =
-                    pageFromMaybeRoute (Route.fromUrl url)
+                    pageFromMaybeRoute (Route.fromUrl model.flags.basePath url)
             in
             ( { model | page = newPage }, resetViewportTop )
 
