@@ -7,36 +7,39 @@ import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (globalStyles, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing)
+import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, page, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
 view =
-    div []
-        [ globalStyles
-        , header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
+    page
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
+                ]
+            , ul [ css [ gridStyle ] ]
+                [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
+                , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
+                , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
+                , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
+                , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
+                , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
+                , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
+                ]
+            , verticalSpacing
             ]
-        , ul [ css [ gridStyle ] ]
-            [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
-            , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
-            , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
-            , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
-            , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
-            , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
-            , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
-            ]
-        , verticalSpacing
-        , nav []
-            [ ul [ css [ navListStyle ] ]
-                [ li [ css navItemStyles ]
-                    [ renderNavLink Forward GetHelp ToGetHelpFromHelpSelfLink
-                    ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward NotAlone ToNotAloneFromHelpSelfLink
-                    ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward Definition ToDefinitionFromHelpSelfLink
+        , container
+            [ nav []
+                [ ul [ css [ navListStyle ] ]
+                    [ li [ css navItemStyles ]
+                        [ renderNavLink Forward GetHelp ToGetHelpFromHelpSelfLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward NotAlone ToNotAloneFromHelpSelfLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward Definition ToDefinitionFromHelpSelfLink
+                        ]
                     ]
                 ]
             ]

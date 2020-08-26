@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, white)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, page, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -160,7 +160,6 @@ gridStyle =
     batch
         [ displayFlex
         , flexWrap wrap
-        , margin2 zero (rem -1)
         , alignItems start
         ]
 
@@ -243,11 +242,27 @@ navLinkStyle =
         ]
 
 
+waveStyle : Style
+waveStyle =
+    batch
+        [ backgroundImage (url "Background_Wave_Desktop.svg")
+        , backgroundAttachment fixed
+        , backgroundPosition center
+        , backgroundRepeat noRepeat
+        , backgroundSize cover
+        ]
+
+
 container : List (Html msg) -> Html msg
 container children =
-    div [ css [ margin2 zero auto ] ] children
+    div [ css [ margin2 zero auto, maxWidth (px 1200), width (pct 100) ] ] children
 
 
 containerContent : List (Html msg) -> Html msg
 containerContent children =
-    div [ css [ maxWidth (px 1000), width (pct 100), margin2 zero auto ] ] children
+    div [ css [ margin2 zero auto, maxWidth (px 800), width (pct 100) ] ] children
+
+
+page : List (Html msg) -> Html msg
+page children =
+    div [ css [ minHeight (vh 100), waveStyle ] ] (globalStyles :: children)

@@ -10,47 +10,50 @@ import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (globalStyles, grey, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, lightGrey, navItemStyles, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ globalStyles
-        , header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
-            , div [ css [ introStyle ] ]
-                [ p [] [ text (t DefinitionConciseP1) ]
-                , p [] [ text (t DefinitionConciseP2) ]
-                , p [] [ text (t DefinitionConciseP3) ]
-                , p []
-                    [ text (t SplitterAffirmation)
-                    , text " "
-                    , a [ href (t GetHelpPageSlug) ]
-                        [ text (t DefinitionGetHelpLink)
-                        , text "."
+    page
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+                , div [ css [ introStyle ] ]
+                    [ p [] [ text (t DefinitionConciseP1) ]
+                    , p [] [ text (t DefinitionConciseP2) ]
+                    , p [] [ text (t DefinitionConciseP3) ]
+                    , p []
+                        [ text (t SplitterAffirmation)
+                        , text " "
+                        , a [ href (t GetHelpPageSlug) ]
+                            [ text (t DefinitionGetHelpLink)
+                            , text "."
+                            ]
                         ]
                     ]
                 ]
-            ]
-        , dl [ css [ categoryListStyle ] ]
-            (renderExpandableCategories
-                model
-                [ DefinitionCategory1
-                , DefinitionCategory2
-                , DefinitionCategory3
-                , DefinitionCategory4
-                , DefinitionCategory5
-                , DefinitionCategory6
-                ]
-            )
-        , nav []
-            [ ul [ css [ navListStyle ] ]
-                [ li [ css navItemStyles ]
-                    [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+            , dl [ css [ categoryListStyle ] ]
+                (renderExpandableCategories
+                    model
+                    [ DefinitionCategory1
+                    , DefinitionCategory2
+                    , DefinitionCategory3
+                    , DefinitionCategory4
+                    , DefinitionCategory5
+                    , DefinitionCategory6
                     ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                )
+            ]
+        , container
+            [ nav []
+                [ ul [ css [ navListStyle ] ]
+                    [ li [ css navItemStyles ]
+                        [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                        ]
                     ]
                 ]
             ]
