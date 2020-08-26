@@ -180,31 +180,6 @@ introStyle =
         ]
 
 
-
--- End of page navigation styling
-
-
-navListStyle : Style
-navListStyle =
-    batch
-        [ listStyle none
-        , displayFlex
-        , flexWrap wrap
-        , justifyContent spaceAround
-        ]
-
-
-navItemStyles : List Style
-navItemStyles =
-    [ batch
-        [ flex3 zero zero (pct 100)
-        , marginBottom (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-            [ flex3 zero zero (pct 33) ]
-        ]
-    ]
-
-
 keywordStyle : Style
 keywordStyle =
     batch
