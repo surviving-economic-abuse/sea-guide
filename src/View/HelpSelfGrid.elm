@@ -7,7 +7,7 @@ import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (globalStyles, grey, gridStyle, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, threeColumn, twoColumn, verticalSpacing)
+import Theme exposing (globalStyles, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing)
 
 
 view : Html never
@@ -59,9 +59,9 @@ infoLink linkName linkHref =
 gridCardStyle : Style
 gridCardStyle =
     batch
-        [ backgroundColor lightGrey
-        , border3 (px 1) solid grey
-        , borderRadius (rem 1)
+        [ backgroundColor pureWhite
+        , borderRadius (rem 1.8)
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
         , color purple
         , displayFlex
         , flexDirection column
@@ -69,10 +69,15 @@ gridCardStyle =
         , fontSize (rem 1.25)
         , justifyContent center
         , minHeight (px 150)
+        , padding2 zero (rem 1)
         , textAlign center
         , textDecoration none
         , hover
-            [ borderColor purple
+            [ border3 (px 3) solid green
+            ]
+        , focus
+            [ border3 (px 3) solid green
+            , outline zero
             ]
         ]
 

@@ -9,7 +9,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Route exposing (Direction(..), Route(..), renderNavLink)
+import Route exposing (Direction(..), Route(..), renderNavLink, toString)
 import Theme exposing (globalStyles, grey, gridStyle, lightGrey, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing, white)
 
 
@@ -77,7 +77,7 @@ renderInitCard journeyCardPosition =
         [ p []
             [ text (t ToDefinitionReassuringText) ]
         , a
-            [ href (t DefinitionPageSlug) ]
+            [ href (Route.toString Definition) ]
             [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
         ]
     ]
