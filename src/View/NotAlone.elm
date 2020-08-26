@@ -10,7 +10,7 @@ import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink, toString)
-import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing, waveStyle, white)
+import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing, white)
 
 
 view : Model -> Html Msg

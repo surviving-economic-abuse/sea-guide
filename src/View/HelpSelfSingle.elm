@@ -10,7 +10,7 @@ import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (globalStyles, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (containerContent, grey, lightGrey, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : String -> Model -> Html Msg
@@ -19,20 +19,21 @@ view slug model =
         categoryData =
             categoryKeysFromSlug slug
     in
-    div []
-        [ globalStyles
-        , header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
-            , case categoryData.resources of
-                Just resources ->
-                    div [] [ renderResourceList model resources ]
+    page
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
+                , case categoryData.resources of
+                    Just resources ->
+                        div [] [ renderResourceList model resources ]
 
-                Nothing ->
-                    text ""
-            ]
-        , verticalSpacing
-        , nav [ css [ navListStyle ] ]
-            [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
+                    Nothing ->
+                        text ""
+                ]
+            , verticalSpacing
+            , nav [ css [ navListStyle ] ]
+                [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
+                ]
             ]
         ]
 
