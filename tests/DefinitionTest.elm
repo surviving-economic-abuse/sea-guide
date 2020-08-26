@@ -55,7 +55,10 @@ suite =
                     queryFromStyledHtml (view definition2expandedModel)
                         |> Query.find
                             [ tag "div"
-                            , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
+                            , containing
+                                [ tag "div"
+                                , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
+                                ]
                             ]
                         |> Query.has
                             [ text (t DefinitionCategory2Info)
