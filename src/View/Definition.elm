@@ -9,8 +9,8 @@ import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
-import Route exposing (Direction(..), renderNavLink)
-import Theme exposing (globalStyles, grey, lightGrey, pageHeadingStyle, purple, verticalSpacing, white)
+import Route exposing (Direction(..), Route(..), renderNavLink)
+import Theme exposing (globalStyles, grey, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -47,10 +47,10 @@ view model =
         , nav []
             [ ul [ css [ navListStyle ] ]
                 [ li [ css navItemStyles ]
-                    [ renderNavLink Forward HelpSelfGridPageSlug ToHelpSelfFromDefinitionLink
+                    [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
                     ]
                 , li [ css navItemStyles ]
-                    [ renderNavLink Forward GetHelpPageSlug ToGetHelpFromDefinitionLink
+                    [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
                     ]
                 ]
             ]
@@ -121,31 +121,6 @@ introStyle =
         , fontSize (rem 1)
         , margin2 (rem 2) zero
         ]
-
-
-
--- End of page navigation styling
-
-
-navListStyle : Style
-navListStyle =
-    batch
-        [ listStyle none
-        , displayFlex
-        , flexWrap wrap
-        , justifyContent spaceAround
-        ]
-
-
-navItemStyles : List Style
-navItemStyles =
-    [ batch
-        [ flex3 zero zero (pct 100)
-        , marginBottom (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-            [ flex3 zero zero (pct 33) ]
-        ]
-    ]
 
 
 expanderButtonStyle : Style

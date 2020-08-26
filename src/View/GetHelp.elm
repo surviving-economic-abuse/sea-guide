@@ -7,7 +7,7 @@ import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
-import Route exposing (Direction(..), renderNavLink)
+import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (globalStyles, grey, lightGrey, navListStyle, oneColumn, pageHeadingStyle, purple, verticalSpacing, white)
 
 
@@ -27,7 +27,7 @@ view =
         , nav [ css [ navListStyle ] ]
             [ p [ css [ reassuringStyle ] ]
                 [ text (t ToHelpSelfReassuringText) ]
-            , renderNavLink Back HelpSelfGridPageSlug ToHelpSelfFromGetHelpLink
+            , renderNavLink Back HelpSelfGrid ToHelpSelfFromGetHelpLink
             ]
         ]
 

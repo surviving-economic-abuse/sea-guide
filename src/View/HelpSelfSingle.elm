@@ -32,7 +32,7 @@ view slug model =
             ]
         , verticalSpacing
         , nav [ css [ navListStyle ] ]
-            [ renderNavLink Back HelpSelfGridPageSlug ToHelpSelfFromSingleCategoryLink
+            [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
             ]
         ]
 
