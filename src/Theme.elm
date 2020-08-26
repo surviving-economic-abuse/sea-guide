@@ -217,7 +217,7 @@ navItemStyles =
     [ batch
         [ flex3 zero zero (pct 100)
         , marginBottom (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
             [ flex3 zero zero threeColumn ]
         ]
     ]

@@ -9,33 +9,35 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Route exposing (Route(..), toString)
-import Theme exposing (container, containerContent, globalStyles, grey, gridStyle, lightGrey, navLinkStyle, oneColumn, pageHeadingStyle, purple, twoColumn, verticalSpacing, waveStyle, white)
+import Route exposing (Direction(..), Route(..), renderNavLink, toString)
+import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing, waveStyle, white)
 
 
 view : Model -> Html Msg
 view model =
-    div [ css (waveStyle :: [ minHeight (vh 100) ]) ]
-        [ globalStyles
-        , containerContent
+    page
+        [ containerContent
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
                 , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
                 ]
             ]
         , container
-            [ containerContent
-                [ div [ css [ gridStyle ] ]
-                    [ card model JourneyCard1
-                    , card model JourneyCard2
-                    , card model JourneyCard3
-                    , card model JourneyCard4
-                    , card model JourneyCard5
-                    , card model JourneyCard6
-                    ]
+            [ div [ css [ gridStyle ] ]
+                [ card model JourneyCard1
+                , card model JourneyCard2
+                , card model JourneyCard3
+                , card model JourneyCard4
+                , card model JourneyCard5
+                , card model JourneyCard6
                 ]
             ]
         , verticalSpacing
+        , containerContent
+            [ nav [ css [ navListStyle ] ]
+                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+                ]
+            ]
         , containerContent
             [ div [ css [ emergencyContactStyle ], id "emergency" ]
                 [ p [] [ text (t EmergencyReassure) ]
@@ -102,9 +104,7 @@ renderRevealedCard journeyCardPosition =
     , div [ css [ openStyle ] ]
         [ p [ css [ reassuringStyle ] ]
             [ text (t ToDefinitionReassuringText) ]
-        , a
-            [ href (t DefinitionPageSlug), css [ navLinkStyle ] ]
-            [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
+        , renderNavLink Forward Definition ToHelpSelfFromGetHelpLink
         ]
     ]
 
@@ -179,16 +179,6 @@ continueTextStyle =
     batch
         [ textDecoration underline
         , color grey
-        ]
-
-
-detailsStyle : Style
-detailsStyle =
-    batch
-        [ textAlign right
-        , marginInlineEnd (rem 1)
-        , color purple
-        , fontWeight (int 700)
         ]
 
 
