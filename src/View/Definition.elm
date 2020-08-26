@@ -10,7 +10,7 @@ import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import String
-import Theme exposing (grey, lightGrey, navLinkStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (grey, lightGreen, lightGrey, navLinkStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -120,7 +120,7 @@ renderWithKeywords richText =
 renderAsBoldOrText : ( String, Bool ) -> Html Msg
 renderAsBoldOrText ( stringPartial, isKeyword ) =
     if isKeyword then
-        b [] [ text stringPartial ]
+        b [ css [ keywordStyle ] ] [ text stringPartial ]
 
     else
         text stringPartial
@@ -175,7 +175,6 @@ introStyle : Style
 introStyle =
     batch
         [ color purple
-        , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1)
         , margin2 (rem 2) zero
         ]
@@ -206,11 +205,18 @@ navItemStyles =
     ]
 
 
+keywordStyle : Style
+keywordStyle =
+    batch
+        [ backgroundColor lightGreen
+        ]
+
+
 expanderButtonStyle : Style
 expanderButtonStyle =
     batch
         [ alignItems center
-        , backgroundColor (hex "4f2f8d")
+        , backgroundColor purple
         , border zero
         , cursor pointer
         , justifyContent spaceBetween
