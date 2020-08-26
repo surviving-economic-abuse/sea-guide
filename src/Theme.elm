@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, white)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -245,9 +245,20 @@ navLinkStyle =
 
 container : List (Html msg) -> Html msg
 container children =
-    div [ css [ margin2 zero auto ] ] children
+    div [ css [ margin2 zero auto, width (pct 100) ] ] children
+
+
+waveStyle : Style
+waveStyle =
+    batch
+        [ backgroundImage (url "fff.svg")
+        , backgroundAttachment fixed
+        , backgroundPosition center
+        , backgroundRepeat noRepeat
+        , backgroundSize cover
+        ]
 
 
 containerContent : List (Html msg) -> Html msg
 containerContent children =
-    div [ css [ maxWidth (px 1000), width (pct 100), margin2 zero auto ] ] children
+    div [ css [ maxWidth (px 1000), width (pct 100), margin2 zero auto, displayFlex, flexDirection column ] ] children
