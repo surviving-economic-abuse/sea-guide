@@ -9,6 +9,7 @@ import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
+import Route exposing (Route(..), toString)
 import Theme exposing (grey, lightGrey, navLinkStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
@@ -45,11 +46,11 @@ view model =
         , nav []
             [ ul [ css [ navListStyle ] ]
                 [ li [ css navItemStyles ]
-                    [ a [ href (t HelpSelfGridPageSlug), css [ navLinkStyle ] ]
+                    [ a [ href (Route.toString HelpSelfGrid), css [ navLinkStyle ] ]
                         [ span [] [ text (t ToHelpSelfFromDefinitionLink) ] ]
                     ]
                 , li [ css navItemStyles ]
-                    [ a [ href (t GetHelpPageSlug), css [ navLinkStyle ] ]
+                    [ a [ href (Route.toString GetHelp), css [ navLinkStyle ] ]
                         [ span [] [ text (t ToGetHelpFromDefinitionLink) ] ]
                     ]
                 ]
