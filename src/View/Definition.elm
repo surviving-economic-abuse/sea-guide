@@ -21,11 +21,14 @@ view model =
             , div [ css [ introStyle ] ]
                 [ p [] [ text (t DefinitionConciseP1) ]
                 , p [] [ text (t DefinitionConciseP2) ]
+                , p [] [ text (t DefinitionConciseP3) ]
                 , p []
-                    [ text (t DefinitionConciseP3)
+                    [ text (t SplitterAffirmation)
                     , text " "
-                    , a [ href (t HelpSelfGridPageSlug ++ "/" ++ t HelpSelfInfoLawSlug) ]
-                        [ text (t DefinitionMoreLink) ]
+                    , a [ href (t GetHelpPageSlug) ]
+                        [ text (t DefinitionGetHelpLink)
+                        , text "."
+                        ]
                     ]
                 ]
             ]
@@ -40,8 +43,6 @@ view model =
                 , DefinitionCategory6
                 ]
             )
-        , p [] [ text (t SplitterAffirmation) ]
-        , verticalSpacing
         , nav []
             [ ul [ css [ navListStyle ] ]
                 [ li [ css navItemStyles ]
