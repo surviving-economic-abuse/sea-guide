@@ -29,7 +29,7 @@ suite =
             \() ->
                 queryFromStyledHtml (view initModel)
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 6)
+                    |> Query.count (Expect.equal 7)
         , test "NotAlone view has nav links to definition" <|
             \() ->
                 queryFromStyledHtml (view initModel)
