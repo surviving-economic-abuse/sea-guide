@@ -23,6 +23,9 @@ suite =
 
         definition2expandedModel =
             { openCategories = Set.fromList [ t DefinitionCategory2Title ] }
+
+        stringPartialToFirstSquareBracket text =
+            Maybe.withDefault text (List.head (String.split "[" text))
     in
     describe "Definition Page"
         [ describe "View tests"
@@ -61,24 +64,19 @@ suite =
                                 ]
                             ]
                         |> Query.has
-                            [ text (t DefinitionCategory2Info)
-                            , text (t DefinitionCategory2Quote1)
-                            , text (t DefinitionCategory2Quote2)
+                            [ text (stringPartialToFirstSquareBracket (t DefinitionCategory2Info))
+                            , text (stringPartialToFirstSquareBracket (t DefinitionCategory2Quote1))
+                            , text (stringPartialToFirstSquareBracket (t DefinitionCategory2Quote2))
                             ]
             , test "An open expander does not show info for a different category" <|
                 \() ->
                     queryFromStyledHtml (view definition2expandedModel)
                         |> Query.find
-                            [ tag "dt"
+                            [ tag "div"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
                             ]
                         |> Query.hasNot
-                            -- This tests that all of them are not there - so if one were, it would still pass
-                            -- A better test might use Query.each or a single item
-                            [ text (t DefinitionCategory1Info)
-                            , text (t DefinitionCategory3Info)
-                            , text (t DefinitionCategory4Info)
-                            , text (t DefinitionCategory5Info)
+                            [ text (stringPartialToFirstSquareBracket (t DefinitionCategory3Info))
                             ]
             , test "I can toggle a closed expander" <|
                 \() ->
