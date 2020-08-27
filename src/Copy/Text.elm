@@ -198,10 +198,10 @@ t key =
             "Call 0808 2000 247 (available 24/7) or access the service online"
 
         EmergencyWomensAidLink ->
-            "Women’s Aid online chat"
+            "Women's Aid online chat"
 
         EmergencyWomensAidInfo ->
-            "Chat directly with a Women’s Aid support worker."
+            "Chat directly with a Women's Aid support worker."
 
         EmergencyOtherOrganisationsLink ->
             "Find other organisations that can help here."
