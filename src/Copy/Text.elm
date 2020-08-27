@@ -180,7 +180,7 @@ t key =
             "Find out about economic abuse"
 
         EmergencyButton ->
-            "I need immediate help"
+            "I need help"
 
         EmergencyReassure ->
             "If you are in immediate danger, there is help available."

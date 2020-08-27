@@ -33,11 +33,11 @@ suite =
                 \() ->
                     queryFromStyledHtml (view initModel)
                         |> Query.contains [ Html.text (t DefinitionTitle) ]
-            , test "Definition view has 3 nav links" <|
+            , test "Definition view has 7 nav links (1 introduction, 2 navigation, 4 emergency)" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
                         |> Query.findAll [ tag "a" ]
-                        |> Query.count (Expect.equal 3)
+                        |> Query.count (Expect.equal 7)
             , test "Definition view has nav link to get-help" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
@@ -51,7 +51,12 @@ suite =
             , test "Definition view has 6 category expander buttons" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
-                        |> Query.findAll [ tag "button" ]
+                        |> Query.findAll
+                            [ tag "button"
+                            , containing
+                                [ tag "h2"
+                                ]
+                            ]
                         |> Query.count (Expect.equal 6)
             , test "An open expander shows definition info and quotes" <|
                 \() ->
@@ -103,7 +108,7 @@ suite =
                             [ tag "dl" ]
                         |> Query.each
                             (Expect.all
-                                -- Look for title and one arbitray item from each of the categories
+                                -- Look for title and one arbitrary item from each of the categories
                                 [ Query.has [ text (t DefinitionCategory1Title) ]
                                 , Query.hasNot [ text (t DefinitionCategory1Info) ]
                                 , Query.has [ text (t DefinitionCategory2Title) ]

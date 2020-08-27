@@ -6,11 +6,11 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (easeOut, transition)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href, id)
+import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink, toString)
-import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing)
 
 
 view : Model -> Html Msg
@@ -19,7 +19,6 @@ view model =
         [ containerContent
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
-                , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
                 ]
             ]
         , container
@@ -39,11 +38,7 @@ view model =
                 ]
             ]
         , containerContent
-            [ div [ css [ emergencyContactStyle ], id "emergency" ]
-                [ p [] [ text (t EmergencyReassure) ]
-                , p [] [ text (t EmergencyContactInfo) ]
-                ]
-            ]
+            []
         ]
 
 
@@ -179,30 +174,6 @@ continueTextStyle =
     batch
         [ textDecoration underline
         , color grey
-        ]
-
-
-emergencyButtonStyle : Style
-emergencyButtonStyle =
-    batch
-        [ backgroundColor grey
-        , padding2 (rem 0.5) (rem 1)
-        , borderRadius (rem 0.5)
-        , color white
-        , fontWeight (int 400)
-        , margin auto
-        , border zero
-        ]
-
-
-emergencyContactStyle : Style
-emergencyContactStyle =
-    batch
-        [ margin auto
-        , maxWidth (pct 100)
-        , backgroundColor grey
-        , color white
-        , padding (rem 1)
         ]
 
 
