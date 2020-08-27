@@ -1,16 +1,17 @@
-module View.Definition exposing (view)
+module View.Definition exposing (renderWithKeywords, view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, a, blockquote, button, dd, div, dl, dt, h1, h2, header, li, nav, p, span, text, ul)
+import Html.Styled exposing (Html, a, b, blockquote, button, dd, div, dl, dt, h1, h2, header, li, nav, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, grey, lightGrey, navItemStyles, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
+import String
+import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -20,9 +21,9 @@ view model =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
                 , div [ css [ introStyle ] ]
-                    [ p [] [ text (t DefinitionConciseP1) ]
-                    , p [] [ text (t DefinitionConciseP2) ]
-                    , p [] [ text (t DefinitionConciseP3) ]
+                    [ p [] (renderWithKeywords (t DefinitionConciseP1))
+                    , p [] (renderWithKeywords (t DefinitionConciseP2))
+                    , p [] (renderWithKeywords (t DefinitionConciseP3))
                     , p []
                         [ text (t SplitterAffirmation)
                         , text " "
@@ -101,13 +102,70 @@ renderDefinition : Model -> CategoryDefinition -> Html Msg
 renderDefinition model category =
     if categoryIsExpanded model category.title then
         dd [ css expanderDefinitionStyles ]
-            [ p [] [ text (t category.info) ]
+            [ p [] (renderWithKeywords (t category.info))
             , verticalSpacing
             , renderQuotes category.quotes
             ]
 
     else
         text ""
+
+
+
+-- Helpers to render Copy.Text Strings with [keywords] marked in brackets as Html <b>
+
+
+renderWithKeywords : String -> List (Html Msg)
+renderWithKeywords richText =
+    List.map (\( words, isKeyword ) -> renderAsBoldOrText ( words, isKeyword )) (splitOnStartKeyword richText)
+
+
+renderAsBoldOrText : ( String, Bool ) -> Html Msg
+renderAsBoldOrText ( stringPartial, isKeyword ) =
+    if isKeyword then
+        b [ css [ keywordStyle ] ] [ text stringPartial ]
+
+    else
+        text stringPartial
+
+
+
+-- Helpers to tag each fragment as keyword (True) or plain text (False)
+
+
+splitOnStartKeyword : String -> List ( String, Bool )
+splitOnStartKeyword richText =
+    let
+        -- First we break the rich text string into a list,
+        -- separating on [, the start of a bold word or phrase
+        beforeBoldPartials =
+            String.split "[" richText
+    in
+    List.concat (List.map (\partial -> splitOnEndKeyword partial) beforeBoldPartials)
+
+
+splitOnEndKeyword : String -> List ( String, Bool )
+splitOnEndKeyword partial =
+    if String.contains "]" partial then
+        let
+            -- The closing ] means this is the end of a bold word or phrase,
+            -- Break it into a list again to separate out the plain text that follows.
+            subList =
+                String.split "]" partial
+        in
+        -- Since we already split on [, the list will always have 2 items, but elm doesn't know that.
+        -- The first item is the bold part, the second (tail) is plain text.
+        [ ( Maybe.withDefault "" (List.head subList), True )
+        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
+        ]
+
+    else
+        -- The list items without a closing ] to mark end of bold, are plain text strings.
+        [ ( partial, False ) ]
+
+
+
+-- Styles
 
 
 categoryListStyle : Style
@@ -120,9 +178,15 @@ introStyle : Style
 introStyle =
     batch
         [ color purple
-        , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1)
         , margin2 (rem 2) zero
+        ]
+
+
+keywordStyle : Style
+keywordStyle =
+    batch
+        [ backgroundColor lightGreen
         ]
 
 
@@ -130,7 +194,7 @@ expanderButtonStyle : Style
 expanderButtonStyle =
     batch
         [ alignItems center
-        , backgroundColor (hex "4f2f8d")
+        , backgroundColor purple
         , border zero
         , cursor pointer
         , justifyContent spaceBetween

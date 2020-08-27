@@ -5,6 +5,8 @@ import Copy.Keys exposing (Key(..))
 
 
 -- The translate function
+-- To insert bold text, surround with []
+-- Example usage: View.Definition.renderWithKeywords
 
 
 t : Key -> String
