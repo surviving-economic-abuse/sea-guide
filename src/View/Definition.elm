@@ -40,9 +40,9 @@ view model =
                 )
             ]
         , container
-            [ nav []
-                [ p [] [ text (t SplitterAffirmation) ]
-                , ul [ css [ navListStyle ] ]
+            [ p [ css [ marginBottom (rem 1), textAlign center ] ] [ text (t SplitterAffirmation) ]
+            , nav []
+                [ ul [ css [ navListStyle ] ]
                     [ li [ css navItemStyles ]
                         [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
                         ]
