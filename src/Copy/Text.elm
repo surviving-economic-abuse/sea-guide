@@ -195,7 +195,7 @@ t key =
             "National Domestic Abuse Helpline"
 
         EmergencyDomesticAbuseInfo ->
-            "Call 0808 2000 247 (available 24/7) or access the service online"
+            "Call 0808 2000 247 (available 24/7) or access the service online."
 
         EmergencyWomensAidLink ->
             "Women's Aid online chat"
