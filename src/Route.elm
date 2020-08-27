@@ -20,9 +20,9 @@ type Route
     | NotAlone
 
 
-fromUrl : String -> Url.Url -> Maybe Route
-fromUrl basePath url =
-    { url | path = String.replace basePath "" url.path }
+fromUrl : Url.Url -> Maybe Route
+fromUrl url =
+    { url | path = url.path }
         |> Parser.parse routeParser
 
 

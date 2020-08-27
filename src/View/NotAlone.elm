@@ -84,7 +84,7 @@ renderInitCard journeyCardPosition =
         [ p []
             [ text (t ToDefinitionReassuringText) ]
         , a
-            [ href (Route.toString Definition) ]
+            [ href (t DefinitionPageSlug) ]
             [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
         ]
     ]
