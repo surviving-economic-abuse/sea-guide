@@ -1,10 +1,13 @@
 module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, page, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white)
 
+import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Html.Styled exposing (Html, div)
-import Html.Styled.Attributes exposing (css)
+import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
+import Html.Styled.Attributes exposing (alt, css, href, id, src)
+import Html.Styled.Events exposing (onClick)
 
 
 
@@ -105,7 +108,8 @@ globalStyles : Html msg
 globalStyles =
     global
         [ typeSelector "body"
-            [ color grey
+            [ backgroundColor white
+            , color grey
             , fontFamilies [ "sofia-pro", sansSerif.value ]
             , fontWeight (int 400)
             ]
@@ -265,4 +269,130 @@ containerContent children =
 
 page : List (Html msg) -> Html msg
 page children =
-    div [ css [ minHeight (vh 100), waveStyle ] ] (globalStyles :: children)
+    div [ css [ minHeight (vh 100), waveStyle ] ]
+        ([ globalStyles
+         , button [ css [ emergencyButtonStyle ] ]
+            [ span [] [ text (t EmergencyButton) ]
+            , img [ css [ iconStyle ], src "Emergency.svg", alt "" ] []
+            ]
+         ]
+            ++ children
+            ++ [ div [ css [ emergencyPanelStyle ], id "emergency" ]
+                    [ div [ css [ emergencyPanelHeaderStyle ] ]
+                        [ img [ css [ emergencyPanelHeaderIconStyle ], src "Emergency.svg", alt "" ] []
+                        , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text "Are you in danger right now?" ]
+                        , button [ css [ emergencyPanelHeaderButtonStyle ] ] [ img [ css [ emergencyPanelHeaderIconStyle ], src "Arrow.svg", alt "" ] [] ]
+                        ]
+                    , div [ css [ emergencyPanelBodyStyle ] ]
+                        [ p [] [ text "If you need emergency help call:" ]
+                        , ul [ css [ listStyle none, margin2 (rem 1) zero ] ]
+                            [ li [ css [ marginBottom (rem 1) ] ] [ text "Police ", a [ href "#" ] [ text "999" ] ]
+                            , li [ css [ marginBottom (rem 1) ] ] [ text "Other help ", a [ href "#" ] [ text "0123456789" ] ]
+                            , li [ css [ marginBottom (rem 1) ] ] [ text "Other help ", a [ href "#" ] [ text "0123456789" ] ]
+                            , li [] [ text "Other help ", a [ href "#" ] [ text "0123456789" ] ]
+                            ]
+                        , p [] [ text "These numbers are free to call" ]
+                        ]
+                    ]
+               ]
+        )
+
+
+emergencyPanelStyle : Style
+emergencyPanelStyle =
+    batch
+        [ borderTopLeftRadius (px 20)
+        , borderTopRightRadius (px 20)
+        , bottom zero
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
+        , position fixed
+        , right (px 5)
+        , width (px 300)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ right (px 120)
+            ]
+        ]
+
+
+emergencyPanelHeaderStyle : Style
+emergencyPanelHeaderStyle =
+    batch
+        [ backgroundColor purple
+        , borderTopLeftRadius (px 20)
+        , borderTopRightRadius (px 20)
+        , color white
+        , displayFlex
+        , alignItems center
+        , justifyContent spaceAround
+        , padding2 (rem 0.5) zero
+        ]
+
+
+emergencyPanelHeaderIconStyle : Style
+emergencyPanelHeaderIconStyle =
+    batch
+        [ flex3 zero zero (pct 20)
+        , height (px 40)
+        ]
+
+
+emergencyPanelHeaderTextStyle : Style
+emergencyPanelHeaderTextStyle =
+    batch
+        [ flex3 zero zero (pct 50)
+        ]
+
+
+emergencyPanelHeaderButtonStyle : Style
+emergencyPanelHeaderButtonStyle =
+    batch
+        [ backgroundColor transparent
+        , border zero
+        , flex3 zero zero (pct 20)
+        ]
+
+
+emergencyPanelBodyStyle : Style
+emergencyPanelBodyStyle =
+    batch
+        [ backgroundColor pureWhite
+        , borderBottomLeftRadius (px 20)
+        , borderBottomRightRadius (px 20)
+        , padding (rem 1.5)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ borderRadius zero
+            ]
+        ]
+
+
+emergencyButtonStyle : Style
+emergencyButtonStyle =
+    batch
+        [ backgroundColor white
+        , alignItems center
+        , border zero
+        , borderRadius (px 50)
+        , bottom (pct 10)
+        , color grey
+        , displayFlex
+        , flexDirection column
+        , fontSize (rem 1)
+        , fontWeight (int 700)
+        , padding4 (px 10) zero (px 5) zero
+        , position fixed
+        , right (px 5)
+        , width (rem 3.75)
+        , zIndex (int 1)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ borderRadius zero
+            , right (px 20)
+            ]
+        ]
+
+
+iconStyle : Style
+iconStyle =
+    batch
+        [ height (px 50)
+        , marginTop (px 10)
+        ]
