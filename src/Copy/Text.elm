@@ -102,7 +102,7 @@ t key =
             "He threw my phone on the floor and smashed it"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year"
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey1Hopeful ->
             "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
@@ -111,7 +111,7 @@ t key =
             "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey2Teaser ->
-            "He would shame me at dinner parties"
+            "He considered my money his"
 
         Journey2Relatable ->
             "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
@@ -159,7 +159,7 @@ t key =
             "I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         Journey6Teaser ->
-            "He transferred his own expenses to our joint direct debits"
+            "He used our joint account for his own expenses"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
