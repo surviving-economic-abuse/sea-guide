@@ -10,6 +10,7 @@ script:
 before_deploy:
 - cp robots-nofollow.txt dist/robots.txt
 - cd dist
+- cp gh-index.html index.html
 - ln -s index.html 404.html
 deploy:
   github_token: "$GITHUB_TOKEN"
