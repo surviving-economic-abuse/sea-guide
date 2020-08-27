@@ -536,10 +536,13 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Call The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
-        GetHelpSection2CallToAction ->
-            "Call 01273 664 000"
+        GetHelpSection2CallToAction1 ->
+            "Call or text 01323 635987"
+
+        GetHelpSection2CallToAction2 ->
+            "Email DEAP@moneyadviceplus.org.uk"
 
         GetHelpSection3Title ->
             "Support from other organisations"

@@ -187,7 +187,8 @@ type Key
     | GetHelpSection2Title
     | GetHelpSection2Quote
     | GetHelpSection2Description
-    | GetHelpSection2CallToAction
+    | GetHelpSection2CallToAction1
+    | GetHelpSection2CallToAction2
     | GetHelpSection3Title
     | GetHelpSection3Quote
     | GetHelpSection3Description
