@@ -24,14 +24,7 @@ view model =
                     [ p [] (renderWithKeywords (t DefinitionConciseP1))
                     , p [] (renderWithKeywords (t DefinitionConciseP2))
                     , p [] (renderWithKeywords (t DefinitionConciseP3))
-                    , p []
-                        [ text (t SplitterAffirmation)
-                        , text " "
-                        , a [ href (t GetHelpPageSlug) ]
-                            [ text (t DefinitionGetHelpLink)
-                            , text "."
-                            ]
-                        ]
+                    , p [] (renderWithKeywords (t DefinitionConciseP4))
                     ]
                 ]
             , dl [ css [ categoryListStyle ] ]
@@ -48,7 +41,8 @@ view model =
             ]
         , container
             [ nav []
-                [ ul [ css [ navListStyle ] ]
+                [ p [] [ text (t SplitterAffirmation) ]
+                , ul [ css [ navListStyle ] ]
                     [ li [ css navItemStyles ]
                         [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
                         ]

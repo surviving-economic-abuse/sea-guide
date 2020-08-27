@@ -68,7 +68,7 @@ type Key
     | DefinitionConciseP1
     | DefinitionConciseP2
     | DefinitionConciseP3
-    | SplitterAffirmation
+    | DefinitionConciseP4
     | DefinitionGetHelpLink
     | DefinitionCategory1Title
     | DefinitionCategory1Info
@@ -94,6 +94,7 @@ type Key
     | DefinitionCategory6Info
     | DefinitionCategory6Quote1
     | DefinitionCategory6Quote2
+    | SplitterAffirmation
     | ToGetHelpFromDefinitionLink
     | ToHelpSelfFromDefinitionLink
       -- Help Self grid page

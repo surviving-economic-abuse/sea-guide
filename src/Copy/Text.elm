@@ -201,8 +201,8 @@ t key =
         DefinitionConciseP3 ->
             "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
 
-        SplitterAffirmation ->
-            "If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point. There are"
+        DefinitionConciseP4 ->
+            "[1 in 5] adults in the UK have experienced economic abuse at some point."
 
         DefinitionGetHelpLink ->
             "people and organisations who understand and who can help"
@@ -217,7 +217,7 @@ t key =
             "I stayed at home to look after the children. It made sense, I felt like he could earn a lot more than me. But nothing was in my name. I hated having to ask for my allowance every week."
 
         DefinitionCategory1Quote2 ->
-            "“I'm always being offered extra shifts at work and chances to go on training, but my partner always stops me."
+            "I'm always being offered extra shifts at work and chances to go on training, but my partner always stops me."
 
         DefinitionCategory2Title ->
             "Controlling what you spend money on"
@@ -271,13 +271,16 @@ t key =
             "Manipulating or coercing you"
 
         DefinitionCategory6Info ->
-            "Economic abuse can be hard to spot and often happens without you realising. It could start with behaviour that seems protective or caring such as [offering to take care of all the finances or encouraging you not to work] so that you can look after the children. Overspending and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing. It can also continue after leaving or [divorce]."
+            "Economic abuse can be hard to spot and often happens without you realising. It could start with behaviour that seems protective or caring such as [offering to take care of all the finances] or [encouraging you not to work] so that you can look after the children. Overspending and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing. It can also continue after leaving or [divorce]."
 
         DefinitionCategory6Quote1 ->
             "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, 'Well, you must be just crap with money then' thinking."
 
         DefinitionCategory6Quote2 ->
             "I often wonder how I got here. I got married to this charming man in the legal profession and we had children. But it was after I got married that I was systematically and unwittingly socially isolated, psychologically, emotionally, financially abused and controlled."
+
+        SplitterAffirmation ->
+            "If you are experiencing economic abuse, you are not alone. There are\npeople and\u{00A0}organisations who understand and who can help."
 
         ToGetHelpFromDefinitionLink ->
             "Find people to talk to"

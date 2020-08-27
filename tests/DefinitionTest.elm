@@ -33,11 +33,11 @@ suite =
                 \() ->
                     queryFromStyledHtml (view initModel)
                         |> Query.contains [ Html.text (t DefinitionTitle) ]
-            , test "Definition view has 7 nav links (1 introduction, 2 navigation, 4 emergency)" <|
+            , test "Definition view has 7 nav links (2 navigation, 4 emergency)" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
                         |> Query.findAll [ tag "a" ]
-                        |> Query.count (Expect.equal 7)
+                        |> Query.count (Expect.equal 6)
             , test "Definition view has nav link to get-help" <|
                 \() ->
                     queryFromStyledHtml (view initModel)
