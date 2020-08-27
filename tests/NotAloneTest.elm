@@ -25,11 +25,11 @@ suite =
             \() ->
                 queryFromStyledHtml (view initModel)
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 11 nav links (6 cards, 1 navigation, 4 emergency)" <|
+        , test "NotAlone view has 10 nav links (6 cards, 1 navigation, 3 emergency)" <|
             \() ->
                 queryFromStyledHtml (view initModel)
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 11)
+                    |> Query.count (Expect.equal 10)
         , test "NotAlone view has nav links to definition" <|
             \() ->
                 queryFromStyledHtml (view initModel)

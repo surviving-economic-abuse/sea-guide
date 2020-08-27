@@ -53,19 +53,19 @@ t key =
         HelpSelfSinglePageSlug category ->
             category
 
-        --- External Hrefs for People to talk to
-        StatsOnEconomicAbuseHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/03/Statistics-on-economic-abuse.pdf"
+        --- External Hrefs
+        DomesticAbuseHref ->
+            "https://www.nationaldahelpline.org.uk"
 
-        SeaOrganisationsResourceHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
+        WomensAidHref ->
+            "https://chat.womensaid.org.uk"
 
         SeaSurvivorForumHref ->
             "https://example.com/[cCc]"
 
         -- Resource pdfs
-        HelpSelfPdfDownloadLabel ->
-            "Full guide: "
+        SeaOrganisationsResourceHref ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
 
         HelpSelfBankingResource1Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
@@ -183,10 +183,28 @@ t key =
             "I need help"
 
         EmergencyReassure ->
-            "If you are in immediate danger, there is help available."
+            "Do you need help?"
 
-        EmergencyContactInfo ->
-            "Call the police on 999 or contact the 24-hour Freephone National Domestic Abuse Helpline run by Refuge on 0808 2000 247 or the Men's Advice Line on 0808 801 0327. Contact Galop on 0800 999 5428 for LGBTQ+ support. These numbers are free to call."
+        EmergencyPoliceInfo ->
+            "If you are in immediate danger, call the police on 999."
+
+        EmergencyNotImmediateReassure ->
+            "If you are not in immediate danger but need support, there are helplines available:"
+
+        EmergencyDomesticAbuseLink ->
+            "National Domestic Abuse Helpline"
+
+        EmergencyDomesticAbuseInfo ->
+            "Call 0808 2000 247 (available 24/7) or access the service online."
+
+        EmergencyWomensAidLink ->
+            "Women's Aid online chat"
+
+        EmergencyWomensAidInfo ->
+            "Chat directly with a Women's Aid support worker."
+
+        EmergencyOtherOrganisationsLink ->
+            "Find other organisations that can help here."
 
         -- Definition page
         DefinitionTitle ->
@@ -324,6 +342,9 @@ t key =
 
         ToHelpSelfFromSingleCategoryLink ->
             "Choose another topic"
+
+        HelpSelfPdfDownloadLabel ->
+            "Full guide: "
 
         -- Help Self single Category 404
         HelpSelfCategoryNotFoundTitle ->
