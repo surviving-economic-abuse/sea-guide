@@ -17,11 +17,11 @@ type Key
     | HelpSelfInfoLawSlug
     | HelpSelfSeparatingSlug
       --- External Hrefs
-    | StatsOnEconomicAbuseHref
-    | SeaOrganisationsResourceHref
+    | DomesticAbuseHref
+    | WomensAidHref
     | SeaSurvivorForumHref
       -- Resource pdfs
-    | HelpSelfPdfDownloadLabel
+    | SeaOrganisationsResourceHref
     | HelpSelfBankingResource1Href
     | HelpSelfBankingResource2Href
     | HelpSelfDebtResource1Href
@@ -62,7 +62,13 @@ type Key
     | ToDefinitionFromNotAloneLink
     | EmergencyButton
     | EmergencyReassure
-    | EmergencyContactInfo
+    | EmergencyPoliceInfo
+    | EmergencyNotImmediateReassure
+    | EmergencyDomesticAbuseLink
+    | EmergencyDomesticAbuseInfo
+    | EmergencyWomensAidLink
+    | EmergencyWomensAidInfo
+    | EmergencyOtherOrganisationsLink
       -- Definition page
     | DefinitionTitle
     | DefinitionConciseP1
@@ -109,6 +115,7 @@ type Key
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
     | ToHelpSelfFromSingleCategoryLink
+    | HelpSelfPdfDownloadLabel
       -- Help Self single Category 404
     | HelpSelfCategoryNotFoundTitle
       -- Help Self single Banking
