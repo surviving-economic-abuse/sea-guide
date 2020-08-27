@@ -333,6 +333,7 @@ emergencyPanelHeaderIconStyle =
     batch
         [ flex3 zero zero (pct 20)
         , height (px 40)
+        , margin auto
         ]
 
 
