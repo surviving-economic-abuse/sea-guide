@@ -4,7 +4,7 @@
   "description": "SEA-MAP Tech vs. Abuse application",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "rm -r dist && parcel build src/index.html --public-url ./",
+    "build": "rm -r dist && parcel build src/index.html --public-url ./sea-map/",
     "format": "elm-format src",
     "test": "elm-test"
   },
