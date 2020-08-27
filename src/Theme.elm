@@ -245,7 +245,7 @@ navLinkStyle =
 waveStyle : Style
 waveStyle =
     batch
-        [ backgroundImage (url "Background_Wave_Desktop.svg")
+        [ backgroundImage (url "Background_Wave.svg")
         , backgroundAttachment fixed
         , backgroundPosition center
         , backgroundRepeat noRepeat
