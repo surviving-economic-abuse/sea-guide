@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1999 1402.18"><defs><style>.cls-1{fill:#f0f0f0;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M1999,0V1191.22c-282,174.85-504.12,199.57-651.31,192C1054.77,1368.09,838.44,1213.63,496,1225c-117,3.86-225.32,26.31-329,73.92A801.65,801.65,0,0,0,0,1402.18V211C282,36.11,504.12,11.39,651.31,19,944.23,34.09,1160.56,188.55,1503,177.23c117-3.86,225.32-26.31,329-73.92A801.65,801.65,0,0,0,1999,0Z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1999 1403" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer_2">
+        <g id="Layer_1-2">
+            <path d="M1999,336L1999,897.22C1717,1072.07 1494.88,1096.79 1347.69,1089.22C1054.77,1074.09 838.44,919.63 496,931C379,934.86 270.68,957.31 167,1004.92C107.313,1032.37 51.225,1067.05 0,1108.18L0,547C282,372.11 504.12,347.39 651.31,355C944.23,370.09 1160.56,524.55 1503,513.23C1620,509.37 1728.32,486.92 1832,439.31C1891.69,411.847 1947.78,377.15 1999,336Z" style="fill:rgb(240,240,240);fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

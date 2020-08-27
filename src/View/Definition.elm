@@ -11,47 +11,50 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (globalStyles, grey, lightGreen, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, lightGrey, navItemStyles, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
 
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ globalStyles
-        , header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
-            , div [ css [ introStyle ] ]
+    page
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+                , div [ css [ introStyle ] ]
                 [ p [] (renderWithKeywords (t DefinitionConciseP1))
                 , p [] (renderWithKeywords (t DefinitionConciseP2))
                 , p [] (renderWithKeywords (t DefinitionConciseP3))
                 , p []
-                    [ text (t SplitterAffirmation)
-                    , text " "
-                    , a [ href (t GetHelpPageSlug) ]
-                        [ text (t DefinitionGetHelpLink)
-                        , text "."
+                        [ text (t SplitterAffirmation)
+                        , text " "
+                        , a [ href (t GetHelpPageSlug) ]
+                            [ text (t DefinitionGetHelpLink)
+                            , text "."
+                            ]
                         ]
                     ]
                 ]
-            ]
-        , dl [ css [ categoryListStyle ] ]
-            (renderExpandableCategories
-                model
-                [ DefinitionCategory1
-                , DefinitionCategory2
-                , DefinitionCategory3
-                , DefinitionCategory4
-                , DefinitionCategory5
-                , DefinitionCategory6
-                ]
-            )
-        , nav []
-            [ ul [ css [ navListStyle ] ]
-                [ li [ css navItemStyles ]
-                    [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+            , dl [ css [ categoryListStyle ] ]
+                (renderExpandableCategories
+                    model
+                    [ DefinitionCategory1
+                    , DefinitionCategory2
+                    , DefinitionCategory3
+                    , DefinitionCategory4
+                    , DefinitionCategory5
+                    , DefinitionCategory6
                     ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                )
+            ]
+        , container
+            [ nav []
+                [ ul [ css [ navListStyle ] ]
+                    [ li [ css navItemStyles ]
+                        [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                        ]
                     ]
                 ]
             ]

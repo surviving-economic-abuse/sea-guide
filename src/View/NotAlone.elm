@@ -10,32 +10,39 @@ import Html.Styled.Attributes exposing (css, href, id)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink, toString)
-import Theme exposing (globalStyles, grey, gridStyle, lightGrey, oneColumn, pageHeadingStyle, twoColumn, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing, white)
 
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ globalStyles
-        , header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
-            , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
+    page
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+                , button [ onClick ScrollTo, css [ emergencyButtonStyle ] ] [ text (t EmergencyButton) ]
+                ]
             ]
-        , div [ css [ gridStyle ] ]
-            [ card model JourneyCard1
-            , card model JourneyCard2
-            , card model JourneyCard3
-            , card model JourneyCard4
-            , card model JourneyCard5
-            , card model JourneyCard6
+        , container
+            [ div [ css [ gridStyle ] ]
+                [ card model JourneyCard1
+                , card model JourneyCard2
+                , card model JourneyCard3
+                , card model JourneyCard4
+                , card model JourneyCard5
+                , card model JourneyCard6
+                ]
             ]
         , verticalSpacing
-        , div []
-            [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+        , containerContent
+            [ nav [ css [ navListStyle ] ]
+                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+                ]
             ]
-        , div [ css [ emergencyContactStyle ], id "emergency" ]
-            [ p [] [ text (t EmergencyReassure) ]
-            , p [] [ text (t EmergencyContactInfo) ]
+        , containerContent
+            [ div [ css [ emergencyContactStyle ], id "emergency" ]
+                [ p [] [ text (t EmergencyReassure) ]
+                , p [] [ text (t EmergencyContactInfo) ]
+                ]
             ]
         ]
 
@@ -105,7 +112,7 @@ renderRevealedCard journeyCardPosition =
 cardStyles : List Style
 cardStyles =
     [ batch
-        [ backgroundColor lightGrey
+        [ backgroundColor transparent
         , border3 (px 1) solid grey
         , borderRadius (rem 1)
         , flex3 zero zero oneColumn
