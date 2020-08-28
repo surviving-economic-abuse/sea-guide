@@ -6,6 +6,7 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Page.HelpSelfSingle exposing (Msg(..), update)
+import PageTemplate exposing (page)
 import Set
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
@@ -28,16 +29,16 @@ suite =
         [ describe "View tests"
             [ test "HelpSelfSingle view has title" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
+                    queryFromStyledHtml (page (view (t HelpSelfBankingSlug) initModel))
                         |> Query.contains [ Html.text (t HelpSelfBankingTitle) ]
             , test "HelpSelfSingle view has nav link to get-help" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
+                    queryFromStyledHtml (page (view (t HelpSelfBankingSlug) initModel))
                         |> Query.find [ tag "a", attribute (Html.Attributes.href ("../" ++ t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromSingleCategoryLink) ]
             , test "HelpSelfSingle view can have well formed resources" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfDebtSlug) resource2expandedModel)
+                    queryFromStyledHtml (page (view (t HelpSelfDebtSlug) resource2expandedModel))
                         |> Query.find [ tag "li", containing [ text (t HelpSelfDebtResource1Title) ] ]
                         |> Query.has
                             [ text (t HelpSelfDebtResource1Quote1)
