@@ -66,6 +66,7 @@ type Key
     | ExpandQuoteButton
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
+    | ExitButton
     | EmergencyButton
     | EmergencyReassure
     | EmergencyPoliceInfo
