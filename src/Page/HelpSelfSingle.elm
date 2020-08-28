@@ -138,17 +138,59 @@ categoryKeysFromSlug slug =
 
     else if slug == t HelpSelfCovidSlug then
         { title = HelpSelfCovidTitle
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfCovidResource1Title
+                  , quotes = []
+                  , summary = HelpSelfCovidResource1Summary
+                  , linkName = HelpSelfCovidResource1Link
+                  , linkHref = HelpSelfCovidResource1Href
+                  }
+                , { title = HelpSelfCovidResource2Title
+                  , quotes = []
+                  , summary = HelpSelfCovidResource2Summary
+                  , linkName = HelpSelfCovidResource2Link
+                  , linkHref = HelpSelfCovidResource2Href
+                  }
+                ]
         }
 
     else if slug == t HelpSelfInfoLawSlug then
         { title = HelpSelfInfoLawTitle
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfInfoLawResource1Title
+                  , quotes = [ HelpSelfInfoLawResource1Quote1 ]
+                  , summary = HelpSelfInfoLawResource1Summary
+                  , linkName = HelpSelfInfoLawResource1Link
+                  , linkHref = HelpSelfInfoLawResource1Href
+                  }
+                , { title = HelpSelfInfoLawResource2Title
+                  , quotes = []
+                  , summary = HelpSelfInfoLawResource2Summary
+                  , linkName = HelpSelfInfoLawResource2Link
+                  , linkHref = HelpSelfInfoLawResource2Href
+                  }
+                ]
         }
 
     else if slug == t HelpSelfSeparatingSlug then
         { title = HelpSelfSeparatingTitle
-        , resources = Nothing
+        , resources =
+            Just
+                [ { title = HelpSelfSeparatingResource1Title
+                  , quotes = [ HelpSelfSeparatingResource1Quote1 ]
+                  , summary = HelpSelfSeparatingResource1Summary
+                  , linkName = HelpSelfSeparatingResource1Link
+                  , linkHref = HelpSelfSeparatingResource1Href
+                  }
+                , { title = HelpSelfSeparatingResource2Title
+                  , quotes = [ HelpSelfSeparatingResource2Quote1, HelpSelfSeparatingResource2Quote2 ]
+                  , summary = HelpSelfSeparatingResource2Summary
+                  , linkName = HelpSelfSeparatingResource2Link
+                  , linkHref = HelpSelfSeparatingResource2Href
+                  }
+                ]
         }
 
     else
