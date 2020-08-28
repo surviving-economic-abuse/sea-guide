@@ -64,7 +64,7 @@ renderInitCard journeyCardPosition =
     li [ css [ cardStyle, closedStyle ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-            , div [ css [ subTeaserStyle ] ] [ text (t ExpandQuoteReassuringText) ]
+            , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
                 , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
@@ -144,7 +144,7 @@ innerCardStyle =
         , minHeight (px 192)
         , displayFlex
         , flexDirection column
-        , justifyContent spaceBetween
+        , justifyContent spaceAround
         ]
 
 
@@ -172,12 +172,12 @@ teaserStyle =
         ]
 
 
-subTeaserStyle : Style
-subTeaserStyle =
+greenDividerStyle : Style
+greenDividerStyle =
     batch
-        [ borderTop3 (px 2) solid green
-        , margin auto
-        , paddingTop (rem 1)
+        [ borderTop3 (px 1) solid green
+        , margin2 zero auto
+        , width (pct 80)
         ]
 
 
@@ -212,11 +212,9 @@ buttonStyle =
         , fontSize (rem 1)
         , fontWeight (int 700)
         , justifyContent center
-        , margin auto
-        , minHeight (rem 3)
+        , margin2 zero auto
         , padding2 (rem 0.5) (rem 2)
         , textAlign center
-        , width (pct 60)
         , hover
             [ backgroundColor lightPurple
             , color grey
