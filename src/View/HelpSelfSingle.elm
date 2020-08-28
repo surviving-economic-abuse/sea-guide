@@ -73,8 +73,8 @@ renderResourceDetails resource =
     , verticalSpacing
     ]
         ++ renderQuotes resource.quotes
-        ++ [ verticalSpacing ]
-        ++ renderPdfDownload resource
+        ++ verticalSpacing
+        :: renderPdfDownload resource
 
 
 renderPdfDownload : CategoryResource -> List (Html msg)
