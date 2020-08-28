@@ -14,6 +14,7 @@ page : List (Html msg) -> Html msg
 page children =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         ([ globalStyles
+         , a [ href "https://www.google.co.uk/", css [ exitButtonStyle ] ] [ text (t ExitButton) ]
          , button [ css [ emergencyButtonStyle ] ]
             [ span [] [ text (t EmergencyButton) ]
             , img [ css [ iconStyle ], src "Emergency.svg", alt "" ] []
@@ -108,6 +109,26 @@ waveStyle =
         ]
 
 
+exitButtonStyle : Style
+exitButtonStyle =
+    batch
+        [ backgroundColor orange
+        , border zero
+        , color white
+        , fontSize (rem 1.2)
+        , fontWeight (int 400)
+        , height (rem 3.75)
+        , lineHeight (num 1.2)
+        , padding (px 6)
+        , position fixed
+        , right zero
+        , textAlign center
+        , textDecoration none
+        , top (rem 5)
+        , width (rem 3.75)
+        ]
+
+
 emergencyPanelStyle : Style
 emergencyPanelStyle =
     batch
@@ -170,9 +191,6 @@ emergencyPanelBodyStyle =
         , borderBottomLeftRadius (px 20)
         , borderBottomRightRadius (px 20)
         , padding (rem 1.5)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-            [ borderRadius zero
-            ]
         ]
 
 
