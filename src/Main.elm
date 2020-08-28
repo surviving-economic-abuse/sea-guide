@@ -7,6 +7,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
+import Message exposing (Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
@@ -41,12 +42,13 @@ main =
 type alias Model =
     { key : Browser.Navigation.Key
     , page : Page
+    , emergencyPopupIsOpen : Bool
     }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url) }, Cmd.none )
+    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url), emergencyPopupIsOpen = True }, Cmd.none )
 
 
 type Page
@@ -77,19 +79,6 @@ pageFromMaybeRoute route =
             NotAlonePage { revealedJourney = Nothing }
 
 
-
--- UPDATE
-
-
-type Msg
-    = NoOp
-    | PageLinkClicked Browser.UrlRequest
-    | UrlChanged Url.Url
-    | DefinitionMsg Page.Definition.Msg
-    | HelpSelfSingleMsg Page.HelpSelfSingle.Msg
-    | NotAloneMsg Page.NotAlone.Msg
-
-
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -114,6 +103,9 @@ update msg model =
                     pageFromMaybeRoute (Route.fromUrl url)
             in
             ( { model | page = newPage }, resetViewportTop )
+
+        EmergencyButtonClicked ->
+            ( { model | emergencyPopupIsOpen = False }, Cmd.none )
 
         DefinitionMsg subMsg ->
             case model.page of
@@ -183,16 +175,16 @@ view : Model -> Html Msg
 view model =
     case model.page of
         DefinitionPage definition ->
-            Html.Styled.map DefinitionMsg (PageTemplate.page (View.Definition.view definition))
+            Html.Styled.map DefinitionMsg (PageTemplate.page model.emergencyPopupIsOpen (View.Definition.view definition))
 
         GetHelpPage ->
-            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.GetHelp.view)
+            Html.Styled.map (\_ -> NoOp) (PageTemplate.page model.emergencyPopupIsOpen View.GetHelp.view)
 
         HelpSelfGridPage ->
-            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.HelpSelfGrid.view)
+            Html.Styled.map (\_ -> NoOp) (PageTemplate.page model.emergencyPopupIsOpen View.HelpSelfGrid.view)
 
         HelpSelfSinglePage helpSelfSingle category ->
-            Html.Styled.map HelpSelfSingleMsg (PageTemplate.page (View.HelpSelfSingle.view category helpSelfSingle))
+            Html.Styled.map HelpSelfSingleMsg (PageTemplate.page model.emergencyPopupIsOpen (View.HelpSelfSingle.view category helpSelfSingle))
 
         NotAlonePage notAlone ->
-            Html.Styled.map NotAloneMsg (PageTemplate.page (View.NotAlone.view notAlone))
+            Html.Styled.map NotAloneMsg (PageTemplate.page model.emergencyPopupIsOpen (View.NotAlone.view notAlone))

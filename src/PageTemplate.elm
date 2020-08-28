@@ -7,17 +7,16 @@ import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (alt, css, href, id, src)
+import Html.Styled.Events exposing (onClick)
+import Message exposing (Msg(..))
 import Theme exposing (..)
 
 
-page : List (Html msg) -> Html msg
-page children =
+page : Bool -> List (Html msg) -> Html Msg
+page emergencyIsOpen children =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         ([ globalStyles
-         , button [ css [ emergencyButtonStyle ] ]
-            [ span [] [ text (t EmergencyButton) ]
-            , img [ css [ iconStyle ], src "Emergency.svg", alt "" ] []
-            ]
+         , renderEmergencyButton emergencyIsOpen
          ]
             ++ children
             ++ [ div [ css [ emergencyPanelStyle ], id "emergency" ]
@@ -52,10 +51,22 @@ page children =
         )
 
 
+renderEmergencyButton : Bool -> Html Msg
+renderEmergencyButton popupIsOpen =
+    if popupIsOpen then
+        text ""
+
+    else
+        button [ css [ emergencyButtonStyle ], onClick EmergencyButtonClicked ]
+            [ span [] [ text (t EmergencyButton) ]
+            , img [ css [ iconStyle ], src "Emergency.svg", alt "" ] []
+            ]
+
+
 {-| Injects a <style> tag into the body, and can target element or
 class selectors anywhere, including outside the Elm app.
 -}
-globalStyles : Html msg
+globalStyles : Html Msg
 globalStyles =
     global
         [ typeSelector "body"
