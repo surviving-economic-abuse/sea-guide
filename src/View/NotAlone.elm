@@ -10,7 +10,7 @@ import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, grey, lightGreen, lightPurple, navListStyle, oneColumn, page, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, page, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -65,7 +65,7 @@ renderInitCard journeyCardPosition =
     li [ css [ cardStyle, closedStyle ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-            , p [ css [ subTeaserStyle ] ] [ text "but things got better" ]
+            , div [ css [ subTeaserStyle ] ] [ text "but things got better" ]
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
                 , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
@@ -138,10 +138,14 @@ innerCardStyle =
         [ backgroundColor pureWhite
         , borderRadius (rem 1.8)
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
-        , padding (rem 1)
+        , padding (rem 0.5)
         , position relative
-        , top (px 225)
+        , top (px 192)
         , textAlign center
+        , minHeight (px 192)
+        , displayFlex
+        , flexDirection column
+        , justifyContent spaceBetween
         ]
 
 
@@ -165,13 +169,16 @@ teaserStyle =
     batch
         [ color grey
         , fontSize (px 18)
+        , padding2 zero (rem 2)
         ]
 
 
 subTeaserStyle : Style
 subTeaserStyle =
     batch
-        [ paddingTop (rem 1)
+        [ borderTop3 (px 2) solid green
+        , margin auto
+        , paddingTop (rem 1)
         ]
 
 
