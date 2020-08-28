@@ -10,36 +10,35 @@ import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, page, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
 
 
-view : Model -> Html Msg
+view : Model -> List (Html Msg)
 view model =
-    page
-        [ containerContent
-            [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
-                ]
+    [ containerContent
+        [ header []
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
             ]
-        , container
-            [ ul [ css [ gridStyle ] ]
-                [ card model JourneyCard1
-                , card model JourneyCard2
-                , card model JourneyCard3
-                , card model JourneyCard4
-                , card model JourneyCard5
-                , card model JourneyCard6
-                ]
-            ]
-        , verticalSpacing
-        , containerContent
-            [ nav [ css [ navListStyle ] ]
-                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
-                ]
-            ]
-        , containerContent
-            []
         ]
+    , container
+        [ ul [ css [ gridStyle ] ]
+            [ card model JourneyCard1
+            , card model JourneyCard2
+            , card model JourneyCard3
+            , card model JourneyCard4
+            , card model JourneyCard5
+            , card model JourneyCard6
+            ]
+        ]
+    , verticalSpacing
+    , containerContent
+        [ nav [ css [ navListStyle ] ]
+            [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+            ]
+        ]
+    , containerContent
+        []
+    ]
 
 
 card : Model -> JourneyCard -> Html Msg
