@@ -116,6 +116,7 @@ t key =
         NotAloneTitle ->
             "You are not alone"
 
+        -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
         Journey1Teaser ->
             "He threw my phone on the floor and smashed\u{00A0}it"
 
