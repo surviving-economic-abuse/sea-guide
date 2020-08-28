@@ -31,6 +31,12 @@ type Key
     | HelpSelfFinancialResource1Href
     | HelpSelfFinancialResource2Href
     | HelpSelfFinancialResource3Href
+    | HelpSelfCovidResource1Href
+    | HelpSelfCovidResource2Href
+    | HelpSelfInfoLawResource1Href
+    | HelpSelfInfoLawResource2Href
+    | HelpSelfSeparatingResource1Href
+    | HelpSelfSeparatingResource2Href
       -- Not Alone page
     | NotAloneTitle
     | Journey1Teaser
@@ -175,10 +181,33 @@ type Key
     | HelpSelfFinancialResource3Link
       -- Help Self single Covid
     | HelpSelfCovidTitle
+    | HelpSelfCovidResource1Title
+    | HelpSelfCovidResource1Summary
+    | HelpSelfCovidResource1Quote1
+    | HelpSelfCovidResource1Link
+    | HelpSelfCovidResource2Title
+    | HelpSelfCovidResource2Summary
+    | HelpSelfCovidResource2Link
       -- Help Self single InfoLaw
     | HelpSelfInfoLawTitle
+    | HelpSelfInfoLawResource1Title
+    | HelpSelfInfoLawResource1Summary
+    | HelpSelfInfoLawResource1Link
+    | HelpSelfInfoLawResource1Quote1
+    | HelpSelfInfoLawResource2Title
+    | HelpSelfInfoLawResource2Summary
+    | HelpSelfInfoLawResource2Link
       -- Help Self single Separating
     | HelpSelfSeparatingTitle
+    | HelpSelfSeparatingResource1Title
+    | HelpSelfSeparatingResource1Quote1
+    | HelpSelfSeparatingResource1Summary
+    | HelpSelfSeparatingResource1Link
+    | HelpSelfSeparatingResource2Title
+    | HelpSelfSeparatingResource2Quote1
+    | HelpSelfSeparatingResource2Quote2
+    | HelpSelfSeparatingResource2Summary
+    | HelpSelfSeparatingResource2Link
       -- Get Help page
     | GetHelpTitle
     | GetHelpSection1Title
