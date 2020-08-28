@@ -69,12 +69,12 @@ renderResourceList model resources =
 
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
-    renderQuotes resource.quotes
-        ++ [ verticalSpacing
-           , p [] [ text (t resource.summary) ]
-           , verticalSpacing
-           ]
-        ++ renderPdfDownload resource
+    [ p [] [ text (t resource.summary) ]
+    , verticalSpacing
+    ]
+        ++ renderQuotes resource.quotes
+        ++ verticalSpacing
+        :: renderPdfDownload resource
 
 
 renderPdfDownload : CategoryResource -> List (Html msg)
