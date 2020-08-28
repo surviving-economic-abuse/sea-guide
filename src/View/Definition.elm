@@ -11,48 +11,47 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, page, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
-view : Model -> Html Msg
+view : Model -> List (Html Msg)
 view model =
-    page
-        [ containerContent
-            [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
-                , div [ css [ introStyle ] ]
-                    [ p [] (renderWithKeywords (t DefinitionConciseP1))
-                    , p [] (renderWithKeywords (t DefinitionConciseP2))
-                    , p [] (renderWithKeywords (t DefinitionConciseP3))
-                    , p [] (renderWithKeywords (t DefinitionConciseP4))
-                    ]
+    [ containerContent
+        [ header []
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+            , div [ css [ introStyle ] ]
+                [ p [] (renderWithKeywords (t DefinitionConciseP1))
+                , p [] (renderWithKeywords (t DefinitionConciseP2))
+                , p [] (renderWithKeywords (t DefinitionConciseP3))
+                , p [] (renderWithKeywords (t DefinitionConciseP4))
                 ]
-            , dl [ css [ categoryListStyle ] ]
-                (renderExpandableCategories
-                    model
-                    [ DefinitionCategory1
-                    , DefinitionCategory2
-                    , DefinitionCategory3
-                    , DefinitionCategory4
-                    , DefinitionCategory5
-                    , DefinitionCategory6
-                    ]
-                )
             ]
-        , container
-            [ p [ css [ marginBottom (rem 1), textAlign center ] ] [ text (t SplitterAffirmation) ]
-            , nav []
-                [ ul [ css [ navListStyle ] ]
-                    [ li [ css navItemStyles ]
-                        [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
-                        ]
-                    , li [ css navItemStyles ]
-                        [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
-                        ]
+        , dl [ css [ categoryListStyle ] ]
+            (renderExpandableCategories
+                model
+                [ DefinitionCategory1
+                , DefinitionCategory2
+                , DefinitionCategory3
+                , DefinitionCategory4
+                , DefinitionCategory5
+                , DefinitionCategory6
+                ]
+            )
+        ]
+    , container
+        [ p [ css [ marginBottom (rem 1), textAlign center ] ] [ text (t SplitterAffirmation) ]
+        , nav []
+            [ ul [ css [ navListStyle ] ]
+                [ li [ css navItemStyles ]
+                    [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+                    ]
+                , li [ css navItemStyles ]
+                    [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
                     ]
                 ]
             ]
         ]
+    ]
 
 
 renderQuotes : List Key -> Html Msg

@@ -10,6 +10,7 @@ import Html.Styled exposing (..)
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
+import PageTemplate
 import Route exposing (Route(..))
 import Set
 import Task
@@ -182,16 +183,16 @@ view : Model -> Html Msg
 view model =
     case model.page of
         DefinitionPage definition ->
-            Html.Styled.map DefinitionMsg (View.Definition.view definition)
+            Html.Styled.map DefinitionMsg (PageTemplate.page (View.Definition.view definition))
 
         GetHelpPage ->
-            Html.Styled.map (\_ -> NoOp) View.GetHelp.view
+            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.GetHelp.view)
 
         HelpSelfGridPage ->
-            Html.Styled.map (\_ -> NoOp) View.HelpSelfGrid.view
+            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.HelpSelfGrid.view)
 
         HelpSelfSinglePage helpSelfSingle category ->
-            Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view category helpSelfSingle)
+            Html.Styled.map HelpSelfSingleMsg (PageTemplate.page (View.HelpSelfSingle.view category helpSelfSingle))
 
         NotAlonePage notAlone ->
-            Html.Styled.map NotAloneMsg (View.NotAlone.view notAlone)
+            Html.Styled.map NotAloneMsg (PageTemplate.page (View.NotAlone.view notAlone))
