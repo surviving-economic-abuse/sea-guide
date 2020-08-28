@@ -170,8 +170,11 @@ t key =
         Journey6Statement ->
             "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
 
+        ExpandQuoteReassuringText ->
+            "but things got better"
+
         ExpandQuoteButton ->
-            "read how things got better"
+            "Read How"
 
         ToDefinitionReassuringText ->
             "If this sounds familiar know that you're not alone."
