@@ -73,14 +73,15 @@ renderInitCard journeyCardPosition =
         ]
 
 
-renderRevealedCard : JourneyCard -> Html msg
+renderRevealedCard : JourneyCard -> Html Msg
 renderRevealedCard journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
     li [ css [ cardStyle, openStyle ] ]
-        [ div []
+        [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
+        , div []
             [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -160,6 +161,19 @@ openStyle =
         , flexDirection column
         , justifyContent spaceBetween
         , alignSelf center
+        ]
+
+
+closeJourneyButtonStyle : Style
+closeJourneyButtonStyle =
+    batch
+        [ alignSelf flexEnd
+        , backgroundColor purple
+        , border zero
+        , borderRadius (rem 100)
+        , height (px 44)
+        , marginRight (rem 1)
+        , width (px 44)
         ]
 
 
