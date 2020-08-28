@@ -308,7 +308,7 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            "Help me with..."
+            "Get help with..."
 
         HelpSelfBankingLink ->
             "Banking"
@@ -320,7 +320,7 @@ t key =
             "Housing"
 
         HelpSelfFinancialLink ->
-            "Getting financial support"
+            "Financial support"
 
         HelpSelfCovidLink ->
             "COVID-19 and my finances"
@@ -329,13 +329,13 @@ t key =
             "Economic abuse and the law"
 
         HelpSelfSeparatingLink ->
-            "Separating my finances from an abusive partner"
+            "Separating finances from an abusive partner"
 
         ToDefinitionFromHelpSelfLink ->
             "Read more about the signs of economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            "Read about survivors' experiences"
+            "Read more about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
             "Find people to talk to"
@@ -398,7 +398,7 @@ t key =
             "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            "Forcing or coercing someone into debt is a common form of economic abuse. If you have been forced to make transactions that led you into debt, or if you have had debts fraudulently built up in your name, this information will help."
+            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don’t want to, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
             "What is coerced debt? [PDF 542kB]"
@@ -422,7 +422,7 @@ t key =
             "Economic abuse and your credit report"
 
         HelpSelfDebtResource3Quote1 ->
-            "The impact of economic abuse is practical – I have struggled to get a mortgage because he has left such an impact on my credit rating."
+            "The impact of economic abuse is practical - I have struggled to get a mortgage because he has left such an impact on my credit rating."
 
         HelpSelfDebtResource3Quote2 ->
             "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
@@ -441,13 +441,13 @@ t key =
             "Finding a safe place to live"
 
         HelpSelfHousingResource1Quote1 ->
-            "This is the reality – me and the kids sleeping at my friend's and he's in our old home, which I jointly owned."
+            "This is the reality - me and the kids sleeping at my friend's and he's in our old home, which I jointly owned."
 
         HelpSelfHousingResource1Quote2 ->
             "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-            "The nature of economic abuse may make your housing situation complex. This information lays out some of the options that you may have and the support that may be available to help ensure you have a safe place to live."
+            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
             "Finding a safe place to live [PDF 507kB]"
@@ -466,7 +466,7 @@ t key =
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         HelpSelfFinancialResource1Summary ->
-            "Find information on charities and organisations that can support you with money, debt information and advice. There are also many organisations that support people in financial difficulty with grants to help with day-to-day expenses."
+            "Find information on charities and organisations that can support you with money, debt information and advice. There are also grants and payments available for people in financial need to help with day-to-day expenses."
 
         HelpSelfFinancialResource1Link ->
             "Grants, benefits and financial help [PDF 622kB]"
@@ -481,13 +481,13 @@ t key =
             "We don't have much to live off at the moment but knowing that my child is now safe is the most important thing to me. I'm now more positive that we will find our feet financially"
 
         HelpSelfFinancialResource2Summary ->
-            "If you are experiencing economic abuse and have children, caring for them may be a lot more  challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety, and financial support."
+            "If you are experiencing economic abuse and have children, caring for them may be a lot more challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety and financial support."
 
         HelpSelfFinancialResource2Link ->
             "Economic abuse and supporting children [PDF 533kB]"
 
         HelpSelfFinancialResource3Title ->
-            "Economic abuse and eligibility for benefits and public funds "
+            "Immigration status and eligibility for benefits and public funds"
 
         HelpSelfFinancialResource3Quote1 ->
             "I have no recourse to public funds here in the UK. As such I have no money and so he is able to control and dictate my life."
@@ -536,7 +536,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact The Financial Support Line for Victims of Domestic Abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction1 ->
             "Call or text 01323 635987"
