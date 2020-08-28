@@ -6,6 +6,7 @@ import Expect exposing (Expectation)
 import Html
 import Html.Attributes
 import Page.Definition exposing (Msg(..), update)
+import PageTemplate exposing (page)
 import Set
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
@@ -26,31 +27,34 @@ suite =
 
         stringPartialToFirstSquareBracket text =
             Maybe.withDefault text (List.head (String.split "[" text))
+
+        pageViewInitModel =
+            page (view initModel)
     in
     describe "Definition Page"
         [ describe "View tests"
             [ test "Definition view has title" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.contains [ Html.text (t DefinitionTitle) ]
             , test "Definition view has 5 nav links (2 navigation, 3 emergency)" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.findAll [ tag "a" ]
                         |> Query.count (Expect.equal 5)
             , test "Definition view has nav link to get-help" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.find [ tag "nav", containing [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ] ]
                         |> Query.has [ text (t ToGetHelpFromDefinitionLink) ]
             , test "Definition view has nav link to help-self" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromDefinitionLink) ]
             , test "Definition view has 6 category expander buttons" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.findAll
                             [ tag "button"
                             , containing
@@ -60,7 +64,7 @@ suite =
                         |> Query.count (Expect.equal 6)
             , test "An open expander shows definition info and quotes" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (page (view definition2expandedModel))
                         |> Query.find
                             [ tag "div"
                             , containing
@@ -75,7 +79,7 @@ suite =
                             ]
             , test "An open expander does not show info for a different category" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (page (view definition2expandedModel))
                         |> Query.find
                             [ tag "div"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
@@ -85,7 +89,7 @@ suite =
                             ]
             , test "I can toggle a closed expander" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.find
                             [ tag "button"
                             , containing [ text (t DefinitionCategory2Title) ]
@@ -94,7 +98,7 @@ suite =
                         |> Event.expect (ToggleCategory DefinitionCategory2Title)
             , test "I can toggle an open expander" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (page (view definition2expandedModel))
                         |> Query.find
                             [ tag "button"
                             , containing [ text (t DefinitionCategory2Title) ]
@@ -103,7 +107,7 @@ suite =
                         |> Event.expect (ToggleCategory DefinitionCategory2Title)
             , test "When all expanders closed, I cannot see info and quotes" <|
                 \() ->
-                    queryFromStyledHtml (view initModel)
+                    queryFromStyledHtml pageViewInitModel
                         |> Query.findAll
                             [ tag "dl" ]
                         |> Query.each

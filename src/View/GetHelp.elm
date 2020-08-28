@@ -8,29 +8,28 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, grey, lightGrey, navListStyle, oneColumn, pageHeadingStyle, purple, verticalSpacing, white)
 
 
-view : Html never
+view : List (Html never)
 view =
-    page
-        [ container
-            [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
-                ]
-            , div [ css [ columnStyle ] ]
-                [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
-                , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
-                , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
-                ]
-            , verticalSpacing
-            , nav [ css [ navListStyle ] ]
-                [ p [ css [ reassuringStyle ] ]
-                    [ text (t ToHelpSelfReassuringText) ]
-                , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
-                ]
+    [ container
+        [ header []
+            [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
+            ]
+        , div [ css [ columnStyle ] ]
+            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
+            , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
+            , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
+            ]
+        , verticalSpacing
+        , nav [ css [ navListStyle ] ]
+            [ p [ css [ reassuringStyle ] ]
+                [ text (t ToHelpSelfReassuringText) ]
+            , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
             ]
         ]
+    ]
 
 
 renderCallToAction : CallToAction -> Html msg
