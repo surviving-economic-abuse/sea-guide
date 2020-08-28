@@ -1,11 +1,9 @@
 module Theme exposing (container, containerContent, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, white)
 
-import Copy.Keys exposing (Key(..))
-import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
-import Html.Styled.Attributes exposing (alt, css, href, id, src)
+import Html.Styled exposing (Html, div)
+import Html.Styled.Attributes exposing (css)
 
 
 
