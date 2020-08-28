@@ -4,13 +4,13 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (easeOut, transition)
+import Css.Transitions exposing (transition)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Route exposing (Direction(..), Route(..), renderNavLink, toString)
-import Theme exposing (container, containerContent, grey, gridStyle, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, twoColumn, verticalSpacing)
+import Route exposing (Direction(..), Route(..), renderNavLink)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, page, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -22,7 +22,7 @@ view model =
                 ]
             ]
         , container
-            [ div [ css [ gridStyle ] ]
+            [ ul [ css [ gridStyle ] ]
                 [ card model JourneyCard1
                 , card model JourneyCard2
                 , card model JourneyCard3
@@ -44,13 +44,10 @@ view model =
 
 card : Model -> JourneyCard -> Html Msg
 card model journeyCardPosition =
-    div
-        [ css cardStyles
-        ]
-        (renderCard model journeyCardPosition)
+    renderCard model journeyCardPosition
 
 
-renderCard : Model -> JourneyCard -> List (Html Msg)
+renderCard : Model -> JourneyCard -> Html Msg
 renderCard model journeyCardPosition =
     if journeyIsRevealed model journeyCardPosition then
         renderRevealedCard journeyCardPosition
@@ -59,128 +56,182 @@ renderCard model journeyCardPosition =
         renderInitCard journeyCardPosition
 
 
-renderInitCard : JourneyCard -> List (Html Msg)
+renderInitCard : JourneyCard -> Html Msg
 renderInitCard journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.teaser) ]
-    , div [ css [ closedStyle ] ]
-        [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-        , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
-        , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+    li [ css [ cardStyle, closedStyle ] ]
+        [ div [ css [ innerCardStyle ] ]
+            [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
+            , div [ css [ subTeaserStyle ] ] [ text (t ExpandQuoteReassuringText) ]
+            , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
+                [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
+                , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                ]
+            ]
         ]
-    , verticalSpacing
-    , button [ css [ continueButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
-        [ span [ css [ continueTextStyle ] ] [ text (t ExpandQuoteButton) ]
-        ]
-    , div [ css [ closedStyle ] ]
-        [ p []
-            [ text (t ToDefinitionReassuringText) ]
-        , a
-            [ href (Route.toString Definition) ]
-            [ span [] [ text (t ToDefinitionFromNotAloneLink) ] ]
-        ]
-    ]
 
 
-renderRevealedCard : JourneyCard -> List (Html msg)
+renderRevealedCard : JourneyCard -> Html msg
 renderRevealedCard journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-    , div [ css [ openStyle ] ]
-        [ p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
-        , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+    li [ css [ cardStyle, openStyle ] ]
+        [ div []
+            [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+            , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
+            , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+            ]
+        , div []
+            [ div [ css [ highlightStyle ] ]
+                [ p [] [ text (t ToDefinitionReassuringText) ]
+                ]
+            , div [ css [ padding2 zero (rem 1) ] ]
+                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+                ]
+            ]
         ]
-    , div [ css [ openStyle ] ]
-        [ p [ css [ reassuringStyle ] ]
-            [ text (t ToDefinitionReassuringText) ]
-        , renderNavLink Forward Definition ToHelpSelfFromGetHelpLink
-        ]
-    ]
 
 
-cardStyles : List Style
-cardStyles =
-    [ batch
-        [ backgroundColor transparent
-        , border3 (px 1) solid grey
-        , borderRadius (rem 1)
-        , flex3 zero zero oneColumn
-        , height auto
+gridStyle : Style
+gridStyle =
+    batch
+        [ displayFlex
+        , flexWrap wrap
+        , alignItems start
+        , minHeight (px 500)
+        ]
+
+
+cardStyle : Style
+cardStyle =
+    batch
+        [ flex3 zero zero oneColumn
         , margin (rem 1)
-        , padding (rem 1)
-        , textAlign left
+        , minHeight (px 500)
+        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+            [ flex3 zero zero twoColumn
+            , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+                [ flex3 zero zero threeColumn
+                ]
+            ]
         ]
-    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-        [ flex3 zero zero twoColumn
-        , padding (rem 2)
-        ]
-    ]
 
 
 closedStyle : Style
 closedStyle =
     batch
-        [ maxHeight zero
-        , overflow hidden
-        , display none
-        , transition
-            [ Css.Transitions.maxHeight3 0 0 easeOut
-            ]
+        [ backgroundImage (url "temp.png")
+        , backgroundPosition center
+        , backgroundRepeat noRepeat
+        , padding (rem 2)
+        ]
+
+
+innerCardStyle : Style
+innerCardStyle =
+    batch
+        [ backgroundColor pureWhite
+        , borderRadius (rem 1.8)
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
+        , padding (rem 0.5)
+        , position relative
+        , top (px 192)
+        , textAlign center
+        , minHeight (px 192)
+        , displayFlex
+        , flexDirection column
+        , justifyContent spaceBetween
         ]
 
 
 openStyle : Style
 openStyle =
     batch
-        [ maxHeight (px 500)
-        , height auto
-        , marginTop (rem 1)
-        , overflow hidden
-        , transition
-            [ Css.Transitions.maxHeight3 1000 0 easeOut
-            ]
+        [ backgroundColor pureWhite
+        , borderRadius (rem 2.5)
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
+        , paddingTop (rem 1)
+        , paddingBottom (rem 1)
+        , displayFlex
+        , flexDirection column
+        , justifyContent spaceBetween
+        , alignSelf center
+        ]
+
+
+teaserStyle : Style
+teaserStyle =
+    batch
+        [ color grey
+        , fontSize (px 18)
+        , padding2 zero (rem 2)
+        ]
+
+
+subTeaserStyle : Style
+subTeaserStyle =
+    batch
+        [ borderTop3 (px 2) solid green
+        , margin auto
+        , paddingTop (rem 1)
         ]
 
 
 quoteStyle : Style
 quoteStyle =
     batch
-        [ fontSize (rem 1.1)
-        , fontWeight (int 300)
-        , before [ property "content" "'\"'" ]
+        [ before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
+        , marginLeft (rem 1)
+        , marginRight (rem 1)
         ]
 
 
-continueButtonStyle : Style
-continueButtonStyle =
+highlightStyle : Style
+highlightStyle =
     batch
-        [ backgroundColor lightGrey
+        [ backgroundColor lightGreen
+        , margin2 (rem 1) zero
+        , padding2 (rem 0.5) (rem 1)
+        ]
+
+
+buttonStyle : Style
+buttonStyle =
+    batch
+        [ alignItems center
+        , backgroundColor purple
         , border zero
-        , display block
+        , borderRadius (rem 100)
+        , color white
+        , displayFlex
+        , fontSize (rem 1)
+        , fontWeight (int 700)
+        , justifyContent center
         , margin auto
-        , after [ property "content" "' →'" ]
-        ]
-
-
-continueTextStyle : Style
-continueTextStyle =
-    batch
-        [ textDecoration underline
-        , color grey
-        ]
-
-
-reassuringStyle : Style
-reassuringStyle =
-    batch
-        [ flex3 zero zero oneColumn
+        , minHeight (rem 3)
+        , padding2 (rem 0.5) (rem 2)
         , textAlign center
-        , marginBottom (rem 1)
+        , width (pct 60)
+        , hover
+            [ backgroundColor lightPurple
+            , color grey
+            ]
+        , transition
+            [ Css.Transitions.backgroundColor 200
+            , Css.Transitions.color 200
+            ]
+        ]
+
+
+forwardArrowStyle : Style
+forwardArrowStyle =
+    batch
+        [ height (rem 1.25)
+        , marginLeft (rem 1.2)
         ]
