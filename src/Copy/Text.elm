@@ -94,6 +94,24 @@ t key =
         HelpSelfFinancialResource3Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-no-recourse.pdf"
 
+        HelpSelfCovidResource1Href ->
+            "https://survivingeconomicabuse.org/coronavirus-info"
+
+        HelpSelfCovidResource2Href ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/04/How-banks-can-help-during-the-Covid-19-outbreak.pdf"
+
+        HelpSelfInfoLawResource1Href ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Economic-abuse-and-controlling-or-coercive-behaviour.pdf"
+
+        HelpSelfInfoLawResource2Href ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-the-Domestic-Abuse-Bill.pdf"
+
+        HelpSelfSeparatingResource1Href ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Steps-you-can-take-towards-economic-safety-2020.pdf"
+
+        HelpSelfSeparatingResource2Href ->
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Separating-finances-from-the-abuser.pdf"
+
         -- Not Alone page
         NotAloneTitle ->
             "You are not alone"
@@ -311,7 +329,7 @@ t key =
 
         -- Help Self page
         HelpSelfTitle ->
-            "Help me with..."
+            "Get help with..."
 
         HelpSelfBankingLink ->
             "Banking"
@@ -323,22 +341,22 @@ t key =
             "Housing"
 
         HelpSelfFinancialLink ->
-            "Getting financial support"
+            "Financial support"
 
         HelpSelfCovidLink ->
-            "COVID-19 and my finances"
+            "COVID-19"
 
         HelpSelfInfoLawLink ->
             "Economic abuse and the law"
 
         HelpSelfSeparatingLink ->
-            "Separating my finances from an abusive partner"
+            "Separating finances from an abusive partner"
 
         ToDefinitionFromHelpSelfLink ->
             "Read more about the signs of economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            "Read about survivors' experiences"
+            "Read more about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
             "Find people to talk to"
@@ -401,7 +419,7 @@ t key =
             "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            "Forcing or coercing someone into debt is a common form of economic abuse. If you have been forced to make transactions that led you into debt, or if you have had debts fraudulently built up in your name, this information will help."
+            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don’t want to, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
             "What is coerced debt? [PDF 542kB]"
@@ -425,7 +443,7 @@ t key =
             "Economic abuse and your credit report"
 
         HelpSelfDebtResource3Quote1 ->
-            "The impact of economic abuse is practical – I have struggled to get a mortgage because he has left such an impact on my credit rating."
+            "The impact of economic abuse is practical - I have struggled to get a mortgage because he has left such an impact on my credit rating."
 
         HelpSelfDebtResource3Quote2 ->
             "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
@@ -444,13 +462,13 @@ t key =
             "Finding a safe place to live"
 
         HelpSelfHousingResource1Quote1 ->
-            "This is the reality – me and the kids sleeping at my friend's and he's in our old home, which I jointly owned."
+            "This is the reality - me and the kids sleeping at my friend's and he's in our old home, which I jointly owned."
 
         HelpSelfHousingResource1Quote2 ->
             "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-            "The nature of economic abuse may make your housing situation complex. This information lays out some of the options that you may have and the support that may be available to help ensure you have a safe place to live."
+            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
             "Finding a safe place to live [PDF 507kB]"
@@ -469,7 +487,7 @@ t key =
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         HelpSelfFinancialResource1Summary ->
-            "Find information on charities and organisations that can support you with money, debt information and advice. There are also many organisations that support people in financial difficulty with grants to help with day-to-day expenses."
+            "Find information on charities and organisations that can support you with money, debt information and advice. There are also grants and payments available for people in financial need to help with day-to-day expenses."
 
         HelpSelfFinancialResource1Link ->
             "Grants, benefits and financial help [PDF 622kB]"
@@ -478,19 +496,19 @@ t key =
             "Economic abuse and supporting children"
 
         HelpSelfFinancialResource2Quote1 ->
-            "When we had a baby, he took it upon himself to go and register their births while I was in hospital so he could claim child benefit."
+            "When we had a baby, he took it upon himself to go and register their birth while I was in hospital so he could claim child benefit."
 
         HelpSelfFinancialResource2Quote2 ->
             "We don't have much to live off at the moment but knowing that my child is now safe is the most important thing to me. I'm now more positive that we will find our feet financially"
 
         HelpSelfFinancialResource2Summary ->
-            "If you are experiencing economic abuse and have children, caring for them may be a lot more  challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety, and financial support."
+            "If you are experiencing economic abuse and have children, caring for them may be a lot more challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety and financial support."
 
         HelpSelfFinancialResource2Link ->
             "Economic abuse and supporting children [PDF 533kB]"
 
         HelpSelfFinancialResource3Title ->
-            "Economic abuse and eligibility for benefits and public funds "
+            "Immigration status and eligibility for benefits and public funds"
 
         HelpSelfFinancialResource3Quote1 ->
             "I have no recourse to public funds here in the UK. As such I have no money and so he is able to control and dictate my life."
@@ -508,13 +526,82 @@ t key =
         HelpSelfCovidTitle ->
             "Information about COVID-19 and your finances"
 
+        HelpSelfCovidResource1Title ->
+            "Economic abuse and the coronavirus outbreak"
+
+        HelpSelfCovidResource1Summary ->
+            "Recommended measures such as limiting social contact, not going to work and self-isolating at home can have implications if you are experiencing economic abuse. This resource can help support your economic wellbeing and your safety during this time."
+
+        HelpSelfCovidResource1Quote1 ->
+            "This will end and normality will return."
+
+        HelpSelfCovidResource1Link ->
+            "Economic abuse and the coronavirus outbreak [PDF 524kB]"
+
+        HelpSelfCovidResource2Title ->
+            "How banks can help during the coronavirus outbreak"
+
+        HelpSelfCovidResource2Summary ->
+            "The measures in place to control the spread of coronavirus (COVID-19) may mean that an abusive partner is able to exert more control over your economic situation, particularly in this period of economic uncertainty. Learn about how your bank or building society can support you at this time if you are experiencing economic abuse."
+
+        HelpSelfCovidResource2Link ->
+            "How banks can help during the coronavirus outbreak [PDF 497kB]"
+
         -- Help Self Single Info and Law
         HelpSelfInfoLawTitle ->
             "Information about economic abuse and the law"
 
+        HelpSelfInfoLawResource1Title ->
+            "Is economic abuse a crime?"
+
+        HelpSelfInfoLawResource1Summary ->
+            "Economic abuse can be a type of controlling or coercive behaviour. In 2015, controlling or coercive behaviour became a crime for the first time. This information outlines how economic abuse is linked to controlling or coercive behaviour, as well as how the law addresses this crime."
+
+        HelpSelfInfoLawResource1Quote1 ->
+            "It was sustained emotional abuse and blatant financial coercion and I couldn’t see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it is gradually melts. That is what coercive control feels like. You don’t notice until it is too late."
+
+        HelpSelfInfoLawResource1Link ->
+            "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
+
+        HelpSelfInfoLawResource2Title ->
+            "Economic abuse and the Domestic Abuse Bill"
+
+        HelpSelfInfoLawResource2Summary ->
+            "The Domestic Abuse Bill includes economic abuse as a form of domestic abuse, recognising it in law for the very first time. This resource provides information on how victims and survivors can access justice through the law."
+
+        HelpSelfInfoLawResource2Link ->
+            "Economic abuse and the Domestic Abuse Bill [PDF 505kB]"
+
         -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
             "Information to help you separate your finances from the abuser"
+
+        HelpSelfSeparatingResource1Title ->
+            "Steps you can take towards economic safety"
+
+        HelpSelfSeparatingResource1Summary ->
+            "If you are worried about your safety and your economic situation, support is available. This information outlines some immediate steps you can take to protect yourself and begin to regain control."
+
+        HelpSelfSeparatingResource1Quote1 ->
+            "I thought I was broken, then I realised I am not alone. I started to believe I could come through this."
+
+        HelpSelfSeparatingResource1Link ->
+            "Steps you can take towards economic safety [PDF 559kB]"
+
+        HelpSelfSeparatingResource2Title ->
+            "Separating your finances from the abuser"
+
+        HelpSelfSeparatingResource2Summary ->
+            "If you have experienced economic abuse and are leaving the abuser, you will be making some very brave decisions and taking some very important steps to reach safety. This resource can help you identify your financial links with the abuser, and how you can break those links to regain control of your own finances."
+
+        HelpSelfSeparatingResource2Quote1 ->
+            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+
+        HelpSelfSeparatingResource2Quote2 ->
+            "He started using the joint account for cash withdrawals when it was supposed to be for bills. He then accused me of overspending."
+
+        HelpSelfSeparatingResource2Link ->
+            "Separating your finances from the abuser [PDF 528kB]"
 
         -- Get Help page
         GetHelpTitle ->
@@ -539,7 +626,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact The Financial Support Line for Victims of Domestic Abuse (Mon–Fri, 9am–1pm & 2pm–5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact the Financial Support Line for victims of domestic abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction1 ->
             "Call or text 01323 635987"

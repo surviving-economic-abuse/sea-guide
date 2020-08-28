@@ -6,7 +6,6 @@ import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (alt, css, href, id, src)
-import Html.Styled.Events exposing (onClick)
 
 
 
