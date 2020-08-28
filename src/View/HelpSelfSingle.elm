@@ -70,7 +70,7 @@ renderResourceList model resources =
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
     [ p [] [ text (t resource.summary) ]
-    , verticalSpacing
+    , verticalSpacing 2
     ]
         ++ renderQuotes resource.quotes
         ++ verticalSpacing
