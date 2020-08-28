@@ -65,7 +65,7 @@ renderInitCard journeyCardPosition =
     li [ css [ cardStyle, closedStyle ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-            , div [ css [ subTeaserStyle ] ] [ text "but things got better" ]
+            , div [ css [ subTeaserStyle ] ] [ text (t ExpandQuoteReassuringText) ]
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
                 , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
