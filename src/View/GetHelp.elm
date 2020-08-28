@@ -43,7 +43,10 @@ renderCallToAction call =
                 ]
 
         CallSupport ->
-            div [ css [ infoStyle ] ] [ text (t GetHelpSection2CallToAction) ]
+            div [ css [ infoStyle ] ]
+                [ p [] [ text (t GetHelpSection2CallToAction1) ]
+                , p [] [ text (t GetHelpSection2CallToAction2) ]
+                ]
 
         SeeOrgs ->
             a

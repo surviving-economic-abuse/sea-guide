@@ -280,18 +280,29 @@ page children =
             ++ [ div [ css [ emergencyPanelStyle ], id "emergency" ]
                     [ div [ css [ emergencyPanelHeaderStyle ] ]
                         [ img [ css [ emergencyPanelHeaderIconStyle ], src "Emergency.svg", alt "" ] []
-                        , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text "Are you in danger right now?" ]
+                        , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text (t EmergencyReassure) ]
                         , button [ css [ emergencyPanelHeaderButtonStyle ] ] [ img [ css [ emergencyPanelHeaderIconStyle ], src "Close.svg", alt "Close" ] [] ]
                         ]
                     , div [ css [ emergencyPanelBodyStyle ] ]
-                        [ p [] [ text "If you need emergency help call:" ]
+                        [ p [] [ text (t EmergencyPoliceInfo) ]
+                        , p [] [ text (t EmergencyNotImmediateReassure) ]
                         , ul [ css [ listStyle none, margin2 (rem 1) zero ] ]
-                            [ li [ css [ marginBottom (rem 1) ] ] [ text "Police ", a [ href "#" ] [ text "999" ] ]
-                            , li [ css [ marginBottom (rem 1) ] ] [ text "Other help ", a [ href "#" ] [ text "01234 56789" ] ]
-                            , li [ css [ marginBottom (rem 1) ] ] [ text "Other help ", a [ href "#" ] [ text "01234 56789" ] ]
-                            , li [] [ text "Other help ", a [ href "#" ] [ text "01234 56789" ] ]
+                            [ li [ css [ marginBottom (rem 1) ] ]
+                                [ a [ href (t DomesticAbuseHref) ]
+                                    [ text
+                                        (t EmergencyDomesticAbuseLink)
+                                    ]
+                                , text " - "
+                                , text (t EmergencyDomesticAbuseInfo)
+                                ]
+                            , li [ css [ marginBottom (rem 1) ] ]
+                                [ a [ href (t WomensAidHref) ]
+                                    [ text
+                                        (t EmergencyWomensAidLink)
+                                    ]
+                                ]
                             ]
-                        , p [] [ text "These numbers are free to call" ]
+                        , p [] [ a [ href (t SeaOrganisationsResourceHref) ] [ text (t EmergencyOtherOrganisationsLink) ] ]
                         ]
                     ]
                ]

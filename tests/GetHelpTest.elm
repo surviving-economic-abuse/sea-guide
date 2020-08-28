@@ -42,7 +42,7 @@ suite =
                         , tag "p"
                         , containing [ text (t GetHelpSection2Description) ]
                         , tag "div"
-                        , containing [ text (t GetHelpSection2CallToAction) ]
+                        , containing [ text (t GetHelpSection2CallToAction1) ]
                         , tag "h2"
                         , containing [ text (t GetHelpSection3Title) ]
                         , tag "blockquote"

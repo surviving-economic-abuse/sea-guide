@@ -17,11 +17,11 @@ type Key
     | HelpSelfInfoLawSlug
     | HelpSelfSeparatingSlug
       --- External Hrefs
-    | StatsOnEconomicAbuseHref
-    | SeaOrganisationsResourceHref
+    | DomesticAbuseHref
+    | WomensAidHref
     | SeaSurvivorForumHref
       -- Resource pdfs
-    | HelpSelfPdfDownloadLabel
+    | SeaOrganisationsResourceHref
     | HelpSelfBankingResource1Href
     | HelpSelfBankingResource2Href
     | HelpSelfDebtResource1Href
@@ -62,13 +62,19 @@ type Key
     | ToDefinitionFromNotAloneLink
     | EmergencyButton
     | EmergencyReassure
-    | EmergencyContactInfo
+    | EmergencyPoliceInfo
+    | EmergencyNotImmediateReassure
+    | EmergencyDomesticAbuseLink
+    | EmergencyDomesticAbuseInfo
+    | EmergencyWomensAidLink
+    | EmergencyWomensAidInfo
+    | EmergencyOtherOrganisationsLink
       -- Definition page
     | DefinitionTitle
     | DefinitionConciseP1
     | DefinitionConciseP2
     | DefinitionConciseP3
-    | SplitterAffirmation
+    | DefinitionConciseP4
     | DefinitionGetHelpLink
     | DefinitionCategory1Title
     | DefinitionCategory1Info
@@ -94,6 +100,7 @@ type Key
     | DefinitionCategory6Info
     | DefinitionCategory6Quote1
     | DefinitionCategory6Quote2
+    | SplitterAffirmation
     | ToGetHelpFromDefinitionLink
     | ToHelpSelfFromDefinitionLink
       -- Help Self grid page
@@ -109,6 +116,7 @@ type Key
     | ToNotAloneFromHelpSelfLink
     | ToGetHelpFromHelpSelfLink
     | ToHelpSelfFromSingleCategoryLink
+    | HelpSelfPdfDownloadLabel
       -- Help Self single Category 404
     | HelpSelfCategoryNotFoundTitle
       -- Help Self single Banking
@@ -179,7 +187,8 @@ type Key
     | GetHelpSection2Title
     | GetHelpSection2Quote
     | GetHelpSection2Description
-    | GetHelpSection2CallToAction
+    | GetHelpSection2CallToAction1
+    | GetHelpSection2CallToAction2
     | GetHelpSection3Title
     | GetHelpSection3Quote
     | GetHelpSection3Description
