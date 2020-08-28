@@ -8,7 +8,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, lightGrey, navListStyle, oneColumn, page, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, grey, navListStyle, oneColumn, page, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white)
 
 
 view : Html never
@@ -61,52 +61,61 @@ columnStyle =
     batch
         [ alignItems center
         , displayFlex
+        , flexWrap wrap
         , flexDirection column
+        , justifyContent spaceBetween
+        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+            [ alignItems flexStart
+            , flexDirection row
+            , flexWrap noWrap
+            ]
         ]
 
 
 card : String -> String -> String -> CallToAction -> Html msg
 card title quote description call =
-    div [ css cardStyle ]
-        [ h2 []
-            [ text title ]
-        , verticalSpacing
+    div [ css [ cardStyle ] ]
+        [ h2 [ css [ cardHeadingStyle ] ] [ text title ]
+        , verticalSpacing 1.5
         , blockquote []
             [ p [ css [ quoteStyle ] ] [ text quote ] ]
-        , verticalSpacing
+        , verticalSpacing 1
         , p [] [ text description ]
-        , verticalSpacing
+        , verticalSpacing 1.5
         , renderCallToAction call
         ]
 
 
-cardStyle : List Style
+cardStyle : Style
 cardStyle =
-    [ batch
-        [ backgroundColor lightGrey
-        , border3 (px 1) solid grey
-        , borderRadius (rem 1)
-        , margin2 (rem 1) zero
-        , maxWidth (pct 100)
+    batch
+        [ backgroundColor pureWhite
+        , borderRadius (rem 2.5)
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
+        , margin (rem 1)
+        , maxWidth (rem 22)
         , padding (rem 1)
-        , width (rem 30)
+        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+            [ flexDirection row
+            , margin2 zero (rem 0.5)
+            , flex3 zero (int 1) (rem 22)
+            ]
         ]
 
-    -- Allow more padding space on larger screens
-    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-        [ padding (rem 2) ]
-    ]
+
+cardHeadingStyle : Style
+cardHeadingStyle =
+    batch
+        [ color grey
+        , textAlign center
+        ]
 
 
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 5) solid grey
-        , borderRadius (px 5)
-        , fontSize (rem 1.1)
-        , fontStyle italic
-        , fontWeight (int 300)
-        , paddingLeft (px 10)
+        [ borderLeft3 (px 1) solid pink
+        , paddingLeft (rem 1)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         ]
@@ -132,9 +141,7 @@ infoStyle : Style
 infoStyle =
     batch
         [ color purple
-        , fontSize (rem 1.35)
-        , fontWeight (int 700)
-        , textAlign center
+        , fontSize (rem 1.1)
         ]
 
 
