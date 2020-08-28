@@ -113,7 +113,6 @@ cardStyle =
         [ flex3 zero zero oneColumn
         , margin (rem 1)
         , minHeight (px 500)
-        , padding (rem 2)
         , withMedia [ only screen [ Media.minWidth (px 576) ] ]
             [ flex3 zero zero twoColumn
             , withMedia [ only screen [ Media.minWidth (px 769) ] ]
@@ -129,6 +128,7 @@ closedStyle =
         [ backgroundImage (url "temp.png")
         , backgroundPosition center
         , backgroundRepeat noRepeat
+        , padding (rem 2)
         ]
 
 
