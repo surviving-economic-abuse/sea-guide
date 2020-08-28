@@ -30,7 +30,7 @@ view slug model =
                     Nothing ->
                         text ""
                 ]
-            , verticalSpacing
+            , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
                 [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
                 ]
@@ -70,9 +70,9 @@ renderResourceList model resources =
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
     renderQuotes resource.quotes
-        ++ [ verticalSpacing
+        ++ [ verticalSpacing 2
            , p [] [ text (t resource.summary) ]
-           , verticalSpacing
+           , verticalSpacing 2
            ]
         ++ renderPdfDownload resource
 

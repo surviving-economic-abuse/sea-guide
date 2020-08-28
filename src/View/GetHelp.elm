@@ -23,7 +23,7 @@ view =
                 , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
                 , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
                 ]
-            , verticalSpacing
+            , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
                 [ p [ css [ reassuringStyle ] ]
                     [ text (t ToHelpSelfReassuringText) ]
@@ -46,6 +46,7 @@ renderCallToAction call =
             div [ css [ infoStyle ] ]
                 [ p [] [ text (t GetHelpSection2CallToAction1) ]
                 , p [] [ text (t GetHelpSection2CallToAction2) ]
+                , verticalSpacing 1
                 ]
 
         SeeOrgs ->

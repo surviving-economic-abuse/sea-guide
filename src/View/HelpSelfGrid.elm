@@ -26,7 +26,7 @@ view =
                 , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
                 , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
                 ]
-            , verticalSpacing
+            , verticalSpacing 2
             ]
         , container
             [ nav []
