@@ -91,7 +91,7 @@ renderRevealedCard journeyCardPosition =
                 [ p [] [ text (t ToDefinitionReassuringText) ]
                 ]
             , div [ css [ padding2 zero (rem 1) ] ]
-                [ renderNavLink Forward Definition ToHelpSelfFromGetHelpLink
+                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
                 ]
             ]
         ]
