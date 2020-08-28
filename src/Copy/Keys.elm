@@ -182,6 +182,7 @@ type Key
     | HelpSelfCovidTitle
     | HelpSelfCovidResource1Title
     | HelpSelfCovidResource1Summary
+    | HelpSelfCovidResource1Quote1
     | HelpSelfCovidResource1Link
     | HelpSelfCovidResource2Title
     | HelpSelfCovidResource2Summary

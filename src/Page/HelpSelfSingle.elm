@@ -141,7 +141,7 @@ categoryKeysFromSlug slug =
         , resources =
             Just
                 [ { title = HelpSelfCovidResource1Title
-                  , quotes = []
+                  , quotes = [ HelpSelfCovidResource1Quote1 ]
                   , summary = HelpSelfCovidResource1Summary
                   , linkName = HelpSelfCovidResource1Link
                   , linkHref = HelpSelfCovidResource1Href

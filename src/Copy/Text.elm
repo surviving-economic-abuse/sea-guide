@@ -93,25 +93,25 @@ t key =
 
         HelpSelfFinancialResource3Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-no-recourse.pdf"
-            
+
         HelpSelfCovidResource1Href ->
             "https://survivingeconomicabuse.org/coronavirus-info"
 
         HelpSelfCovidResource2Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/04/How-banks-can-help-during-the-Covid-19-outbreak.pdf"
-            
+
         HelpSelfInfoLawResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Economic-abuse-and-controlling-or-coercive-behaviour.pdf"         
-            
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Economic-abuse-and-controlling-or-coercive-behaviour.pdf"
+
         HelpSelfInfoLawResource2Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-the-Domestic-Abuse-Bill.pdf"
-                        
+
         HelpSelfSeparatingResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Steps-you-can-take-towards-economic-safety-2020.pdf"  
-           
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Steps-you-can-take-towards-economic-safety-2020.pdf"
+
         HelpSelfSeparatingResource2Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Separating-finances-from-the-abuser.pdf"
-            
+
         -- Not Alone page
         NotAloneTitle ->
             "You are not alone"
@@ -522,81 +522,84 @@ t key =
         -- Help Self Single Covid
         HelpSelfCovidTitle ->
             "Information about COVID-19 and your finances"
-            
+
         HelpSelfCovidResource1Title ->
             "Economic abuse and the coronavirus outbreak"
-            
+
         HelpSelfCovidResource1Summary ->
             "Recommended measures such as limiting social contact, not going to work and self-isolating at home can have implications if you are experiencing economic abuse. This resource can help support your economic wellbeing and your safety during this time."
 
+        HelpSelfCovidResource1Quote1 ->
+            "This will end and normality will return."
+
         HelpSelfCovidResource1Link ->
             "Economic abuse and the coronavirus outbreak [PDF 524kB]"
-         
+
         HelpSelfCovidResource2Title ->
             "How banks can help during the coronavirus outbreak"
-            
+
         HelpSelfCovidResource2Summary ->
             "The measures in place to control the spread of coronavirus (COVID-19) may mean that an abusive partner is able to exert more control over your economic situation, particularly in this period of economic uncertainty. Learn about how your bank or building society can support you at this time if you are experiencing economic abuse."
 
         HelpSelfCovidResource2Link ->
             "How banks can help during the coronavirus outbreak [PDF 497kB]"
-            
+
         -- Help Self Single Info and Law
         HelpSelfInfoLawTitle ->
             "Information about economic abuse and the law"
 
         HelpSelfInfoLawResource1Title ->
             "Is economic abuse a crime?"
-            
+
         HelpSelfInfoLawResource1Summary ->
             "Economic abuse can be a type of controlling or coercive behaviour. In 2015, controlling or coercive behaviour became a crime for the first time. This information outlines how economic abuse is linked to controlling or coercive behaviour, as well as how the law addresses this crime."
-            
+
         HelpSelfInfoLawResource1Quote1 ->
             "It was sustained emotional abuse and blatant financial coercion and I couldn’t see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it is gradually melts. That is what coercive control feels like. You don’t notice until it is too late."
-            
+
         HelpSelfInfoLawResource1Link ->
-            "Economic abuse and controlling or coercive behaviour [PDF 527kB]"         
-            
+            "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
+
         HelpSelfInfoLawResource2Title ->
             "Economic abuse and the Domestic Abuse Bill"
-            
+
         HelpSelfInfoLawResource2Summary ->
             "The Domestic Abuse Bill includes economic abuse as a form of domestic abuse, recognising it in law for the very first time. This resource provides information on how victims and survivors can access justice through the law."
-            
+
         HelpSelfInfoLawResource2Link ->
             "Economic abuse and the Domestic Abuse Bill [PDF 505kB]"
-         
+
         -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
             "Information to help you separate your finances from the abuser"
-            
+
         HelpSelfSeparatingResource1Title ->
             "Steps you can take towards economic safety"
-            
+
         HelpSelfSeparatingResource1Summary ->
             "If you are worried about your safety and your economic situation, support is available. This information outlines some immediate steps you can take to protect yourself and begin to regain control."
-            
+
         HelpSelfSeparatingResource1Quote1 ->
             "I thought I was broken, then I realised I am not alone. I started to believe I could come through this."
-                        
+
         HelpSelfSeparatingResource1Link ->
-            "Steps you can take towards economic safety [PDF 559kB]"  
-            
+            "Steps you can take towards economic safety [PDF 559kB]"
+
         HelpSelfSeparatingResource2Title ->
             "Separating your finances from the abuser"
-            
+
         HelpSelfSeparatingResource2Summary ->
             "If you have experienced economic abuse and are leaving the abuser, you will be making some very brave decisions and taking some very important steps to reach safety. This resource can help you identify your financial links with the abuser, and how you can break those links to regain control of your own finances."
-            
+
         HelpSelfSeparatingResource2Quote1 ->
             "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
-            
+
         HelpSelfSeparatingResource2Quote2 ->
             "He started using the joint account for cash withdrawals when it was supposed to be for bills. He then accused me of overspending."
-            
+
         HelpSelfSeparatingResource2Link ->
-            "Separating your finances from the abuser [PDF 528kB]"  
-            
+            "Separating your finances from the abuser [PDF 528kB]"
+
         -- Get Help page
         GetHelpTitle ->
             "People you can talk to"
