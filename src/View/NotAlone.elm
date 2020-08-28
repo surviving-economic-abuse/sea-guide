@@ -30,7 +30,7 @@ view model =
             , card model JourneyCard6
             ]
         ]
-    , verticalSpacing
+    , verticalSpacing 2
     , containerContent
         [ nav [ css [ navListStyle ] ]
             [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink

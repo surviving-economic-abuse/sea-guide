@@ -96,7 +96,7 @@ renderDefinition model category =
     if categoryIsExpanded model category.title then
         dd [ css expanderDefinitionStyles ]
             [ p [] (renderWithKeywords (t category.info))
-            , verticalSpacing
+            , verticalSpacing 2
             , renderQuotes category.quotes
             ]
 
