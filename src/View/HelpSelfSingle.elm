@@ -13,28 +13,29 @@ import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
 
 
-view : String -> Model -> List (Html Msg)
+view : String -> Model -> Html Msg
 view slug model =
     let
         categoryData =
             categoryKeysFromSlug slug
     in
-    [ containerContent
-        [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
-            , case categoryData.resources of
-                Just resources ->
-                    div [] [ renderResourceList model resources ]
+    div []
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
+                , case categoryData.resources of
+                    Just resources ->
+                        div [] [ renderResourceList model resources ]
 
-                Nothing ->
-                    text ""
-            ]
-        , verticalSpacing
-        , nav [ css [ navListStyle ] ]
-            [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
+                    Nothing ->
+                        text ""
+                ]
+            , verticalSpacing
+            , nav [ css [ navListStyle ] ]
+                [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
+                ]
             ]
         ]
-    ]
 
 
 renderResourceList : Model -> List CategoryResource -> Html Msg

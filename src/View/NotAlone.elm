@@ -13,32 +13,33 @@ import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
 
 
-view : Model -> List (Html Msg)
+view : Model -> Html Msg
 view model =
-    [ containerContent
-        [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+    div []
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+                ]
             ]
-        ]
-    , container
-        [ ul [ css [ gridStyle ] ]
-            [ card model JourneyCard1
-            , card model JourneyCard2
-            , card model JourneyCard3
-            , card model JourneyCard4
-            , card model JourneyCard5
-            , card model JourneyCard6
+        , container
+            [ ul [ css [ gridStyle ] ]
+                [ card model JourneyCard1
+                , card model JourneyCard2
+                , card model JourneyCard3
+                , card model JourneyCard4
+                , card model JourneyCard5
+                , card model JourneyCard6
+                ]
             ]
-        ]
-    , verticalSpacing
-    , containerContent
-        [ nav [ css [ navListStyle ] ]
-            [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+        , verticalSpacing
+        , containerContent
+            [ nav [ css [ navListStyle ] ]
+                [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
+                ]
             ]
+        , containerContent
+            []
         ]
-    , containerContent
-        []
-    ]
 
 
 card : Model -> JourneyCard -> Html Msg

@@ -10,39 +10,40 @@ import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing)
 
 
-view : List (Html never)
+view : Html never
 view =
-    [ containerContent
-        [ header []
-            [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
+    div []
+        [ containerContent
+            [ header []
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
+                ]
+            , ul [ css [ gridStyle ] ]
+                [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
+                , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
+                , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
+                , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
+                , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
+                , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
+                , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
+                ]
+            , verticalSpacing
             ]
-        , ul [ css [ gridStyle ] ]
-            [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
-            , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
-            , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
-            , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
-            , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
-            , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
-            , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
-            ]
-        , verticalSpacing
-        ]
-    , container
-        [ nav []
-            [ ul [ css [ navListStyle ] ]
-                [ li [ css navItemStyles ]
-                    [ renderNavLink Forward GetHelp ToGetHelpFromHelpSelfLink
-                    ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward NotAlone ToNotAloneFromHelpSelfLink
-                    ]
-                , li [ css navItemStyles ]
-                    [ renderNavLink Forward Definition ToDefinitionFromHelpSelfLink
+        , container
+            [ nav []
+                [ ul [ css [ navListStyle ] ]
+                    [ li [ css navItemStyles ]
+                        [ renderNavLink Forward GetHelp ToGetHelpFromHelpSelfLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward NotAlone ToNotAloneFromHelpSelfLink
+                        ]
+                    , li [ css navItemStyles ]
+                        [ renderNavLink Forward Definition ToDefinitionFromHelpSelfLink
+                        ]
                     ]
                 ]
             ]
         ]
-    ]
 
 
 infoLink : String -> String -> Html msg

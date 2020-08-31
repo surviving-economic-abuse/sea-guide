@@ -1,6 +1,7 @@
-module Theme exposing (container, containerContent, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, white)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white)
 
 import Css exposing (..)
+import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
@@ -95,6 +96,62 @@ white =
 pureWhite : Color
 pureWhite =
     hex "ffffff"
+
+
+{-| Injects a <style> tag into the body, and can target element or
+class selectors anywhere, including outside the Elm app.
+-}
+globalStyles : Html msg
+globalStyles =
+    global
+        [ typeSelector "body"
+            [ backgroundColor white
+            , color grey
+            , fontFamilies [ "sofia-pro", sansSerif.value ]
+            , fontWeight (int 400)
+            ]
+        , typeSelector "h1"
+            [ color purple
+            , fontFamilies [ "Raleway", sansSerif.value ]
+            ]
+        , typeSelector "h2"
+            [ color purple
+            , fontFamilies [ "Raleway", sansSerif.value ]
+            ]
+        , typeSelector "h3"
+            [ color purple
+            , fontFamilies [ "Raleway", sansSerif.value ]
+            ]
+        , typeSelector "h4"
+            [ color purple
+            , fontFamilies [ "Raleway", "sansSerif" ]
+            ]
+        , typeSelector "p"
+            [ adjacentSiblings
+                [ typeSelector "p"
+                    [ marginTop (rem 1)
+                    ]
+                ]
+            ]
+        , typeSelector "blockquote"
+            [ adjacentSiblings
+                [ typeSelector "blockquote"
+                    [ marginTop (rem 1)
+                    ]
+                ]
+            ]
+        ]
+
+
+waveStyle : Style
+waveStyle =
+    batch
+        [ backgroundImage (url "Background_Wave.svg")
+        , backgroundAttachment fixed
+        , backgroundPosition center
+        , backgroundRepeat noRepeat
+        , backgroundSize cover
+        ]
 
 
 {-| For a top header, likely an h1
