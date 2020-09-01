@@ -5,7 +5,6 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import PageTemplate exposing (page)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
@@ -19,26 +18,26 @@ suite =
     describe "HelpSelfGrid View"
         [ test "HelpSelfGrid view has title" <|
             \() ->
-                queryFromStyledHtml (page view)
+                queryFromStyledHtml view
                     |> Query.contains [ Html.text (t HelpSelfTitle) ]
         , test "HelpSelfGrid view has nav link to get-help" <|
             \() ->
-                queryFromStyledHtml (page view)
+                queryFromStyledHtml view
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t GetHelpPageSlug)) ]
                     |> Query.has [ text (t ToGetHelpFromHelpSelfLink) ]
         , test "HelpSelfGrid view has nav link to not-alone" <|
             \() ->
-                queryFromStyledHtml (page view)
+                queryFromStyledHtml view
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
                     |> Query.has [ text (t ToNotAloneFromHelpSelfLink) ]
         , test "HelpSelfGrid view has nav link to definition" <|
             \() ->
-                queryFromStyledHtml (page view)
+                queryFromStyledHtml view
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.has [ text (t ToDefinitionFromHelpSelfLink) ]
-        , test "HelpSelfGrid view has 14 links (7 categories, 3 navigation, 3 emergency, 1 exit)" <|
+        , test "HelpSelfGrid view has 10 links (7 categories, 3 navigation)" <|
             \() ->
-                queryFromStyledHtml (page view)
+                queryFromStyledHtml view
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 14)
+                    |> Query.count (Expect.equal 10)
         ]
