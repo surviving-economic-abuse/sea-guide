@@ -125,8 +125,9 @@ emergencyPanelBodyStyle =
 emergencyButtonStyle : Style
 emergencyButtonStyle =
     batch
-        [ backgroundColor white
-        , alignItems center
+        [ alignItems center
+        , backgroundColor white
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
         , border zero
         , borderRadius (px 50)
         , bottom (pct 10)
@@ -141,8 +142,7 @@ emergencyButtonStyle =
         , width (rem 3.75)
         , zIndex (int 1)
         , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-            [ borderRadius zero
-            , right (px 20)
+            [ right (px 20)
             ]
         ]
 
