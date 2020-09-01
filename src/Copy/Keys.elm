@@ -40,26 +40,32 @@ type Key
       -- Not Alone page
     | NotAloneTitle
     | Journey1Teaser
+    | Journey1Image
     | Journey1Relatable
     | Journey1Hopeful
     | Journey1Statement
     | Journey2Teaser
+    | Journey2Image
     | Journey2Relatable
     | Journey2Hopeful
     | Journey2Statement
     | Journey3Teaser
+    | Journey3Image
     | Journey3Relatable
     | Journey3Hopeful
     | Journey3Statement
     | Journey4Teaser
+    | Journey4Image
     | Journey4Relatable
     | Journey4Hopeful
     | Journey4Statement
     | Journey5Teaser
+    | Journey5Image
     | Journey5Relatable
     | Journey5Hopeful
     | Journey5Statement
     | Journey6Teaser
+    | Journey6Image
     | Journey6Relatable
     | Journey6Hopeful
     | Journey6Statement

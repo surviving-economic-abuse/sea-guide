@@ -60,13 +60,13 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    li [ css [ cardStyle, closedStyle ] ]
+    li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
-                , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                , img [ src "/sea-map/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
                 ]
             ]
         ]
@@ -79,9 +79,11 @@ renderRevealedCard journeyCardPosition =
             journeyContentFromCardPosition journeyCardPosition
     in
     li [ css [ cardStyle, openStyle ] ]
-        [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
-        , div []
-            [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+        [ div []
+            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
+                [ img [ css [ height (px 44), margin auto ], src "/sea-map/Close.svg", alt "Close" ] []
+                ]
+            , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
             ]
@@ -111,7 +113,7 @@ cardStyle =
     batch
         [ flex3 zero zero oneColumn
         , margin (rem 1)
-        , minHeight (px 500)
+        , minHeight (px 450)
         , withMedia [ only screen [ Media.minWidth (px 576) ] ]
             [ flex3 zero zero twoColumn
             , withMedia [ only screen [ Media.minWidth (px 769) ] ]
@@ -124,8 +126,7 @@ cardStyle =
 closedStyle : Style
 closedStyle =
     batch
-        [ backgroundImage (url "temp.png")
-        , backgroundPosition center
+        [ backgroundPosition center
         , backgroundRepeat noRepeat
         , padding (rem 2)
         ]
@@ -139,7 +140,7 @@ innerCardStyle =
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
         , padding (rem 0.5)
         , position relative
-        , top (px 192)
+        , top (px 168)
         , textAlign center
         , minHeight (px 192)
         , displayFlex
@@ -166,11 +167,12 @@ openStyle =
 closeJourneyButtonStyle : Style
 closeJourneyButtonStyle =
     batch
-        [ alignSelf flexEnd
-        , backgroundColor purple
+        [ backgroundColor purple
         , border zero
         , borderRadius (rem 100)
+        , float right
         , height (px 44)
+        , marginLeft (rem 0.25)
         , marginRight (rem 1)
         , width (px 44)
         ]
