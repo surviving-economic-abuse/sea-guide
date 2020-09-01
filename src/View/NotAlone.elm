@@ -111,7 +111,7 @@ cardStyle =
     batch
         [ flex3 zero zero oneColumn
         , margin (rem 1)
-        , minHeight (px 500)
+        , minHeight (px 450)
         , withMedia [ only screen [ Media.minWidth (px 576) ] ]
             [ flex3 zero zero twoColumn
             , withMedia [ only screen [ Media.minWidth (px 769) ] ]
@@ -124,8 +124,7 @@ cardStyle =
 closedStyle : Style
 closedStyle =
     batch
-        [ backgroundImage (url "temp.png")
-        , backgroundPosition center
+        [ backgroundPosition center
         , backgroundRepeat noRepeat
         , padding (rem 2)
         ]
@@ -139,7 +138,7 @@ innerCardStyle =
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
         , padding (rem 0.5)
         , position relative
-        , top (px 192)
+        , top (px 168)
         , textAlign center
         , minHeight (px 192)
         , displayFlex
