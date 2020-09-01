@@ -17,17 +17,17 @@ view =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
                 ]
+            , ul [ css [ gridStyle ] ]
+                [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
+                , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
+                , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
+                , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
+                , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
+                , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
+                , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
+                ]
+            , verticalSpacing 2
             ]
-        , ul [ css [ gridStyle ] ]
-            [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
-            , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
-            , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
-            , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
-            , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
-            , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
-            , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
-            ]
-        , verticalSpacing 2
         , container
             [ nav []
                 [ ul [ css [ navListStyle ] ]

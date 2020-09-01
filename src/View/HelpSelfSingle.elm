@@ -92,7 +92,7 @@ expanderButtonStyle : Style
 expanderButtonStyle =
     batch
         [ alignItems center
-        , backgroundColor (hex "4f2f8d")
+        , backgroundColor purple
         , border zero
         , cursor pointer
         , justifyContent spaceBetween

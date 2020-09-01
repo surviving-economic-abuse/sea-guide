@@ -18,17 +18,17 @@ view =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
                 ]
-            ]
-        , div [ css [ columnStyle ] ]
-            [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
-            , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
-            , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
-            ]
-        , verticalSpacing 2
-        , nav [ css [ navListStyle ] ]
-            [ p [ css [ reassuringStyle ] ]
-                [ text (t ToHelpSelfReassuringText) ]
-            , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
+            , div [ css [ columnStyle ] ]
+                [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
+                , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
+                , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
+                ]
+            , verticalSpacing 2
+            , nav [ css [ navListStyle ] ]
+                [ p [ css [ reassuringStyle ] ]
+                    [ text (t ToHelpSelfReassuringText) ]
+                , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
+                ]
             ]
         ]
 
