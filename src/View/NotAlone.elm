@@ -80,7 +80,9 @@ renderRevealedCard journeyCardPosition =
     in
     li [ css [ cardStyle, openStyle ] ]
         [ div []
-            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "/sea-map/Close.svg", alt "Close" ] [] ]
+            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
+                [ img [ css [ height (px 44), margin auto ], src "/sea-map/Close.svg", alt "Close" ] []
+                ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
