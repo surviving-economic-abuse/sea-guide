@@ -6,14 +6,17 @@ import Browser.Navigation
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
+import EmergencyPopup exposing (..)
 import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
+import Message exposing (Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
-import PageTemplate
 import Route exposing (Route(..))
 import Set
 import Task
+import Theme exposing (..)
 import Url
 import View.Definition
 import View.GetHelp
@@ -41,12 +44,13 @@ main =
 type alias Model =
     { key : Browser.Navigation.Key
     , page : Page
+    , emergencyPopupIsOpen : Bool
     }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url) }, Cmd.none )
+    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url), emergencyPopupIsOpen = False }, Cmd.none )
 
 
 type Page
@@ -77,19 +81,6 @@ pageFromMaybeRoute route =
             NotAlonePage { revealedJourney = Nothing }
 
 
-
--- UPDATE
-
-
-type Msg
-    = NoOp
-    | PageLinkClicked Browser.UrlRequest
-    | UrlChanged Url.Url
-    | DefinitionMsg Page.Definition.Msg
-    | HelpSelfSingleMsg Page.HelpSelfSingle.Msg
-    | NotAloneMsg Page.NotAlone.Msg
-
-
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -114,6 +105,9 @@ update msg model =
                     pageFromMaybeRoute (Route.fromUrl url)
             in
             ( { model | page = newPage }, resetViewportTop )
+
+        EmergencyButtonClicked ->
+            ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
 
         DefinitionMsg subMsg ->
             case model.page of
@@ -181,18 +175,31 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    case model.page of
+    div [ css [ minHeight (vh 100), waveStyle ] ]
+        [ globalStyles
+        , pageToHtmlMsg model.page
+        , if model.emergencyPopupIsOpen then
+            renderEmergencyPanel
+
+          else
+            renderEmergencyButton
+        ]
+
+
+pageToHtmlMsg : Page -> Html Msg
+pageToHtmlMsg page =
+    case page of
         DefinitionPage definition ->
-            Html.Styled.map DefinitionMsg (PageTemplate.page (View.Definition.view definition))
+            Html.Styled.map DefinitionMsg (View.Definition.view definition)
 
         GetHelpPage ->
-            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.GetHelp.view)
+            Html.Styled.map (\_ -> NoOp) View.GetHelp.view
 
         HelpSelfGridPage ->
-            Html.Styled.map (\_ -> NoOp) (PageTemplate.page View.HelpSelfGrid.view)
+            Html.Styled.map (\_ -> NoOp) View.HelpSelfGrid.view
 
         HelpSelfSinglePage helpSelfSingle category ->
-            Html.Styled.map HelpSelfSingleMsg (PageTemplate.page (View.HelpSelfSingle.view category helpSelfSingle))
+            Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view category helpSelfSingle)
 
         NotAlonePage notAlone ->
-            Html.Styled.map NotAloneMsg (PageTemplate.page (View.NotAlone.view notAlone))
+            Html.Styled.map NotAloneMsg (View.NotAlone.view notAlone)

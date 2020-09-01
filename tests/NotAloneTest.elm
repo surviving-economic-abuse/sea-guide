@@ -5,11 +5,12 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
+import Message exposing (Msg(..))
 import Page.NotAlone exposing (Msg(..))
-import PageTemplate exposing (page)
 import Test exposing (Test, describe, test)
+import Test.Html.Event as Event
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (attribute, tag, text)
+import Test.Html.Selector exposing (attribute, containing, tag, text)
 import TestUtils exposing (queryFromStyledHtml)
 import View.NotAlone exposing (view)
 
@@ -20,22 +21,22 @@ suite =
         initModel =
             { revealedJourney = Nothing }
 
-        pageViewInitModel =
-            page (view initModel)
+        viewInitModel =
+            view initModel
     in
     describe "NotAlone View"
         [ test "NotAlone view has title" <|
             \() ->
-                queryFromStyledHtml pageViewInitModel
+                queryFromStyledHtml viewInitModel
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
-        , test "NotAlone view has 5 nav links (1 navigation, 3 emergency, 1 exit)" <|
+        , test "NotAlone view has 1 nav link" <|
             \() ->
-                queryFromStyledHtml pageViewInitModel
+                queryFromStyledHtml viewInitModel
                     |> Query.findAll [ tag "a" ]
-                    |> Query.count (Expect.equal 5)
+                    |> Query.count (Expect.equal 1)
         , test "NotAlone view has nav links to definition" <|
             \() ->
-                queryFromStyledHtml pageViewInitModel
+                queryFromStyledHtml viewInitModel
                     |> Query.findAll [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.each (Query.has [ text (t ToDefinitionFromNotAloneLink) ])
 
