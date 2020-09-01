@@ -199,16 +199,9 @@ threeColumn =
 
 {-| A div with known vertical margin
 -}
-verticalSpacing : Html msg
-verticalSpacing =
-    div [ css [ verticalSpacingStyle ] ] []
-
-
-verticalSpacingStyle : Style
-verticalSpacingStyle =
-    batch
-        [ margin2 (rem 2) zero
-        ]
+verticalSpacing : Float -> Html msg
+verticalSpacing num =
+    div [ css [ margin2 (rem num) zero ] ] []
 
 
 {-| Bottom navigation common styles

@@ -63,10 +63,10 @@ type Key
     | Journey6Relatable
     | Journey6Hopeful
     | Journey6Statement
-    | ExpandQuoteReassuringText
     | ExpandQuoteButton
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
+    | ExitButton
     | EmergencyButton
     | EmergencyReassure
     | EmergencyPoliceInfo

@@ -31,14 +31,12 @@ view model =
                 , card model JourneyCard6
                 ]
             ]
-        , verticalSpacing
+        , verticalSpacing 2
         , containerContent
             [ nav [ css [ navListStyle ] ]
                 [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
                 ]
             ]
-        , containerContent
-            []
         ]
 
 
@@ -65,7 +63,7 @@ renderInitCard journeyCardPosition =
     li [ css [ cardStyle, closedStyle ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-            , div [ css [ subTeaserStyle ] ] [ text (t ExpandQuoteReassuringText) ]
+            , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
                 , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
@@ -74,14 +72,15 @@ renderInitCard journeyCardPosition =
         ]
 
 
-renderRevealedCard : JourneyCard -> Html msg
+renderRevealedCard : JourneyCard -> Html Msg
 renderRevealedCard journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
     li [ css [ cardStyle, openStyle ] ]
-        [ div []
+        [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
+        , div []
             [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
@@ -145,7 +144,7 @@ innerCardStyle =
         , minHeight (px 192)
         , displayFlex
         , flexDirection column
-        , justifyContent spaceBetween
+        , justifyContent spaceAround
         ]
 
 
@@ -164,6 +163,19 @@ openStyle =
         ]
 
 
+closeJourneyButtonStyle : Style
+closeJourneyButtonStyle =
+    batch
+        [ alignSelf flexEnd
+        , backgroundColor purple
+        , border zero
+        , borderRadius (rem 100)
+        , height (px 44)
+        , marginRight (rem 1)
+        , width (px 44)
+        ]
+
+
 teaserStyle : Style
 teaserStyle =
     batch
@@ -173,12 +185,12 @@ teaserStyle =
         ]
 
 
-subTeaserStyle : Style
-subTeaserStyle =
+greenDividerStyle : Style
+greenDividerStyle =
     batch
-        [ borderTop3 (px 2) solid green
-        , margin auto
-        , paddingTop (rem 1)
+        [ borderTop3 (px 1) solid green
+        , margin2 zero auto
+        , width (pct 80)
         ]
 
 
@@ -213,11 +225,9 @@ buttonStyle =
         , fontSize (rem 1)
         , fontWeight (int 700)
         , justifyContent center
-        , margin auto
-        , minHeight (rem 3)
+        , margin2 zero auto
         , padding2 (rem 0.5) (rem 2)
         , textAlign center
-        , width (pct 60)
         , hover
             [ backgroundColor lightPurple
             , color grey

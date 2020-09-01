@@ -22,15 +22,14 @@ view slug model =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ]
-                , case categoryData.resources of
-                    Just resources ->
-                        div [] [ renderResourceList model resources ]
+                [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ] ]
+            , case categoryData.resources of
+                Just resources ->
+                    div [] [ renderResourceList model resources ]
 
-                    Nothing ->
-                        text ""
-                ]
-            , verticalSpacing
+                Nothing ->
+                    text ""
+            , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
                 [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
                 ]
@@ -70,10 +69,10 @@ renderResourceList model resources =
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
     [ p [] [ text (t resource.summary) ]
-    , verticalSpacing
+    , verticalSpacing 2
     ]
         ++ renderQuotes resource.quotes
-        ++ verticalSpacing
+        ++ verticalSpacing 2
         :: renderPdfDownload resource
 
 
