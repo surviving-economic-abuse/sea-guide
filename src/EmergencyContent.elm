@@ -1,4 +1,4 @@
-module EmergencyPopup exposing (renderEmergencyButton, renderEmergencyPanel)
+module EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -11,15 +11,20 @@ import Message exposing (Msg(..))
 import Theme exposing (..)
 
 
+renderExitButton : Html Msg
+renderExitButton =
+    a [ href "https://www.google.co.uk", css [ exitButtonStyle ] ] [ text (t ExitButton) ]
+
+
 renderEmergencyPanel : Html Msg
 renderEmergencyPanel =
     div [ css [ emergencyPanelStyle ], id "emergency" ]
         [ div [ css [ emergencyPanelHeaderStyle ] ]
-            [ img [ css [ emergencyPanelHeaderIconStyle ], src "Emergency.svg", alt "" ] []
+            [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Emergency.svg", alt "" ] []
             , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text (t EmergencyReassure) ]
             , button
                 [ css [ emergencyPanelHeaderButtonStyle ], onClick EmergencyButtonClicked ]
-                [ img [ css [ emergencyPanelHeaderIconStyle ], src "Close.svg", alt "Close" ] [] ]
+                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Close.svg", alt "Close" ] [] ]
             ]
         , div [ css [ emergencyPanelBodyStyle ] ]
             [ p [] [ text (t EmergencyPoliceInfo) ]
@@ -50,7 +55,27 @@ renderEmergencyButton =
     button
         [ css [ emergencyButtonStyle ], onClick EmergencyButtonClicked ]
         [ span [] [ text (t EmergencyButton) ]
-        , img [ css [ iconStyle ], src "Emergency.svg", alt "" ] []
+        , img [ css [ iconStyle ], src "/sea-map/Emergency.svg", alt "" ] []
+        ]
+
+
+exitButtonStyle : Style
+exitButtonStyle =
+    batch
+        [ backgroundColor orange
+        , border zero
+        , color white
+        , fontSize (rem 1.2)
+        , fontWeight (int 400)
+        , height (rem 3.75)
+        , lineHeight (num 1.2)
+        , padding (px 6)
+        , position fixed
+        , right zero
+        , textAlign center
+        , textDecoration none
+        , top (rem 5)
+        , width (rem 3.75)
         ]
 
 

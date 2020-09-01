@@ -6,7 +6,7 @@ import Browser.Navigation
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import EmergencyPopup exposing (..)
+import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Message exposing (Msg(..))
@@ -177,6 +177,7 @@ view : Model -> Html Msg
 view model =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
+        , renderExitButton
         , pageToHtmlMsg model.page
         , if model.emergencyPopupIsOpen then
             renderEmergencyPanel
