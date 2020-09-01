@@ -76,6 +76,7 @@ exitButtonStyle =
         , textDecoration none
         , top (rem 5)
         , width (rem 3.75)
+        , zIndex (int 2)
         ]
 
 
