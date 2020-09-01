@@ -66,7 +66,7 @@ renderInitCard journeyCardPosition =
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
-                , img [ src "Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                , img [ src "/sea-map/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
                 ]
             ]
         ]
@@ -80,7 +80,7 @@ renderRevealedCard journeyCardPosition =
     in
     li [ css [ cardStyle, openStyle ] ]
         [ div []
-            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
+            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "/sea-map/Close.svg", alt "Close" ] [] ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
