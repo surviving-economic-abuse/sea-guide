@@ -63,6 +63,7 @@ gridCardStyle : Style
 gridCardStyle =
     batch
         [ backgroundColor pureWhite
+        , border3 (px 3) solid transparent
         , borderRadius (rem 1.8)
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
         , color purple
