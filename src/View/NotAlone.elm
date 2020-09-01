@@ -60,7 +60,7 @@ renderInitCard journeyCardPosition =
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
-    li [ css [ cardStyle, closedStyle ] ]
+    li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
             , div [ css [ greenDividerStyle ] ] []

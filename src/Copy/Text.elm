@@ -120,6 +120,9 @@ t key =
         Journey1Teaser ->
             "He threw my phone on the floor and smashed\u{00A0}it"
 
+        Journey1Image ->
+            "/Person_1.svg"
+
         Journey1Relatable ->
             "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
@@ -131,6 +134,9 @@ t key =
 
         Journey2Teaser ->
             "He considered my money\u{00A0}his"
+
+        Journey2Image ->
+            "/Person_2.svg"
 
         Journey2Relatable ->
             "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
@@ -144,6 +150,9 @@ t key =
         Journey3Teaser ->
             "I had no control over my\u{00A0}life"
 
+        Journey3Image ->
+            "/Person_3.svg"
+
         Journey3Relatable ->
             "To be so powerless, I can't explain what it's like, it's overwhelming. Not being able to provide for your children. You have absolutely no control over your life."
 
@@ -155,6 +164,9 @@ t key =
 
         Journey4Teaser ->
             "He controlled what I wore and who I spoke\u{00A0}to"
+
+        Journey4Image ->
+            "/Person_4.svg"
 
         Journey4Relatable ->
             "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
@@ -168,6 +180,9 @@ t key =
         Journey5Teaser ->
             "He took out loans in my\u{00A0}name"
 
+        Journey5Image ->
+            "/Person_5.svg"
+
         Journey5Relatable ->
             "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
 
@@ -179,6 +194,9 @@ t key =
 
         Journey6Teaser ->
             "He used our joint account for his own\u{00A0}expenses"
+
+        Journey6Image ->
+            "/Person_6.svg"
 
         Journey6Relatable ->
             "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."

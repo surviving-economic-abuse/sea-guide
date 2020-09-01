@@ -46,6 +46,7 @@ journeyIsRevealed model journeyCard =
 
 type alias JourneyContent =
     { teaser : Key
+    , image : Key
     , relatable : Key
     , hopeful : Key
     , statement : Key
@@ -70,6 +71,7 @@ journeyContentFromCardPosition cardPosition =
     case cardPosition of
         JourneyCard1 ->
             { teaser = Journey1Teaser
+            , image = Journey1Image
             , relatable = Journey1Relatable
             , hopeful = Journey1Hopeful
             , statement = Journey1Statement
@@ -77,6 +79,7 @@ journeyContentFromCardPosition cardPosition =
 
         JourneyCard2 ->
             { teaser = Journey2Teaser
+            , image = Journey2Image
             , relatable = Journey2Relatable
             , hopeful = Journey2Hopeful
             , statement = Journey2Statement
@@ -84,6 +87,7 @@ journeyContentFromCardPosition cardPosition =
 
         JourneyCard3 ->
             { teaser = Journey3Teaser
+            , image = Journey3Image
             , relatable = Journey3Relatable
             , hopeful = Journey3Hopeful
             , statement = Journey3Statement
@@ -91,6 +95,7 @@ journeyContentFromCardPosition cardPosition =
 
         JourneyCard4 ->
             { teaser = Journey4Teaser
+            , image = Journey4Image
             , relatable = Journey4Relatable
             , hopeful = Journey4Hopeful
             , statement = Journey4Statement
@@ -98,6 +103,7 @@ journeyContentFromCardPosition cardPosition =
 
         JourneyCard5 ->
             { teaser = Journey5Teaser
+            , image = Journey5Image
             , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
@@ -105,6 +111,7 @@ journeyContentFromCardPosition cardPosition =
 
         JourneyCard6 ->
             { teaser = Journey6Teaser
+            , image = Journey6Image
             , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
