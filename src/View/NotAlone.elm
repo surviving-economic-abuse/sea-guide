@@ -79,9 +79,9 @@ renderRevealedCard journeyCardPosition =
             journeyContentFromCardPosition journeyCardPosition
     in
     li [ css [ cardStyle, openStyle ] ]
-        [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
-        , div []
-            [ p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
+        [ div []
+            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ] [ img [ css [ height (px 44), margin auto ], src "Close.svg", alt "Close" ] [] ]
+            , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
             ]
@@ -166,11 +166,12 @@ openStyle =
 closeJourneyButtonStyle : Style
 closeJourneyButtonStyle =
     batch
-        [ alignSelf flexEnd
-        , backgroundColor purple
+        [ backgroundColor purple
         , border zero
         , borderRadius (rem 100)
+        , float right
         , height (px 44)
+        , marginLeft (rem 0.25)
         , marginRight (rem 1)
         , width (px 44)
         ]
