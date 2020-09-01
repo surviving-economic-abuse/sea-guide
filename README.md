@@ -19,6 +19,12 @@ We recommend integrating `elm-format@0.8.3` into your code editor, but if you do
 
 - Please `npm run format` to format `.elm` files in `src` before committing code.
 
+### Using images
+
+We use plugin, [parcel asset copier](https://github.com/tiaanduplessis/parcel-plugin-asset-copier)
+to copy everything from `src/images` to the root of the build. In order for image paths to
+resolve from nested urls, please use a preceding `/` when `src`-ing them.
+
 ### Develop
 
 - `npm start` for a hot-reload dev server at [http://localhost:1234](http://localhost:1234/)

@@ -5,7 +5,6 @@ import Copy.Text exposing (t)
 import Expect exposing (Expectation)
 import Html
 import Html.Attributes
-import PageTemplate exposing (page)
 import Test exposing (Test, describe, test)
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (attribute, containing, tag, text)
