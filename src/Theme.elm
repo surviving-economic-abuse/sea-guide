@@ -146,7 +146,7 @@ globalStyles =
 waveStyle : Style
 waveStyle =
     batch
-        [ backgroundImage (url "Background_Wave.svg")
+        [ backgroundImage (url "/Background_Wave.svg")
         , backgroundAttachment fixed
         , backgroundPosition center
         , backgroundRepeat noRepeat
