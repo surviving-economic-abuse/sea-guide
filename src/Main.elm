@@ -175,11 +175,6 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    renderPage model
-
-
-renderPage : Model -> Html Msg
-renderPage model =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
         , pageToHtmlMsg model.page
