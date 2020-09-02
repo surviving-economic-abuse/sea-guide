@@ -185,7 +185,7 @@ view model =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
         , renderExitButton
-        , pageToHtmlMsg model.page
+        , pageToHtmlMsg model
         , if model.emergencyPopupIsOpen then
             renderEmergencyPanel model.viewportWidth
 
@@ -194,14 +194,14 @@ view model =
         ]
 
 
-pageToHtmlMsg : Page -> Html Msg
-pageToHtmlMsg page =
-    case page of
+pageToHtmlMsg : Model -> Html Msg
+pageToHtmlMsg model =
+    case model.page of
         DefinitionPage definition ->
             Html.Styled.map DefinitionMsg (View.Definition.view definition)
 
         GetHelpPage ->
-            Html.Styled.map (\_ -> NoOp) View.GetHelp.view
+            Html.Styled.map (\_ -> NoOp) (View.GetHelp.view model.viewportWidth)
 
         HelpSelfGridPage ->
             Html.Styled.map (\_ -> NoOp) View.HelpSelfGrid.view

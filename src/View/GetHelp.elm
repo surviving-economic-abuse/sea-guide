@@ -7,20 +7,20 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaTablet)
+import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaTablet)
 
 
-view : Html never
-view =
+view : Float -> Html never
+view viewportWidth =
     div []
         [ container
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
                 ]
             , div [ css [ columnStyle ] ]
-                [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
-                , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
-                , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
+                [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
+                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
+                , card viewportWidth (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
                 ]
             , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
@@ -32,8 +32,8 @@ view =
         ]
 
 
-renderCallToAction : CallToAction -> Html msg
-renderCallToAction call =
+renderCallToAction : Float -> CallToAction -> Html msg
+renderCallToAction viewportWidth call =
     case call of
         JoinForum ->
             a
@@ -46,7 +46,7 @@ renderCallToAction call =
                 [ p []
                     [ text (t GetHelpSection2CallToAction1Prompt)
                     , text " "
-                    , renderPhoneNumber (t GetHelpSection2CallToAction1Number)
+                    , renderPhoneNumber viewportWidth (t GetHelpSection2CallToAction1Number)
                     ]
                 , p [] [ text (t GetHelpSection2CallToAction2) ]
                 , verticalSpacing 1
@@ -59,9 +59,13 @@ renderCallToAction call =
                 ]
 
 
-renderPhoneNumber : String -> Html msg
-renderPhoneNumber phoneNumber =
-    text phoneNumber
+renderPhoneNumber : Float -> String -> Html msg
+renderPhoneNumber viewportWidth phoneNumber =
+    if viewportWidth < maxMobile then
+        a [ href ("tel:" ++ phoneNumber) ] [ text phoneNumber ]
+
+    else
+        text phoneNumber
 
 
 columnStyle : Style
@@ -80,8 +84,12 @@ columnStyle =
         ]
 
 
-card : String -> String -> String -> CallToAction -> Html msg
-card title quote description call =
+
+-- This function is a little bit eek!
+
+
+card : Float -> String -> String -> String -> CallToAction -> Html msg
+card viewportWidth title quote description call =
     div [ css [ cardStyle ] ]
         [ h2 [ css [ cardHeadingStyle ] ] [ text title ]
         , verticalSpacing 1.5
@@ -90,7 +98,7 @@ card title quote description call =
         , verticalSpacing 1
         , p [] [ text description ]
         , verticalSpacing 1.5
-        , renderCallToAction call
+        , renderCallToAction viewportWidth call
         ]
 
 
