@@ -3,25 +3,24 @@ module View.GetHelp exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white)
+import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaDesktop)
 
 
-view : Html never
-view =
+view : Float -> Html never
+view viewportWidth =
     div []
         [ container
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
                 ]
             , div [ css [ columnStyle ] ]
-                [ card (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
-                , card (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
-                , card (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
+                [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
+                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
+                , card viewportWidth (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
                 ]
             , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
@@ -33,8 +32,8 @@ view =
         ]
 
 
-renderCallToAction : CallToAction -> Html msg
-renderCallToAction call =
+renderCallToAction : Float -> CallToAction -> Html msg
+renderCallToAction viewportWidth call =
     case call of
         JoinForum ->
             a
@@ -44,7 +43,11 @@ renderCallToAction call =
 
         CallSupport ->
             div [ css [ infoStyle ] ]
-                [ p [] [ text (t GetHelpSection2CallToAction1) ]
+                [ p []
+                    [ text (t GetHelpSection2CallToAction1Prompt)
+                    , text " "
+                    , renderPhoneNumber viewportWidth (t GetHelpSection2CallToAction1Number)
+                    ]
                 , p [] [ text (t GetHelpSection2CallToAction2) ]
                 , verticalSpacing 1
                 ]
@@ -56,6 +59,15 @@ renderCallToAction call =
                 ]
 
 
+renderPhoneNumber : Float -> String -> Html msg
+renderPhoneNumber viewportWidth phoneNumber =
+    if viewportWidth <= maxMobile then
+        a [ href ("tel:" ++ String.replace " " "" phoneNumber) ] [ text phoneNumber ]
+
+    else
+        text phoneNumber
+
+
 columnStyle : Style
 columnStyle =
     batch
@@ -64,7 +76,7 @@ columnStyle =
         , flexWrap wrap
         , flexDirection column
         , justifyContent spaceBetween
-        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+        , withMediaDesktop
             [ alignItems flexStart
             , flexDirection row
             , flexWrap noWrap
@@ -72,8 +84,12 @@ columnStyle =
         ]
 
 
-card : String -> String -> String -> CallToAction -> Html msg
-card title quote description call =
+
+-- This function is a little bit eek!
+
+
+card : Float -> String -> String -> String -> CallToAction -> Html msg
+card viewportWidth title quote description call =
     div [ css [ cardStyle ] ]
         [ h2 [ css [ cardHeadingStyle ] ] [ text title ]
         , verticalSpacing 1.5
@@ -82,7 +98,7 @@ card title quote description call =
         , verticalSpacing 1
         , p [] [ text description ]
         , verticalSpacing 1.5
-        , renderCallToAction call
+        , renderCallToAction viewportWidth call
         ]
 
 
@@ -95,7 +111,7 @@ cardStyle =
         , margin (rem 1)
         , maxWidth (rem 22)
         , padding (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+        , withMediaDesktop
             [ flexDirection row
             , margin2 zero (rem 0.5)
             , flex3 zero (int 1) (rem 22)

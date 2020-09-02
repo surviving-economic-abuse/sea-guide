@@ -3,14 +3,13 @@ module View.NotAlone exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 
 view : Model -> Html Msg
@@ -114,9 +113,9 @@ cardStyle =
         [ flex3 zero zero oneColumn
         , margin (rem 1)
         , minHeight (px 450)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaTabletOrDesktop
             [ flex3 zero zero twoColumn
-            , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+            , withMediaDesktop
                 [ flex3 zero zero threeColumn
                 ]
             ]
