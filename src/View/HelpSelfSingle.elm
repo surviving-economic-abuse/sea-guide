@@ -3,10 +3,8 @@ module View.HelpSelfSingle exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, img, li, nav, p, text, ul)
-import Html.Styled.Attributes exposing (css, href, src)
+import Html.Styled.Attributes exposing (alt, css, href, src)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
@@ -47,7 +45,7 @@ renderResourceList model resources =
                     li [ css [ expanderItemStyle ] ]
                         [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg" ] []
+                            , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg", alt "" ] []
                             ]
                         , div [ css expanderDefinitionStyles ]
                             ([]
@@ -59,7 +57,7 @@ renderResourceList model resources =
                     li [ css [ expanderItemStyle ] ]
                         [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg" ] []
+                            , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg", alt "" ] []
                             ]
                         ]
             )

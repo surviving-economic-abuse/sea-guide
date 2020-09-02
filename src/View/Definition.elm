@@ -4,7 +4,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
-import Html.Styled.Attributes exposing (css, src)
+import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
@@ -78,7 +78,7 @@ renderTerm model category =
         dt [ css [ expanderItemStyle ] ]
             [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg" ] []
+                , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg", alt "" ] []
                 ]
             ]
 
@@ -86,7 +86,7 @@ renderTerm model category =
         dt [ css [ expanderItemStyle ] ]
             [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg" ] []
+                , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg", alt "" ] []
                 ]
             ]
 
