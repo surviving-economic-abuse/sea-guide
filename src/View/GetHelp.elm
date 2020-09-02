@@ -44,7 +44,11 @@ renderCallToAction call =
 
         CallSupport ->
             div [ css [ infoStyle ] ]
-                [ p [] [ text (t GetHelpSection2CallToAction1) ]
+                [ p []
+                    [ text (t GetHelpSection2CallToAction1Prompt)
+                    , text " "
+                    , renderPhoneNumber (t GetHelpSection2CallToAction1Number)
+                    ]
                 , p [] [ text (t GetHelpSection2CallToAction2) ]
                 , verticalSpacing 1
                 ]
@@ -54,6 +58,11 @@ renderCallToAction call =
                 [ href (t SeaOrganisationsResourceHref), css [ linkStyle ] ]
                 [ span [] [ text (t GetHelpSection3CallToAction) ]
                 ]
+
+
+renderPhoneNumber : String -> Html msg
+renderPhoneNumber phoneNumber =
+    text phoneNumber
 
 
 columnStyle : Style

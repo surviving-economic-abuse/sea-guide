@@ -70,9 +70,12 @@ type Key
     | EmergencyButton
     | EmergencyReassure
     | EmergencyPoliceInfo
+    | EmergencyPoliceNumber
     | EmergencyNotImmediateReassure
     | EmergencyDomesticAbuseLink
     | EmergencyDomesticAbuseInfo
+    | EmergencyDomesticAbusePrompt
+    | EmergencyDomesticAbuseNumber
     | EmergencyWomensAidLink
     | EmergencyWomensAidInfo
     | EmergencyOtherOrganisationsLink
@@ -217,7 +220,8 @@ type Key
     | GetHelpSection2Title
     | GetHelpSection2Quote
     | GetHelpSection2Description
-    | GetHelpSection2CallToAction1
+    | GetHelpSection2CallToAction1Prompt
+    | GetHelpSection2CallToAction1Number
     | GetHelpSection2CallToAction2
     | GetHelpSection3Title
     | GetHelpSection3Quote

@@ -27,7 +27,11 @@ renderEmergencyPanel =
                 [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Close.svg", alt "Close" ] [] ]
             ]
         , div [ css [ emergencyPanelBodyStyle ] ]
-            [ p [] [ text (t EmergencyPoliceInfo) ]
+            [ p []
+                [ text (t EmergencyPoliceInfo)
+                , text " "
+                , renderPhoneNumber (t EmergencyPoliceNumber)
+                ]
             , p [] [ text (t EmergencyNotImmediateReassure) ]
             , ul [ css [ listStyle none, margin2 (rem 1) zero ] ]
                 [ li [ css [ marginBottom (rem 1) ] ]
@@ -36,6 +40,10 @@ renderEmergencyPanel =
                             (t EmergencyDomesticAbuseLink)
                         ]
                     , text " - "
+                    , text (t EmergencyDomesticAbusePrompt)
+                    , text " "
+                    , renderPhoneNumber (t EmergencyDomesticAbuseNumber)
+                    , text " "
                     , text (t EmergencyDomesticAbuseInfo)
                     ]
                 , li [ css [ marginBottom (rem 1) ] ]
@@ -48,6 +56,11 @@ renderEmergencyPanel =
             , p [] [ a [ href (t SeaOrganisationsResourceHref) ] [ text (t EmergencyOtherOrganisationsLink) ] ]
             ]
         ]
+
+
+renderPhoneNumber : String -> Html msg
+renderPhoneNumber phonenumber =
+    text phonenumber
 
 
 renderEmergencyButton : Html Msg
