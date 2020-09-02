@@ -3,7 +3,6 @@ module EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, r
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (alt, css, href, id, src)
 import Html.Styled.Events exposing (onClick)
@@ -16,8 +15,8 @@ renderExitButton =
     a [ href "https://www.google.co.uk", css [ exitButtonStyle ] ] [ text (t ExitButton) ]
 
 
-renderEmergencyPanel : Html Msg
-renderEmergencyPanel =
+renderEmergencyPanel : Float -> Html Msg
+renderEmergencyPanel viewportWidth =
     div [ css [ emergencyPanelStyle ], id "emergency" ]
         [ div [ css [ emergencyPanelHeaderStyle ] ]
             [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Emergency.svg", alt "" ] []
@@ -30,7 +29,7 @@ renderEmergencyPanel =
             [ p []
                 [ text (t EmergencyPoliceInfo)
                 , text " "
-                , renderPhoneNumber (t EmergencyPoliceNumber)
+                , renderPhoneNumber viewportWidth (t EmergencyPoliceNumber)
                 ]
             , p [] [ text (t EmergencyNotImmediateReassure) ]
             , ul [ css [ listStyle none, margin2 (rem 1) zero ] ]
@@ -42,7 +41,7 @@ renderEmergencyPanel =
                     , text " - "
                     , text (t EmergencyDomesticAbusePrompt)
                     , text " "
-                    , renderPhoneNumber (t EmergencyDomesticAbuseNumber)
+                    , renderPhoneNumber viewportWidth (t EmergencyDomesticAbuseNumber)
                     , text " "
                     , text (t EmergencyDomesticAbuseInfo)
                     ]
@@ -58,9 +57,13 @@ renderEmergencyPanel =
         ]
 
 
-renderPhoneNumber : String -> Html msg
-renderPhoneNumber phonenumber =
-    text phonenumber
+renderPhoneNumber : Float -> String -> Html msg
+renderPhoneNumber viewportWidth phonenumber =
+    if viewportWidth < Theme.maxMobile then
+        a [ href ("tel:" ++ phonenumber) ] [ text phonenumber ]
+
+    else
+        text phonenumber
 
 
 renderEmergencyButton : Html Msg
@@ -103,7 +106,7 @@ emergencyPanelStyle =
         , position fixed
         , right (px 5)
         , width (px 300)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaMobile
             [ right (px 120)
             ]
         ]
@@ -155,7 +158,7 @@ emergencyPanelBodyStyle =
         , borderBottomLeftRadius (px 20)
         , borderBottomRightRadius (px 20)
         , padding (rem 1.5)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaMobile
             [ borderRadius zero
             ]
         ]
@@ -180,7 +183,7 @@ emergencyButtonStyle =
         , right (px 5)
         , width (rem 3.75)
         , zIndex (int 1)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaMobile
             [ right (px 20)
             ]
         ]

@@ -44,13 +44,20 @@ main =
 type alias Model =
     { key : Browser.Navigation.Key
     , page : Page
+    , viewportWidth : Float
     , emergencyPopupIsOpen : Bool
     }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url), emergencyPopupIsOpen = False }, Cmd.none )
+    ( { key = key
+      , page = pageFromMaybeRoute (Route.fromUrl url)
+      , viewportWidth = 500
+      , emergencyPopupIsOpen = False
+      }
+    , Cmd.none
+    )
 
 
 type Page
@@ -180,7 +187,7 @@ view model =
         , renderExitButton
         , pageToHtmlMsg model.page
         , if model.emergencyPopupIsOpen then
-            renderEmergencyPanel
+            renderEmergencyPanel model.viewportWidth
 
           else
             renderEmergencyButton

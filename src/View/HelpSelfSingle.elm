@@ -3,14 +3,13 @@ module View.HelpSelfSingle exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, li, nav, p, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaMobile)
 
 
 view : String -> Model -> Html Msg
@@ -154,7 +153,7 @@ expanderDefinitionStyle =
         ]
 
     -- Allow more padding space on larger screens
-    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+    , withMediaMobile
         [ padding (rem 2) ]
     ]
 

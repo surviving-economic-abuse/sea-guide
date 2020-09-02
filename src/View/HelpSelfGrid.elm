@@ -3,11 +3,10 @@ module View.HelpSelfGrid exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing)
+import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaMobile)
 
 
 view : Html never
@@ -91,6 +90,6 @@ gridItemStyle =
     batch
         [ flex3 zero zero twoColumn
         , margin (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaMobile
             [ flex3 zero zero threeColumn ]
         ]

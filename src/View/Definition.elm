@@ -3,7 +3,6 @@ module View.Definition exposing (renderWithKeywords, view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, li, nav, p, span, text, ul)
 import Html.Styled.Attributes exposing (css)
@@ -11,7 +10,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaMobile)
 
 
 view : Model -> Html Msg
@@ -250,7 +249,7 @@ expanderDefinitionStyles =
         ]
 
     -- Allow more padding space on larger screens
-    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+    , withMediaMobile
         [ padding (rem 2) ]
     ]
 

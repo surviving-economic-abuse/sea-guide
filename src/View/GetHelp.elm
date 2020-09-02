@@ -3,12 +3,11 @@ module View.GetHelp exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white)
+import Theme exposing (container, grey, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaTablet)
 
 
 view : Html never
@@ -73,7 +72,7 @@ columnStyle =
         , flexWrap wrap
         , flexDirection column
         , justifyContent spaceBetween
-        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+        , withMediaTablet
             [ alignItems flexStart
             , flexDirection row
             , flexWrap noWrap
@@ -104,7 +103,7 @@ cardStyle =
         , margin (rem 1)
         , maxWidth (rem 22)
         , padding (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+        , withMediaTablet
             [ flexDirection row
             , margin2 zero (rem 0.5)
             , flex3 zero (int 1) (rem 22)
