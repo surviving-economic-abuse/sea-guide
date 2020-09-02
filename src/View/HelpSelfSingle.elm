@@ -3,13 +3,12 @@ module View.HelpSelfSingle exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, li, nav, p, span, text, ul)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, img, li, nav, p, text, ul)
+import Html.Styled.Attributes exposing (alt, css, href, src)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaTabletOrDesktop)
+import Theme exposing (containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, navListStyle, pageHeadingStyle, purple, quoteStyle, rotate90Style, verticalSpacing)
 
 
 view : String -> Model -> Html Msg
@@ -24,7 +23,7 @@ view slug model =
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ] ]
             , case categoryData.resources of
                 Just resources ->
-                    div [] [ renderResourceList model resources ]
+                    div [ css [ margin2 zero (rem 1) ] ] [ renderResourceList model resources ]
 
                 Nothing ->
                     text ""
@@ -33,6 +32,7 @@ view slug model =
                 [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 
@@ -43,11 +43,11 @@ renderResourceList model resources =
             (\resource ->
                 if resourceIsExpanded model resource.title then
                     li [ css [ expanderItemStyle ] ]
-                        [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle ] ]
+                        [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , span [ css [ expanderSymbolStyle, rotate90Style ] ] [ text ">" ]
+                            , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg", alt "" ] []
                             ]
-                        , div [ css expanderDefinitionStyle ]
+                        , div [ css expanderDefinitionStyles ]
                             ([]
                                 ++ renderResourceDetails resource
                             )
@@ -55,9 +55,9 @@ renderResourceList model resources =
 
                 else
                     li [ css [ expanderItemStyle ] ]
-                        [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle ] ]
+                        [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , span [ css [ expanderSymbolStyle ] ] [ text ">" ]
+                            , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg", alt "" ] []
                             ]
                         ]
             )
@@ -85,91 +85,6 @@ renderPdfDownload resource =
 renderQuotes : List Key -> List (Html msg)
 renderQuotes quoteKeys =
     List.map (\quoteKey -> blockquote [] [ p [ css [ quoteStyle ] ] [ text (t quoteKey) ] ]) quoteKeys
-
-
-expanderButtonStyle : Style
-expanderButtonStyle =
-    batch
-        [ alignItems center
-        , backgroundColor purple
-        , border zero
-        , cursor pointer
-        , justifyContent spaceBetween
-        , textAlign left
-        , displayFlex
-        , padding (rem 0.5)
-        , width (pct 100)
-        ]
-
-
-expanderHeadingStyle : Style
-expanderHeadingStyle =
-    batch
-        [ color white
-        , fontSize (rem 1.25)
-        , flex2 (int 1) (int 1)
-        ]
-
-
-expanderSymbolStyle : Style
-expanderSymbolStyle =
-    batch
-        [ color white
-        , flex3 zero (int 1) (rem 3)
-        , textAlign center
-        , fontWeight (int 700)
-        , fontSize (rem 2.5)
-        , lineHeight (int 1)
-        , transform (rotate (deg 0))
-        , transition
-            [ Css.Transitions.transform 200
-            ]
-        ]
-
-
-rotate90Style : Style
-rotate90Style =
-    batch
-        [ transform (rotate (deg 90))
-        , transition
-            [ Css.Transitions.transform 200
-            ]
-        ]
-
-
-expanderItemStyle : Style
-expanderItemStyle =
-    batch [ marginTop (rem 1) ]
-
-
-expanderDefinitionStyle : List Style
-expanderDefinitionStyle =
-    [ batch
-        [ backgroundColor lightGrey
-        , border3 (px 1) solid grey
-        , borderBottomLeftRadius (rem 1)
-        , borderBottomRightRadius (rem 1)
-        , padding (rem 1)
-        ]
-
-    -- Allow more padding space on larger screens
-    , withMediaTabletOrDesktop
-        [ padding (rem 2) ]
-    ]
-
-
-quoteStyle : Style
-quoteStyle =
-    batch
-        [ borderLeft3 (px 5) solid grey
-        , borderRadius (px 5)
-        , fontSize (rem 1.1)
-        , fontStyle italic
-        , fontWeight (int 300)
-        , paddingLeft (px 10)
-        , before [ property "content" "'\"'" ]
-        , after [ property "content" "'\"'" ]
-        ]
 
 
 resourceLinkStyle : Style

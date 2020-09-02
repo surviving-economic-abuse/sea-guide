@@ -36,6 +36,7 @@ view model =
                 [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 
@@ -113,10 +114,17 @@ cardStyle =
         [ flex3 zero zero oneColumn
         , margin (rem 1)
         , minHeight (px 450)
+        , position relative
         , withMediaTabletOrDesktop
             [ flex3 zero zero twoColumn
-            , withMediaDesktop
-                [ flex3 zero zero threeColumn
+            , nthOfType "3n-1"
+                [ border3 (px 2) solid grey
+                ]
+            ]
+        , withMediaDesktop
+            [ flex3 zero zero threeColumn
+            , nthOfType "3n-1"
+                [ marginTop (rem 6)
                 ]
             ]
         ]

@@ -29,6 +29,7 @@ view viewportWidth =
                 , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 

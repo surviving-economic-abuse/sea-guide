@@ -1,8 +1,9 @@
-module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
+module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
+import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, div)
 import Html.Styled.Attributes exposing (css)
 
@@ -109,7 +110,7 @@ maxMobile =
 
 withMediaTabletOrDesktop : List Style -> Style
 withMediaTabletOrDesktop =
-    withMedia [ only screen [ Media.minWidth (px maxMobile) ] ]
+    withMedia [ only screen [ Media.minWidth (px maxMobile), Media.maxWidth (px maxTablet) ] ]
 
 
 maxTablet : Float
@@ -237,6 +238,7 @@ navListStyle =
         , displayFlex
         , flexWrap wrap
         , justifyContent spaceAround
+        , margin2 zero (rem 1)
         ]
 
 
@@ -267,6 +269,114 @@ navLinkStyle =
         , width (pct 100)
         , hover
             [ backgroundColor purple
+            ]
+        ]
+
+
+
+-- expanders
+
+
+expanderButtonStyle : Style
+expanderButtonStyle =
+    batch
+        [ alignItems center
+        , backgroundColor purple
+        , border3 (px 3) solid transparent
+        , cursor pointer
+        , displayFlex
+        , justifyContent spaceBetween
+        , padding2 (rem 0.5) (rem 1)
+        , textAlign left
+        , width (pct 100)
+        , focus
+            [ border3 (px 3) solid teal
+            , outline zero
+            ]
+        ]
+
+
+expanderOpenStyle : Style
+expanderOpenStyle =
+    batch
+        [ borderTopLeftRadius (rem 0.8)
+        , borderTopRightRadius (rem 0.8)
+        ]
+
+
+expanderClosedStyle : Style
+expanderClosedStyle =
+    batch
+        [ borderRadius (rem 0.8)
+        ]
+
+
+expanderHeadingStyle : Style
+expanderHeadingStyle =
+    batch
+        [ color white
+        , fontSize (rem 1.25)
+        , flex2 (int 1) (int 1)
+        ]
+
+
+expanderSymbolStyle : Style
+expanderSymbolStyle =
+    batch
+        [ height (rem 1.5)
+        , flex3 zero (int 1) (rem 3)
+        , transform (rotate (deg 0))
+        , transition
+            [ Css.Transitions.transform 200
+            ]
+        ]
+
+
+rotate90Style : Style
+rotate90Style =
+    batch
+        [ transform (rotate (deg 90))
+        , transition
+            [ Css.Transitions.transform 200
+            ]
+        ]
+
+
+expanderItemStyle : Style
+expanderItemStyle =
+    batch [ marginTop (rem 1) ]
+
+
+expanderDefinitionStyles : List Style
+expanderDefinitionStyles =
+    [ batch
+        [ backgroundColor pureWhite
+        , borderBottomLeftRadius (rem 1)
+        , borderBottomRightRadius (rem 1)
+        , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
+        , padding2 (rem 1.5) (rem 1)
+        ]
+
+    -- Allow more padding space on larger screens
+    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        [ padding (rem 2) ]
+    ]
+
+
+quoteStyle : Style
+quoteStyle =
+    batch
+        [ paddingLeft (rem 1)
+        , before [ property "content" "'\"'" ]
+        , after [ property "content" "'\"'" ]
+        , nthOfType "1n"
+            [ borderLeft3 (px 2) solid orange
+            ]
+        , nthOfType "2n"
+            [ borderLeft3 (px 2) solid teal
+            ]
+        , nthOfType "3n"
+            [ borderLeft3 (px 2) solid pink
             ]
         ]
 

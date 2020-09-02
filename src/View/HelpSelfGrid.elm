@@ -6,7 +6,7 @@ import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaTabletOrDesktop)
+import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaDesktop)
 
 
 view : Html never
@@ -16,7 +16,7 @@ view =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
                 ]
-            , ul [ css [ gridStyle ] ]
+            , ul [ css [ gridStyle, justifyContent center ] ]
                 [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
                 , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
                 , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
@@ -42,6 +42,7 @@ view =
                     ]
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 
@@ -90,6 +91,21 @@ gridItemStyle =
     batch
         [ flex3 zero zero twoColumn
         , margin (rem 1)
-        , withMediaTabletOrDesktop
-            [ flex3 zero zero threeColumn ]
+        , position relative
+        , withMediaDesktop
+            [ flex3 zero zero threeColumn
+            , top (rem 3)
+
+            -- nthOfType can take a formula, but as the 7th item is wrapping
+            -- to the centre, it's easier to be explicit
+            , nthOfType "2"
+                [ top zero
+                ]
+            , nthOfType "5"
+                [ top zero
+                ]
+            , nthOfType "7"
+                [ top zero
+                ]
+            ]
         ]
