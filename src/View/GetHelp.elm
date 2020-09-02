@@ -30,6 +30,7 @@ view =
                 , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 

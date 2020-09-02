@@ -43,6 +43,7 @@ view =
                     ]
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 

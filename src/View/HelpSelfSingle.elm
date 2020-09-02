@@ -34,6 +34,7 @@ view slug model =
                 [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 

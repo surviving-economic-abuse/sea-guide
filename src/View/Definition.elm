@@ -52,6 +52,7 @@ view model =
                     ]
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 

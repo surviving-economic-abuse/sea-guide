@@ -37,6 +37,7 @@ view model =
                 [ renderNavLink Forward Definition ToDefinitionFromNotAloneLink
                 ]
             ]
+        , verticalSpacing 2
         ]
 
 
