@@ -3,12 +3,13 @@ module View.HelpSelfSingle exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, img, li, nav, p, text, ul)
-import Html.Styled.Attributes exposing (alt, css, href, src)
+import Css.Transitions exposing (transition)
+import Html.Styled exposing (Html, a, blockquote, button, div, h1, h2, header, li, nav, p, span, text, ul)
+import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, navListStyle, pageHeadingStyle, purple, quoteStyle, rotate90Style, verticalSpacing)
+import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaTabletOrDesktop)
 
 
 view : String -> Model -> Html Msg

@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white)
+module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -99,6 +99,30 @@ pureWhite =
     hex "ffffff"
 
 
+
+-- Breakpoints
+
+
+maxMobile : Float
+maxMobile =
+    576
+
+
+withMediaTabletOrDesktop : List Style -> Style
+withMediaTabletOrDesktop =
+    withMedia [ only screen [ Media.minWidth (px maxMobile) ] ]
+
+
+maxTablet : Float
+maxTablet =
+    769
+
+
+withMediaDesktop : List Style -> Style
+withMediaDesktop =
+    withMedia [ only screen [ Media.minWidth (px maxTablet) ] ]
+
+
 {-| Injects a <style> tag into the body, and can target element or
 class selectors anywhere, including outside the Elm app.
 -}
@@ -163,7 +187,7 @@ pageHeadingStyle =
         [ fontSize (rem 1.8)
         , margin2 (rem 2) zero
         , textAlign center
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , withMediaTabletOrDesktop
             [ fontSize (rem 2.5) ]
         ]
 
@@ -223,7 +247,7 @@ navItemStyles =
     [ batch
         [ flex3 zero zero (pct 100)
         , marginBottom (rem 1)
-        , withMedia [ only screen [ Media.minWidth (px 769) ] ]
+        , withMediaDesktop
             [ flex3 zero zero threeColumn ]
         ]
     ]

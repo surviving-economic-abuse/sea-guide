@@ -226,7 +226,10 @@ t key =
             "Do you need help?"
 
         EmergencyPoliceInfo ->
-            "If you are in immediate danger, call the police on 999."
+            "If you are in immediate danger, call the police on"
+
+        EmergencyPoliceNumber ->
+            "999"
 
         EmergencyNotImmediateReassure ->
             "If you are not in immediate danger but need support, there are helplines available:"
@@ -234,8 +237,14 @@ t key =
         EmergencyDomesticAbuseLink ->
             "National Domestic Abuse Helpline"
 
+        EmergencyDomesticAbusePrompt ->
+            "Call"
+
         EmergencyDomesticAbuseInfo ->
-            "Call 0808 2000 247 (available 24/7) or access the service online."
+            "(available 24/7) or access the service online."
+
+        EmergencyDomesticAbuseNumber ->
+            "0808 2000 247"
 
         EmergencyWomensAidLink ->
             "Women's Aid online chat"
@@ -647,8 +656,11 @@ t key =
         GetHelpSection2Description ->
             "Contact the Financial Support Line for victims of domestic abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
-        GetHelpSection2CallToAction1 ->
-            "Call or text 01323 635987"
+        GetHelpSection2CallToAction1Prompt ->
+            "Call or text"
+
+        GetHelpSection2CallToAction1Number ->
+            "01323 635987"
 
         GetHelpSection2CallToAction2 ->
             "Email DEAP@moneyadviceplus.org.uk"

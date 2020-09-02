@@ -17,11 +17,13 @@ suite =
     describe "GetHelp View"
         [ test "GetHelp view has title" <|
             \() ->
-                queryFromStyledHtml view
+                -- Mobile sized viewport
+                queryFromStyledHtml (view 500)
                     |> Query.contains [ Html.text (t GetHelpTitle) ]
         , test "GetHelp view has 3 well formed call to action sections" <|
             \() ->
-                queryFromStyledHtml view
+                -- Desktop sized viewport
+                queryFromStyledHtml (view 1000)
                     -- Use the first title to ID the div containing all 3 sections
                     |> Query.findAll [ tag "div", containing [ text (t GetHelpSection1Title) ] ]
                     |> Query.first
@@ -42,7 +44,7 @@ suite =
                         , tag "p"
                         , containing [ text (t GetHelpSection2Description) ]
                         , tag "div"
-                        , containing [ text (t GetHelpSection2CallToAction1) ]
+                        , containing [ text (t GetHelpSection2CallToAction1Prompt) ]
                         , tag "h2"
                         , containing [ text (t GetHelpSection3Title) ]
                         , tag "blockquote"
@@ -54,7 +56,7 @@ suite =
                         ]
         , test "GetHelp view has nav link to help-self" <|
             \() ->
-                queryFromStyledHtml view
+                queryFromStyledHtml (view 1000)
                     |> Query.find [ tag "a", attribute (Html.Attributes.href (t HelpSelfGridPageSlug)) ]
                     |> Query.has [ text (t ToHelpSelfFromGetHelpLink) ]
         ]

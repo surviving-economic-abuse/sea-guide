@@ -44,13 +44,20 @@ main =
 type alias Model =
     { key : Browser.Navigation.Key
     , page : Page
+    , viewportWidth : Float
     , emergencyPopupIsOpen : Bool
     }
 
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { key = key, page = pageFromMaybeRoute (Route.fromUrl url), emergencyPopupIsOpen = False }, Cmd.none )
+    ( { key = key
+      , page = pageFromMaybeRoute (Route.fromUrl url)
+      , viewportWidth = 800
+      , emergencyPopupIsOpen = False
+      }
+    , Task.perform GotViewport Browser.Dom.getViewport
+    )
 
 
 type Page
@@ -105,6 +112,9 @@ update msg model =
                     pageFromMaybeRoute (Route.fromUrl url)
             in
             ( { model | page = newPage }, resetViewportTop )
+
+        GotViewport viewport ->
+            ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
 
         EmergencyButtonClicked ->
             ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
@@ -178,23 +188,23 @@ view model =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
         , renderExitButton
-        , pageToHtmlMsg model.page
+        , pageToHtmlMsg model
         , if model.emergencyPopupIsOpen then
-            renderEmergencyPanel
+            renderEmergencyPanel model.viewportWidth
 
           else
             renderEmergencyButton
         ]
 
 
-pageToHtmlMsg : Page -> Html Msg
-pageToHtmlMsg page =
-    case page of
+pageToHtmlMsg : Model -> Html Msg
+pageToHtmlMsg model =
+    case model.page of
         DefinitionPage definition ->
             Html.Styled.map DefinitionMsg (View.Definition.view definition)
 
         GetHelpPage ->
-            Html.Styled.map (\_ -> NoOp) View.GetHelp.view
+            Html.Styled.map (\_ -> NoOp) (View.GetHelp.view model.viewportWidth)
 
         HelpSelfGridPage ->
             Html.Styled.map (\_ -> NoOp) View.HelpSelfGrid.view
