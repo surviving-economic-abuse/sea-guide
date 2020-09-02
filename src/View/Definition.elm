@@ -9,7 +9,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, lightGreen, navItemStyles, navListStyle, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, verticalSpacing, white)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, rotate90Style, verticalSpacing)
 
 
 view : Model -> Html Msg
