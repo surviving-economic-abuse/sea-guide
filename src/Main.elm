@@ -53,10 +53,10 @@ init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     ( { key = key
       , page = pageFromMaybeRoute (Route.fromUrl url)
-      , viewportWidth = 500
+      , viewportWidth = 800
       , emergencyPopupIsOpen = False
       }
-    , Cmd.none
+    , Task.perform GotViewport Browser.Dom.getViewport
     )
 
 
@@ -112,6 +112,9 @@ update msg model =
                     pageFromMaybeRoute (Route.fromUrl url)
             in
             ( { model | page = newPage }, resetViewportTop )
+
+        GotViewport viewport ->
+            ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
 
         EmergencyButtonClicked ->
             ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
