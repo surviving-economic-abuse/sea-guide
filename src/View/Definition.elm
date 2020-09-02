@@ -3,15 +3,13 @@ module View.Definition exposing (renderWithKeywords, view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Css.Media as Media exposing (minWidth, only, screen, withMedia)
-import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
 import Html.Styled.Attributes exposing (css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, grey, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, teal, verticalSpacing, white)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, lightGreen, navItemStyles, navListStyle, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -78,17 +76,17 @@ renderTerm : Model -> CategoryDefinition -> Html Msg
 renderTerm model category =
     if categoryIsExpanded model category.title then
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, openStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle, rotate90Style ], src "sea-map/Arrow.svg" ] []
+                , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg" ] []
                 ]
             ]
 
     else
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, closedStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle ], src "sea-map/Arrow.svg" ] []
+                , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg" ] []
                 ]
             ]
 
@@ -166,117 +164,17 @@ splitOnEndKeyword partial =
 categoryListStyle : Style
 categoryListStyle =
     batch
-        [ margin2 (rem 2) zero ]
+        [ margin2 (rem 2) (rem 1) ]
 
 
 introStyle : Style
 introStyle =
     batch
-        [ color purple
-        , fontSize (rem 1)
-        , margin2 (rem 2) zero
-        ]
+        [ margin2 (rem 2) (rem 1) ]
 
 
 keywordStyle : Style
 keywordStyle =
     batch
         [ backgroundColor lightGreen
-        ]
-
-
-expanderButtonStyle : Style
-expanderButtonStyle =
-    batch
-        [ alignItems center
-        , backgroundColor purple
-        , border3 (px 3) solid transparent
-        , cursor pointer
-        , displayFlex
-        , justifyContent spaceBetween
-        , padding2 (rem 0.5) (rem 1)
-        , textAlign left
-        , width (pct 100)
-        , focus
-            [ border3 (px 3) solid teal
-            , outline zero
-            ]
-        ]
-
-
-openStyle : Style
-openStyle =
-    batch
-        [ borderTopLeftRadius (rem 0.8)
-        , borderTopRightRadius (rem 0.8)
-        ]
-
-
-closedStyle : Style
-closedStyle =
-    batch
-        [ borderRadius (rem 0.8)
-        ]
-
-
-expanderHeadingStyle : Style
-expanderHeadingStyle =
-    batch
-        [ color white
-        , fontSize (rem 1.25)
-        , flex2 (int 1) (int 1)
-        ]
-
-
-expanderSymbolStyle : Style
-expanderSymbolStyle =
-    batch
-        [ height (rem 1.5)
-        , transform (rotate (deg 0))
-        , transition
-            [ Css.Transitions.transform 200
-            ]
-        ]
-
-
-rotate90Style : Style
-rotate90Style =
-    batch
-        [ transform (rotate (deg 90))
-        , transition
-            [ Css.Transitions.transform 200
-            ]
-        ]
-
-
-expanderItemStyle : Style
-expanderItemStyle =
-    batch [ marginTop (rem 1) ]
-
-
-expanderDefinitionStyles : List Style
-expanderDefinitionStyles =
-    [ batch
-        [ backgroundColor pureWhite
-        , border3 (px 1) solid grey
-        , borderBottomLeftRadius (rem 1)
-        , borderBottomRightRadius (rem 1)
-        , padding (rem 1)
-        ]
-
-    -- Allow more padding space on larger screens
-    , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-        [ padding (rem 2) ]
-    ]
-
-
-quoteStyle : Style
-quoteStyle =
-    batch
-        [ borderLeft3 (px 5) solid grey
-        , borderRadius (px 5)
-        , fontWeight (int 300)
-        , paddingLeft (px 10)
-        , before [ property "content" "'\"'" ]
-        , after [ property "content" "'\"'" ]
         ]
