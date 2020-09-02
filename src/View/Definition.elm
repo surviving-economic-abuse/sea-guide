@@ -5,13 +5,13 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, li, nav, p, span, text, ul)
-import Html.Styled.Attributes exposing (css)
+import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
+import Html.Styled.Attributes exposing (css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, grey, lightGreen, lightGrey, navItemStyles, navListStyle, pageHeadingStyle, purple, verticalSpacing, white)
+import Theme exposing (container, containerContent, grey, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, teal, verticalSpacing, white)
 
 
 view : Model -> Html Msg
@@ -78,17 +78,17 @@ renderTerm : Model -> CategoryDefinition -> Html Msg
 renderTerm model category =
     if categoryIsExpanded model category.title then
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, openStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , span [ css [ expanderSymbolStyle, rotate90Style ] ] [ text ">" ]
+                , img [ css [ expanderSymbolStyle, rotate90Style ], src "sea-map/Arrow.svg" ] []
                 ]
             ]
 
     else
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle ] ]
+            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, closedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , span [ css [ expanderSymbolStyle ] ] [ text ">" ]
+                , img [ css [ expanderSymbolStyle ], src "sea-map/Arrow.svg" ] []
                 ]
             ]
 
@@ -190,13 +190,32 @@ expanderButtonStyle =
     batch
         [ alignItems center
         , backgroundColor purple
-        , border zero
+        , border3 (px 3) solid transparent
         , cursor pointer
-        , justifyContent spaceBetween
-        , textAlign left
         , displayFlex
-        , padding (rem 0.5)
+        , justifyContent spaceBetween
+        , padding2 (rem 0.5) (rem 1)
+        , textAlign left
         , width (pct 100)
+        , focus
+            [ border3 (px 3) solid teal
+            , outline zero
+            ]
+        ]
+
+
+openStyle : Style
+openStyle =
+    batch
+        [ borderTopLeftRadius (rem 0.8)
+        , borderTopRightRadius (rem 0.8)
+        ]
+
+
+closedStyle : Style
+closedStyle =
+    batch
+        [ borderRadius (rem 0.8)
         ]
 
 
@@ -212,12 +231,7 @@ expanderHeadingStyle =
 expanderSymbolStyle : Style
 expanderSymbolStyle =
     batch
-        [ color white
-        , flex3 zero (int 1) (rem 3)
-        , textAlign center
-        , fontWeight (int 700)
-        , fontSize (rem 2.5)
-        , lineHeight (int 1)
+        [ height (rem 1.5)
         , transform (rotate (deg 0))
         , transition
             [ Css.Transitions.transform 200
@@ -243,7 +257,7 @@ expanderItemStyle =
 expanderDefinitionStyles : List Style
 expanderDefinitionStyles =
     [ batch
-        [ backgroundColor lightGrey
+        [ backgroundColor pureWhite
         , border3 (px 1) solid grey
         , borderBottomLeftRadius (rem 1)
         , borderBottomRightRadius (rem 1)
@@ -261,8 +275,6 @@ quoteStyle =
     batch
         [ borderLeft3 (px 5) solid grey
         , borderRadius (px 5)
-        , fontSize (rem 1.1)
-        , fontStyle italic
         , fontWeight (int 300)
         , paddingLeft (px 10)
         , before [ property "content" "'\"'" ]
