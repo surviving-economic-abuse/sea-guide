@@ -115,10 +115,17 @@ cardStyle =
         [ flex3 zero zero oneColumn
         , margin (rem 1)
         , minHeight (px 450)
-        , withMedia [ only screen [ Media.minWidth (px 576) ] ]
+        , position relative
+        , withMedia [ only screen [ Media.minWidth (px 576), Media.maxWidth (px 991) ] ]
             [ flex3 zero zero twoColumn
-            , withMedia [ only screen [ Media.minWidth (px 769) ] ]
-                [ flex3 zero zero threeColumn
+            , nthOfType "3n-1"
+                [ border zero
+                ]
+            ]
+        , withMedia [ only screen [ Media.minWidth (px 992) ] ]
+            [ flex3 zero zero threeColumn
+            , nthOfType "3n-1"
+                [ marginTop (rem 6)
                 ]
             ]
         ]

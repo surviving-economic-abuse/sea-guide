@@ -17,7 +17,7 @@ view =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
                 ]
-            , ul [ css [ gridStyle ] ]
+            , ul [ css [ gridStyle, justifyContent center ] ]
                 [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
                 , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
                 , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
@@ -92,6 +92,21 @@ gridItemStyle =
     batch
         [ flex3 zero zero twoColumn
         , margin (rem 1)
+        , position relative
         , withMedia [ only screen [ Media.minWidth (px 576) ] ]
-            [ flex3 zero zero threeColumn ]
+            [ flex3 zero zero threeColumn
+            , top (rem 3)
+
+            -- nthOfType can take a formula, but as the 7th item is wrapping
+            -- to the centre, it's easier to be explicit
+            , nthOfType "2"
+                [ top zero
+                ]
+            , nthOfType "5"
+                [ top zero
+                ]
+            , nthOfType "7"
+                [ top zero
+                ]
+            ]
         ]
