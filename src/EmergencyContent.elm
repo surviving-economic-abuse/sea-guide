@@ -59,8 +59,8 @@ renderEmergencyPanel viewportWidth =
 
 renderPhoneNumber : Float -> String -> Html msg
 renderPhoneNumber viewportWidth phonenumber =
-    if viewportWidth < Theme.maxMobile then
-        a [ href ("tel:" ++ phonenumber) ] [ text phonenumber ]
+    if viewportWidth <= Theme.maxMobile then
+        a [ href ("tel:" ++ String.replace " " "" phonenumber) ] [ text phonenumber ]
 
     else
         text phonenumber

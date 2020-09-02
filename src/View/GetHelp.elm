@@ -61,8 +61,8 @@ renderCallToAction viewportWidth call =
 
 renderPhoneNumber : Float -> String -> Html msg
 renderPhoneNumber viewportWidth phoneNumber =
-    if viewportWidth < maxMobile then
-        a [ href ("tel:" ++ phoneNumber) ] [ text phoneNumber ]
+    if viewportWidth <= maxMobile then
+        a [ href ("tel:" ++ String.replace " " "" phoneNumber) ] [ text phoneNumber ]
 
     else
         text phoneNumber
