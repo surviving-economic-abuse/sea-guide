@@ -6,7 +6,7 @@ import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaMobile)
+import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaTabletOrDesktop)
 
 
 view : Html never
@@ -90,6 +90,6 @@ gridItemStyle =
     batch
         [ flex3 zero zero twoColumn
         , margin (rem 1)
-        , withMediaMobile
+        , withMediaTabletOrDesktop
             [ flex3 zero zero threeColumn ]
         ]

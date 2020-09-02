@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaMobile, withMediaTablet)
+module Theme exposing (container, containerContent, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -107,8 +107,8 @@ maxMobile =
     576
 
 
-withMediaMobile : List Style -> Style
-withMediaMobile =
+withMediaTabletOrDesktop : List Style -> Style
+withMediaTabletOrDesktop =
     withMedia [ only screen [ Media.minWidth (px maxMobile) ] ]
 
 
@@ -117,8 +117,8 @@ maxTablet =
     769
 
 
-withMediaTablet : List Style -> Style
-withMediaTablet =
+withMediaDesktop : List Style -> Style
+withMediaDesktop =
     withMedia [ only screen [ Media.minWidth (px maxTablet) ] ]
 
 
@@ -186,7 +186,7 @@ pageHeadingStyle =
         [ fontSize (rem 1.8)
         , margin2 (rem 2) zero
         , textAlign center
-        , withMediaMobile
+        , withMediaTabletOrDesktop
             [ fontSize (rem 2.5) ]
         ]
 
@@ -245,7 +245,7 @@ navItemStyles =
     [ batch
         [ flex3 zero zero (pct 100)
         , marginBottom (rem 1)
-        , withMediaTablet
+        , withMediaDesktop
             [ flex3 zero zero threeColumn ]
         ]
     ]

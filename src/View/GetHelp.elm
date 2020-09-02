@@ -7,7 +7,7 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaTablet)
+import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaDesktop)
 
 
 view : Float -> Html never
@@ -76,7 +76,7 @@ columnStyle =
         , flexWrap wrap
         , flexDirection column
         , justifyContent spaceBetween
-        , withMediaTablet
+        , withMediaDesktop
             [ alignItems flexStart
             , flexDirection row
             , flexWrap noWrap
@@ -111,7 +111,7 @@ cardStyle =
         , margin (rem 1)
         , maxWidth (rem 22)
         , padding (rem 1)
-        , withMediaTablet
+        , withMediaDesktop
             [ flexDirection row
             , margin2 zero (rem 0.5)
             , flex3 zero (int 1) (rem 22)

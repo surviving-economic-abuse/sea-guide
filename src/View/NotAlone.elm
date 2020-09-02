@@ -9,7 +9,7 @@ import Html.Styled.Attributes exposing (alt, css, src)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaMobile, withMediaTablet)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 
 view : Model -> Html Msg
@@ -113,9 +113,9 @@ cardStyle =
         [ flex3 zero zero oneColumn
         , margin (rem 1)
         , minHeight (px 450)
-        , withMediaMobile
+        , withMediaTabletOrDesktop
             [ flex3 zero zero twoColumn
-            , withMediaTablet
+            , withMediaDesktop
                 [ flex3 zero zero threeColumn
                 ]
             ]

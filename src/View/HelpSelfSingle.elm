@@ -9,7 +9,7 @@ import Html.Styled.Attributes exposing (css, href)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaMobile)
+import Theme exposing (containerContent, grey, lightGrey, navListStyle, pageHeadingStyle, purple, verticalSpacing, white, withMediaTabletOrDesktop)
 
 
 view : String -> Model -> Html Msg
@@ -153,7 +153,7 @@ expanderDefinitionStyle =
         ]
 
     -- Allow more padding space on larger screens
-    , withMediaMobile
+    , withMediaTabletOrDesktop
         [ padding (rem 2) ]
     ]
 
