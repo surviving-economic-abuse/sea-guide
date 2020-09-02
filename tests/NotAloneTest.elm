@@ -10,7 +10,7 @@ import Page.NotAlone exposing (Msg(..))
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (attribute, containing, tag, text)
+import Test.Html.Selector exposing (attribute, tag, text)
 import TestUtils exposing (queryFromStyledHtml)
 import View.NotAlone exposing (view)
 

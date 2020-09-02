@@ -110,7 +110,7 @@ maxMobile =
 
 withMediaTabletOrDesktop : List Style -> Style
 withMediaTabletOrDesktop =
-    withMedia [ only screen [ Media.minWidth (px maxMobile) ] ]
+    withMedia [ only screen [ Media.minWidth (px maxMobile), Media.maxWidth (px maxTablet) ] ]
 
 
 maxTablet : Float

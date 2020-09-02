@@ -115,13 +115,13 @@ cardStyle =
         , margin (rem 1)
         , minHeight (px 450)
         , position relative
-        , withMedia [ only screen [ Media.minWidth (px 576), Media.maxWidth (px 991) ] ]
+        , withMediaTabletOrDesktop
             [ flex3 zero zero twoColumn
             , nthOfType "3n-1"
-                [ border zero
+                [ border3 (px 2) solid grey
                 ]
             ]
-        , withMedia [ only screen [ Media.minWidth (px 992) ] ]
+        , withMediaDesktop
             [ flex3 zero zero threeColumn
             , nthOfType "3n-1"
                 [ marginTop (rem 6)
