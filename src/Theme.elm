@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navLinkStyle, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
+module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -251,26 +251,6 @@ navItemStyles =
             [ flex3 zero zero threeColumn ]
         ]
     ]
-
-
-navLinkStyle : Style
-navLinkStyle =
-    batch
-        [ backgroundColor purple
-        , borderRadius (rem 0.5)
-        , color white
-        , displayFlex
-        , flexDirection column
-        , justifyContent center
-        , padding (rem 0.5)
-        , minHeight (rem 4)
-        , textAlign center
-        , textDecoration none
-        , width (pct 100)
-        , hover
-            [ backgroundColor purple
-            ]
-        ]
 
 
 
