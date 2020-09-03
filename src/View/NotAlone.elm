@@ -117,9 +117,6 @@ cardStyle =
         , position relative
         , withMediaTabletOrDesktop
             [ flex3 zero zero twoColumn
-            , nthOfType "3n-1"
-                [ border3 (px 2) solid grey
-                ]
             ]
         , withMediaDesktop
             [ flex3 zero zero threeColumn
