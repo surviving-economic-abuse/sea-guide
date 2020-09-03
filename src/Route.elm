@@ -1,4 +1,4 @@
-module Route exposing (Direction(..), Route(..), fromUrl, renderNavLink, toString)
+module Route exposing (Direction(..), Route(..), fromUrl, renderExternalNavLink, renderNavLink, toString)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, a, img, span, text)
 import Html.Styled.Attributes exposing (alt, css, href, src)
-import Theme exposing (grey, lightPurple, purple, white, withMediaTabletOrDesktop)
+import Theme exposing (grey, lightPurple, purple, teal, white, withMediaTabletOrDesktop)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
@@ -69,11 +69,19 @@ renderNavLink direction route copyKey =
                 ]
 
 
+renderExternalNavLink : Key -> Key -> Html msg
+renderExternalNavLink route copyKey =
+    a [ href (t route), css [ navLinkStyle ] ]
+        [ span [] [ text (t copyKey) ]
+        ]
+
+
 navLinkStyle : Style
 navLinkStyle =
     batch
         [ alignItems center
         , backgroundColor purple
+        , border3 (px 3) solid transparent
         , borderRadius (rem 100)
         , color white
         , displayFlex
@@ -87,6 +95,10 @@ navLinkStyle =
         , hover
             [ backgroundColor lightPurple
             , color grey
+            ]
+        , focus
+            [ border3 (px 3) solid teal
+            , outline zero
             ]
         , transition
             [ Css.Transitions.backgroundColor 200
