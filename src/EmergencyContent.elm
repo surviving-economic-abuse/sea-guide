@@ -129,9 +129,8 @@ emergencyPanelHeaderStyle =
 emergencyPanelHeaderIconStyle : Style
 emergencyPanelHeaderIconStyle =
     batch
-        [ flex3 zero zero (pct 20)
-        , height (px 40)
-        , margin auto
+        [ flex3 zero zero (rem 3)
+        , height (rem 3)
         ]
 
 
@@ -146,8 +145,21 @@ emergencyPanelHeaderButtonStyle : Style
 emergencyPanelHeaderButtonStyle =
     batch
         [ backgroundColor transparent
-        , border zero
-        , flex3 zero zero (pct 20)
+        , border3 (px 3) solid transparent
+        , borderRadius (pct 50)
+        , cursor pointer
+        , displayFlex
+        , flex3 zero zero (rem 3)
+        , flexDirection column
+        , justifyContent center
+        , height (rem 3)
+        , hover
+            [ border3 (px 3) solid lightPurple
+            ]
+        , focus
+            [ border3 (px 3) solid teal
+            , outline none
+            ]
         ]
 
 
@@ -170,10 +182,11 @@ emergencyButtonStyle =
         [ alignItems center
         , backgroundColor white
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
-        , border zero
+        , border3 (px 3) solid transparent
         , borderRadius (px 50)
         , bottom (pct 10)
         , color grey
+        , cursor pointer
         , displayFlex
         , flexDirection column
         , fontSize (rem 1)
@@ -183,6 +196,13 @@ emergencyButtonStyle =
         , right (px 5)
         , width (rem 3.75)
         , zIndex (int 1)
+        , hover
+            [ border3 (px 3) solid green
+            ]
+        , focus
+            [ border3 (px 3) solid green
+            , outline zero
+            ]
         , withMediaTabletOrDesktop
             [ right (px 20)
             ]

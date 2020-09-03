@@ -6,8 +6,8 @@ import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 import Page.GetHelp exposing (CallToAction(..))
-import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, white, withMediaDesktop)
+import Route exposing (Direction(..), Route(..), renderExternalNavLink, renderNavLink)
+import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, withMediaDesktop)
 
 
 view : Float -> Html never
@@ -37,10 +37,7 @@ renderCallToAction : Float -> CallToAction -> Html msg
 renderCallToAction viewportWidth call =
     case call of
         JoinForum ->
-            a
-                [ href (t SeaSurvivorForumHref), css [ linkStyle ] ]
-                [ span [] [ text (t GetHelpSection1CallToAction) ]
-                ]
+            renderExternalNavLink SeaSurvivorForumHref GetHelpSection1CallToAction
 
         CallSupport ->
             div [ css [ infoStyle ] ]
@@ -54,10 +51,7 @@ renderCallToAction viewportWidth call =
                 ]
 
         SeeOrgs ->
-            a
-                [ href (t SeaOrganisationsResourceHref), css [ linkStyle ] ]
-                [ span [] [ text (t GetHelpSection3CallToAction) ]
-                ]
+            renderExternalNavLink SeaOrganisationsResourceHref GetHelpSection3CallToAction
 
 
 renderPhoneNumber : Float -> String -> Html msg
@@ -135,22 +129,6 @@ quoteStyle =
         , paddingLeft (rem 1)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
-        ]
-
-
-linkStyle : Style
-linkStyle =
-    batch
-        [ backgroundColor purple
-        , borderRadius (rem 0.5)
-        , color white
-        , display block
-        , padding (rem 0.5)
-        , textAlign center
-        , textDecoration none
-        , hover
-            [ backgroundColor purple
-            ]
         ]
 
 
