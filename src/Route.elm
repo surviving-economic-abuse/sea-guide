@@ -58,14 +58,14 @@ renderNavLink direction route copyKey =
     case direction of
         Back ->
             a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
-                [ img [ src "/sea-map/Arrow.svg", alt "", css [ backArrowStyle ] ] []
+                [ img [ src "/Arrow.svg", alt "", css [ backArrowStyle ] ] []
                 , span [] [ text (t copyKey) ]
                 ]
 
         Forward ->
             a [ href (toString route), css [ navLinkStyle ] ]
                 [ span [] [ text (t copyKey) ]
-                , img [ src "/sea-map/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                , img [ src "/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
                 ]
 
 
@@ -138,10 +138,4 @@ routeParser =
         , Parser.map GetHelp (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGrid (Parser.s (t HelpSelfGridPageSlug))
         , Parser.map HelpSelfSingle (Parser.s "help-self" </> string)
-
-        -- Hardcoded to include staging prefix
-        , Parser.map Definition (Parser.s "sea-map" </> Parser.s (t DefinitionPageSlug))
-        , Parser.map GetHelp (Parser.s "sea-map" </> Parser.s (t GetHelpPageSlug))
-        , Parser.map HelpSelfGrid (Parser.s "sea-map" </> Parser.s (t HelpSelfGridPageSlug))
-        , Parser.map HelpSelfSingle (Parser.s "sea-map" </> Parser.s "help-self" </> string)
         ]

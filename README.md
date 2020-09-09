@@ -2,7 +2,9 @@
 
 ## Site URLs
 
-- [Staging (for Alpha)](http://neontribe.github.io/sea-map)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7786cc97-9bfb-4b62-b8b6-b17f43d3dacc/deploy-status)](https://app.netlify.com/sites/sea-map/deploys)
+- [Staging (deploy previews for each pull request)](https://app.netlify.com/sites/sea-map/deploys)
+- [Release](https://sea-map.netlify.app)
 
 ## Development
 
@@ -39,11 +41,9 @@ resolve from nested urls, please use a preceding `/` when `src`-ing them.
 
 - `npm run build` to bundle app to `dist` dir
 
-### Deploy to GitHub pages with Travis
+### Deploy to Netlify
 
-We're using [Travis](https://travis-ci.org).
+We're using [Netlify](https://www.netlify.com).
 
-- On every push to the repo, Travis will build and run tests
-- On every merge to `release` Travis will deploy to `gh-pages`
-Encrypted vars can be added to `.travis.yml` using the travis cli tools as decribed in the [travis docs](https://docs.travis-ci.com/user/encryption-keys/#usage).
-Currently configured with GITHUB_TOKEN value.
+- On every pull request raised against `release`, Netlify will build, run tests and deploy to preview
+- On every merge to `release` Netlify will deploy to [sea-map.netlify.app](https://sea-map.netlify.app)

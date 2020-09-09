@@ -19,11 +19,11 @@ renderEmergencyPanel : Float -> Html Msg
 renderEmergencyPanel viewportWidth =
     div [ css [ emergencyPanelStyle ], id "emergency" ]
         [ div [ css [ emergencyPanelHeaderStyle ] ]
-            [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Emergency.svg", alt "" ] []
+            [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Emergency.svg", alt "" ] []
             , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text (t EmergencyReassure) ]
             , button
                 [ css [ emergencyPanelHeaderButtonStyle ], onClick EmergencyButtonClicked ]
-                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/sea-map/Close.svg", alt "Close" ] [] ]
+                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Close.svg", alt "Close" ] [] ]
             ]
         , div [ css [ emergencyPanelBodyStyle ] ]
             [ p []
@@ -71,7 +71,7 @@ renderEmergencyButton =
     button
         [ css [ emergencyButtonStyle ], onClick EmergencyButtonClicked ]
         [ span [] [ text (t EmergencyButton) ]
-        , img [ css [ iconStyle ], src "/sea-map/Emergency.svg", alt "" ] []
+        , img [ css [ iconStyle ], src "/Emergency.svg", alt "" ] []
         ]
 
 

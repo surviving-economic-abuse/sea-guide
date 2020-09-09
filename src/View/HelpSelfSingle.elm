@@ -45,7 +45,7 @@ renderResourceList model resources =
                     li [ css [ expanderItemStyle ] ]
                         [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg", alt "" ] []
+                            , img [ css [ expanderSymbolStyle, rotate90Style ], src "/Arrow.svg", alt "" ] []
                             ]
                         , div [ css expanderDefinitionStyles ]
                             ([]
@@ -57,7 +57,7 @@ renderResourceList model resources =
                     li [ css [ expanderItemStyle ] ]
                         [ button [ onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
-                            , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg", alt "" ] []
+                            , img [ css [ expanderSymbolStyle ], src "/Arrow.svg", alt "" ] []
                             ]
                         ]
             )

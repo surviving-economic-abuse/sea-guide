@@ -78,7 +78,7 @@ renderTerm model category =
         dt [ css [ expanderItemStyle ] ]
             [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle, rotate90Style ], src "/sea-map/Arrow.svg", alt "" ] []
+                , img [ css [ expanderSymbolStyle, rotate90Style ], src "/Arrow.svg", alt "" ] []
                 ]
             ]
 
@@ -86,7 +86,7 @@ renderTerm model category =
         dt [ css [ expanderItemStyle ] ]
             [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
-                , img [ css [ expanderSymbolStyle ], src "/sea-map/Arrow.svg", alt "" ] []
+                , img [ css [ expanderSymbolStyle ], src "/Arrow.svg", alt "" ] []
                 ]
             ]
 
