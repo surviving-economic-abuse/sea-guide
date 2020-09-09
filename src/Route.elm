@@ -58,14 +58,14 @@ renderNavLink direction route copyKey =
     case direction of
         Back ->
             a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
-                [ img [ src "/sea-map/Arrow.svg", alt "", css [ backArrowStyle ] ] []
+                [ img [ src "/Arrow.svg", alt "", css [ backArrowStyle ] ] []
                 , span [] [ text (t copyKey) ]
                 ]
 
         Forward ->
             a [ href (toString route), css [ navLinkStyle ] ]
                 [ span [] [ text (t copyKey) ]
-                , img [ src "/sea-map/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                , img [ src "/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
                 ]
 
 
