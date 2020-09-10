@@ -37,6 +37,13 @@ type Key
     | HelpSelfInfoLawResource2Href
     | HelpSelfSeparatingResource1Href
     | HelpSelfSeparatingResource2Href
+      -- Cookies and Privacy
+    | CookieBannerP
+    | CookieBannerPrivacyLink
+    | CookieAcceptButton
+    | CookieDeclineButton
+    | CookieSettingsButton
+    | PrivacyContent
       -- Not Alone page
     | NotAloneTitle
     | Journey1Teaser

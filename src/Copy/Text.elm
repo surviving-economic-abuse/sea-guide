@@ -112,6 +112,25 @@ t key =
         HelpSelfSeparatingResource2Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Separating-finances-from-the-abuser.pdf"
 
+        -- Cookies and Privacy
+        CookieBannerP ->
+            "[cCc] Cookie banner intro text"
+
+        CookieBannerPrivacyLink ->
+            "[cCc] Privacy information"
+
+        CookieAcceptButton ->
+            "[cCc] Accept"
+
+        CookieDeclineButton ->
+            "[cCc] Decline"
+
+        CookieSettingsButton ->
+            "[cCc] Cookie settings"
+
+        PrivacyContent ->
+            "[cCc] This will grow. Privacy info."
+
         -- Not Alone page
         NotAloneTitle ->
             "You are not alone"
