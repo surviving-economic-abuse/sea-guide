@@ -39,7 +39,7 @@ type Key
     | HelpSelfSeparatingResource2Href
       -- Cookies and Privacy
     | CookieBannerP
-    | CookieBannerPrivacyLink
+    | CookieBannerPrivacyButton
     | CookieAcceptButton
     | CookieDeclineButton
     | CookieSettingsButton

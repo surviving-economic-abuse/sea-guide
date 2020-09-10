@@ -116,7 +116,7 @@ t key =
         CookieBannerP ->
             "[cCc] Cookie banner intro text"
 
-        CookieBannerPrivacyLink ->
+        CookieBannerPrivacyButton ->
             "[cCc] Privacy information"
 
         CookieAcceptButton ->

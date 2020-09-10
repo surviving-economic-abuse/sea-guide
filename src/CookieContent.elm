@@ -22,7 +22,7 @@ renderCookieContent cookieState =
             renderCookieBanner cookieState
 
           else
-            renderCookieSettingsLink
+            renderCookieSettingsButton
         ]
 
 
@@ -30,7 +30,7 @@ renderCookieBanner : CookieState -> Html Msg
 renderCookieBanner cookieState =
     div []
         [ p [] [ text (t CookieBannerP) ]
-        , button [ onClick (CookieButtonClicked ViewPrivacy) ] [ text (t CookieBannerPrivacyLink) ]
+        , button [ onClick (CookieButtonClicked ViewPrivacy) ] [ text (t CookieBannerPrivacyButton) ]
         , if cookieState.privacyInfoIsOpen then
             renderPrivacyInformation
 
@@ -41,8 +41,8 @@ renderCookieBanner cookieState =
         ]
 
 
-renderCookieSettingsLink : Html Msg
-renderCookieSettingsLink =
+renderCookieSettingsButton : Html Msg
+renderCookieSettingsButton =
     button [ onClick (CookieButtonClicked ViewCookieSettings) ] [ text (t CookieSettingsButton) ]
 
 
