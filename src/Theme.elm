@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
+module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -369,3 +369,8 @@ container children =
 containerContent : List (Html msg) -> Html msg
 containerContent children =
     div [ css [ margin2 zero auto, maxWidth (px 800), width (pct 100) ] ] children
+
+
+generateId : String -> String
+generateId input =
+    String.trim (String.replace " " "-" (String.toLower input))
