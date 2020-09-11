@@ -10,7 +10,7 @@ import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
-import Message exposing (CookieButton(..), Msg(..))
+import Message exposing (CookieButton(..), Msg(..), gaEvent, updateAnalyticsEvent, updateAnalyticsPage)
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
@@ -54,7 +54,7 @@ type alias Model =
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     ( { key = key
-      , page = pageFromMaybeRoute (Route.fromUrl url)
+      , page = pageFromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
       , cookieState =
@@ -74,23 +74,27 @@ type Page
     | NotAlonePage Page.NotAlone.Model
 
 
-pageFromMaybeRoute : Maybe Route -> Page
-pageFromMaybeRoute route =
+pageToString : Page -> String
+pageToString page =
+    "page name"
+
+
+pageFromRoute : Route -> Page
+pageFromRoute route =
     case route of
-        Just Route.Definition ->
+        Route.Definition ->
             DefinitionPage { openCategories = Set.empty }
 
-        Just Route.GetHelp ->
+        Route.GetHelp ->
             GetHelpPage
 
-        Just Route.HelpSelfGrid ->
+        Route.HelpSelfGrid ->
             HelpSelfGridPage
 
-        Just (Route.HelpSelfSingle string) ->
+        Route.HelpSelfSingle string ->
             HelpSelfSinglePage { openResources = Set.empty } string
 
-        -- Always fall back to home if route does not exist
-        _ ->
+        Route.NotAlone ->
             NotAlonePage { revealedJourney = Nothing }
 
 
@@ -114,10 +118,13 @@ update msg model =
 
         UrlChanged url ->
             let
+                route =
+                    Maybe.withDefault NotAlone (Route.fromUrl url)
+
                 newPage =
-                    pageFromMaybeRoute (Route.fromUrl url)
+                    pageFromRoute route
             in
-            ( { model | page = newPage }, resetViewportTop )
+            ( { model | page = newPage }, Cmd.batch [ resetViewportTop, updateAnalyticsPage (Route.toString route) ] )
 
         GotViewport viewport ->
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
