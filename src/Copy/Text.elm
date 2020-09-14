@@ -114,7 +114,7 @@ t key =
 
         -- Cookies and Privacy
         CookieBannerP ->
-            "[cCc] Cookie banner intro text"
+            "[cCc] Can we use cookies to help improve this site? We'd like to use Google Analytics cookies to collect and report information on how people use the site. Allowing us to use cookies does not allow us to identify you."
 
         CookieBannerPrivacyButton ->
             "[cCc] Privacy information"

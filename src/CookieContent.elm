@@ -12,6 +12,7 @@ import Theme exposing (..)
 type alias CookieState =
     { cookieBannerIsOpen : Bool
     , privacyInfoIsOpen : Bool
+    , hasConsentedToCookies : Bool
     }
 
 

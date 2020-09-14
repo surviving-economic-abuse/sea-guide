@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsPage)
 import Browser
 import Browser.Dom
 import Browser.Navigation
@@ -54,12 +55,13 @@ type alias Model =
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     ( { key = key
-      , page = pageFromMaybeRoute (Route.fromUrl url)
+      , page = pageFromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
       , cookieState =
             { cookieBannerIsOpen = True
             , privacyInfoIsOpen = False
+            , hasConsentedToCookies = False
             }
       }
     , Task.perform GotViewport Browser.Dom.getViewport
@@ -74,23 +76,22 @@ type Page
     | NotAlonePage Page.NotAlone.Model
 
 
-pageFromMaybeRoute : Maybe Route -> Page
-pageFromMaybeRoute route =
+pageFromRoute : Route -> Page
+pageFromRoute route =
     case route of
-        Just Route.Definition ->
+        Route.Definition ->
             DefinitionPage { openCategories = Set.empty }
 
-        Just Route.GetHelp ->
+        Route.GetHelp ->
             GetHelpPage
 
-        Just Route.HelpSelfGrid ->
+        Route.HelpSelfGrid ->
             HelpSelfGridPage
 
-        Just (Route.HelpSelfSingle string) ->
+        Route.HelpSelfSingle string ->
             HelpSelfSinglePage { openResources = Set.empty } string
 
-        -- Always fall back to home if route does not exist
-        _ ->
+        Route.NotAlone ->
             NotAlonePage { revealedJourney = Nothing }
 
 
@@ -114,10 +115,22 @@ update msg model =
 
         UrlChanged url ->
             let
+                route =
+                    Maybe.withDefault NotAlone (Route.fromUrl url)
+
                 newPage =
-                    pageFromMaybeRoute (Route.fromUrl url)
+                    pageFromRoute route
+
+                hasConsented =
+                    model.cookieState.hasConsentedToCookies
             in
-            ( { model | page = newPage }, Cmd.batch [ resetViewportTop, resetFocusTop ] )
+            ( { model | page = newPage }
+            , Cmd.batch
+                [ resetFocusTop
+                , resetViewportTop
+                , updateAnalytics hasConsented (updateAnalyticsPage (Route.toString route))
+                ]
+            )
 
         GotViewport viewport ->
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
@@ -132,22 +145,26 @@ update msg model =
                         ViewCookieSettings ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = True
+                            , hasConsentedToCookies = model.cookieState.hasConsentedToCookies
                             }
 
                         ViewPrivacy ->
                             { privacyInfoIsOpen = not model.cookieState.privacyInfoIsOpen
                             , cookieBannerIsOpen = True
+                            , hasConsentedToCookies = model.cookieState.hasConsentedToCookies
                             }
 
                         -- When we accept or decline, collapse privacy info too.
                         AcceptCookies ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = False
+                            , hasConsentedToCookies = True
                             }
 
                         DeclineCookies ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = False
+                            , hasConsentedToCookies = False
                             }
             in
             ( { model | cookieState = newCookieState }, Cmd.none )
@@ -238,6 +255,10 @@ view model =
 
 pageToHtmlMsg : Model -> Html Msg
 pageToHtmlMsg model =
+    let
+        hasConsented =
+            model.cookieState.hasConsentedToCookies
+    in
     case model.page of
         DefinitionPage definition ->
             Html.Styled.map DefinitionMsg (View.Definition.view definition)
@@ -252,4 +273,4 @@ pageToHtmlMsg model =
             Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view category helpSelfSingle)
 
         NotAlonePage notAlone ->
-            Html.Styled.map NotAloneMsg (View.NotAlone.view notAlone)
+            Html.Styled.map NotAloneMsg (View.NotAlone.view hasConsented notAlone)

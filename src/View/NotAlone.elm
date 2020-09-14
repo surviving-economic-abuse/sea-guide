@@ -13,8 +13,8 @@ import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 
-view : Model -> Html Msg
-view model =
+view : Bool -> Model -> Html Msg
+view hasConsented model =
     div []
         [ containerContent
             [ header []
@@ -23,12 +23,12 @@ view model =
             ]
         , container
             [ ul [ css [ gridStyle ], ariaLive "polite" ]
-                [ card model JourneyCard1
-                , card model JourneyCard2
-                , card model JourneyCard3
-                , card model JourneyCard4
-                , card model JourneyCard5
-                , card model JourneyCard6
+                [ card hasConsented model JourneyCard1
+                , card hasConsented model JourneyCard2
+                , card hasConsented model JourneyCard3
+                , card hasConsented model JourneyCard4
+                , card hasConsented model JourneyCard5
+                , card hasConsented model JourneyCard6
                 ]
             ]
         , verticalSpacing 2
@@ -41,22 +41,22 @@ view model =
         ]
 
 
-card : Model -> JourneyCard -> Html Msg
-card model journeyCardPosition =
-    renderCard model journeyCardPosition
+card : Bool -> Model -> JourneyCard -> Html Msg
+card hasConsented model journeyCardPosition =
+    renderCard hasConsented model journeyCardPosition
 
 
-renderCard : Model -> JourneyCard -> Html Msg
-renderCard model journeyCardPosition =
+renderCard : Bool -> Model -> JourneyCard -> Html Msg
+renderCard hasConsented model journeyCardPosition =
     if journeyIsRevealed model journeyCardPosition then
-        renderRevealedCard journeyCardPosition
+        renderRevealedCard hasConsented journeyCardPosition
 
     else
-        renderInitCard journeyCardPosition
+        renderInitCard hasConsented journeyCardPosition
 
 
-renderInitCard : JourneyCard -> Html Msg
-renderInitCard journeyCardPosition =
+renderInitCard : Bool -> JourneyCard -> Html Msg
+renderInitCard hasConsented journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
@@ -65,7 +65,7 @@ renderInitCard journeyCardPosition =
         [ div [ css [ innerCardStyle ] ]
             [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
             , div [ css [ greenDividerStyle ] ] []
-            , button [ css [ buttonStyle ], onClick (ToggleJourney journeyCardPosition) ]
+            , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
                 , img [ src "/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
                 ]
@@ -73,15 +73,15 @@ renderInitCard journeyCardPosition =
         ]
 
 
-renderRevealedCard : JourneyCard -> Html Msg
-renderRevealedCard journeyCardPosition =
+renderRevealedCard : Bool -> JourneyCard -> Html Msg
+renderRevealedCard hasConsented journeyCardPosition =
     let
         journeyContent =
             journeyContentFromCardPosition journeyCardPosition
     in
     li [ css [ cardStyle, openStyle ] ]
         [ div []
-            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
+            [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
                 [ img [ css [ height (px 44), margin auto ], src "/Close.svg", alt (t CloseButton) ] []
                 ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
