@@ -1,7 +1,9 @@
 module Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed, update)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent)
 import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Task
 
 
@@ -13,7 +15,7 @@ type alias Model =
 type Msg
     = NoOp
     | ScrollTo
-    | ToggleJourney JourneyCard
+    | ToggleJourney Bool JourneyCard
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -26,17 +28,29 @@ update msg model =
             -- setViewport to a large number forces it to the bottom of the page
             ( model, Task.perform (always NoOp) (Dom.setViewport 0 99999) )
 
-        ToggleJourney journeyCardPosition ->
+        ToggleJourney hasConsented journeyCardPosition ->
             let
-                revealedCard =
+                revealedCardData =
                     -- We've clicked a revealed card
                     if journeyIsRevealed model journeyCardPosition then
-                        Nothing
+                        { action = "closed"
+                        , position = Nothing
+                        }
 
                     else
-                        Just journeyCardPosition
+                        { action = "opened"
+                        , position = Just journeyCardPosition
+                        }
             in
-            ( { model | revealedJourney = revealedCard }, Cmd.none )
+            ( { model | revealedJourney = revealedCardData.position }
+            , updateAnalytics hasConsented
+                (updateAnalyticsEvent
+                    { category = "survivor-story"
+                    , action = revealedCardData.action
+                    , label = labelFromCardPosition journeyCardPosition
+                    }
+                )
+            )
 
 
 journeyIsRevealed : Model -> JourneyCard -> Bool
@@ -64,6 +78,11 @@ type JourneyCard
     | JourneyCard4
     | JourneyCard5
     | JourneyCard6
+
+
+labelFromCardPosition : JourneyCard -> String
+labelFromCardPosition cardPosition =
+    t (journeyContentFromCardPosition cardPosition).teaser
 
 
 journeyContentFromCardPosition : JourneyCard -> JourneyContent

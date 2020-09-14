@@ -21,22 +21,22 @@ suite =
         initModel =
             { revealedJourney = Nothing }
 
-        viewInitModel =
-            view initModel
+        viewInitModelWithoutCookieConsent =
+            view False initModel
     in
     describe "NotAlone View"
         [ test "NotAlone view has title" <|
             \() ->
-                queryFromStyledHtml viewInitModel
+                queryFromStyledHtml viewInitModelWithoutCookieConsent
                     |> Query.contains [ Html.text (t NotAloneTitle) ]
         , test "NotAlone view has 1 nav link" <|
             \() ->
-                queryFromStyledHtml viewInitModel
+                queryFromStyledHtml viewInitModelWithoutCookieConsent
                     |> Query.findAll [ tag "a" ]
                     |> Query.count (Expect.equal 1)
         , test "NotAlone view has nav links to definition" <|
             \() ->
-                queryFromStyledHtml viewInitModel
+                queryFromStyledHtml viewInitModelWithoutCookieConsent
                     |> Query.findAll [ tag "a", attribute (Html.Attributes.href (t DefinitionPageSlug)) ]
                     |> Query.each (Query.has [ text (t ToDefinitionFromNotAloneLink) ])
 
