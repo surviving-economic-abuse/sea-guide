@@ -3,13 +3,14 @@ module Main exposing (main)
 import Browser
 import Browser.Dom
 import Browser.Navigation
+import CookieContent exposing (CookieState, renderCookieContent)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css)
-import Message exposing (Msg(..))
+import Html.Styled.Attributes exposing (..)
+import Message exposing (CookieButton(..), Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
@@ -46,6 +47,7 @@ type alias Model =
     , page : Page
     , viewportWidth : Float
     , emergencyPopupIsOpen : Bool
+    , cookieState : CookieState
     }
 
 
@@ -55,6 +57,10 @@ init _ url key =
       , page = pageFromMaybeRoute (Route.fromUrl url)
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
+      , cookieState =
+            { cookieBannerIsOpen = True
+            , privacyInfoIsOpen = False
+            }
       }
     , Task.perform GotViewport Browser.Dom.getViewport
     )
@@ -118,6 +124,33 @@ update msg model =
 
         EmergencyButtonClicked ->
             ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
+
+        CookieButtonClicked button ->
+            let
+                newCookieState =
+                    case button of
+                        ViewCookieSettings ->
+                            { privacyInfoIsOpen = False
+                            , cookieBannerIsOpen = True
+                            }
+
+                        ViewPrivacy ->
+                            { privacyInfoIsOpen = not model.cookieState.privacyInfoIsOpen
+                            , cookieBannerIsOpen = True
+                            }
+
+                        -- When we accept or decline, collapse privacy info too.
+                        AcceptCookies ->
+                            { privacyInfoIsOpen = False
+                            , cookieBannerIsOpen = False
+                            }
+
+                        DeclineCookies ->
+                            { privacyInfoIsOpen = False
+                            , cookieBannerIsOpen = False
+                            }
+            in
+            ( { model | cookieState = newCookieState }, Cmd.none )
 
         DefinitionMsg subMsg ->
             case model.page of
@@ -199,6 +232,7 @@ view model =
 
           else
             renderEmergencyButton
+        , renderCookieContent model.cookieState
         ]
 
 
