@@ -4,7 +4,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
-import Html.Styled.Attributes exposing (alt, css, id, src)
+import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
 import Html.Styled.Attributes.Aria exposing (ariaControls, ariaExpanded)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
@@ -18,7 +18,7 @@ view model =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t DefinitionTitle) ]
                 , div [ css [ introStyle ] ]
                     [ p [] (renderWithKeywords (t DefinitionConciseP1))
                     , p [] (renderWithKeywords (t DefinitionConciseP2))

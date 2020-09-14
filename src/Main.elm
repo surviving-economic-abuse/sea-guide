@@ -8,7 +8,7 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, id, tabindex)
+import Html.Styled.Attributes exposing (css)
 import Message exposing (Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
@@ -190,7 +190,7 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    div [ css [ minHeight (vh 100), outline none, waveStyle ], id "focus-target", tabindex -1 ]
+    div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
         , renderExitButton
         , pageToHtmlMsg model

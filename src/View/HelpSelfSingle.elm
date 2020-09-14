@@ -20,7 +20,7 @@ view slug model =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t categoryData.title) ] ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t categoryData.title) ] ]
             , case categoryData.resources of
                 Just resources ->
                     div [ css [ margin2 zero (rem 1) ] ] [ renderResourceList model resources ]
