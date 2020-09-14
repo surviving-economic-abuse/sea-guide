@@ -1,4 +1,4 @@
-port module Message exposing (CookieButton(..), Msg(..), gaEvent, updateAnalyticsEvent, updateAnalyticsPage)
+module Message exposing (CookieButton(..), Msg(..))
 
 import Browser
 import Browser.Dom
@@ -33,28 +33,3 @@ type CookieButton
     | ViewPrivacy
     | AcceptCookies
     | DeclineCookies
-
-
-
--- js ports can only take one arg - so bundle event strings
-
-
-type alias GaEvent =
-    { category : String
-    , action : String
-    , label : String
-    }
-
-
-gaEvent : String -> String -> String -> GaEvent
-gaEvent category action label =
-    { category = category
-    , action = action
-    , label = label
-    }
-
-
-port updateAnalyticsPage : String -> Cmd msg
-
-
-port updateAnalyticsEvent : GaEvent -> Cmd msg

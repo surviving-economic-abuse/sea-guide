@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsPage)
 import Browser
 import Browser.Dom
 import Browser.Navigation
@@ -10,7 +11,7 @@ import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
-import Message exposing (CookieButton(..), Msg(..), gaEvent, updateAnalyticsEvent, updateAnalyticsPage)
+import Message exposing (CookieButton(..), Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
@@ -119,11 +120,14 @@ update msg model =
 
                 newPage =
                     pageFromRoute route
+
+                hasConsented =
+                    model.cookieState.hasConsentedToCookies
             in
             ( { model | page = newPage }
             , Cmd.batch
                 [ resetViewportTop
-                , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsPage (Route.toString route))
+                , updateAnalytics hasConsented (updateAnalyticsPage (Route.toString route))
                 ]
             )
 
@@ -214,19 +218,6 @@ updateNotAlone model ( notAlone, cmds ) =
     )
 
 
-
--- We only want to send analytics info if we have cookine consent
-
-
-updateAnalytics : Bool -> Cmd Msg -> Cmd Msg
-updateAnalytics hasConsented sendAnalyticsMessage =
-    if hasConsented then
-        sendAnalyticsMessage
-
-    else
-        Cmd.none
-
-
 resetViewportTop : Cmd Msg
 resetViewportTop =
     Task.perform (\_ -> NoOp) (Browser.Dom.setViewport 0 0)
@@ -258,6 +249,10 @@ view model =
 
 pageToHtmlMsg : Model -> Html Msg
 pageToHtmlMsg model =
+    let
+        hasConsented =
+            model.cookieState.hasConsentedToCookies
+    in
     case model.page of
         DefinitionPage definition ->
             Html.Styled.map DefinitionMsg (View.Definition.view definition)
@@ -272,4 +267,4 @@ pageToHtmlMsg model =
             Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view category helpSelfSingle)
 
         NotAlonePage notAlone ->
-            Html.Styled.map NotAloneMsg (View.NotAlone.view notAlone)
+            Html.Styled.map NotAloneMsg (View.NotAlone.view hasConsented notAlone)
