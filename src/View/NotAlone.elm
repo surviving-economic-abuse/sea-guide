@@ -5,7 +5,8 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (alt, css, src)
+import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
+import Html.Styled.Attributes.Aria exposing (ariaLive)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
@@ -17,11 +18,11 @@ view model =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t NotAloneTitle) ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t NotAloneTitle) ]
                 ]
             ]
         , container
-            [ ul [ css [ gridStyle ] ]
+            [ ul [ css [ gridStyle ], ariaLive "polite" ]
                 [ card model JourneyCard1
                 , card model JourneyCard2
                 , card model JourneyCard3
@@ -81,7 +82,7 @@ renderRevealedCard journeyCardPosition =
     li [ css [ cardStyle, openStyle ] ]
         [ div []
             [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney journeyCardPosition) ]
-                [ img [ css [ height (px 44), margin auto ], src "/Close.svg", alt "Close" ] []
+                [ img [ css [ height (px 44), margin auto ], src "/Close.svg", alt "Close button" ] []
                 ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
             , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
