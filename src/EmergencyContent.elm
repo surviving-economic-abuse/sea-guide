@@ -23,7 +23,7 @@ renderEmergencyPanel viewportWidth =
             , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text (t EmergencyReassure) ]
             , button
                 [ css [ emergencyPanelHeaderButtonStyle ], onClick EmergencyButtonClicked ]
-                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Close.svg", alt "Close" ] [] ]
+                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Close.svg", alt (t CloseButton) ] [] ]
             ]
         , div [ css [ emergencyPanelBodyStyle ] ]
             [ p []

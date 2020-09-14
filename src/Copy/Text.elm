@@ -235,6 +235,9 @@ t key =
         ToDefinitionFromNotAloneLink ->
             "Find out about economic abuse"
 
+        CloseButton ->
+            "Close button"
+
         ExitButton ->
             "EXIT SITE"
 
