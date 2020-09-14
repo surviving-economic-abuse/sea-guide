@@ -8,7 +8,7 @@ import Copy.Text exposing (t)
 import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (..)
+import Html.Styled.Attributes exposing (css, id, tabindex)
 import Message exposing (Msg(..))
 import Page.Definition
 import Page.HelpSelfSingle
@@ -111,7 +111,7 @@ update msg model =
                 newPage =
                     pageFromMaybeRoute (Route.fromUrl url)
             in
-            ( { model | page = newPage }, resetViewportTop )
+            ( { model | page = newPage }, Cmd.batch [ resetViewportTop, resetFocusTop ] )
 
         GotViewport viewport ->
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
@@ -174,6 +174,11 @@ resetViewportTop =
     Task.perform (\_ -> NoOp) (Browser.Dom.setViewport 0 0)
 
 
+resetFocusTop : Cmd Msg
+resetFocusTop =
+    Task.attempt (\_ -> NoOp) (Browser.Dom.focus "focus-target")
+
+
 
 -- VIEW
 
@@ -185,7 +190,7 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    div [ css [ minHeight (vh 100), waveStyle ] ]
+    div [ css [ minHeight (vh 100), outline none, waveStyle ], id "focus-target", tabindex -1 ]
         [ globalStyles
         , renderExitButton
         , pageToHtmlMsg model

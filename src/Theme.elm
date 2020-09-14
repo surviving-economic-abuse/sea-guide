@@ -185,7 +185,7 @@ pageHeadingStyle : Style
 pageHeadingStyle =
     batch
         [ fontSize (rem 1.8)
-        , margin2 (rem 2) zero
+        , padding2 (rem 2) zero
         , textAlign center
         , withMediaTabletOrDesktop
             [ fontSize (rem 2.5) ]
