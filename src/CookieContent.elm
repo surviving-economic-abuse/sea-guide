@@ -1,4 +1,4 @@
-module CookieContent exposing (CookieState, renderCookieContent)
+port module CookieContent exposing (CookieState, renderCookieContent, saveConsent)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -50,3 +50,6 @@ renderCookieSettingsButton =
 renderPrivacyInformation : Html Msg
 renderPrivacyInformation =
     div [] [ p [] [ text (t PrivacyContent) ] ]
+
+
+port saveConsent : Bool -> Cmd msg
