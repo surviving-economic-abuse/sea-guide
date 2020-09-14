@@ -60,6 +60,7 @@ init _ url key =
       , cookieState =
             { cookieBannerIsOpen = True
             , privacyInfoIsOpen = False
+            , hasConsentedToCookies = False
             }
       }
     , Task.perform GotViewport Browser.Dom.getViewport
@@ -72,11 +73,6 @@ type Page
     | HelpSelfGridPage
     | HelpSelfSinglePage Page.HelpSelfSingle.Model String
     | NotAlonePage Page.NotAlone.Model
-
-
-pageToString : Page -> String
-pageToString page =
-    "page name"
 
 
 pageFromRoute : Route -> Page
@@ -124,7 +120,12 @@ update msg model =
                 newPage =
                     pageFromRoute route
             in
-            ( { model | page = newPage }, Cmd.batch [ resetViewportTop, updateAnalyticsPage (Route.toString route) ] )
+            ( { model | page = newPage }
+            , Cmd.batch
+                [ resetViewportTop
+                , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsPage (Route.toString route))
+                ]
+            )
 
         GotViewport viewport ->
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
@@ -139,22 +140,26 @@ update msg model =
                         ViewCookieSettings ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = True
+                            , hasConsentedToCookies = model.cookieState.hasConsentedToCookies
                             }
 
                         ViewPrivacy ->
                             { privacyInfoIsOpen = not model.cookieState.privacyInfoIsOpen
                             , cookieBannerIsOpen = True
+                            , hasConsentedToCookies = model.cookieState.hasConsentedToCookies
                             }
 
                         -- When we accept or decline, collapse privacy info too.
                         AcceptCookies ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = False
+                            , hasConsentedToCookies = True
                             }
 
                         DeclineCookies ->
                             { privacyInfoIsOpen = False
                             , cookieBannerIsOpen = False
+                            , hasConsentedToCookies = False
                             }
             in
             ( { model | cookieState = newCookieState }, Cmd.none )
@@ -207,6 +212,19 @@ updateNotAlone model ( notAlone, cmds ) =
     ( { model | page = NotAlonePage notAlone }
     , Cmd.map NotAloneMsg cmds
     )
+
+
+
+-- We only want to send analytics info if we have cookine consent
+
+
+updateAnalytics : Bool -> Cmd Msg -> Cmd Msg
+updateAnalytics hasConsented sendAnalyticsMessage =
+    if hasConsented then
+        sendAnalyticsMessage
+
+    else
+        Cmd.none
 
 
 resetViewportTop : Cmd Msg
