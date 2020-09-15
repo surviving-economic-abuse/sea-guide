@@ -308,7 +308,7 @@ pageToHtmlMsg model =
     in
     case model.page of
         DefinitionPage definition ->
-            Html.Styled.map DefinitionMsg (View.Definition.view definition)
+            Html.Styled.map DefinitionMsg (View.Definition.view hasConsented definition)
 
         GetHelpPage ->
             Html.Styled.map (\_ -> NoOp) (View.GetHelp.view model.viewportWidth)
