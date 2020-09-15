@@ -4,7 +4,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (css, href, id, tabindex)
 import Page.GetHelp exposing (CallToAction(..))
 import Route exposing (Direction(..), Route(..), renderExternalNavLink, renderNavLink)
 import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, withMediaDesktop)
@@ -15,7 +15,7 @@ view viewportWidth =
     div []
         [ container
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t GetHelpTitle) ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t GetHelpTitle) ]
                 ]
             , div [ css [ columnStyle ] ]
                 [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum

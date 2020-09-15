@@ -79,6 +79,7 @@ type Key
     | ExpandQuoteButton
     | ToDefinitionReassuringText
     | ToDefinitionFromNotAloneLink
+    | CloseButton
     | ExitButton
     | EmergencyButton
     | EmergencyReassure
