@@ -126,7 +126,8 @@ update msg model =
             in
             ( { model | page = newPage }
             , Cmd.batch
-                [ resetViewportTop
+                [ resetFocusTop
+                , resetViewportTop
                 , updateAnalytics hasConsented (updateAnalyticsPage (Route.toString route))
                 ]
             )
@@ -221,6 +222,11 @@ updateNotAlone model ( notAlone, cmds ) =
 resetViewportTop : Cmd Msg
 resetViewportTop =
     Task.perform (\_ -> NoOp) (Browser.Dom.setViewport 0 0)
+
+
+resetFocusTop : Cmd Msg
+resetFocusTop =
+    Task.attempt (\_ -> NoOp) (Browser.Dom.focus "focus-target")
 
 
 

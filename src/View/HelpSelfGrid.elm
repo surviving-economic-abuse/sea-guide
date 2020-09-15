@@ -4,7 +4,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (css, href, id, tabindex)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, gridStyle, navItemStyles, navListStyle, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, withMediaDesktop)
 
@@ -14,7 +14,7 @@ view =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t HelpSelfTitle) ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t HelpSelfTitle) ]
                 ]
             , ul [ css [ gridStyle, justifyContent center ] ]
                 [ infoLink (t HelpSelfBankingLink) (t HelpSelfBankingSlug)
