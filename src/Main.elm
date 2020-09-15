@@ -94,6 +94,25 @@ type Page
     | NotAlonePage Page.NotAlone.Model
 
 
+pageToString : Page -> String
+pageToString page =
+    case page of
+        DefinitionPage _ ->
+            Route.toString Definition
+
+        GetHelpPage ->
+            Route.toString GetHelp
+
+        HelpSelfGridPage ->
+            Route.toString HelpSelfGrid
+
+        HelpSelfSinglePage _ single ->
+            Route.toString (HelpSelfSingle single)
+
+        NotAlonePage _ ->
+            Route.toString NotAlone
+
+
 pageFromRoute : Route -> Page
 pageFromRoute route =
     case route of
@@ -183,8 +202,18 @@ update msg model =
                             , cookieBannerIsOpen = False
                             , hasConsentedToCookies = False
                             }
+
+                cmdMsg =
+                    if button == AcceptCookies then
+                        Cmd.batch
+                            [ updateAnalyticsPage (pageToString model.page)
+                            , saveConsent newCookieState.hasConsentedToCookies
+                            ]
+
+                    else
+                        saveConsent newCookieState.hasConsentedToCookies
             in
-            ( { model | cookieState = newCookieState }, saveConsent newCookieState.hasConsentedToCookies )
+            ( { model | cookieState = newCookieState }, cmdMsg )
 
         DefinitionMsg subMsg ->
             case model.page of
