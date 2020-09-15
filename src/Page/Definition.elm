@@ -33,7 +33,7 @@ update msg model =
             ( { model | openCategories = actionData.do (t categoryTitle) model.openCategories }
             , updateAnalytics hasConsented
                 (updateAnalyticsEvent
-                    { category = "definition"
+                    { category = t DefinitionPageSlug
                     , action = actionData.action
                     , label = t categoryTitle
                     }

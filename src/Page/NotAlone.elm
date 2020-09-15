@@ -45,7 +45,7 @@ update msg model =
             ( { model | revealedJourney = revealedCardData.position }
             , updateAnalytics hasConsented
                 (updateAnalyticsEvent
-                    { category = "survivor-story"
+                    { category = t NotAlonePageSlug
                     , action = revealedCardData.action
                     , label = labelFromCardPosition journeyCardPosition
                     }
