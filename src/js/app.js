@@ -1,7 +1,7 @@
 import { Elm } from "../Main.elm";
 
 
-var hasConsented = sessionStorage.getItem("ga-cookie-consent") ? sessionStorage.getItem("ga-cookie-consent"): "null";
+var hasConsented = sessionStorage.getItem("ga-cookie-consent") ? sessionStorage.getItem("ga-cookie-consent") : "null";
 
 var elm = Elm.Main.init({
   flags: hasConsented,
@@ -22,4 +22,3 @@ elm.ports.updateAnalyticsPage.subscribe(function (page) {
 elm.ports.updateAnalyticsEvent.subscribe(function (gaEvent) {
     gtag('event', gaEvent.action, { 'event_category' : gaEvent.category, 'event_label' : gaEvent.label });
 });
-
