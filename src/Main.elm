@@ -4,7 +4,7 @@ import Analytics exposing (updateAnalytics, updateAnalyticsPage)
 import Browser
 import Browser.Dom
 import Browser.Navigation
-import CookieContent exposing (CookieState, renderCookieContent)
+import CookieContent exposing (CookieState, renderCookieContent, saveConsent)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
@@ -27,7 +27,7 @@ import View.HelpSelfSingle
 import View.NotAlone
 
 
-main : Program () Model Msg
+main : Program String Model Msg
 main =
     Browser.application
         { init = init
@@ -52,16 +52,34 @@ type alias Model =
     }
 
 
-init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
-init _ url key =
+init : String -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
+init hasConsentedString url key =
+    -- make a Bool out of cookie consent session string
+    let
+        hasConsented =
+            if hasConsentedString == "true" then
+                True
+
+            else
+                -- for null false & undefined, we assume no consent
+                False
+
+        viewCookieBannerContent =
+            if hasConsentedString == "null" then
+                True
+
+            else
+                -- user has previously stated a preference, info should be collapsed
+                False
+    in
     ( { key = key
       , page = pageFromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
       , cookieState =
-            { cookieBannerIsOpen = True
-            , privacyInfoIsOpen = False
-            , hasConsentedToCookies = False
+            { cookieBannerIsOpen = viewCookieBannerContent
+            , privacyInfoIsOpen = False -- always start collapsed
+            , hasConsentedToCookies = hasConsented
             }
       }
     , Task.perform GotViewport Browser.Dom.getViewport
@@ -74,6 +92,25 @@ type Page
     | HelpSelfGridPage
     | HelpSelfSinglePage Page.HelpSelfSingle.Model String
     | NotAlonePage Page.NotAlone.Model
+
+
+pageToString : Page -> String
+pageToString page =
+    case page of
+        DefinitionPage _ ->
+            Route.toString Definition
+
+        GetHelpPage ->
+            Route.toString GetHelp
+
+        HelpSelfGridPage ->
+            Route.toString HelpSelfGrid
+
+        HelpSelfSinglePage _ single ->
+            Route.toString (HelpSelfSingle single)
+
+        NotAlonePage _ ->
+            Route.toString NotAlone
 
 
 pageFromRoute : Route -> Page
@@ -166,8 +203,18 @@ update msg model =
                             , cookieBannerIsOpen = False
                             , hasConsentedToCookies = False
                             }
+
+                cmdMsg =
+                    if button == AcceptCookies then
+                        Cmd.batch
+                            [ updateAnalyticsPage (pageToString model.page)
+                            , saveConsent newCookieState.hasConsentedToCookies
+                            ]
+
+                    else
+                        saveConsent newCookieState.hasConsentedToCookies
             in
-            ( { model | cookieState = newCookieState }, Cmd.none )
+            ( { model | cookieState = newCookieState }, cmdMsg )
 
         DefinitionMsg subMsg ->
             case model.page of
