@@ -9,6 +9,7 @@ import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
 import Html.Styled.Attributes.Aria exposing (ariaLive)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
+import Quotes exposing (close, open)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
@@ -63,7 +64,11 @@ renderInitCard hasConsented journeyCardPosition =
     in
     li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
-            [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
+            [ div [ css [ displayFlex, alignItems flexStart ] ]
+                [ open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
+                , h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
+                , close journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
+                ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
@@ -143,7 +148,7 @@ innerCardStyle =
         [ backgroundColor pureWhite
         , borderRadius (rem 1.8)
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
-        , padding (rem 0.5)
+        , padding (rem 1)
         , position relative
         , top (px 168)
         , textAlign center
@@ -188,14 +193,14 @@ teaserStyle =
     batch
         [ color grey
         , fontSize (px 18)
-        , padding2 zero (rem 2)
+        , padding2 zero (rem 0.5)
         ]
 
 
 greenDividerStyle : Style
 greenDividerStyle =
     batch
-        [ borderTop3 (px 1) solid green
+        [ borderTop3 (px 1) solid green.colour
         , margin2 zero auto
         , width (pct 80)
         ]
