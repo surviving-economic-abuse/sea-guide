@@ -9,7 +9,7 @@ import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
 import Html.Styled.Attributes.Aria exposing (ariaLive)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
-import Quotes exposing (open)
+import Quotes exposing (close, open)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
@@ -67,7 +67,7 @@ renderInitCard hasConsented journeyCardPosition =
             [ div [ css [ displayFlex, alignItems flexStart ] ]
                 [ open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
                 , h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-                , open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
+                , close journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
                 ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
