@@ -26,9 +26,11 @@ lightPurple =
 -- Emergency colours
 
 
-orange : Color
+orange : { colour : Color, string : String }
 orange =
-    hex "ea5e4a"
+    { colour = hex "ea5e4a"
+    , string = "#ea5e4a"
+    }
 
 
 lightOrange : Color
@@ -40,9 +42,11 @@ lightOrange =
 -- Accent colours
 
 
-green : Color
+green : { colour : Color, string : String }
 green =
-    hex "a4cc5a"
+    { colour = hex "a4cc5a"
+    , string = "#a4cc5a"
+    }
 
 
 lightGreen : Color
@@ -50,9 +54,11 @@ lightGreen =
     hex "effadc"
 
 
-pink : Color
+pink : { colour : Color, string : String }
 pink =
-    hex "e03088"
+    { colour = hex "e03088"
+    , string = "#e03088"
+    }
 
 
 lightPink : Color
@@ -351,13 +357,13 @@ quoteStyle =
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         , nthOfType "1n"
-            [ borderLeft3 (px 2) solid orange
+            [ borderLeft3 (px 2) solid orange.colour
             ]
         , nthOfType "2n"
             [ borderLeft3 (px 2) solid teal
             ]
         , nthOfType "3n"
-            [ borderLeft3 (px 2) solid pink
+            [ borderLeft3 (px 2) solid pink.colour
             ]
         ]
 

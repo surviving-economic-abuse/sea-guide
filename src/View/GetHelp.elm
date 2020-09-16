@@ -125,7 +125,7 @@ cardHeadingStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 1) solid pink
+        [ borderLeft3 (px 1) solid pink.colour
         , paddingLeft (rem 1)
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]

@@ -77,10 +77,10 @@ gridCardStyle =
         , textAlign center
         , textDecoration none
         , hover
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             ]
         , focus
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             , outline zero
             ]
         ]

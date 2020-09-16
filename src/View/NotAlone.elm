@@ -197,7 +197,7 @@ teaserStyle =
 greenDividerStyle : Style
 greenDividerStyle =
     batch
-        [ borderTop3 (px 1) solid green
+        [ borderTop3 (px 1) solid green.colour
         , margin2 zero auto
         , width (pct 80)
         ]
