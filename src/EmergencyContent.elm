@@ -78,7 +78,7 @@ renderEmergencyButton =
 exitButtonStyle : Style
 exitButtonStyle =
     batch
-        [ backgroundColor orange
+        [ backgroundColor orange.colour
         , border zero
         , color white
         , fontSize (rem 1.2)
@@ -197,10 +197,10 @@ emergencyButtonStyle =
         , width (rem 3.75)
         , zIndex (int 1)
         , hover
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             ]
         , focus
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             , outline zero
             ]
         , withMediaTabletOrDesktop

@@ -143,7 +143,7 @@ t key =
             "/Person_1.svg"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "When I took a call from someone my boyfriend didn't approve of, he threw my [mobile phone] on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey1Hopeful ->
             "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
@@ -158,7 +158,7 @@ t key =
             "/Person_2.svg"
 
         Journey2Relatable ->
-            "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
+            "Over the years, the [criticism, blame and undermining] increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with [my money] he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
 
         Journey2Hopeful ->
             "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
@@ -173,10 +173,10 @@ t key =
             "/Person_3.svg"
 
         Journey3Relatable ->
-            "To be so powerless, I can't explain what it's like, it's overwhelming. Not being able to provide for your children. You have absolutely no control over your life."
+            "To be so [powerless], I can't explain what it's like, it's overwhelming. Not being able to [provide for your children]. You have absolutely no control over your life."
 
         Journey3Hopeful ->
-            "Advocacy is so important, especially when you are fearing homelessness and losing the children. I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
+            "Advocacy is so important, especially when you are [fearing homelessness] and losing the children. I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
 
         Journey3Statement ->
             "This will end and normality will return."
@@ -188,7 +188,7 @@ t key =
             "/Person_4.svg"
 
         Journey4Relatable ->
-            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
+            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, [my telephone, our bank accounts, my credit card]. He controlled how much sleep I had. He made it near impossible for me to sustain a [full-time job], yet he refused to work. He trashed [my property]. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
 
         Journey4Hopeful ->
             "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
@@ -203,7 +203,7 @@ t key =
             "/Person_5.svg"
 
         Journey5Relatable ->
-            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+            "When I left the relationship I realised he had taken out [loans and credit cards] in joint names I knew nothing about."
 
         Journey5Hopeful ->
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
@@ -218,7 +218,7 @@ t key =
             "/Person_6.svg"
 
         Journey6Relatable ->
-            "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
+            "The abuse started with how we organised our bank accounts when we first lived together. We opened [a joint account] for household bills but within a year, he had transferred all his own direct debits to the joint account."
 
         Journey6Hopeful ->
             "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
@@ -227,7 +227,7 @@ t key =
             "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
 
         ExpandQuoteButton ->
-            "but things got better"
+            "keep reading"
 
         ToDefinitionReassuringText ->
             "If this sounds familiar know that you're not alone."

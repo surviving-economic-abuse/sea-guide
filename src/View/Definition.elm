@@ -1,4 +1,4 @@
-module View.Definition exposing (renderWithKeywords, view)
+module View.Definition exposing (view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
@@ -10,7 +10,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, rotate90Style, verticalSpacing)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, verticalSpacing)
 
 
 view : Bool -> Model -> Html Msg
@@ -106,59 +106,6 @@ renderDefinition model category =
 
 
 
--- Helpers to render Copy.Text Strings with [keywords] marked in brackets as Html <b>
-
-
-renderWithKeywords : String -> List (Html Msg)
-renderWithKeywords richText =
-    List.map (\( words, isKeyword ) -> renderAsBoldOrText ( words, isKeyword )) (splitOnStartKeyword richText)
-
-
-renderAsBoldOrText : ( String, Bool ) -> Html Msg
-renderAsBoldOrText ( stringPartial, isKeyword ) =
-    if isKeyword then
-        b [ css [ keywordStyle ] ] [ text stringPartial ]
-
-    else
-        text stringPartial
-
-
-
--- Helpers to tag each fragment as keyword (True) or plain text (False)
-
-
-splitOnStartKeyword : String -> List ( String, Bool )
-splitOnStartKeyword richText =
-    let
-        -- First we break the rich text string into a list,
-        -- separating on [, the start of a bold word or phrase
-        beforeBoldPartials =
-            String.split "[" richText
-    in
-    List.concat (List.map (\partial -> splitOnEndKeyword partial) beforeBoldPartials)
-
-
-splitOnEndKeyword : String -> List ( String, Bool )
-splitOnEndKeyword partial =
-    if String.contains "]" partial then
-        let
-            -- The closing ] means this is the end of a bold word or phrase,
-            -- Break it into a list again to separate out the plain text that follows.
-            subList =
-                String.split "]" partial
-        in
-        -- Since we already split on [, the list will always have 2 items, but elm doesn't know that.
-        -- The first item is the bold part, the second (tail) is plain text.
-        [ ( Maybe.withDefault "" (List.head subList), True )
-        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
-        ]
-
-    else
-        -- The list items without a closing ] to mark end of bold, are plain text strings.
-        [ ( partial, False ) ]
-
-
-
 -- Styles
 
 
@@ -172,10 +119,3 @@ introStyle : Style
 introStyle =
     batch
         [ margin2 (rem 2) (rem 1) ]
-
-
-keywordStyle : Style
-keywordStyle =
-    batch
-        [ backgroundColor lightGreen
-        ]
