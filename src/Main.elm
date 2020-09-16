@@ -308,7 +308,7 @@ pageToHtmlMsg model =
     in
     case model.page of
         DefinitionPage definition ->
-            Html.Styled.map DefinitionMsg (View.Definition.view definition)
+            Html.Styled.map DefinitionMsg (View.Definition.view hasConsented definition)
 
         GetHelpPage ->
             Html.Styled.map (\_ -> NoOp) (View.GetHelp.view model.viewportWidth)
@@ -317,7 +317,7 @@ pageToHtmlMsg model =
             Html.Styled.map (\_ -> NoOp) View.HelpSelfGrid.view
 
         HelpSelfSinglePage helpSelfSingle category ->
-            Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view category helpSelfSingle)
+            Html.Styled.map HelpSelfSingleMsg (View.HelpSelfSingle.view hasConsented category helpSelfSingle)
 
         NotAlonePage notAlone ->
             Html.Styled.map NotAloneMsg (View.NotAlone.view hasConsented notAlone)

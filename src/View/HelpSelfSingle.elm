@@ -12,8 +12,8 @@ import Route exposing (Direction(..), Route(..), renderNavLink)
 import Theme exposing (containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, navListStyle, pageHeadingStyle, purple, quoteStyle, rotate90Style, verticalSpacing)
 
 
-view : String -> Model -> Html Msg
-view slug model =
+view : Bool -> String -> Model -> Html Msg
+view hasConsented slug model =
     let
         categoryData =
             categoryKeysFromSlug slug
@@ -24,7 +24,7 @@ view slug model =
                 [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t categoryData.title) ] ]
             , case categoryData.resources of
                 Just resources ->
-                    div [ css [ margin2 zero (rem 1) ] ] [ renderResourceList model resources ]
+                    div [ css [ margin2 zero (rem 1) ] ] [ renderResourceList hasConsented slug model resources ]
 
                 Nothing ->
                     text ""
@@ -37,14 +37,14 @@ view slug model =
         ]
 
 
-renderResourceList : Model -> List CategoryResource -> Html Msg
-renderResourceList model resources =
+renderResourceList : Bool -> String -> Model -> List CategoryResource -> Html Msg
+renderResourceList hasConsented pageSlug model resources =
     ul [ css [ resourceListStyle ] ]
         (List.map
             (\resource ->
                 if resourceIsExpanded model resource.title then
                     li [ css [ expanderItemStyle ] ]
-                        [ button [ ariaExpanded "true", ariaControls (generateId (t resource.title)), onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
+                        [ button [ ariaExpanded "true", ariaControls (generateId (t resource.title)), onClick (ToggleResource hasConsented resource.title pageSlug), css [ expanderButtonStyle, expanderOpenStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
                             , img [ css [ expanderSymbolStyle, rotate90Style ], src "/Arrow.svg", alt "" ] []
                             ]
@@ -56,7 +56,7 @@ renderResourceList model resources =
 
                 else
                     li [ css [ expanderItemStyle ] ]
-                        [ button [ ariaExpanded "false", ariaControls (generateId (t resource.title)), onClick (ToggleResource resource.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
+                        [ button [ ariaExpanded "false", ariaControls (generateId (t resource.title)), onClick (ToggleResource hasConsented resource.title pageSlug), css [ expanderButtonStyle, expanderClosedStyle ] ]
                             [ h2 [ css [ expanderHeadingStyle ] ] [ text (t resource.title) ]
                             , img [ css [ expanderSymbolStyle ], src "/Arrow.svg", alt "" ] []
                             ]

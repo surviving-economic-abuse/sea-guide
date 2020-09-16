@@ -1,5 +1,6 @@
 module Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded, update)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Set
@@ -11,7 +12,7 @@ type alias Model =
 
 type Msg
     = NoOp
-    | ToggleResource Key
+    | ToggleResource Bool Key String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -20,16 +21,24 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
-        ToggleResource resourceTitle ->
+        ToggleResource hasConsented resourceTitle pageSlug ->
             let
-                action =
+                actionData =
                     if resourceIsExpanded model resourceTitle then
-                        Set.remove
+                        { do = Set.remove, action = "closed" }
 
                     else
-                        Set.insert
+                        { do = Set.insert, action = "opened" }
             in
-            ( { model | openResources = action (t resourceTitle) model.openResources }, Cmd.none )
+            ( { model | openResources = actionData.do (t resourceTitle) model.openResources }
+            , updateAnalytics hasConsented
+                (updateAnalyticsEvent
+                    { category = pageSlug
+                    , action = actionData.action
+                    , label = t resourceTitle
+                    }
+                )
+            )
 
 
 resourceIsExpanded : Model -> Key -> Bool

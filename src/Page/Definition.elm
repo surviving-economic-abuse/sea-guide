@@ -1,5 +1,6 @@
 module Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition, update)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Set
@@ -11,7 +12,7 @@ type alias Model =
 
 type Msg
     = NoOp
-    | ToggleCategory Key
+    | ToggleCategory Bool Key
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -20,16 +21,24 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
-        ToggleCategory categoryTitle ->
+        ToggleCategory hasConsented categoryTitle ->
             let
-                action =
+                actionData =
                     if categoryIsExpanded model categoryTitle then
-                        Set.remove
+                        { do = Set.remove, action = "closed" }
 
                     else
-                        Set.insert
+                        { do = Set.insert, action = "opened" }
             in
-            ( { model | openCategories = action (t categoryTitle) model.openCategories }, Cmd.none )
+            ( { model | openCategories = actionData.do (t categoryTitle) model.openCategories }
+            , updateAnalytics hasConsented
+                (updateAnalyticsEvent
+                    { category = t DefinitionPageSlug
+                    , action = actionData.action
+                    , label = t categoryTitle
+                    }
+                )
+            )
 
 
 categoryIsExpanded : Model -> Key -> Bool

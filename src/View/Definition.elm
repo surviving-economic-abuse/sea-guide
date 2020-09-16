@@ -13,8 +13,8 @@ import String
 import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, rotate90Style, verticalSpacing)
 
 
-view : Model -> Html Msg
-view model =
+view : Bool -> Model -> Html Msg
+view hasConsented model =
     div []
         [ containerContent
             [ header []
@@ -27,7 +27,7 @@ view model =
                     ]
                 ]
             , dl [ css [ categoryListStyle ] ]
-                (renderExpandableCategories
+                (renderExpandableCategories hasConsented
                     model
                     [ DefinitionCategory1
                     , DefinitionCategory2
@@ -60,24 +60,24 @@ renderQuotes quoteKeys =
     blockquote [] (List.map (\quoteKey -> p [ css [ quoteStyle ] ] [ text (t quoteKey) ]) quoteKeys)
 
 
-renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
-renderExpandableCategories model categories =
+renderExpandableCategories : Bool -> Model -> List DefinitionCategory -> List (Html Msg)
+renderExpandableCategories hasConsented model categories =
     List.map
         (\listPosition ->
             -- We maybe want to ditch this div for valid html - but this is simple
             div []
-                [ renderTerm model (categoryKeysFromListPosition listPosition)
+                [ renderTerm hasConsented model (categoryKeysFromListPosition listPosition)
                 , renderDefinition model (categoryKeysFromListPosition listPosition)
                 ]
         )
         categories
 
 
-renderTerm : Model -> CategoryDefinition -> Html Msg
-renderTerm model category =
+renderTerm : Bool -> Model -> CategoryDefinition -> Html Msg
+renderTerm hasConsented model category =
     if categoryIsExpanded model category.title then
         dt [ css [ expanderItemStyle ] ]
-            [ button [ ariaExpanded "true", ariaControls (generateId (t category.title)), onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
+            [ button [ ariaExpanded "true", ariaControls (generateId (t category.title)), onClick (ToggleCategory hasConsented category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
                 , img [ css [ expanderSymbolStyle, rotate90Style ], src "/Arrow.svg", alt "" ] []
                 ]
@@ -85,7 +85,7 @@ renderTerm model category =
 
     else
         dt [ css [ expanderItemStyle ] ]
-            [ button [ ariaExpanded "false", ariaControls (generateId (t category.title)), onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
+            [ button [ ariaExpanded "false", ariaControls (generateId (t category.title)), onClick (ToggleCategory hasConsented category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
                 , img [ css [ expanderSymbolStyle ], src "/Arrow.svg", alt "" ] []
                 ]
