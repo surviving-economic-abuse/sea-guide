@@ -10,7 +10,7 @@ import Html.Styled.Attributes.Aria exposing (ariaLive)
 import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 
 view : Bool -> Model -> Html Msg
@@ -84,9 +84,9 @@ renderRevealedCard hasConsented journeyCardPosition =
             [ button [ css [ closeJourneyButtonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
                 [ img [ css [ height (px 44), margin auto ], src "/Close.svg", alt (t CloseButton) ] []
                 ]
-            , p [ css [ quoteStyle ] ] [ text (t journeyContent.relatable) ]
-            , p [ css [ quoteStyle ] ] [ text (t journeyContent.hopeful) ]
-            , p [ css [ quoteStyle ] ] [ text (t journeyContent.statement) ]
+            , p [ css [ quoteStyle ] ] (renderWithKeywords (t journeyContent.relatable))
+            , p [ css [ quoteStyle ] ] (renderWithKeywords (t journeyContent.hopeful))
+            , p [ css [ quoteStyle ] ] (renderWithKeywords (t journeyContent.statement))
             ]
         , div []
             [ div [ css [ highlightStyle ] ]

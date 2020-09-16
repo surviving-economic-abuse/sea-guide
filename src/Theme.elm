@@ -1,10 +1,10 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
+module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, div)
+import Html.Styled exposing (Html, b, div, text)
 import Html.Styled.Attributes exposing (css)
 
 
@@ -375,3 +375,63 @@ containerContent children =
 generateId : String -> String
 generateId input =
     String.trim (String.replace " " "-" (String.toLower input))
+
+
+
+-- Helpers to render Copy.Text Strings with [keywords] marked in brackets as Html <b>
+
+
+renderWithKeywords : String -> List (Html msg)
+renderWithKeywords richText =
+    List.map (\( words, isKeyword ) -> renderAsBoldOrText ( words, isKeyword )) (splitOnStartKeyword richText)
+
+
+renderAsBoldOrText : ( String, Bool ) -> Html msg
+renderAsBoldOrText ( stringPartial, isKeyword ) =
+    if isKeyword then
+        b [ css [ keywordStyle ] ] [ text stringPartial ]
+
+    else
+        text stringPartial
+
+
+
+-- Helpers to tag each fragment as keyword (True) or plain text (False)
+
+
+splitOnStartKeyword : String -> List ( String, Bool )
+splitOnStartKeyword richText =
+    let
+        -- First we break the rich text string into a list,
+        -- separating on [, the start of a bold word or phrase
+        beforeBoldPartials =
+            String.split "[" richText
+    in
+    List.concat (List.map (\partial -> splitOnEndKeyword partial) beforeBoldPartials)
+
+
+splitOnEndKeyword : String -> List ( String, Bool )
+splitOnEndKeyword partial =
+    if String.contains "]" partial then
+        let
+            -- The closing ] means this is the end of a bold word or phrase,
+            -- Break it into a list again to separate out the plain text that follows.
+            subList =
+                String.split "]" partial
+        in
+        -- Since we already split on [, the list will always have 2 items, but elm doesn't know that.
+        -- The first item is the bold part, the second (tail) is plain text.
+        [ ( Maybe.withDefault "" (List.head subList), True )
+        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
+        ]
+
+    else
+        -- The list items without a closing ] to mark end of bold, are plain text strings.
+        [ ( partial, False ) ]
+
+
+keywordStyle : Style
+keywordStyle =
+    batch
+        [ backgroundColor lightGreen
+        ]
