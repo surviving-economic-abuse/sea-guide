@@ -12,6 +12,8 @@ import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, r
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Message exposing (CookieButton(..), Msg(..))
+import Meta exposing (metaFromPage, setMetaDescription)
+import Page exposing (Page(..))
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
@@ -73,7 +75,7 @@ init hasConsentedString url key =
                 False
     in
     ( { key = key
-      , page = pageFromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
+      , page = Page.fromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
       , cookieState =
@@ -84,52 +86,6 @@ init hasConsentedString url key =
       }
     , Task.perform GotViewport Browser.Dom.getViewport
     )
-
-
-type Page
-    = DefinitionPage Page.Definition.Model
-    | GetHelpPage
-    | HelpSelfGridPage
-    | HelpSelfSinglePage Page.HelpSelfSingle.Model String
-    | NotAlonePage Page.NotAlone.Model
-
-
-pageToString : Page -> String
-pageToString page =
-    case page of
-        DefinitionPage _ ->
-            Route.toString Definition
-
-        GetHelpPage ->
-            Route.toString GetHelp
-
-        HelpSelfGridPage ->
-            Route.toString HelpSelfGrid
-
-        HelpSelfSinglePage _ single ->
-            Route.toString (HelpSelfSingle single)
-
-        NotAlonePage _ ->
-            Route.toString NotAlone
-
-
-pageFromRoute : Route -> Page
-pageFromRoute route =
-    case route of
-        Route.Definition ->
-            DefinitionPage { openCategories = Set.empty }
-
-        Route.GetHelp ->
-            GetHelpPage
-
-        Route.HelpSelfGrid ->
-            HelpSelfGridPage
-
-        Route.HelpSelfSingle string ->
-            HelpSelfSinglePage { openResources = Set.empty } string
-
-        Route.NotAlone ->
-            NotAlonePage { revealedJourney = Nothing }
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -156,7 +112,7 @@ update msg model =
                     Maybe.withDefault NotAlone (Route.fromUrl url)
 
                 newPage =
-                    pageFromRoute route
+                    Page.fromRoute route
 
                 hasConsented =
                     model.cookieState.hasConsentedToCookies
@@ -165,6 +121,7 @@ update msg model =
             , Cmd.batch
                 [ resetFocusTop
                 , resetViewportTop
+                , setMetaDescription (metaFromPage newPage).description
                 , updateAnalytics hasConsented (updateAnalyticsPage (Route.toString route))
                 ]
             )
@@ -207,7 +164,7 @@ update msg model =
                 cmdMsg =
                     if button == AcceptCookies then
                         Cmd.batch
-                            [ updateAnalyticsPage (pageToString model.page)
+                            [ updateAnalyticsPage (Page.toString model.page)
                             , saveConsent newCookieState.hasConsentedToCookies
                             ]
 
@@ -282,7 +239,9 @@ resetFocusTop =
 
 viewDocument : Model -> Browser.Document Msg
 viewDocument model =
-    { title = t SiteTitle, body = [ view model |> Html.Styled.toUnstyled ] }
+    { title = t SiteTitle ++ " | " ++ (metaFromPage model.page).title
+    , body = [ view model |> Html.Styled.toUnstyled ]
+    }
 
 
 view : Model -> Html Msg
@@ -290,7 +249,7 @@ view model =
     div [ css [ minHeight (vh 100), waveStyle ] ]
         [ globalStyles
         , renderExitButton
-        , pageToHtmlMsg model
+        , pageModelToHtmlMsg model
         , if model.emergencyPopupIsOpen then
             renderEmergencyPanel model.viewportWidth
 
@@ -300,8 +259,8 @@ view model =
         ]
 
 
-pageToHtmlMsg : Model -> Html Msg
-pageToHtmlMsg model =
+pageModelToHtmlMsg : Model -> Html Msg
+pageModelToHtmlMsg model =
     let
         hasConsented =
             model.cookieState.hasConsentedToCookies

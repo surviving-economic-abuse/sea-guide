@@ -8,17 +8,20 @@ var elm = Elm.Main.init({
   node: document.getElementById("app")
 });
 
+elm.ports.setMetaDescription.subscribe(function (description) {
+  document.getElementsByTagName("meta").namedItem("description").setAttribute("content", description);
+});
 
-elm.ports.saveConsent.subscribe(function(hasConsented) {
-    // User will have to re-consent every time browser is closed, but not on refresh.
-    sessionStorage.setItem('ga-cookie-consent', hasConsented);
+elm.ports.saveConsent.subscribe(function (hasConsented) {
+  // User will have to re-consent every time browser is closed, but not on refresh.
+  sessionStorage.setItem("ga-cookie-consent", hasConsented);
 });
 
 // Google analytics subscribe to page changes and custom events
 elm.ports.updateAnalyticsPage.subscribe(function (page) {
-    gtag('config', 'UA-30970110-8', { 'page_path': page });
+  gtag("config", "UA-30970110-8", { "page_path" : page });
 });
 
 elm.ports.updateAnalyticsEvent.subscribe(function (gaEvent) {
-    gtag('event', gaEvent.action, { 'event_category' : gaEvent.category, 'event_label' : gaEvent.label });
+  gtag("event", gaEvent.action, { "event_category" : gaEvent.category, "event_label" : gaEvent.label });
 });
