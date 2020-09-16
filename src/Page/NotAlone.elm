@@ -64,6 +64,7 @@ type alias JourneyContent =
     , relatable : Key
     , hopeful : Key
     , statement : Key
+    , color : String
     }
 
 
@@ -94,6 +95,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey1Relatable
             , hopeful = Journey1Hopeful
             , statement = Journey1Statement
+            , color = "blue"
             }
 
         JourneyCard2 ->
@@ -102,6 +104,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey2Relatable
             , hopeful = Journey2Hopeful
             , statement = Journey2Statement
+            , color = "red"
             }
 
         JourneyCard3 ->
@@ -110,6 +113,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey3Relatable
             , hopeful = Journey3Hopeful
             , statement = Journey3Statement
+            , color = "green"
             }
 
         JourneyCard4 ->
@@ -118,6 +122,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey4Relatable
             , hopeful = Journey4Hopeful
             , statement = Journey4Statement
+            , color = "blue"
             }
 
         JourneyCard5 ->
@@ -126,6 +131,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
+            , color = "red"
             }
 
         JourneyCard6 ->
@@ -134,4 +140,5 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
+            , color = "green"
             }
