@@ -123,7 +123,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey4Relatable
             , hopeful = Journey4Hopeful
             , statement = Journey4Statement
-            , color = pink.string
+            , color = green.string
             }
 
         JourneyCard5 ->
@@ -132,7 +132,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
-            , color = green.string
+            , color = orange.string
             }
 
         JourneyCard6 ->
@@ -141,5 +141,5 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
-            , color = orange.string
+            , color = pink.string
             }

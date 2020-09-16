@@ -64,8 +64,11 @@ renderInitCard hasConsented journeyCardPosition =
     in
     li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
-            [ h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-            , fromUnstyled (open journeyContent.color)
+            [ div [ css [ displayFlex ] ]
+                [ open journeyContent.color [ width (px 30) ]
+                , h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
+                , open journeyContent.color [ width (px 40) ]
+                ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
                 [ span [ css [ whiteSpace noWrap ] ] [ text (t ExpandQuoteButton) ]
