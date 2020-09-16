@@ -23,21 +23,27 @@ suite =
 
         resource2expandedModel =
             { openResources = Set.fromList [ t HelpSelfDebtResource1Title ] }
+
+        hasConsented =
+            False
+
+        viewWithCookieConsent =
+            view hasConsented
     in
     describe "HelpSelfSingle View"
         [ describe "View tests"
             [ test "HelpSelfSingle view has title" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
+                    queryFromStyledHtml (viewWithCookieConsent (t HelpSelfBankingSlug) initModel)
                         |> Query.contains [ Html.text (t HelpSelfBankingTitle) ]
             , test "HelpSelfSingle view has nav link to get-help" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfBankingSlug) initModel)
+                    queryFromStyledHtml (viewWithCookieConsent (t HelpSelfBankingSlug) initModel)
                         |> Query.find [ tag "a", attribute (Html.Attributes.href ("../" ++ t HelpSelfGridPageSlug)) ]
                         |> Query.has [ text (t ToHelpSelfFromSingleCategoryLink) ]
             , test "HelpSelfSingle view can have well formed resources" <|
                 \() ->
-                    queryFromStyledHtml (view (t HelpSelfDebtSlug) resource2expandedModel)
+                    queryFromStyledHtml (viewWithCookieConsent (t HelpSelfDebtSlug) resource2expandedModel)
                         |> Query.find [ tag "li", containing [ text (t HelpSelfDebtResource1Title) ] ]
                         |> Query.has
                             [ text (t HelpSelfDebtResource1Quote1)
@@ -51,7 +57,7 @@ suite =
             [ test "Toggling a closed resource adds it to the set of openResources" <|
                 \() ->
                     initModel
-                        |> update (ToggleResource HelpSelfDebtResource1Title)
+                        |> update (ToggleResource hasConsented HelpSelfDebtResource1Title (t HelpSelfDebtSlug))
                         |> Expect.equal
                             ( { openResources = Set.fromList [ t HelpSelfDebtResource1Title ] }
                             , Cmd.none
@@ -59,7 +65,7 @@ suite =
             , test "Toggling an open resource removes it from the set of openResources" <|
                 \() ->
                     resource2expandedModel
-                        |> update (ToggleResource HelpSelfDebtResource1Title)
+                        |> update (ToggleResource hasConsented HelpSelfDebtResource1Title (t HelpSelfDebtSlug))
                         |> Expect.equal
                             ( { openResources = Set.empty }
                             , Cmd.none

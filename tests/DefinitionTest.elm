@@ -27,8 +27,11 @@ suite =
         stringPartialToFirstSquareBracket text =
             Maybe.withDefault text (List.head (String.split "[" text))
 
+        hasConsented =
+            False
+
         viewInitModel =
-            view initModel
+            view hasConsented initModel
     in
     describe "Definition Page"
         [ describe "View tests"
@@ -63,7 +66,7 @@ suite =
                         |> Query.count (Expect.equal 6)
             , test "An open expander shows definition info and quotes" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (view hasConsented definition2expandedModel)
                         |> Query.find
                             [ tag "div"
                             , containing
@@ -78,7 +81,7 @@ suite =
                             ]
             , test "An open expander does not show info for a different category" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (view hasConsented definition2expandedModel)
                         |> Query.find
                             [ tag "div"
                             , containing [ tag "button", containing [ text (t DefinitionCategory2Title) ] ]
@@ -94,16 +97,16 @@ suite =
                             , containing [ text (t DefinitionCategory2Title) ]
                             ]
                         |> Event.simulate Event.click
-                        |> Event.expect (ToggleCategory DefinitionCategory2Title)
+                        |> Event.expect (ToggleCategory hasConsented DefinitionCategory2Title)
             , test "I can toggle an open expander" <|
                 \() ->
-                    queryFromStyledHtml (view definition2expandedModel)
+                    queryFromStyledHtml (view hasConsented definition2expandedModel)
                         |> Query.find
                             [ tag "button"
                             , containing [ text (t DefinitionCategory2Title) ]
                             ]
                         |> Event.simulate Event.click
-                        |> Event.expect (ToggleCategory DefinitionCategory2Title)
+                        |> Event.expect (ToggleCategory hasConsented DefinitionCategory2Title)
             , test "When all expanders closed, I cannot see info and quotes" <|
                 \() ->
                     queryFromStyledHtml viewInitModel
@@ -129,7 +132,7 @@ suite =
             [ test "Toggling a closed category adds it to the set of openCategories" <|
                 \() ->
                     initModel
-                        |> update (ToggleCategory DefinitionCategory1Title)
+                        |> update (ToggleCategory hasConsented DefinitionCategory1Title)
                         |> Expect.equal
                             ( { openCategories = Set.fromList [ t DefinitionCategory1Title ] }
                             , Cmd.none
@@ -139,7 +142,7 @@ suite =
                     { initModel
                         | openCategories = Set.insert (t DefinitionCategory1Title) initModel.openCategories
                     }
-                        |> update (ToggleCategory DefinitionCategory1Title)
+                        |> update (ToggleCategory hasConsented DefinitionCategory1Title)
                         |> Expect.equal
                             ( { openCategories = Set.empty }
                             , Cmd.none
