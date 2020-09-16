@@ -58,6 +58,7 @@ type alias CategoryResource =
 type alias CategoryData =
     { title : Key
     , resources : Maybe (List CategoryResource)
+    , image : Maybe String
     }
 
 
@@ -80,6 +81,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfBankingResource2Href
                   }
                 ]
+        , image = Just "/Banking.svg"
         }
 
     else if slug == t HelpSelfDebtSlug then
@@ -105,6 +107,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfDebtResource3Href
                   }
                 ]
+        , image = Just "/Debt.svg"
         }
 
     else if slug == t HelpSelfHousingSlug then
@@ -118,6 +121,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfHousingResource1Href
                   }
                 ]
+        , image = Just "/Housing.svg"
         }
 
     else if slug == t HelpSelfFinancialSlug then
@@ -143,6 +147,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfFinancialResource3Href
                   }
                 ]
+        , image = Just "/Financial.svg"
         }
 
     else if slug == t HelpSelfCovidSlug then
@@ -162,6 +167,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfCovidResource2Href
                   }
                 ]
+        , image = Just "/Covid.svg"
         }
 
     else if slug == t HelpSelfInfoLawSlug then
@@ -181,6 +187,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfInfoLawResource2Href
                   }
                 ]
+        , image = Just "/Law.svg"
         }
 
     else if slug == t HelpSelfSeparatingSlug then
@@ -200,9 +207,11 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfSeparatingResource2Href
                   }
                 ]
+        , image = Just "/Separating.svg"
         }
 
     else
         { title = HelpSelfCategoryNotFoundTitle
         , resources = Nothing
+        , image = Nothing
         }

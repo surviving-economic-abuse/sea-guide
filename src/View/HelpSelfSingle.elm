@@ -33,6 +33,13 @@ view hasConsented slug model =
                 [ renderNavLink Back HelpSelfGrid ToHelpSelfFromSingleCategoryLink
                 ]
             ]
+        , verticalSpacing 4
+        , case categoryData.image of
+            Just image ->
+                img [ css [ imageStyle ], src image ] []
+
+            Nothing ->
+                text ""
         , verticalSpacing 2
         ]
 
@@ -100,3 +107,12 @@ resourceListStyle : Style
 resourceListStyle =
     batch
         [ listStyle none ]
+
+
+imageStyle : Style
+imageStyle =
+    batch
+        [ margin auto
+        , maxWidth (pct 60)
+        , width (rem 20)
+        ]
