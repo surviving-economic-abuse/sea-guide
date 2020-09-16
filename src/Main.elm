@@ -18,7 +18,6 @@ import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
 import Route exposing (Route(..))
-import Set
 import Task
 import Theme exposing (..)
 import Url
@@ -58,6 +57,9 @@ init : String -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init hasConsentedString url key =
     -- make a Bool out of cookie consent session string
     let
+        page =
+            Page.fromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
+
         hasConsented =
             if hasConsentedString == "true" then
                 True
@@ -75,7 +77,7 @@ init hasConsentedString url key =
                 False
     in
     ( { key = key
-      , page = Page.fromRoute (Maybe.withDefault NotAlone (Route.fromUrl url))
+      , page = page
       , viewportWidth = 800
       , emergencyPopupIsOpen = False
       , cookieState =
@@ -84,7 +86,10 @@ init hasConsentedString url key =
             , hasConsentedToCookies = hasConsented
             }
       }
-    , Task.perform GotViewport Browser.Dom.getViewport
+    , Cmd.batch
+        [ Task.perform GotViewport Browser.Dom.getViewport
+        , setMetaDescription (metaFromPage page).description
+        ]
     )
 
 
