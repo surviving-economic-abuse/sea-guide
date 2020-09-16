@@ -137,34 +137,34 @@ t key =
 
         -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
         Journey1Teaser ->
-            "He threw my phone on the floor and smashed\u{00A0}it"
+            "He considered my money\u{00A0}his"
 
         Journey1Image ->
             "/Person_1.svg"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
 
         Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
+            "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
 
         Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
+            "We are happy, and he no longer has control over our lives."
 
         Journey2Teaser ->
-            "He considered my money\u{00A0}his"
+            "He threw my phone on the floor and smashed\u{00A0}it"
 
         Journey2Image ->
             "/Person_2.svg"
 
         Journey2Relatable ->
-            "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
+            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey2Hopeful ->
-            "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
         Journey2Statement ->
-            "We are happy, and he no longer has control over our lives."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey3Teaser ->
             "I had no control over my\u{00A0}life"
@@ -227,7 +227,7 @@ t key =
             "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
 
         ExpandQuoteButton ->
-            "but things got better"
+            "keep reading"
 
         ToDefinitionReassuringText ->
             "If this sounds familiar know that you're not alone."

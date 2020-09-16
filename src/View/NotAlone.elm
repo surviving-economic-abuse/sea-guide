@@ -64,10 +64,10 @@ renderInitCard hasConsented journeyCardPosition =
     in
     li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
-            [ div [ css [ displayFlex ] ]
-                [ open journeyContent.color [ width (px 30) ]
+            [ div [ css [ displayFlex, alignItems flexStart ] ]
+                [ open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
                 , h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-                , open journeyContent.color [ width (px 40) ]
+                , open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
                 ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
@@ -148,7 +148,7 @@ innerCardStyle =
         [ backgroundColor pureWhite
         , borderRadius (rem 1.8)
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
-        , padding (rem 0.5)
+        , padding (rem 1)
         , position relative
         , top (px 168)
         , textAlign center
@@ -193,7 +193,7 @@ teaserStyle =
     batch
         [ color grey
         , fontSize (px 18)
-        , padding2 zero (rem 2)
+        , padding2 zero (rem 0.5)
         ]
 
 
