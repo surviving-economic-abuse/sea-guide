@@ -4,7 +4,7 @@
   "description": "SEA-MAP Tech vs. Abuse application",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "npm test && parcel build src/index.html && cp robots-nofollow.txt dist/robots.txt",
+    "build": "npm test && elm make src/Main.elm  --optimize --output=app.js && cp robots-nofollow.txt dist/robots.txt",
     "format": "elm-format src",
     "test": "elm-test"
   },
