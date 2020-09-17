@@ -11,3 +11,6 @@
   package = "netlify-plugin-cache"
     [plugins.inputs]
       paths = ["elm-stuff", "$HOME/.elm"]
+
+[[plugins]]
+  package = "netlify-plugin-debug-cache"
