@@ -71,13 +71,13 @@ renderNavLink direction route copyKey =
                 ]
 
         Home ->
-            a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
+            a [ href (toString route), css [ navLinkStyle ] ]
                 [ img [ src "/Home.svg", alt "", css [ homeStyle ] ] []
                 , span [] [ text (t copyKey) ]
                 ]
 
         None ->
-            a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
+            a [ href (toString route), css [ navLinkStyle ] ]
                 [ span [] [ text (t copyKey) ]
                 ]
 
