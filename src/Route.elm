@@ -51,6 +51,8 @@ toString route =
 type Direction
     = Back
     | Forward
+    | Home
+    | None
 
 
 renderNavLink : Direction -> Route -> Key -> Html msg
@@ -66,6 +68,17 @@ renderNavLink direction route copyKey =
             a [ href (toString route), css [ navLinkStyle ] ]
                 [ span [] [ text (t copyKey) ]
                 , img [ src "/Arrow.svg", alt "", css [ forwardArrowStyle ] ] []
+                ]
+
+        Home ->
+            a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
+                [ img [ src "/Home.svg", alt "", css [ homeStyle ] ] []
+                , span [] [ text (t copyKey) ]
+                ]
+
+        None ->
+            a [ href ("../" ++ toString route), css [ navLinkStyle ] ]
+                [ span [] [ text (t copyKey) ]
                 ]
 
 
@@ -89,7 +102,7 @@ navLinkStyle =
         , fontWeight (int 700)
         , justifyContent center
         , minHeight (rem 3)
-        , padding2 (rem 0.5) (rem 2)
+        , padding2 (rem 0.5) (rem 1)
         , textAlign center
         , textDecoration none
         , hover
@@ -114,6 +127,14 @@ forwardArrowStyle =
     batch
         [ height (rem 1.8)
         , marginLeft (rem 1.2)
+        ]
+
+
+homeStyle : Style
+homeStyle =
+    batch
+        [ height (rem 1.8)
+        , marginRight (rem 1.2)
         ]
 
 

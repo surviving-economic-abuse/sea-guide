@@ -31,13 +31,13 @@ view =
             [ nav []
                 [ ul [ css [ navListStyle ] ]
                     [ li [ css navItemStyles ]
-                        [ renderNavLink Forward GetHelp ToGetHelpFromHelpSelfLink
+                        [ renderNavLink Home NotAlone ToNotAloneFromHelpSelfLink
                         ]
                     , li [ css navItemStyles ]
-                        [ renderNavLink Forward NotAlone ToNotAloneFromHelpSelfLink
+                        [ renderNavLink None Definition ToDefinitionFromHelpSelfLink
                         ]
                     , li [ css navItemStyles ]
-                        [ renderNavLink Forward Definition ToDefinitionFromHelpSelfLink
+                        [ renderNavLink None GetHelp ToGetHelpFromHelpSelfLink
                         ]
                     ]
                 ]
