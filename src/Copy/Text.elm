@@ -483,10 +483,10 @@ t key =
             "Separating finances from an abusive partner"
 
         ToDefinitionFromHelpSelfLink ->
-            "Read more about the signs of economic abuse"
+            "Read about signs of economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            "Read more about survivors' experiences"
+            "Read about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
             "Find people to talk to"
