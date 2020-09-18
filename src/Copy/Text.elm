@@ -128,8 +128,26 @@ t key =
         CookieSettingsButton ->
             "[cCc] Cookie settings"
 
-        PrivacyContent ->
-            "[cCc] This will grow. Privacy info."
+        PrivacyContent1Heading ->
+            "Data we collect and why"
+
+        PrivacyContent1P1 ->
+            "[cCc] A couple sentences - then get in touch with privacy concerns ___here@here__ or a link to SEA website privacy page."
+
+        PrivacyContent2Heading ->
+            "Use of cookies"
+
+        PrivacyContent2P1 ->
+            "Cookies are pieces of information that a website transfers to your hard drive."
+
+        PrivacyContent2P2 ->
+            "We use cookies to monitor how users use our website, i.e. which pages they have accessed To help improve our website For more data on Cookies visit www.aboutcookies.org.uk . In addition to detailing extensive information on cookies this site also provides explanations on how to disable cookies on your computer."
+
+        PrivacyContent3Heading ->
+            "Your data and third parties"
+
+        PrivacyContent3P1 ->
+            "Google Analytics: We use Google Analytics, which is a Google service that uses cookies and other data collection technologies to collect information about your use of the website and services in order to report website trends."
 
         -- Not Alone page
         NotAloneTitle ->
