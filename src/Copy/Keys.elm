@@ -3,6 +3,32 @@ module Copy.Keys exposing (Key(..))
 
 type Key
     = SiteTitle
+      --- Site Meta
+    | NotAlonePageMetaTitle
+    | NotAlonePageDescription
+    | DefinitionPageMetaTitle
+    | DefinitionPageDescription
+    | GetHelpPageMetaTitle
+    | GetHelpPageDescription
+    | HelpSelfGridPageMetaTitle
+    | HelpSelfGridPageDescription
+    | HelpSelfSinglePageMetaTitle String
+    | HelpSelfSinglePageDescription String
+    | HelpSelfBankingMetaTitle
+    | HelpSelfBankingDescription
+    | HelpSelfDebtMetaTitle
+    | HelpSelfDebtDescription
+    | HelpSelfHousingMetaTitle
+    | HelpSelfHousingDescription
+    | HelpSelfFinancialMetaTitle
+    | HelpSelfFinancialDescription
+    | HelpSelfCovidMetaTitle
+    | HelpSelfCovidDescription
+    | HelpSelfInfoLawMetaTitle
+    | HelpSelfInfoLawDescription
+    | HelpSelfSeparatingMetaTitle
+    | HelpSelfSeparatingDescription
+    | HelpSelfCategoryNotFoundDescription
       --- Internal Href slugs
     | NotAlonePageSlug
     | DefinitionPageSlug

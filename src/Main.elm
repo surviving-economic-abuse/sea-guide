@@ -244,7 +244,7 @@ resetFocusTop =
 
 viewDocument : Model -> Browser.Document Msg
 viewDocument model =
-    { title = t SiteTitle ++ " | " ++ (metaFromPage model.page).title
+    { title = (metaFromPage model.page).title
     , body = [ view model |> Html.Styled.toUnstyled ]
     }
 
