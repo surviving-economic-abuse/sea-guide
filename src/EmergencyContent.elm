@@ -50,6 +50,7 @@ renderEmergencyPanel viewportWidth =
                         [ text
                             (t EmergencyWomensAidLink)
                         ]
+                    , text " - " ++ t EmergencyWomensAidInfo
                     ]
                 ]
             , p [] [ a [ href (t SeaOrganisationsResourceHref) ] [ text (t EmergencyOtherOrganisationsLink) ] ]
