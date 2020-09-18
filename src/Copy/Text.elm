@@ -65,7 +65,7 @@ t key =
 
         -- Resource pdfs
         SeaOrganisationsResourceHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Organisations-that-can-help-v8.pdf"
 
         HelpSelfBankingResource1Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
@@ -469,7 +469,7 @@ t key =
             "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don’t want to, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
+            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don't want, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
             "What is coerced debt? [PDF 542kB]"
@@ -499,7 +499,7 @@ t key =
             "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
 
         HelpSelfDebtResource3Summary ->
-            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you have moved."
+            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you decide to move."
 
         HelpSelfDebtResource3Link ->
             "Economic abuse and your credit report [PDF 535kB]"
@@ -608,7 +608,7 @@ t key =
             "Economic abuse can be a type of controlling or coercive behaviour. In 2015, controlling or coercive behaviour became a crime for the first time. This information outlines how economic abuse is linked to controlling or coercive behaviour, as well as how the law addresses this crime."
 
         HelpSelfInfoLawResource1Quote1 ->
-            "It was sustained emotional abuse and blatant financial coercion and I couldn’t see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it is gradually melts. That is what coercive control feels like. You don’t notice until it is too late."
+            "It was sustained emotional abuse and blatant financial coercion and I couldn't see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it gradually melts. That is what coercive control feels like. You don't notice until it is too late."
 
         HelpSelfInfoLawResource1Link ->
             "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
@@ -676,7 +676,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact the Financial Support Line for victims of domestic abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact the Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction1Prompt ->
             "Call or text"
