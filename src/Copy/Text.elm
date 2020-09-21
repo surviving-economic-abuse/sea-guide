@@ -13,7 +13,87 @@ t : Key -> String
 t key =
     case key of
         SiteTitle ->
-            "Economic Abuse Support Tool"
+            "Economic Abuse Guide"
+
+        --- Site Meta
+        NotAlonePageMetaTitle ->
+            t SiteTitle
+
+        NotAlonePageDescription ->
+            "[cCc] If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point."
+
+        DefinitionPageMetaTitle ->
+            t DefinitionTitle ++ " | " ++ t SiteTitle
+
+        DefinitionPageDescription ->
+            "[cCc] Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as economic abuse."
+
+        GetHelpPageMetaTitle ->
+            t GetHelpTitle ++ " | " ++ t SiteTitle
+
+        GetHelpPageDescription ->
+            "[cCc] There are many organisations who may be able to help you with specialist information and advice."
+
+        HelpSelfGridPageMetaTitle ->
+            t HelpSelfTitle ++ " | " ++ t SiteTitle
+
+        HelpSelfGridPageDescription ->
+            "[cCc] Resources to help with problems related to economic abuse."
+
+        HelpSelfSinglePageMetaTitle single ->
+            let
+                title =
+                    getHelpSelfSingleTitleKeyFromSlug single
+            in
+            t title ++ " | " ++ t SiteTitle
+
+        HelpSelfSinglePageDescription single ->
+            "[cCc] Resources to help with " ++ t (getHelpSelfSingleDescriptionKeyFromSlug single) ++ "."
+
+        HelpSelfBankingMetaTitle ->
+            "[cCc]"
+
+        HelpSelfBankingDescription ->
+            "banking"
+
+        HelpSelfDebtMetaTitle ->
+            "[cCc]"
+
+        HelpSelfDebtDescription ->
+            "debt"
+
+        HelpSelfHousingMetaTitle ->
+            "[cCc]"
+
+        HelpSelfHousingDescription ->
+            "housing"
+
+        HelpSelfFinancialMetaTitle ->
+            "[cCc]"
+
+        HelpSelfFinancialDescription ->
+            "finances"
+
+        HelpSelfCovidMetaTitle ->
+            "[cCc]"
+
+        HelpSelfCovidDescription ->
+            "financial problems due to COVID-19"
+
+        HelpSelfInfoLawMetaTitle ->
+            "[cCc]"
+
+        HelpSelfInfoLawDescription ->
+            "understanding economic abuse and the law"
+
+        HelpSelfSeparatingMetaTitle ->
+            "[cCc]"
+
+        HelpSelfSeparatingDescription ->
+            "separating your finances from an abusive partner"
+
+        HelpSelfCategoryNotFoundDescription ->
+            "something else. We can't find the topic you are looking for"
 
         --- Internal Href slugs
         NotAlonePageSlug ->
@@ -722,3 +802,59 @@ t key =
 
         ToHelpSelfFromGetHelpLink ->
             "Find information that can help"
+
+
+getHelpSelfSingleTitleKeyFromSlug : String -> Key
+getHelpSelfSingleTitleKeyFromSlug slug =
+    -- Using if .. else because case cannot evaluate expressions
+    if slug == t HelpSelfBankingSlug then
+        HelpSelfBankingTitle
+
+    else if slug == t HelpSelfDebtSlug then
+        HelpSelfDebtTitle
+
+    else if slug == t HelpSelfHousingSlug then
+        HelpSelfHousingTitle
+
+    else if slug == t HelpSelfFinancialSlug then
+        HelpSelfFinancialTitle
+
+    else if slug == t HelpSelfCovidSlug then
+        HelpSelfCovidTitle
+
+    else if slug == t HelpSelfInfoLawSlug then
+        HelpSelfInfoLawTitle
+
+    else if slug == t HelpSelfSeparatingSlug then
+        HelpSelfSeparatingTitle
+
+    else
+        HelpSelfCategoryNotFoundTitle
+
+
+getHelpSelfSingleDescriptionKeyFromSlug : String -> Key
+getHelpSelfSingleDescriptionKeyFromSlug slug =
+    -- Using if .. else because case cannot evaluate expressions
+    if slug == t HelpSelfBankingSlug then
+        HelpSelfBankingDescription
+
+    else if slug == t HelpSelfDebtSlug then
+        HelpSelfDebtDescription
+
+    else if slug == t HelpSelfHousingSlug then
+        HelpSelfHousingDescription
+
+    else if slug == t HelpSelfFinancialSlug then
+        HelpSelfFinancialDescription
+
+    else if slug == t HelpSelfCovidSlug then
+        HelpSelfCovidDescription
+
+    else if slug == t HelpSelfInfoLawSlug then
+        HelpSelfInfoLawDescription
+
+    else if slug == t HelpSelfSeparatingSlug then
+        HelpSelfSeparatingDescription
+
+    else
+        HelpSelfCategoryNotFoundDescription
