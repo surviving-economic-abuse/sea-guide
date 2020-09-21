@@ -380,13 +380,13 @@ t key =
             "Are you experiencing economic abuse?"
 
         DefinitionConciseP1 ->
-            "In your relationship, who has control over the money? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
+            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
 
         DefinitionConciseP2 ->
-            "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
+            "In your relationship, who has control over the money? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
 
         DefinitionConciseP3 ->
-            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
+            "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
 
         DefinitionConciseP4 ->
             "[1 in 5] adults in the UK have experienced economic abuse at some point."

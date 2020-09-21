@@ -10,7 +10,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, verticalSpacing)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaTabletOrDesktop)
 
 
 view : Bool -> Model -> Html Msg
@@ -20,10 +20,15 @@ view hasConsented model =
             [ header []
                 [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t DefinitionTitle) ]
                 , div [ css [ introStyle ] ]
-                    [ p [] (renderWithKeywords (t DefinitionConciseP1))
-                    , p [] (renderWithKeywords (t DefinitionConciseP2))
-                    , p [] (renderWithKeywords (t DefinitionConciseP3))
-                    , p [] (renderWithKeywords (t DefinitionConciseP4))
+                    [ div [ css [ introParagraphStyle ] ]
+                        [ p [] (renderWithKeywords (t DefinitionConciseP1))
+                        , img [ css [ imageStyle ], src "/Financial.svg" ] []
+                        ]
+                    , div [ css [ introParagraphStyle ] ]
+                        [ p [] (renderWithKeywords (t DefinitionConciseP2))
+                        , p [] (renderWithKeywords (t DefinitionConciseP3))
+                        , p [] (renderWithKeywords (t DefinitionConciseP4))
+                        ]
                     ]
                 ]
             , dl [ css [ categoryListStyle ] ]
@@ -118,4 +123,29 @@ categoryListStyle =
 introStyle : Style
 introStyle =
     batch
-        [ margin2 (rem 2) (rem 1) ]
+        [ displayFlex
+        , flexWrap wrap
+        , alignItems start
+        , height (px 200)
+        , margin2 (rem 2) (rem 1)
+        ]
+
+
+introParagraphStyle : Style
+introParagraphStyle =
+    batch
+        [ flex2 zero twoColumn
+        , margin (rem 1)
+        , position relative
+        , withMediaTabletOrDesktop
+            [ flex2 zero twoColumn ]
+        ]
+
+
+imageStyle : Style
+imageStyle =
+    batch
+        [ margin auto
+        , maxWidth (pct 60)
+        , width (rem 20)
+        ]
