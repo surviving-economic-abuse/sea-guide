@@ -251,10 +251,12 @@ viewDocument model =
 
 view : Model -> Html Msg
 view model =
-    div [ css [ minHeight (vh 100), waveStyle ] ]
+    div [ css [ minHeight (vh 100), waveStyle, displayFlex, flexDirection column ] ]
         [ globalStyles
         , renderExitButton
-        , pageModelToHtmlMsg model
+        -- this makes the page content grow to fill the screen and keep
+        -- the cookie button sticky at the bottom
+        , div [ css [ flexGrow (int 1) ] ] [ pageToHtmlMsg model ]
         , if model.emergencyPopupIsOpen then
             renderEmergencyPanel model.viewportWidth
 

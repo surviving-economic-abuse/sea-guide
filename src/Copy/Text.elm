@@ -145,7 +145,7 @@ t key =
 
         -- Resource pdfs
         SeaOrganisationsResourceHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Organisations-that-can-help-v8.pdf"
 
         HelpSelfBankingResource1Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
@@ -208,43 +208,61 @@ t key =
         CookieSettingsButton ->
             "[cCc] Cookie settings"
 
-        PrivacyContent ->
-            "[cCc] This will grow. Privacy info."
+        PrivacyContent1Heading ->
+            "[cCc] Data we collect and why"
+
+        PrivacyContent1P1 ->
+            "[cCc] A couple sentences - then get in touch with privacy concerns ___here@here__ or a link to SEA website privacy page."
+
+        PrivacyContent2Heading ->
+            "[cCc] Use of cookies"
+
+        PrivacyContent2P1 ->
+            "[cCc] Cookies are pieces of information that a website transfers to your hard drive."
+
+        PrivacyContent2P2 ->
+            "[cCc] We use cookies to monitor how users use our website, i.e. which pages they have accessed To help improve our website For more data on Cookies visit www.aboutcookies.org.uk . In addition to detailing extensive information on cookies this site also provides explanations on how to disable cookies on your computer."
+
+        PrivacyContent3Heading ->
+            "[cCc] Your data and third parties"
+
+        PrivacyContent3P1 ->
+            "[cCc] Google Analytics: We use Google Analytics, which is a Google service that uses cookies and other data collection technologies to collect information about your use of the website and services in order to report website trends."
 
         -- Not Alone page
         NotAloneTitle ->
             "You are not alone"
 
-        -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
         Journey1Teaser ->
-            "He threw my phone on the floor and smashed\u{00A0}it"
-
-        Journey1Image ->
-            "/Person_1.svg"
-
-        Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my [mobile phone] on the floor and smashed it. I had to buy 3 new phones last year."
-
-        Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
-
-        Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
-
-        Journey2Teaser ->
             "He considered my money\u{00A0}his"
 
-        Journey2Image ->
+        Journey1Image ->
             "/Person_2.svg"
 
-        Journey2Relatable ->
+        Journey1Relatable ->
             "Over the years, the [criticism, blame and undermining] increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with [my money] he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
 
-        Journey2Hopeful ->
+        Journey1Hopeful ->
             "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
 
-        Journey2Statement ->
+        Journey1Statement ->
             "We are happy, and he no longer has control over our lives."
+
+        -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
+        Journey2Teaser ->
+            "He threw my phone on the floor and smashed\u{00A0}it"
+
+        Journey2Image ->
+            "/Person_1.svg"
+
+        Journey2Relatable ->
+            "When I took a call from someone my boyfriend didn't approve of, he threw my [mobile phone] on the floor and smashed it. I had to buy 3 new phones last year."
+
+        Journey2Hopeful ->
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
+
+        Journey2Statement ->
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey3Teaser ->
             "I had no control over my\u{00A0}life"
@@ -549,7 +567,7 @@ t key =
             "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don’t want to, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
+            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don't want, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
             "What is coerced debt? [PDF 542kB]"
@@ -579,7 +597,7 @@ t key =
             "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
 
         HelpSelfDebtResource3Summary ->
-            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you have moved."
+            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you decide to move."
 
         HelpSelfDebtResource3Link ->
             "Economic abuse and your credit report [PDF 535kB]"
@@ -688,7 +706,7 @@ t key =
             "Economic abuse can be a type of controlling or coercive behaviour. In 2015, controlling or coercive behaviour became a crime for the first time. This information outlines how economic abuse is linked to controlling or coercive behaviour, as well as how the law addresses this crime."
 
         HelpSelfInfoLawResource1Quote1 ->
-            "It was sustained emotional abuse and blatant financial coercion and I couldn’t see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it is gradually melts. That is what coercive control feels like. You don’t notice until it is too late."
+            "It was sustained emotional abuse and blatant financial coercion and I couldn't see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it gradually melts. That is what coercive control feels like. You don't notice until it is too late."
 
         HelpSelfInfoLawResource1Link ->
             "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
@@ -756,7 +774,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact the Financial Support Line for victims of domestic abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact the Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction1Prompt ->
             "Call or text"
