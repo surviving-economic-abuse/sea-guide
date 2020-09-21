@@ -157,7 +157,7 @@ t key =
             "He considered my money\u{00A0}his"
 
         Journey1Image ->
-            "/Person_2.svg"
+            "/Person_1.svg"
 
         Journey1Relatable ->
             "Over the years, the [criticism, blame and undermining] increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with [my money] he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
@@ -173,7 +173,7 @@ t key =
             "He threw my phone on the floor and smashed\u{00A0}it"
 
         Journey2Image ->
-            "/Person_1.svg"
+            "/Person_2.svg"
 
         Journey2Relatable ->
             "When I took a call from someone my boyfriend didn't approve of, he threw my [mobile phone] on the floor and smashed it. I had to buy 3 new phones last year."
@@ -257,7 +257,7 @@ t key =
             "Close button"
 
         ExitButton ->
-            "EXIT SITE"
+            "QUICK EXIT"
 
         EmergencyButton ->
             "I need help"

@@ -43,10 +43,10 @@ view hasConsented model =
             , nav []
                 [ ul [ css [ navListStyle ] ]
                     [ li [ css navItemStyles ]
-                        [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+                        [ renderNavLink None HelpSelfGrid ToHelpSelfFromDefinitionLink
                         ]
                     , li [ css navItemStyles ]
-                        [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                        [ renderNavLink None GetHelp ToGetHelpFromDefinitionLink
                         ]
                     ]
                 ]

@@ -66,9 +66,11 @@ lightPink =
     hex "ffddee"
 
 
-teal : Color
+teal : { colour : Color, string : String }
 teal =
-    hex "67c4ba"
+    { colour = hex "67c4ba"
+    , string = "#67c4ba"
+    }
 
 
 lightTeal : Color
@@ -277,7 +279,7 @@ expanderButtonStyle =
         , textAlign left
         , width (pct 100)
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline zero
             ]
         ]
@@ -360,7 +362,7 @@ quoteStyle =
             [ borderLeft3 (px 2) solid orange.colour
             ]
         , nthOfType "2n"
-            [ borderLeft3 (px 2) solid teal
+            [ borderLeft3 (px 2) solid teal.colour
             ]
         , nthOfType "3n"
             [ borderLeft3 (px 2) solid pink.colour

@@ -26,7 +26,7 @@ view viewportWidth =
             , nav [ css [ navListStyle ] ]
                 [ p [ css [ reassuringStyle ] ]
                     [ text (t ToHelpSelfReassuringText) ]
-                , renderNavLink Forward HelpSelfGrid ToHelpSelfFromGetHelpLink
+                , renderNavLink None HelpSelfGrid ToHelpSelfFromGetHelpLink
                 ]
             ]
         , verticalSpacing 2

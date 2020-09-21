@@ -159,7 +159,7 @@ emergencyPanelHeaderButtonStyle =
             [ border3 (px 3) solid lightPurple
             ]
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline none
             ]
         ]
