@@ -225,7 +225,7 @@ linkStyle =
     batch
         [ color orange.colour
         , hover
-            [ color lightOrange ]
+            [ color darkOrange ]
         , focus
             [ border3 (px 3) solid teal.colour
             , outline zero
