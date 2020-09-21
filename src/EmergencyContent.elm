@@ -223,7 +223,7 @@ iconStyle =
 linkStyle : Style
 linkStyle =
     batch
-        [ color orange.colour
+        [ color purple
         , hover
             [ color darkOrange ]
         , focus
