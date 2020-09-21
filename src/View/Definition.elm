@@ -25,8 +25,10 @@ view hasConsented model =
                         , img [ css [ imageStyle ], src "/Definition.svg" ] []
                         ]
                     , div [ css [ introParagraphStyle ] ]
-                        [ p [] (renderWithKeywords (t DefinitionConciseP2))
-                        , p [] (renderWithKeywords (t DefinitionConciseP3))
+                        [ div [ css [ popStyle ] ]
+                            [ p [] (renderWithKeywords (t DefinitionConciseP2))
+                            , p [] (renderWithKeywords (t DefinitionConciseP3))
+                            ]
                         , p [] (renderWithKeywords (t DefinitionConciseP4))
                         ]
                     ]
@@ -133,7 +135,7 @@ introStyle =
 introParagraphStyle : Style
 introParagraphStyle =
     batch
-        [ flex2 zero oneColumn
+        [ flex2 zero twoColumn
         , margin (rem 1)
         , position relative
         , withMediaTabletOrDesktop
@@ -148,3 +150,9 @@ imageStyle =
         , maxWidth (pct 60)
         , width (rem 20)
         ]
+
+
+popStyle : Style
+popStyle =
+    batch
+        [ backgroundImage (url "/Pop.svg"), backgroundRepeat noRepeat ]
