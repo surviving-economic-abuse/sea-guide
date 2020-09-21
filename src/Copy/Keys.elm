@@ -43,7 +43,13 @@ type Key
     | CookieAcceptButton
     | CookieDeclineButton
     | CookieSettingsButton
-    | PrivacyContent
+    | PrivacyContent1Heading
+    | PrivacyContent1P1
+    | PrivacyContent2Heading
+    | PrivacyContent2P1
+    | PrivacyContent2P2
+    | PrivacyContent3Heading
+    | PrivacyContent3P1
       -- Not Alone page
     | NotAloneTitle
     | Journey1Teaser
