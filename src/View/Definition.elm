@@ -22,7 +22,7 @@ view hasConsented model =
                 , div [ css [ introStyle ] ]
                     [ div [ css [ introParagraphStyle ] ]
                         [ p [] (renderWithKeywords (t DefinitionConciseP1))
-                        , img [ css [ imageStyle ], src "/Financial.svg" ] []
+                        , img [ css [ imageStyle ], src "/Definition.svg" ] []
                         ]
                     , div [ css [ introParagraphStyle ] ]
                         [ p [] (renderWithKeywords (t DefinitionConciseP2))
@@ -126,7 +126,6 @@ introStyle =
         [ displayFlex
         , flexWrap wrap
         , alignItems start
-        , height (px 200)
         , margin2 (rem 2) (rem 1)
         ]
 
@@ -134,7 +133,7 @@ introStyle =
 introParagraphStyle : Style
 introParagraphStyle =
     batch
-        [ flex2 zero twoColumn
+        [ flex2 zero oneColumn
         , margin (rem 1)
         , position relative
         , withMediaTabletOrDesktop
