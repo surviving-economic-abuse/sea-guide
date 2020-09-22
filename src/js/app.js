@@ -19,6 +19,10 @@ elm.ports.saveConsent.subscribe(function (hasConsented) {
 // Google analytics subscribe to page changes and custom events
 elm.ports.updateAnalyticsPage.subscribe(function (page) {
     if (typeof window != undefined) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
       gtag("config", "UA-30970110-8", { "page_path" : page });
     }
 });
