@@ -110,7 +110,7 @@ navLinkStyle =
             , color grey
             ]
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline zero
             ]
         , transition

@@ -5,7 +5,7 @@ import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Task
-import Theme exposing (green, orange, pink)
+import Theme exposing (green, orange, pink, teal)
 
 
 type alias Model =
@@ -132,7 +132,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
-            , color = orange.string
+            , color = teal.string
             }
 
         JourneyCard6 ->

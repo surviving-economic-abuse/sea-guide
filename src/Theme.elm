@@ -1,4 +1,4 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
+module Theme exposing (container, containerContent, darkOrange, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTabletOrDesktop)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
@@ -38,6 +38,11 @@ lightOrange =
     hex "ffece8"
 
 
+darkOrange : Color
+darkOrange =
+    hex "ac3c2d"
+
+
 
 -- Accent colours
 
@@ -66,9 +71,11 @@ lightPink =
     hex "ffddee"
 
 
-teal : Color
+teal : { colour : Color, string : String }
 teal =
-    hex "67c4ba"
+    { colour = hex "67c4ba"
+    , string = "#67c4ba"
+    }
 
 
 lightTeal : Color
@@ -156,6 +163,9 @@ globalStyles =
         , typeSelector "h4"
             [ color purple
             , fontFamilies [ "Raleway", "sansSerif" ]
+            ]
+        , typeSelector "b"
+            [ fontWeight (int 700)
             ]
         , typeSelector "p"
             [ adjacentSiblings
@@ -277,7 +287,7 @@ expanderButtonStyle =
         , textAlign left
         , width (pct 100)
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline zero
             ]
         ]
@@ -360,7 +370,7 @@ quoteStyle =
             [ borderLeft3 (px 2) solid orange.colour
             ]
         , nthOfType "2n"
-            [ borderLeft3 (px 2) solid teal
+            [ borderLeft3 (px 2) solid teal.colour
             ]
         , nthOfType "3n"
             [ borderLeft3 (px 2) solid pink.colour
