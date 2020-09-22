@@ -229,7 +229,6 @@ linkStyle =
         , hover
             [ color darkOrange ]
         , focus
-            [ border3 (px 3) solid teal.colour
-            , outline zero
+            [ outline3 (px 3) solid teal.colour
             ]
         ]

@@ -164,6 +164,9 @@ globalStyles =
             [ color purple
             , fontFamilies [ "Raleway", "sansSerif" ]
             ]
+        , typeSelector "b"
+            [ fontWeight (int 700)
+            ]
         , typeSelector "p"
             [ adjacentSiblings
                 [ typeSelector "p"
