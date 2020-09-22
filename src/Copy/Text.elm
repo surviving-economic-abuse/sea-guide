@@ -215,13 +215,13 @@ t key =
             "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
         Journey5Teaser ->
-            "He took out loans in my\u{00A0}name"
+            "There were loans in my name that I knew nothing\u{00A0}about"
 
         Journey5Image ->
             "/Person_5.svg"
 
         Journey5Relatable ->
-            "When I left the relationship I realised he had taken out [loans and credit cards] in joint names I knew nothing about."
+            "When I left the relationship I realised my ex had taken out loans and credit cards in joint names I knew nothing about."
 
         Journey5Hopeful ->
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
