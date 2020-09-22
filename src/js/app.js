@@ -1,6 +1,5 @@
 import { Elm } from "../Main.elm";
 
-
 var hasConsented = sessionStorage.getItem("ga-cookie-consent") ? sessionStorage.getItem("ga-cookie-consent") : "null";
 
 var elm = Elm.Main.init({
@@ -19,13 +18,13 @@ elm.ports.saveConsent.subscribe(function (hasConsented) {
 
 // Google analytics subscribe to page changes and custom events
 elm.ports.updateAnalyticsPage.subscribe(function (page) {
-    if (typeof window !="undefined") {
+    if (typeof window != undefined && gtag) {
       gtag("config", "UA-30970110-8", { "page_path" : page });
     }
 });
 
 elm.ports.updateAnalyticsEvent.subscribe(function (gaEvent) {
-  if (typeof window != "undefined") {
+  if (typeof window != undefined && gtag) {
     gtag("event", gaEvent.action, { "event_category" : gaEvent.category, "event_label" : gaEvent.label });
   }
 });
