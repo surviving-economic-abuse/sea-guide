@@ -84,6 +84,8 @@ exitButtonStyle =
         [ backgroundColor orange.colour
         , border zero
         , color white
+        , displayFlex
+        , alignItems center
         , fontSize (rem 1.1)
         , fontWeight (int 400)
         , height (rem 3.75)
