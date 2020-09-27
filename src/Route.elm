@@ -158,5 +158,5 @@ routeParser =
         , Parser.map Definition (Parser.s (t DefinitionPageSlug))
         , Parser.map GetHelp (Parser.s (t GetHelpPageSlug))
         , Parser.map HelpSelfGrid (Parser.s (t HelpSelfGridPageSlug))
-        , Parser.map HelpSelfSingle (Parser.s "help-self" </> string)
+        , Parser.map HelpSelfSingle (Parser.s (t HelpSelfGridPageSlug) </> string)
         ]
