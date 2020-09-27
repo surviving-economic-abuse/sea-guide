@@ -41,7 +41,7 @@ toString route =
             t HelpSelfGridPageSlug ++ "/" ++ single
 
         NotAlone ->
-            t NotAlonePageSlug
+            "/" ++ t NotAlonePageSlug
 
 
 
