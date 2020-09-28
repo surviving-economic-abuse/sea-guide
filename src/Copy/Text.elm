@@ -194,7 +194,7 @@ t key =
 
         -- Cookies and Privacy
         CookieBannerP ->
-            "This website uses Google Analytics cookies to improve your experience. Allowing us to use\ncookies does not let us identify you. You can still opt-out if you wish."
+            "This website uses Google Analytics cookies to improve your experience. Allowing us to use cookies does not let us identify you. You can still opt-out if you wish."
 
         CookieBannerPrivacyButton ->
             "Privacy information"
@@ -212,7 +212,7 @@ t key =
             "What are cookies?"
 
         PrivacyContent1P ->
-            "Cookies are small text files that help Google Analytics collect important information for us\non how many people visit this website. Cookies do not identify you, but can provide us with\nimportant information on how to improve the site. If you don't want this information to be\nshared with us, you can always opt out."
+            "Cookies are small text files that help Google Analytics collect important information for us on how many people visit this website. Cookies do not identify you, but can provide us with important information on how to improve the site. If you don't want this information to be shared with us, you can always opt out."
 
         PrivacyContent2Heading ->
             "Why am I seeing this?"
@@ -224,7 +224,7 @@ t key =
             "What can I do?"
 
         PrivacyContent3P ->
-            "If you have any concerns about cookies, you can change your browser settings to disable\nthem, either for this site only or for all websites. This may mean that some site functions will\nnot work anymore. Find out how to turn off cookies at allaboutcookies.org. If you have any\nadditional privacy concerns, you can get in touch at [cCc]@survivingeconomicabuse.org"
+            "If you have any concerns about cookies, you can change your browser settings to disable them, either for this site only or for all websites. This may mean that some site functions will not work anymore. Find out how to turn off cookies at allaboutcookies.org. If you have any additional privacy concerns, you can get in touch at info@survivingeconomicabuse.org"
 
         -- Not Alone page
         NotAloneTitle ->
