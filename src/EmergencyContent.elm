@@ -111,9 +111,7 @@ emergencyPanelStyle =
         , position fixed
         , right (px 5)
         , width (px 300)
-        , withMediaTabletOrDesktop
-            [ right (px 120)
-            ]
+        , zIndex (int 3)
         ]
 
 
@@ -175,7 +173,10 @@ emergencyPanelBodyStyle =
         , borderBottomLeftRadius (px 20)
         , borderBottomRightRadius (px 20)
         , padding (rem 1.5)
-        , withMediaTabletOrDesktop
+        , withMediaTablet
+            [ borderRadius zero
+            ]
+        , withMediaDesktop
             [ borderRadius zero
             ]
         ]
@@ -207,9 +208,6 @@ emergencyButtonStyle =
         , focus
             [ border3 (px 3) solid green.colour
             , outline zero
-            ]
-        , withMediaTabletOrDesktop
-            [ right (px 20)
             ]
         ]
 
