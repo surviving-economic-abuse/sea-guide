@@ -17,96 +17,96 @@ t key =
 
         --- Site Meta
         NotAlonePageMetaTitle ->
-            t SiteTitle
+            t SiteTitle ++ " - " ++ "Surviving Economic Abuse"
 
         NotAlonePageDescription ->
-            "[cCc] If you are experiencing economic abuse, you are not alone. 1 in 5 adults in the UK have experienced economic abuse at some point."
+            "If you are experiencing economic abuse, you are not alone. Read about survivors'\nexperiences and the signs of economic abuse in our guide."
 
         DefinitionPageMetaTitle ->
-            t DefinitionTitle ++ " | " ++ t SiteTitle
+            t DefinitionTitle
 
         DefinitionPageDescription ->
-            "[cCc] Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as economic abuse."
+            "An abuser may restrict how you make or spend money, or control your other resources, including housing, food and clothing. This is called economic abuse."
 
         GetHelpPageMetaTitle ->
-            t GetHelpTitle ++ " | " ++ t SiteTitle
+            "Get help with economic abuse"
 
         GetHelpPageDescription ->
-            "[cCc] There are many organisations who may be able to help you with specialist information and advice."
+            "If you are experiencing economic abuse, you are not alone. There are people you can talk to, including helplines, a survivor forum, and more."
 
         HelpSelfGridPageMetaTitle ->
-            t HelpSelfTitle ++ " | " ++ t SiteTitle
+            "Resources to help you"
 
         HelpSelfGridPageDescription ->
-            "[cCc] Resources to help with problems related to economic abuse."
+            "There are people and organisations who understand and who can help with economic abuse. Read our resources on banking, debt, housing, the law, and more."
 
         HelpSelfSinglePageMetaTitle single ->
             let
                 title =
                     getHelpSelfSingleTitleKeyFromSlug single
             in
-            t title ++ " | " ++ t SiteTitle
+            t title
 
         HelpSelfSinglePageDescription single ->
-            "[cCc] Resources to help with " ++ t (getHelpSelfSingleDescriptionKeyFromSlug single) ++ "."
+            t (getHelpSelfSingleDescriptionKeyFromSlug single)
 
         HelpSelfBankingMetaTitle ->
-            "[cCc]"
+            t HelpSelfBankingTitle
 
         HelpSelfBankingDescription ->
-            "banking"
+            "Read about how to regain control of your money and bank accounts, as well as ensure that any new banking information is safe and secure."
 
         HelpSelfDebtMetaTitle ->
-            "[cCc]"
+            t HelpSelfDebtTitle
 
         HelpSelfDebtDescription ->
-            "debt"
+            "Forcing or coercing someone into debt is a common form of economic abuse. Learn about coerced debt and what you can do about it here."
 
         HelpSelfHousingMetaTitle ->
-            "[cCc]"
+            t HelpSelfHousingTitle
 
         HelpSelfHousingDescription ->
-            "housing"
+            "Learn about your housing options and the support available to help ensure you have a safe place to live if you are leaving an abuser."
 
         HelpSelfFinancialMetaTitle ->
-            "[cCc]"
+            t HelpSelfFinancialTitle
 
         HelpSelfFinancialDescription ->
-            "finances"
+            "Learn about what financial support is available if you are experiencing economic abuse. We have information on grants, immigration and child support."
 
         HelpSelfCovidMetaTitle ->
-            "[cCc]"
+            t HelpSelfCovidTitle
 
         HelpSelfCovidDescription ->
-            "financial problems due to COVID-19"
+            "The resources on this page can help support your economic wellbeing and your safety during the coronavirus pandemic."
 
         HelpSelfInfoLawMetaTitle ->
-            "[cCc]"
+            t HelpSelfInfoLawTitle
 
         HelpSelfInfoLawDescription ->
-            "understanding economic abuse and the law"
+            "Learn about how economic abuse fits into the Domestic Abuse Bill, as well as how the law treats controlling and coercive behaviour."
 
         HelpSelfSeparatingMetaTitle ->
-            "[cCc]"
+            t HelpSelfSeparatingTitle
 
         HelpSelfSeparatingDescription ->
-            "separating your finances from an abusive partner"
+            "Learn how to identify your financial links with the abuser, as well as how you can break those links to regain control of your own finances."
 
         HelpSelfCategoryNotFoundDescription ->
-            "something else. We can't find the topic you are looking for"
+            "We can't find the topic you are looking for."
 
         --- Internal Href slugs
         NotAlonePageSlug ->
-            "not-alone"
+            ""
 
         DefinitionPageSlug ->
-            "definition"
+            "what-is-economic-abuse"
 
         GetHelpPageSlug ->
             "get-help"
 
         HelpSelfGridPageSlug ->
-            "help-self"
+            "economic-abuse-resources"
 
         HelpSelfBankingSlug ->
             "banking"
@@ -121,13 +121,13 @@ t key =
             "financial-support"
 
         HelpSelfCovidSlug ->
-            "covid-and-finances"
+            "covid-19"
 
         HelpSelfInfoLawSlug ->
-            "facts-about-economic-abuse"
+            "the-law"
 
         HelpSelfSeparatingSlug ->
-            "separating-finances"
+            "separating-your-finances"
 
         -- add string arg here with case for each category
         HelpSelfSinglePageSlug category ->
