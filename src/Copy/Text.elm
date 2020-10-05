@@ -194,40 +194,37 @@ t key =
 
         -- Cookies and Privacy
         CookieBannerP ->
-            "[cCc] Can we use cookies to help improve this site? We'd like to use Google Analytics cookies to collect and report information on how people use the site. Allowing us to use cookies does not allow us to identify you."
+            "This website uses Google Analytics cookies to improve your experience. Allowing us to use cookies does not let us identify you. You can still opt-out if you wish."
 
         CookieBannerPrivacyButton ->
-            "[cCc] Privacy information"
+            "Privacy information"
 
         CookieAcceptButton ->
-            "[cCc] Accept"
+            "Accept"
 
         CookieDeclineButton ->
-            "[cCc] Decline"
+            "Decline"
 
         CookieSettingsButton ->
-            "[cCc] Cookie settings"
+            "Cookie settings"
 
         PrivacyContent1Heading ->
-            "[cCc] Data we collect and why"
+            "What are cookies?"
 
-        PrivacyContent1P1 ->
-            "[cCc] A couple sentences - then get in touch with privacy concerns ___here@here__ or a link to SEA website privacy page."
+        PrivacyContent1P ->
+            "Cookies are small text files that help Google Analytics collect important information for us on how many people visit this website. Cookies do not identify you, but can provide us with important information on how to improve the site. If you don't want this information to be shared with us, you can always opt out."
 
         PrivacyContent2Heading ->
-            "[cCc] Use of cookies"
+            "Why am I seeing this?"
 
-        PrivacyContent2P1 ->
-            "[cCc] Cookies are pieces of information that a website transfers to your hard drive."
-
-        PrivacyContent2P2 ->
-            "[cCc] We use cookies to monitor how users use our website, i.e. which pages they have accessed To help improve our website For more data on Cookies visit www.aboutcookies.org.uk . In addition to detailing extensive information on cookies this site also provides explanations on how to disable cookies on your computer."
+        PrivacyContent2P ->
+            "The law requires us to give you information on what cookies are and how you can opt out of sharing them."
 
         PrivacyContent3Heading ->
-            "[cCc] Your data and third parties"
+            "What can I do?"
 
-        PrivacyContent3P1 ->
-            "[cCc] Google Analytics: We use Google Analytics, which is a Google service that uses cookies and other data collection technologies to collect information about your use of the website and services in order to report website trends."
+        PrivacyContent3P ->
+            "If you have any concerns about cookies, you can change your browser settings to disable them, either for this site only or for all websites. This may mean that some site functions will not work anymore. Find out how to turn off cookies at allaboutcookies.org. If you have any additional privacy concerns, you can get in touch at info@survivingeconomicabuse.org"
 
         -- Not Alone page
         NotAloneTitle ->

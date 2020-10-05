@@ -54,12 +54,11 @@ renderPrivacyInformation : Html Msg
 renderPrivacyInformation =
     div []
         [ h2 [ css [ privacyHeadingStyle ] ] [ text (t PrivacyContent1Heading) ]
-        , p [] [ text (t PrivacyContent1P1) ]
+        , p [] [ text (t PrivacyContent1P) ]
         , h2 [ css [ privacyHeadingStyle ] ] [ text (t PrivacyContent2Heading) ]
-        , p [] [ text (t PrivacyContent2P1) ]
-        , p [] [ text (t PrivacyContent2P2) ]
+        , p [] [ text (t PrivacyContent2P) ]
         , h2 [ css [ privacyHeadingStyle ] ] [ text (t PrivacyContent3Heading) ]
-        , p [] [ text (t PrivacyContent3P1) ]
+        , p [] [ text (t PrivacyContent3P) ]
         ]
 
 
