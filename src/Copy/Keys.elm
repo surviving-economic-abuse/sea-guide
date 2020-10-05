@@ -70,12 +70,11 @@ type Key
     | CookieDeclineButton
     | CookieSettingsButton
     | PrivacyContent1Heading
-    | PrivacyContent1P1
+    | PrivacyContent1P
     | PrivacyContent2Heading
-    | PrivacyContent2P1
-    | PrivacyContent2P2
+    | PrivacyContent2P
     | PrivacyContent3Heading
-    | PrivacyContent3P1
+    | PrivacyContent3P
       -- Not Alone page
     | NotAloneTitle
     | Journey1Teaser

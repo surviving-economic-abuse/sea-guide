@@ -27,7 +27,7 @@ suite =
         , test "HelpSelfGrid view has nav link to not-alone" <|
             \() ->
                 queryFromStyledHtml view
-                    |> Query.find [ tag "a", attribute (Html.Attributes.href (t NotAlonePageSlug)) ]
+                    |> Query.find [ tag "a", attribute (Html.Attributes.href ("/" ++ t NotAlonePageSlug)) ]
                     |> Query.has [ text (t ToNotAloneFromHelpSelfLink) ]
         , test "HelpSelfGrid view has nav link to definition" <|
             \() ->
