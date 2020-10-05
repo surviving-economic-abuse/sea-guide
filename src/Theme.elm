@@ -1,10 +1,10 @@
-module Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTablet)
+module Theme exposing (container, containerContent, darkOrange, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaTablet)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, div)
+import Html.Styled exposing (Html, b, div, text)
 import Html.Styled.Attributes exposing (css)
 
 
@@ -26,9 +26,11 @@ lightPurple =
 -- Emergency colours
 
 
-orange : Color
+orange : { colour : Color, string : String }
 orange =
-    hex "ea5e4a"
+    { colour = hex "ea5e4a"
+    , string = "#ea5e4a"
+    }
 
 
 lightOrange : Color
@@ -36,13 +38,20 @@ lightOrange =
     hex "ffece8"
 
 
+darkOrange : Color
+darkOrange =
+    hex "ac3c2d"
+
+
 
 -- Accent colours
 
 
-green : Color
+green : { colour : Color, string : String }
 green =
-    hex "a4cc5a"
+    { colour = hex "a4cc5a"
+    , string = "#a4cc5a"
+    }
 
 
 lightGreen : Color
@@ -50,9 +59,11 @@ lightGreen =
     hex "effadc"
 
 
-pink : Color
+pink : { colour : Color, string : String }
 pink =
-    hex "e03088"
+    { colour = hex "e03088"
+    , string = "#e03088"
+    }
 
 
 lightPink : Color
@@ -60,9 +71,11 @@ lightPink =
     hex "ffddee"
 
 
-teal : Color
+teal : { colour : Color, string : String }
 teal =
-    hex "67c4ba"
+    { colour = hex "67c4ba"
+    , string = "#67c4ba"
+    }
 
 
 lightTeal : Color
@@ -151,6 +164,9 @@ globalStyles =
             [ color purple
             , fontFamilies [ "Raleway", "sansSerif" ]
             ]
+        , typeSelector "b"
+            [ fontWeight (int 700)
+            ]
         , typeSelector "p"
             [ adjacentSiblings
                 [ typeSelector "p"
@@ -185,7 +201,8 @@ pageHeadingStyle : Style
 pageHeadingStyle =
     batch
         [ fontSize (rem 1.8)
-        , margin2 (rem 2) zero
+        , outline none
+        , padding2 (rem 2) zero
         , textAlign center
         , withMediaTablet
             [ fontSize (rem 2.5) ]
@@ -270,7 +287,7 @@ expanderButtonStyle =
         , textAlign left
         , width (pct 100)
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline zero
             ]
         ]
@@ -350,13 +367,13 @@ quoteStyle =
         , before [ property "content" "'\"'" ]
         , after [ property "content" "'\"'" ]
         , nthOfType "1n"
-            [ borderLeft3 (px 2) solid orange
+            [ borderLeft3 (px 2) solid orange.colour
             ]
         , nthOfType "2n"
-            [ borderLeft3 (px 2) solid teal
+            [ borderLeft3 (px 2) solid teal.colour
             ]
         , nthOfType "3n"
-            [ borderLeft3 (px 2) solid pink
+            [ borderLeft3 (px 2) solid pink.colour
             ]
         ]
 
@@ -369,3 +386,68 @@ container children =
 containerContent : List (Html msg) -> Html msg
 containerContent children =
     div [ css [ margin2 zero auto, maxWidth (px 800), width (pct 100) ] ] children
+
+
+generateId : String -> String
+generateId input =
+    String.trim (String.replace " " "-" (String.toLower input))
+
+
+
+-- Helpers to render Copy.Text Strings with [keywords] marked in brackets as Html <b>
+
+
+renderWithKeywords : String -> List (Html msg)
+renderWithKeywords richText =
+    List.map (\( words, isKeyword ) -> renderAsBoldOrText ( words, isKeyword )) (splitOnStartKeyword richText)
+
+
+renderAsBoldOrText : ( String, Bool ) -> Html msg
+renderAsBoldOrText ( stringPartial, isKeyword ) =
+    if isKeyword then
+        b [ css [ keywordStyle ] ] [ text stringPartial ]
+
+    else
+        text stringPartial
+
+
+
+-- Helpers to tag each fragment as keyword (True) or plain text (False)
+
+
+splitOnStartKeyword : String -> List ( String, Bool )
+splitOnStartKeyword richText =
+    let
+        -- First we break the rich text string into a list,
+        -- separating on [, the start of a bold word or phrase
+        beforeBoldPartials =
+            String.split "[" richText
+    in
+    List.concat (List.map (\partial -> splitOnEndKeyword partial) beforeBoldPartials)
+
+
+splitOnEndKeyword : String -> List ( String, Bool )
+splitOnEndKeyword partial =
+    if String.contains "]" partial then
+        let
+            -- The closing ] means this is the end of a bold word or phrase,
+            -- Break it into a list again to separate out the plain text that follows.
+            subList =
+                String.split "]" partial
+        in
+        -- Since we already split on [, the list will always have 2 items, but elm doesn't know that.
+        -- The first item is the bold part, the second (tail) is plain text.
+        [ ( Maybe.withDefault "" (List.head subList), True )
+        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
+        ]
+
+    else
+        -- The list items without a closing ] to mark end of bold, are plain text strings.
+        [ ( partial, False ) ]
+
+
+keywordStyle : Style
+keywordStyle =
+    batch
+        [ backgroundColor lightGreen
+        ]

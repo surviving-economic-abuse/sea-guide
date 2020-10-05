@@ -1,32 +1,38 @@
-module View.Definition exposing (renderWithKeywords, view)
+module View.Definition exposing (view)
 
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
-import Html.Styled.Attributes exposing (alt, css, src)
+import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, span, text, ul)
+import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
+import Html.Styled.Attributes.Aria exposing (ariaControls, ariaExpanded)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, lightGreen, navItemStyles, navListStyle, pageHeadingStyle, quoteStyle, rotate90Style, verticalSpacing)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaDesktop, withMediaTabletOrDesktop)
 
 
-view : Model -> Html Msg
-view model =
+view : Bool -> Model -> Html Msg
+view hasConsented model =
     div []
         [ containerContent
             [ header []
-                [ h1 [ css [ pageHeadingStyle ] ] [ text (t DefinitionTitle) ]
+                [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t DefinitionTitle) ]
                 , div [ css [ introStyle ] ]
-                    [ p [] (renderWithKeywords (t DefinitionConciseP1))
-                    , p [] (renderWithKeywords (t DefinitionConciseP2))
-                    , p [] (renderWithKeywords (t DefinitionConciseP3))
-                    , p [] (renderWithKeywords (t DefinitionConciseP4))
+                    [ div [ css [ introParagraphStyle ] ]
+                        [ p [] (renderWithKeywords (t DefinitionConciseP1))
+                        , img [ css [ imageStyle ], src "/Definition.svg" ] []
+                        ]
+                    , div [ css [ introParagraphStyle ] ]
+                        [ div [ css [ popRightStyle ] ] [ p [] (renderWithKeywords (t DefinitionConciseP2)) ]
+                        , div [ css [ popLeftStyle ] ] [ p [ css [ marginTop (rem 1) ] ] (renderWithKeywords (t DefinitionConciseP3)) ]
+                        , p [ css [ marginTop (rem 2.5) ] ] (renderWithKeywords (t DefinitionConciseP4))
+                        ]
                     ]
                 ]
             , dl [ css [ categoryListStyle ] ]
-                (renderExpandableCategories
+                (renderExpandableCategories hasConsented
                     model
                     [ DefinitionCategory1
                     , DefinitionCategory2
@@ -42,10 +48,10 @@ view model =
             , nav []
                 [ ul [ css [ navListStyle ] ]
                     [ li [ css navItemStyles ]
-                        [ renderNavLink Forward HelpSelfGrid ToHelpSelfFromDefinitionLink
+                        [ renderNavLink None HelpSelfGrid ToHelpSelfFromDefinitionLink
                         ]
                     , li [ css navItemStyles ]
-                        [ renderNavLink Forward GetHelp ToGetHelpFromDefinitionLink
+                        [ renderNavLink None GetHelp ToGetHelpFromDefinitionLink
                         ]
                     ]
                 ]
@@ -59,24 +65,24 @@ renderQuotes quoteKeys =
     blockquote [] (List.map (\quoteKey -> p [ css [ quoteStyle ] ] [ text (t quoteKey) ]) quoteKeys)
 
 
-renderExpandableCategories : Model -> List DefinitionCategory -> List (Html Msg)
-renderExpandableCategories model categories =
+renderExpandableCategories : Bool -> Model -> List DefinitionCategory -> List (Html Msg)
+renderExpandableCategories hasConsented model categories =
     List.map
         (\listPosition ->
             -- We maybe want to ditch this div for valid html - but this is simple
             div []
-                [ renderTerm model (categoryKeysFromListPosition listPosition)
+                [ renderTerm hasConsented model (categoryKeysFromListPosition listPosition)
                 , renderDefinition model (categoryKeysFromListPosition listPosition)
                 ]
         )
         categories
 
 
-renderTerm : Model -> CategoryDefinition -> Html Msg
-renderTerm model category =
+renderTerm : Bool -> Model -> CategoryDefinition -> Html Msg
+renderTerm hasConsented model category =
     if categoryIsExpanded model category.title then
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
+            [ button [ ariaExpanded "true", ariaControls (generateId (t category.title)), onClick (ToggleCategory hasConsented category.title), css [ expanderButtonStyle, expanderOpenStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
                 , img [ css [ expanderSymbolStyle, rotate90Style ], src "/Arrow.svg", alt "" ] []
                 ]
@@ -84,7 +90,7 @@ renderTerm model category =
 
     else
         dt [ css [ expanderItemStyle ] ]
-            [ button [ onClick (ToggleCategory category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
+            [ button [ ariaExpanded "false", ariaControls (generateId (t category.title)), onClick (ToggleCategory hasConsented category.title), css [ expanderButtonStyle, expanderClosedStyle ] ]
                 [ h2 [ css [ expanderHeadingStyle ] ] [ text (t category.title) ]
                 , img [ css [ expanderSymbolStyle ], src "/Arrow.svg", alt "" ] []
                 ]
@@ -94,7 +100,7 @@ renderTerm model category =
 renderDefinition : Model -> CategoryDefinition -> Html Msg
 renderDefinition model category =
     if categoryIsExpanded model category.title then
-        dd [ css expanderDefinitionStyles ]
+        dd [ css expanderDefinitionStyles, id (generateId (t category.title)) ]
             [ p [] (renderWithKeywords (t category.info))
             , verticalSpacing 2
             , renderQuotes category.quotes
@@ -102,59 +108,6 @@ renderDefinition model category =
 
     else
         text ""
-
-
-
--- Helpers to render Copy.Text Strings with [keywords] marked in brackets as Html <b>
-
-
-renderWithKeywords : String -> List (Html Msg)
-renderWithKeywords richText =
-    List.map (\( words, isKeyword ) -> renderAsBoldOrText ( words, isKeyword )) (splitOnStartKeyword richText)
-
-
-renderAsBoldOrText : ( String, Bool ) -> Html Msg
-renderAsBoldOrText ( stringPartial, isKeyword ) =
-    if isKeyword then
-        b [ css [ keywordStyle ] ] [ text stringPartial ]
-
-    else
-        text stringPartial
-
-
-
--- Helpers to tag each fragment as keyword (True) or plain text (False)
-
-
-splitOnStartKeyword : String -> List ( String, Bool )
-splitOnStartKeyword richText =
-    let
-        -- First we break the rich text string into a list,
-        -- separating on [, the start of a bold word or phrase
-        beforeBoldPartials =
-            String.split "[" richText
-    in
-    List.concat (List.map (\partial -> splitOnEndKeyword partial) beforeBoldPartials)
-
-
-splitOnEndKeyword : String -> List ( String, Bool )
-splitOnEndKeyword partial =
-    if String.contains "]" partial then
-        let
-            -- The closing ] means this is the end of a bold word or phrase,
-            -- Break it into a list again to separate out the plain text that follows.
-            subList =
-                String.split "]" partial
-        in
-        -- Since we already split on [, the list will always have 2 items, but elm doesn't know that.
-        -- The first item is the bold part, the second (tail) is plain text.
-        [ ( Maybe.withDefault "" (List.head subList), True )
-        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
-        ]
-
-    else
-        -- The list items without a closing ] to mark end of bold, are plain text strings.
-        [ ( partial, False ) ]
 
 
 
@@ -170,11 +123,57 @@ categoryListStyle =
 introStyle : Style
 introStyle =
     batch
-        [ margin2 (rem 2) (rem 1) ]
+        [ displayFlex
+        , flexWrap wrap
+        , alignItems start
+        , margin2 zero (rem 1)
+        ]
 
 
-keywordStyle : Style
-keywordStyle =
+introParagraphStyle : Style
+introParagraphStyle =
     batch
-        [ backgroundColor lightGreen
+        [ flex2 zero oneColumn
+        , margin (rem 1)
+        , position relative
+
+        -- Seems to need both of these otherwise always oneColumn
+        , withMediaDesktop
+            [ flex2 zero twoColumn ]
+        , withMediaTabletOrDesktop
+            [ flex2 zero twoColumn ]
+        ]
+
+
+imageStyle : Style
+imageStyle =
+    batch
+        [ margin auto
+        , maxWidth (pct 80)
+        , paddingTop (rem 1)
+        , width (rem 20)
+        ]
+
+
+popRightStyle : Style
+popRightStyle =
+    batch
+        [ backgroundImage (url "/Pop_Right.svg")
+        , backgroundRepeat noRepeat
+        , backgroundPosition2 (pct 100) zero
+        , backgroundSize (px 60)
+        , margin4 (px -30) (px -30) zero zero
+        , padding4 (px 30) (px 30) zero zero
+        ]
+
+
+popLeftStyle : Style
+popLeftStyle =
+    batch
+        [ backgroundImage (url "/Pop_Left.svg")
+        , backgroundRepeat noRepeat
+        , backgroundPosition2 zero (pct 100)
+        , backgroundSize (px 40)
+        , margin4 zero zero (px -30) (px -30)
+        , padding4 zero zero (px 30) (px 30)
         ]

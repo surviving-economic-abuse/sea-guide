@@ -1,5 +1,6 @@
 module Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded, update)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Set
@@ -11,7 +12,7 @@ type alias Model =
 
 type Msg
     = NoOp
-    | ToggleResource Key
+    | ToggleResource Bool Key String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -20,16 +21,24 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
-        ToggleResource resourceTitle ->
+        ToggleResource hasConsented resourceTitle pageSlug ->
             let
-                action =
+                actionData =
                     if resourceIsExpanded model resourceTitle then
-                        Set.remove
+                        { do = Set.remove, action = "closed" }
 
                     else
-                        Set.insert
+                        { do = Set.insert, action = "opened" }
             in
-            ( { model | openResources = action (t resourceTitle) model.openResources }, Cmd.none )
+            ( { model | openResources = actionData.do (t resourceTitle) model.openResources }
+            , updateAnalytics hasConsented
+                (updateAnalyticsEvent
+                    { category = pageSlug
+                    , action = actionData.action
+                    , label = t resourceTitle
+                    }
+                )
+            )
 
 
 resourceIsExpanded : Model -> Key -> Bool
@@ -49,6 +58,7 @@ type alias CategoryResource =
 type alias CategoryData =
     { title : Key
     , resources : Maybe (List CategoryResource)
+    , image : Maybe String
     }
 
 
@@ -71,6 +81,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfBankingResource2Href
                   }
                 ]
+        , image = Just "/Banking.svg"
         }
 
     else if slug == t HelpSelfDebtSlug then
@@ -96,6 +107,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfDebtResource3Href
                   }
                 ]
+        , image = Just "/Debt.svg"
         }
 
     else if slug == t HelpSelfHousingSlug then
@@ -109,6 +121,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfHousingResource1Href
                   }
                 ]
+        , image = Just "/Housing.svg"
         }
 
     else if slug == t HelpSelfFinancialSlug then
@@ -134,6 +147,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfFinancialResource3Href
                   }
                 ]
+        , image = Just "/Financial.svg"
         }
 
     else if slug == t HelpSelfCovidSlug then
@@ -153,6 +167,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfCovidResource2Href
                   }
                 ]
+        , image = Just "/Covid.svg"
         }
 
     else if slug == t HelpSelfInfoLawSlug then
@@ -172,6 +187,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfInfoLawResource2Href
                   }
                 ]
+        , image = Just "/Law.svg"
         }
 
     else if slug == t HelpSelfSeparatingSlug then
@@ -191,9 +207,11 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfSeparatingResource2Href
                   }
                 ]
+        , image = Just "/Separating.svg"
         }
 
     else
         { title = HelpSelfCategoryNotFoundTitle
         , resources = Nothing
+        , image = Nothing
         }

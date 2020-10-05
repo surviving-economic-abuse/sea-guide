@@ -1,8 +1,11 @@
 module Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed, update)
 
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent)
 import Browser.Dom as Dom
 import Copy.Keys exposing (Key(..))
+import Copy.Text exposing (t)
 import Task
+import Theme exposing (green, orange, pink, teal)
 
 
 type alias Model =
@@ -13,7 +16,7 @@ type alias Model =
 type Msg
     = NoOp
     | ScrollTo
-    | ToggleJourney JourneyCard
+    | ToggleJourney Bool JourneyCard
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -26,17 +29,29 @@ update msg model =
             -- setViewport to a large number forces it to the bottom of the page
             ( model, Task.perform (always NoOp) (Dom.setViewport 0 99999) )
 
-        ToggleJourney journeyCardPosition ->
+        ToggleJourney hasConsented journeyCardPosition ->
             let
-                revealedCard =
+                revealedCardData =
                     -- We've clicked a revealed card
                     if journeyIsRevealed model journeyCardPosition then
-                        Nothing
+                        { action = "closed"
+                        , position = Nothing
+                        }
 
                     else
-                        Just journeyCardPosition
+                        { action = "opened"
+                        , position = Just journeyCardPosition
+                        }
             in
-            ( { model | revealedJourney = revealedCard }, Cmd.none )
+            ( { model | revealedJourney = revealedCardData.position }
+            , updateAnalytics hasConsented
+                (updateAnalyticsEvent
+                    { category = t NotAlonePageSlug
+                    , action = revealedCardData.action
+                    , label = labelFromCardPosition journeyCardPosition
+                    }
+                )
+            )
 
 
 journeyIsRevealed : Model -> JourneyCard -> Bool
@@ -50,6 +65,7 @@ type alias JourneyContent =
     , relatable : Key
     , hopeful : Key
     , statement : Key
+    , color : String
     }
 
 
@@ -66,6 +82,11 @@ type JourneyCard
     | JourneyCard6
 
 
+labelFromCardPosition : JourneyCard -> String
+labelFromCardPosition cardPosition =
+    t (journeyContentFromCardPosition cardPosition).teaser
+
+
 journeyContentFromCardPosition : JourneyCard -> JourneyContent
 journeyContentFromCardPosition cardPosition =
     case cardPosition of
@@ -75,6 +96,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey1Relatable
             , hopeful = Journey1Hopeful
             , statement = Journey1Statement
+            , color = pink.string
             }
 
         JourneyCard2 ->
@@ -83,6 +105,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey2Relatable
             , hopeful = Journey2Hopeful
             , statement = Journey2Statement
+            , color = green.string
             }
 
         JourneyCard3 ->
@@ -91,6 +114,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey3Relatable
             , hopeful = Journey3Hopeful
             , statement = Journey3Statement
+            , color = orange.string
             }
 
         JourneyCard4 ->
@@ -99,6 +123,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey4Relatable
             , hopeful = Journey4Hopeful
             , statement = Journey4Statement
+            , color = green.string
             }
 
         JourneyCard5 ->
@@ -107,6 +132,7 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey5Relatable
             , hopeful = Journey5Hopeful
             , statement = Journey5Statement
+            , color = teal.string
             }
 
         JourneyCard6 ->
@@ -115,4 +141,5 @@ journeyContentFromCardPosition cardPosition =
             , relatable = Journey6Relatable
             , hopeful = Journey6Hopeful
             , statement = Journey6Statement
+            , color = pink.string
             }

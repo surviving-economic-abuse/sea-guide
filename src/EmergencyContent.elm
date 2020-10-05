@@ -3,7 +3,7 @@ module EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, r
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, a, button, div, img, li, p, span, text, ul)
+import Html.Styled exposing (Html, a, b, button, div, img, li, p, span, text, ul)
 import Html.Styled.Attributes exposing (alt, css, href, id, src)
 import Html.Styled.Events exposing (onClick)
 import Message exposing (Msg(..))
@@ -23,18 +23,19 @@ renderEmergencyPanel viewportWidth =
             , div [ css [ emergencyPanelHeaderTextStyle ] ] [ text (t EmergencyReassure) ]
             , button
                 [ css [ emergencyPanelHeaderButtonStyle ], onClick EmergencyButtonClicked ]
-                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Close.svg", alt "Close" ] [] ]
+                [ img [ css [ emergencyPanelHeaderIconStyle ], src "/Close.svg", alt (t CloseButton) ] [] ]
             ]
         , div [ css [ emergencyPanelBodyStyle ] ]
             [ p []
                 [ text (t EmergencyPoliceInfo)
                 , text " "
                 , renderPhoneNumber viewportWidth (t EmergencyPoliceNumber)
+                , text "."
                 ]
             , p [] [ text (t EmergencyNotImmediateReassure) ]
             , ul [ css [ listStyle none, margin2 (rem 1) zero ] ]
                 [ li [ css [ marginBottom (rem 1) ] ]
-                    [ a [ href (t DomesticAbuseHref) ]
+                    [ a [ css [ linkStyle ], href (t DomesticAbuseHref) ]
                         [ text
                             (t EmergencyDomesticAbuseLink)
                         ]
@@ -46,13 +47,15 @@ renderEmergencyPanel viewportWidth =
                     , text (t EmergencyDomesticAbuseInfo)
                     ]
                 , li [ css [ marginBottom (rem 1) ] ]
-                    [ a [ href (t WomensAidHref) ]
+                    [ a [ css [ linkStyle ], href (t WomensAidHref) ]
                         [ text
                             (t EmergencyWomensAidLink)
                         ]
+                    , text " - "
+                    , text (t EmergencyWomensAidInfo)
                     ]
                 ]
-            , p [] [ a [ href (t SeaOrganisationsResourceHref) ] [ text (t EmergencyOtherOrganisationsLink) ] ]
+            , p [] [ a [ css [ linkStyle ], href (t SeaOrganisationsResourceHref) ] [ text (t EmergencyOtherOrganisationsLink) ] ]
             ]
         ]
 
@@ -60,10 +63,10 @@ renderEmergencyPanel viewportWidth =
 renderPhoneNumber : Float -> String -> Html msg
 renderPhoneNumber viewportWidth phonenumber =
     if viewportWidth <= Theme.maxMobile then
-        a [ href ("tel:" ++ String.replace " " "" phonenumber) ] [ text phonenumber ]
+        a [ css [ linkStyle ], href ("tel:" ++ String.replace " " "" phonenumber) ] [ text phonenumber ]
 
     else
-        text phonenumber
+        b [] [ text phonenumber ]
 
 
 renderEmergencyButton : Html Msg
@@ -78,20 +81,22 @@ renderEmergencyButton =
 exitButtonStyle : Style
 exitButtonStyle =
     batch
-        [ backgroundColor orange
+        [ backgroundColor orange.colour
         , border zero
         , color white
-        , fontSize (rem 1.2)
+        , displayFlex
+        , alignItems center
+        , fontSize (rem 1.1)
         , fontWeight (int 400)
         , height (rem 3.75)
         , lineHeight (num 1.2)
-        , padding (px 6)
+        , padding (px 5)
         , position fixed
         , right zero
         , textAlign center
         , textDecoration none
         , top (rem 5)
-        , width (rem 3.75)
+        , width (rem 3.9)
         , zIndex (int 2)
         ]
 
@@ -157,7 +162,7 @@ emergencyPanelHeaderButtonStyle =
             [ border3 (px 3) solid lightPurple
             ]
         , focus
-            [ border3 (px 3) solid teal
+            [ border3 (px 3) solid teal.colour
             , outline none
             ]
         ]
@@ -197,10 +202,10 @@ emergencyButtonStyle =
         , width (rem 3.75)
         , zIndex (int 1)
         , hover
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             ]
         , focus
-            [ border3 (px 3) solid green
+            [ border3 (px 3) solid green.colour
             , outline zero
             ]
         , withMediaTablet
@@ -214,4 +219,16 @@ iconStyle =
     batch
         [ height (px 50)
         , marginTop (px 10)
+        ]
+
+
+linkStyle : Style
+linkStyle =
+    batch
+        [ color purple
+        , hover
+            [ color darkOrange ]
+        , focus
+            [ outline3 (px 3) solid teal.colour
+            ]
         ]

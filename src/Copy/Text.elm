@@ -13,20 +13,100 @@ t : Key -> String
 t key =
     case key of
         SiteTitle ->
-            "Economic Abuse Support Tool"
+            "Economic Abuse Guide"
+
+        --- Site Meta
+        NotAlonePageMetaTitle ->
+            t SiteTitle ++ " - " ++ "Surviving Economic Abuse"
+
+        NotAlonePageDescription ->
+            "If you are experiencing economic abuse, you are not alone. Read about survivors'\nexperiences and the signs of economic abuse in our guide."
+
+        DefinitionPageMetaTitle ->
+            t DefinitionTitle
+
+        DefinitionPageDescription ->
+            "An abuser may restrict how you make or spend money, or control your other resources, including housing, food and clothing. This is called economic abuse."
+
+        GetHelpPageMetaTitle ->
+            "Get help with economic abuse"
+
+        GetHelpPageDescription ->
+            "If you are experiencing economic abuse, you are not alone. There are people you can talk to, including helplines, a survivor forum, and more."
+
+        HelpSelfGridPageMetaTitle ->
+            "Resources to help you"
+
+        HelpSelfGridPageDescription ->
+            "There are people and organisations who understand and who can help with economic abuse. Read our resources on banking, debt, housing, the law, and more."
+
+        HelpSelfSinglePageMetaTitle single ->
+            let
+                title =
+                    getHelpSelfSingleTitleKeyFromSlug single
+            in
+            t title
+
+        HelpSelfSinglePageDescription single ->
+            t (getHelpSelfSingleDescriptionKeyFromSlug single)
+
+        HelpSelfBankingMetaTitle ->
+            t HelpSelfBankingTitle
+
+        HelpSelfBankingDescription ->
+            "Read about how to regain control of your money and bank accounts, as well as ensure that any new banking information is safe and secure."
+
+        HelpSelfDebtMetaTitle ->
+            t HelpSelfDebtTitle
+
+        HelpSelfDebtDescription ->
+            "Forcing or coercing someone into debt is a common form of economic abuse. Learn about coerced debt and what you can do about it here."
+
+        HelpSelfHousingMetaTitle ->
+            t HelpSelfHousingTitle
+
+        HelpSelfHousingDescription ->
+            "Learn about your housing options and the support available to help ensure you have a safe place to live if you are leaving an abuser."
+
+        HelpSelfFinancialMetaTitle ->
+            t HelpSelfFinancialTitle
+
+        HelpSelfFinancialDescription ->
+            "Learn about what financial support is available if you are experiencing economic abuse. We have information on grants, immigration and child support."
+
+        HelpSelfCovidMetaTitle ->
+            t HelpSelfCovidTitle
+
+        HelpSelfCovidDescription ->
+            "The resources on this page can help support your economic wellbeing and your safety during the coronavirus pandemic."
+
+        HelpSelfInfoLawMetaTitle ->
+            t HelpSelfInfoLawTitle
+
+        HelpSelfInfoLawDescription ->
+            "Learn about how economic abuse fits into the Domestic Abuse Bill, as well as how the law treats controlling and coercive behaviour."
+
+        HelpSelfSeparatingMetaTitle ->
+            t HelpSelfSeparatingTitle
+
+        HelpSelfSeparatingDescription ->
+            "Learn how to identify your financial links with the abuser, as well as how you can break those links to regain control of your own finances."
+
+        HelpSelfCategoryNotFoundDescription ->
+            "We can't find the topic you are looking for."
 
         --- Internal Href slugs
         NotAlonePageSlug ->
-            "not-alone"
+            ""
 
         DefinitionPageSlug ->
-            "definition"
+            "what-is-economic-abuse"
 
         GetHelpPageSlug ->
             "get-help"
 
         HelpSelfGridPageSlug ->
-            "help-self"
+            "economic-abuse-resources"
 
         HelpSelfBankingSlug ->
             "banking"
@@ -41,13 +121,13 @@ t key =
             "financial-support"
 
         HelpSelfCovidSlug ->
-            "covid-and-finances"
+            "covid-19"
 
         HelpSelfInfoLawSlug ->
-            "facts-about-economic-abuse"
+            "the-law"
 
         HelpSelfSeparatingSlug ->
-            "separating-finances"
+            "separating-your-finances"
 
         -- add string arg here with case for each category
         HelpSelfSinglePageSlug category ->
@@ -65,7 +145,7 @@ t key =
 
         -- Resource pdfs
         SeaOrganisationsResourceHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Organisations-that-can-help___.pdf"
+            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Organisations-that-can-help-v8.pdf"
 
         HelpSelfBankingResource1Href ->
             "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
@@ -114,7 +194,7 @@ t key =
 
         -- Cookies and Privacy
         CookieBannerP ->
-            "[cCc] Cookie banner intro text"
+            "[cCc] Can we use cookies to help improve this site? We'd like to use Google Analytics cookies to collect and report information on how people use the site. Allowing us to use cookies does not allow us to identify you."
 
         CookieBannerPrivacyButton ->
             "[cCc] Privacy information"
@@ -128,43 +208,61 @@ t key =
         CookieSettingsButton ->
             "[cCc] Cookie settings"
 
-        PrivacyContent ->
-            "[cCc] This will grow. Privacy info."
+        PrivacyContent1Heading ->
+            "[cCc] Data we collect and why"
+
+        PrivacyContent1P1 ->
+            "[cCc] A couple sentences - then get in touch with privacy concerns ___here@here__ or a link to SEA website privacy page."
+
+        PrivacyContent2Heading ->
+            "[cCc] Use of cookies"
+
+        PrivacyContent2P1 ->
+            "[cCc] Cookies are pieces of information that a website transfers to your hard drive."
+
+        PrivacyContent2P2 ->
+            "[cCc] We use cookies to monitor how users use our website, i.e. which pages they have accessed To help improve our website For more data on Cookies visit www.aboutcookies.org.uk . In addition to detailing extensive information on cookies this site also provides explanations on how to disable cookies on your computer."
+
+        PrivacyContent3Heading ->
+            "[cCc] Your data and third parties"
+
+        PrivacyContent3P1 ->
+            "[cCc] Google Analytics: We use Google Analytics, which is a Google service that uses cookies and other data collection technologies to collect information about your use of the website and services in order to report website trends."
 
         -- Not Alone page
         NotAloneTitle ->
             "You are not alone"
 
-        -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
         Journey1Teaser ->
-            "He threw my phone on the floor and smashed\u{00A0}it"
+            "He considered my money\u{00A0}his"
 
         Journey1Image ->
             "/Person_1.svg"
 
         Journey1Relatable ->
-            "When I took a call from someone my boyfriend didn't approve of, he threw my mobile phone on the floor and smashed it. I had to buy 3 new phones last year."
+            "Over the years, the [criticism, blame and undermining] increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with [my money] he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
 
         Journey1Hopeful ->
-            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
+            "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
 
         Journey1Statement ->
-            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
+            "We are happy, and he no longer has control over our lives."
 
+        -- \u{00A0} is a non-breaking space that prevents a single word wrapping to a new line
         Journey2Teaser ->
-            "He considered my money\u{00A0}his"
+            "He threw my phone on the floor and smashed\u{00A0}it"
 
         Journey2Image ->
             "/Person_2.svg"
 
         Journey2Relatable ->
-            "Over the years, the criticism, blame and undermining increased. He used to run me down, tell me I was stupid at dinner parties... He considered my money his, and when I bought something with my money he got very cross. He would stand over me or block the door, and once tried to push me down the stairs."
+            "When I took a call from someone my boyfriend didn't approve of, he threw my [mobile phone] on the floor and smashed it. I had to buy 3 new phones last year."
 
         Journey2Hopeful ->
-            "The situation became dangerous and I left the house with two bags of clothes. I rent and will probably never buy, but we are safe."
+            "I spoke to a friend one day in the park who told me that wasn't ok. It was just helpful to speak to someone you know."
 
         Journey2Statement ->
-            "We are happy, and he no longer has control over our lives."
+            "Looking back on it now I can see that there were so many small things like that. I still find it difficult to trust people but at least I'm free."
 
         Journey3Teaser ->
             "I had no control over my\u{00A0}life"
@@ -173,10 +271,10 @@ t key =
             "/Person_3.svg"
 
         Journey3Relatable ->
-            "To be so powerless, I can't explain what it's like, it's overwhelming. Not being able to provide for your children. You have absolutely no control over your life."
+            "To be so [powerless], I can't explain what it's like, it's overwhelming. Not being able to [provide for your children]. You have absolutely no control over your life."
 
         Journey3Hopeful ->
-            "Advocacy is so important, especially when you are fearing homelessness and losing the children. I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
+            "Advocacy is so important, especially when you are [fearing homelessness] and losing the children. I found a senior person in the bank who advocated on my behalf from within. His advice made a huge difference."
 
         Journey3Statement ->
             "This will end and normality will return."
@@ -188,7 +286,7 @@ t key =
             "/Person_4.svg"
 
         Journey4Relatable ->
-            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, my telephone, our bank accounts, my credit card. He controlled how much sleep I had. He made it near impossible for me to sustain a fulltime job, yet he refused to work. He trashed my property. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
+            "He controlled what I wore, what I ate and drank, who I saw, who I spoke to, my social media, [my telephone, our bank accounts, my credit card]. He controlled how much sleep I had. He made it near impossible for me to sustain a [full-time job], yet he refused to work. He trashed [my property]. He tracked and traced my every move. I was so brainwashed at the end of the relationship; I didn't know who I was anymore."
 
         Journey4Hopeful ->
             "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
@@ -197,13 +295,13 @@ t key =
             "It's really made me think. I can see the connection between the abuser's behaviour and my financial situation now."
 
         Journey5Teaser ->
-            "He took out loans in my\u{00A0}name"
+            "There were loans in my name that I knew nothing\u{00A0}about"
 
         Journey5Image ->
             "/Person_5.svg"
 
         Journey5Relatable ->
-            "When I left the relationship I realised he had taken out loans and credit cards in joint names I knew nothing about."
+            "When I left the relationship I realised my ex had taken out loans and credit cards in joint names I knew nothing about."
 
         Journey5Hopeful ->
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
@@ -218,7 +316,7 @@ t key =
             "/Person_6.svg"
 
         Journey6Relatable ->
-            "The abuse started with how we organised our bank accounts when we first lived together. We opened a joint account for household bills but within a year, he had transferred all his own direct debits to the joint account."
+            "The abuse started with how we organised our bank accounts when we first lived together. We opened [a joint account] for household bills but within a year, he had transferred all his own direct debits to the joint account."
 
         Journey6Hopeful ->
             "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
@@ -227,7 +325,7 @@ t key =
             "I refuse to be told that nothing can be done and I want change for other victims. I know first-hand how devastating the effects of economic abuse can be."
 
         ExpandQuoteButton ->
-            "but things got better"
+            "keep reading"
 
         ToDefinitionReassuringText ->
             "If this sounds familiar know that you're not alone."
@@ -235,8 +333,11 @@ t key =
         ToDefinitionFromNotAloneLink ->
             "Find out about economic abuse"
 
+        CloseButton ->
+            "Close button"
+
         ExitButton ->
-            "EXIT SITE"
+            "QUICK EXIT"
 
         EmergencyButton ->
             "I need help"
@@ -279,13 +380,13 @@ t key =
             "Are you experiencing economic abuse?"
 
         DefinitionConciseP1 ->
-            "In your relationship, who has control over the money? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
+            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
 
         DefinitionConciseP2 ->
-            "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
+            "In your relationship, who has control over the money? Are the bills in your name or theirs? Maybe they're the only one who can login to online banking? Or make you count every penny you spend?"
 
         DefinitionConciseP3 ->
-            "Domestic abuse is not always physical. An abuser may restrict how you make or spend your money, or control other areas of your life including housing, food and clothing. This is known as [economic abuse]. It is commonly experienced within a type of abuse called [coercive control]."
+            "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
 
         DefinitionConciseP4 ->
             "[1 in 5] adults in the UK have experienced economic abuse at some point."
@@ -400,10 +501,10 @@ t key =
             "Separating finances from an abusive partner"
 
         ToDefinitionFromHelpSelfLink ->
-            "Read more about the signs of economic abuse"
+            "Read about signs of economic abuse"
 
         ToNotAloneFromHelpSelfLink ->
-            "Read more about survivors' experiences"
+            "Read about survivors' experiences"
 
         ToGetHelpFromHelpSelfLink ->
             "Find people to talk to"
@@ -466,7 +567,7 @@ t key =
             "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource1Summary ->
-            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don’t want to, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
+            "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don't want, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
             "What is coerced debt? [PDF 542kB]"
@@ -496,7 +597,7 @@ t key =
             "Bruises heal, credit files recover eventually. But hearts and minds will always remain fragile."
 
         HelpSelfDebtResource3Summary ->
-            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you have moved."
+            "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you decide to move."
 
         HelpSelfDebtResource3Link ->
             "Economic abuse and your credit report [PDF 535kB]"
@@ -605,7 +706,7 @@ t key =
             "Economic abuse can be a type of controlling or coercive behaviour. In 2015, controlling or coercive behaviour became a crime for the first time. This information outlines how economic abuse is linked to controlling or coercive behaviour, as well as how the law addresses this crime."
 
         HelpSelfInfoLawResource1Quote1 ->
-            "It was sustained emotional abuse and blatant financial coercion and I couldn’t see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it is gradually melts. That is what coercive control feels like. You don’t notice until it is too late."
+            "It was sustained emotional abuse and blatant financial coercion and I couldn't see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it gradually melts. That is what coercive control feels like. You don't notice until it is too late."
 
         HelpSelfInfoLawResource1Link ->
             "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
@@ -673,7 +774,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact the Financial Support Line for victims of domestic abuse (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "Contact the Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction1Prompt ->
             "Call or text"
@@ -701,3 +802,59 @@ t key =
 
         ToHelpSelfFromGetHelpLink ->
             "Find information that can help"
+
+
+getHelpSelfSingleTitleKeyFromSlug : String -> Key
+getHelpSelfSingleTitleKeyFromSlug slug =
+    -- Using if .. else because case cannot evaluate expressions
+    if slug == t HelpSelfBankingSlug then
+        HelpSelfBankingTitle
+
+    else if slug == t HelpSelfDebtSlug then
+        HelpSelfDebtTitle
+
+    else if slug == t HelpSelfHousingSlug then
+        HelpSelfHousingTitle
+
+    else if slug == t HelpSelfFinancialSlug then
+        HelpSelfFinancialTitle
+
+    else if slug == t HelpSelfCovidSlug then
+        HelpSelfCovidTitle
+
+    else if slug == t HelpSelfInfoLawSlug then
+        HelpSelfInfoLawTitle
+
+    else if slug == t HelpSelfSeparatingSlug then
+        HelpSelfSeparatingTitle
+
+    else
+        HelpSelfCategoryNotFoundTitle
+
+
+getHelpSelfSingleDescriptionKeyFromSlug : String -> Key
+getHelpSelfSingleDescriptionKeyFromSlug slug =
+    -- Using if .. else because case cannot evaluate expressions
+    if slug == t HelpSelfBankingSlug then
+        HelpSelfBankingDescription
+
+    else if slug == t HelpSelfDebtSlug then
+        HelpSelfDebtDescription
+
+    else if slug == t HelpSelfHousingSlug then
+        HelpSelfHousingDescription
+
+    else if slug == t HelpSelfFinancialSlug then
+        HelpSelfFinancialDescription
+
+    else if slug == t HelpSelfCovidSlug then
+        HelpSelfCovidDescription
+
+    else if slug == t HelpSelfInfoLawSlug then
+        HelpSelfInfoLawDescription
+
+    else if slug == t HelpSelfSeparatingSlug then
+        HelpSelfSeparatingDescription
+
+    else
+        HelpSelfCategoryNotFoundDescription
