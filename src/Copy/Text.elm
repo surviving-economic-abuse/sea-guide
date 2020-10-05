@@ -218,7 +218,7 @@ t key =
             "Why am I seeing this?"
 
         PrivacyContent2P ->
-            "The law requires us to give you information on what cookies are and how you can opt out of\nsharing them."
+            "The law requires us to give you information on what cookies are and how you can opt out of sharing them."
 
         PrivacyContent3Heading ->
             "What can I do?"
