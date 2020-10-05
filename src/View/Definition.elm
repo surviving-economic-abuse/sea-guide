@@ -10,7 +10,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
 import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaDesktop, withMediaTabletOrDesktop)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaDesktop, withMediaTablet)
 
 
 view : Bool -> Model -> Html Msg
@@ -140,7 +140,7 @@ introParagraphStyle =
         -- Seems to need both of these otherwise always oneColumn
         , withMediaDesktop
             [ flex2 zero twoColumn ]
-        , withMediaTabletOrDesktop
+        , withMediaTablet
             [ flex2 zero twoColumn ]
         ]
 
