@@ -206,6 +206,8 @@ pageHeadingStyle =
         , textAlign center
         , withMediaTablet
             [ fontSize (rem 2.5) ]
+        , withMediaDesktop
+            [ fontSize (rem 2.5) ]
         ]
 
 

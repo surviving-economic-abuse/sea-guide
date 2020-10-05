@@ -6,7 +6,7 @@ import Css exposing (..)
 import Css.Transitions exposing (transition)
 import Html.Styled exposing (Html, a, img, span, text)
 import Html.Styled.Attributes exposing (alt, css, href, src)
-import Theme exposing (grey, lightPurple, purple, teal, white, withMediaTablet)
+import Theme exposing (grey, lightPurple, purple, teal, white, withMediaDesktop, withMediaTablet)
 import Url
 import Url.Parser as Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
@@ -118,6 +118,8 @@ navLinkStyle =
             , Css.Transitions.color 200
             ]
         , withMediaTablet
+            [ minHeight (rem 4) ]
+        , withMediaDesktop
             [ minHeight (rem 4) ]
         ]
 

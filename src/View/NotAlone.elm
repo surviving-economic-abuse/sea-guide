@@ -11,7 +11,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Quotes exposing (close, open)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTablet)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, verticalSpacing, white, withMediaDesktop)
 
 
 view : Bool -> Model -> Html Msg

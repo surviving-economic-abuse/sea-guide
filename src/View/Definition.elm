@@ -3,14 +3,13 @@ module View.Definition exposing (view)
 import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
-import Html.Styled exposing (Html, b, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, span, text, ul)
+import Html.Styled exposing (Html, blockquote, button, dd, div, dl, dt, h1, h2, header, img, li, nav, p, text, ul)
 import Html.Styled.Attributes exposing (alt, css, id, src, tabindex)
 import Html.Styled.Attributes.Aria exposing (ariaControls, ariaExpanded)
 import Html.Styled.Events exposing (onClick)
 import Page.Definition exposing (CategoryDefinition, DefinitionCategory(..), Model, Msg(..), categoryIsExpanded, categoryKeysFromListPosition)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import String
-import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, lightGreen, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaDesktop, withMediaTablet)
+import Theme exposing (container, containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, navItemStyles, navListStyle, oneColumn, pageHeadingStyle, quoteStyle, renderWithKeywords, rotate90Style, twoColumn, verticalSpacing, withMediaDesktop, withMediaTablet)
 
 
 view : Bool -> Model -> Html Msg
@@ -136,11 +135,9 @@ introParagraphStyle =
         [ flex2 zero oneColumn
         , margin (rem 1)
         , position relative
-
-        -- Seems to need both of these otherwise always oneColumn
-        , withMediaDesktop
-            [ flex2 zero twoColumn ]
         , withMediaTablet
+            [ flex2 zero twoColumn ]
+        , withMediaDesktop
             [ flex2 zero twoColumn ]
         ]
 
