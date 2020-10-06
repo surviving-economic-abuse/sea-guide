@@ -71,8 +71,8 @@ gridCardStyle =
         , flexDirection column
         , fontFamilies [ "Raleway", sansSerif.value ]
         , fontSize (rem 1.25)
+        , height (px 150)
         , justifyContent center
-        , minHeight (px 150)
         , padding2 zero (rem 1)
         , textAlign center
         , textDecoration none
@@ -95,6 +95,7 @@ gridItemStyle =
         , withMediaDesktop
             [ flex3 zero zero threeColumn
             , top (rem 3)
+            , width threeColumn
 
             -- nthOfType can take a formula, but as the 7th item is wrapping
             -- to the centre, it's easier to be explicit
