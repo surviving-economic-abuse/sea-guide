@@ -322,6 +322,7 @@ expanderSymbolStyle =
     batch
         [ height (rem 1.5)
         , flex3 zero (int 1) (rem 3)
+        , width (rem 1.5)
         , transform (rotate (deg 0))
         , transition
             [ Css.Transitions.transform 200
