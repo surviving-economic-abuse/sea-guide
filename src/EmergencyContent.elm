@@ -73,7 +73,7 @@ renderEmergencyButton : Html Msg
 renderEmergencyButton =
     button
         [ css [ emergencyButtonStyle ], onClick EmergencyButtonClicked ]
-        [ span [] [ text (t EmergencyButton) ]
+        [ span [ css [ width (pct 100) ] ] [ text (t EmergencyButton) ]
         , img [ css [ iconStyle ], src "/Emergency.svg", alt "" ] []
         ]
 
