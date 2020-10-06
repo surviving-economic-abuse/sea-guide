@@ -11,7 +11,7 @@ import Html.Styled.Events exposing (onClick)
 import Page.NotAlone exposing (JourneyCard(..), Model, Msg(..), journeyContentFromCardPosition, journeyIsRevealed)
 import Quotes exposing (close, open)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, twoColumn, verticalSpacing, white, withMediaDesktop, withMediaTabletOrDesktop)
+import Theme exposing (container, containerContent, green, grey, lightGreen, lightPurple, navListStyle, oneColumn, pageHeadingStyle, pureWhite, purple, renderWithKeywords, shadowGrey, threeColumn, verticalSpacing, white, withMediaDesktop)
 
 
 view : Bool -> Model -> Html Msg
@@ -107,9 +107,10 @@ renderRevealedCard hasConsented journeyCardPosition =
 gridStyle : Style
 gridStyle =
     batch
-        [ displayFlex
+        [ alignItems start
+        , displayFlex
         , flexWrap wrap
-        , alignItems start
+        , justifyContent center
         , minHeight (px 500)
         ]
 
@@ -121,9 +122,6 @@ cardStyle =
         , margin (rem 1)
         , minHeight (px 450)
         , position relative
-        , withMediaTabletOrDesktop
-            [ flex3 zero zero twoColumn
-            ]
         , withMediaDesktop
             [ flex3 zero zero threeColumn
             , nthOfType "3n-1"
@@ -148,14 +146,16 @@ innerCardStyle =
         [ backgroundColor pureWhite
         , borderRadius (rem 1.8)
         , boxShadow5 (px 0) (px 3) (px 5) (px 0) shadowGrey
-        , padding (rem 1)
-        , position relative
-        , top (px 168)
-        , textAlign center
-        , minHeight (px 192)
         , displayFlex
         , flexDirection column
         , justifyContent spaceAround
+        , margin auto
+        , maxWidth (rem 20)
+        , minHeight (px 192)
+        , padding (rem 0.5)
+        , position relative
+        , top (px 168)
+        , textAlign center
         ]
 
 
