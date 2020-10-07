@@ -768,7 +768,7 @@ t key =
             "Join SEA's survivor forum"
 
         GetHelpSection2Title ->
-            "The Financial Support Line"
+            "The Financial Support\u{00A0}Line"
 
         GetHelpSection2Icon ->
             "/Phone.svg"

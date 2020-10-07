@@ -124,7 +124,6 @@ iconStyle =
     batch
         [ float left
         , height (rem 2)
-        , marginRight (rem 0.5)
         , verticalAlign top
         , width (rem 2)
         ]
@@ -134,7 +133,9 @@ cardHeadingStyle : Style
 cardHeadingStyle =
     batch
         [ color grey
+        , display inlineBlock
         , textAlign center
+        , width (calc (pct 100) minus (rem 2.5))
         ]
 
 
