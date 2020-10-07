@@ -136,6 +136,16 @@ withMediaDesktop =
     withMedia [ only screen [ Media.minWidth (px maxTablet) ] ]
 
 
+maxLargeDevice : Float
+maxLargeDevice =
+    992
+
+
+withMediaLargeDevice : List Style -> Style
+withMediaLargeDevice =
+    withMedia [ only screen [ Media.minWidth (px maxLargeDevice) ] ]
+
+
 {-| Injects a <style> tag into the body, and can target element or
 class selectors anywhere, including outside the Elm app.
 -}
@@ -266,7 +276,8 @@ navItemStyles =
     [ batch
         [ flex3 zero zero (pct 100)
         , marginBottom (rem 1)
-        , withMediaDesktop
+        , maxWidth (rem 25)
+        , withMediaLargeDevice
             [ flex3 zero zero threeColumn ]
         ]
     ]
