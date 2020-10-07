@@ -259,16 +259,19 @@ type Key
       -- Get Help page
     | GetHelpTitle
     | GetHelpSection1Title
+    | GetHelpSection1Icon
     | GetHelpSection1Quote
     | GetHelpSection1Description
     | GetHelpSection1CallToAction
     | GetHelpSection2Title
+    | GetHelpSection2Icon
     | GetHelpSection2Quote
     | GetHelpSection2Description
     | GetHelpSection2CallToAction1Prompt
     | GetHelpSection2CallToAction1Number
     | GetHelpSection2CallToAction2
     | GetHelpSection3Title
+    | GetHelpSection3Icon
     | GetHelpSection3Quote
     | GetHelpSection3Description
     | GetHelpSection3CallToAction
