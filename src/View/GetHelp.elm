@@ -4,10 +4,11 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css, href, id, tabindex)
+import Html.Styled.Attributes exposing (alt, css, href, id, src, tabindex)
 import Page.GetHelp exposing (CallToAction(..))
+import Quotes exposing (close, open)
 import Route exposing (Direction(..), Route(..), renderExternalNavLink, renderNavLink)
-import Theme exposing (container, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, verticalSpacing, withMediaDesktop)
+import Theme exposing (container, green, grey, maxMobile, navListStyle, oneColumn, pageHeadingStyle, pink, pureWhite, purple, shadowGrey, teal, verticalSpacing, withMediaDesktop)
 
 
 view : Float -> Html never
@@ -18,9 +19,9 @@ view viewportWidth =
                 [ h1 [ css [ pageHeadingStyle ], id "focus-target", tabindex -1 ] [ text (t GetHelpTitle) ]
                 ]
             , div [ css [ columnStyle ] ]
-                [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Quote) (t GetHelpSection1Description) JoinForum
-                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Quote) (t GetHelpSection2Description) CallSupport
-                , card viewportWidth (t GetHelpSection3Title) (t GetHelpSection3Quote) (t GetHelpSection3Description) SeeOrgs
+                [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Icon) (t GetHelpSection1Quote) green.string (t GetHelpSection1Description) JoinForum
+                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Icon) (t GetHelpSection2Quote) pink.string (t GetHelpSection2Description) CallSupport
+                , card viewportWidth (t GetHelpSection3Title) (t GetHelpSection3Icon) (t GetHelpSection3Quote) teal.string (t GetHelpSection3Description) SeeOrgs
                 ]
             , verticalSpacing 2
             , nav [ css [ navListStyle ] ]
@@ -83,13 +84,17 @@ columnStyle =
 -- This function is a little bit eek!
 
 
-card : Float -> String -> String -> String -> CallToAction -> Html msg
-card viewportWidth title quote description call =
+card : Float -> String -> String -> String -> String -> String -> CallToAction -> Html msg
+card viewportWidth title icon quote quoteColour description call =
     div [ css [ cardStyle ] ]
-        [ h2 [ css [ cardHeadingStyle ] ] [ text title ]
-        , verticalSpacing 1.5
-        , blockquote []
-            [ p [ css [ quoteStyle ] ] [ text quote ] ]
+        [ img [ src icon, alt "", css [ iconStyle ] ] []
+        , h2 [ css [ cardHeadingStyle ] ] [ text title ]
+        , verticalSpacing 1
+        , div [ css [ displayFlex, alignItems flexStart ] ]
+            [ open quoteColour [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
+            , p [ css [ quoteStyle ] ] [ text quote ]
+            , close quoteColour [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
+            ]
         , verticalSpacing 1
         , p [] [ text description ]
         , verticalSpacing 1.5
@@ -114,6 +119,17 @@ cardStyle =
         ]
 
 
+iconStyle : Style
+iconStyle =
+    batch
+        [ float left
+        , height (rem 2)
+        , marginRight (rem 0.5)
+        , verticalAlign top
+        , width (rem 2)
+        ]
+
+
 cardHeadingStyle : Style
 cardHeadingStyle =
     batch
@@ -125,10 +141,7 @@ cardHeadingStyle =
 quoteStyle : Style
 quoteStyle =
     batch
-        [ borderLeft3 (px 1) solid pink.colour
-        , paddingLeft (rem 1)
-        , before [ property "content" "'\"'" ]
-        , after [ property "content" "'\"'" ]
+        [ padding2 zero (rem 0.5)
         ]
 
 

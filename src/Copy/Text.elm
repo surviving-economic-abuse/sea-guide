@@ -755,6 +755,9 @@ t key =
         GetHelpSection1Title ->
             "Support from survivors"
 
+        GetHelpSection1Icon ->
+            "/Forum.svg"
+
         GetHelpSection1Quote ->
             "Meeting other people who've been through what I've been through is such a massive help. It's amazing to know people who can really understand what I went through."
 
@@ -766,6 +769,9 @@ t key =
 
         GetHelpSection2Title ->
             "The Financial Support Line"
+
+        GetHelpSection2Icon ->
+            "/Phone.svg"
 
         GetHelpSection2Quote ->
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
@@ -784,6 +790,9 @@ t key =
 
         GetHelpSection3Title ->
             "Support from other organisations"
+
+        GetHelpSection3Icon ->
+            "/Support.svg"
 
         GetHelpSection3Quote ->
             "I'd done loads of googling but didn't really know where to start. Finding this directory was really reassuring. I didn't know there was so much help out there."
