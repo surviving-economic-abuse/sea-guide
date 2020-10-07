@@ -92,7 +92,7 @@ card viewportWidth title icon quote quoteColour description call =
         , verticalSpacing 1
         , div [ css [ displayFlex, alignItems flexStart ] ]
             [ open quoteColour [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
-            , p [ css [ quoteStyle ] ] [ text quote ]
+            , blockquote [ css [ quoteStyle ] ] [ text quote ]
             , close quoteColour [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
             ]
         , verticalSpacing 1
