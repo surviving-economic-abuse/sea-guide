@@ -129,6 +129,7 @@ forwardArrowStyle =
     batch
         [ height (rem 1.8)
         , marginLeft (rem 1.2)
+        , width (rem 1.8)
         ]
 
 
@@ -137,6 +138,7 @@ homeStyle =
     batch
         [ height (rem 1.8)
         , marginRight (rem 1.2)
+        , width (rem 1.8)
         ]
 
 
@@ -146,6 +148,7 @@ backArrowStyle =
         [ height (rem 1.8)
         , marginRight (rem 1.2)
         , transform (rotate (deg 180))
+        , width (rem 1.8)
         ]
 
 

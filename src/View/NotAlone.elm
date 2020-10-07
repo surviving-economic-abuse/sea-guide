@@ -65,9 +65,9 @@ renderInitCard hasConsented journeyCardPosition =
     li [ css [ cardStyle, closedStyle, backgroundImage (url (t journeyContent.image)) ] ]
         [ div [ css [ innerCardStyle ] ]
             [ div [ css [ displayFlex, alignItems flexStart ] ]
-                [ open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
+                [ open journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
                 , h2 [ css [ teaserStyle ] ] [ text (t journeyContent.teaser) ]
-                , close journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5) ]
+                , close journeyContent.color [ flex3 (int 0) (int 0) (rem 1.5), height (rem 1.5) ]
                 ]
             , div [ css [ greenDividerStyle ] ] []
             , button [ css [ buttonStyle ], onClick (ToggleJourney hasConsented journeyCardPosition) ]
@@ -122,8 +122,10 @@ cardStyle =
         , margin (rem 1)
         , minHeight (px 450)
         , position relative
+        , width oneColumn
         , withMediaDesktop
             [ flex3 zero zero threeColumn
+            , width threeColumn
             , nthOfType "3n-1"
                 [ marginTop (rem 6)
                 ]
@@ -151,7 +153,7 @@ innerCardStyle =
         , justifyContent spaceAround
         , margin auto
         , maxWidth (rem 20)
-        , minHeight (px 192)
+        , height (px 192)
         , padding (rem 0.5)
         , position relative
         , top (px 168)
@@ -256,4 +258,5 @@ forwardArrowStyle =
     batch
         [ height (rem 1.25)
         , marginLeft (rem 1.2)
+        , width (rem 1.25)
         ]

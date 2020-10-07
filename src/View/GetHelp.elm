@@ -146,4 +146,5 @@ reassuringStyle =
         [ flex3 zero zero oneColumn
         , textAlign center
         , marginBottom (rem 1)
+        , width (pct 100)
         ]
