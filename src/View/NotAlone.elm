@@ -125,7 +125,7 @@ cardStyle =
         , width oneColumn
         , withMediaDesktop
             [ flex3 zero zero threeColumn
-            , width threeColumn
+            , width (px 368)
             , nthOfType "3n-1"
                 [ marginTop (rem 6)
                 ]
