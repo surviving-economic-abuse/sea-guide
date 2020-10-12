@@ -108,7 +108,10 @@ update msg model =
 
                 Browser.External href ->
                     ( model
-                    , Browser.Navigation.load href
+                    , Cmd.batch
+                        [ Browser.Navigation.load href
+                        , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsPage href)
+                        ]
                     )
 
         UrlChanged url ->
