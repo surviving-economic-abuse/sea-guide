@@ -1,6 +1,6 @@
 module Main exposing (main)
 
-import Analytics exposing (updateAnalytics, updateAnalyticsPage)
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent, updateAnalyticsPage)
 import Browser
 import Browser.Dom
 import Browser.Navigation
@@ -107,10 +107,25 @@ update msg model =
                     )
 
                 Browser.External href ->
+                    let
+                        page =
+                            Page.toString model.page
+
+                        analyticsEvent =
+                            { category =
+                                if page == "" then
+                                    "homepage"
+
+                                else
+                                    page
+                            , action = "clicked external link"
+                            , label = href
+                            }
+                    in
                     ( model
                     , Cmd.batch
                         [ Browser.Navigation.load href
-                        , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsPage href)
+                        , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsEvent analyticsEvent)
                         ]
                     )
 
