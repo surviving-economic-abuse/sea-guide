@@ -1,6 +1,6 @@
 module Main exposing (main)
 
-import Analytics exposing (updateAnalytics, updateAnalyticsPage)
+import Analytics exposing (updateAnalytics, updateAnalyticsEvent, updateAnalyticsPage)
 import Browser
 import Browser.Dom
 import Browser.Navigation
@@ -107,8 +107,18 @@ update msg model =
                     )
 
                 Browser.External href ->
+                    let
+                        analyticsEvent =
+                            { category = Page.toString model.page
+                            , action = "clicked external link"
+                            , label = href
+                            }
+                    in
                     ( model
-                    , Browser.Navigation.load href
+                    , Cmd.batch
+                        [ Browser.Navigation.load href
+                        , updateAnalytics model.cookieState.hasConsentedToCookies (updateAnalyticsEvent analyticsEvent)
+                        ]
                     )
 
         UrlChanged url ->
@@ -135,7 +145,23 @@ update msg model =
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
 
         EmergencyButtonClicked ->
-            ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
+            let
+                action =
+                    if model.emergencyPopupIsOpen then
+                        "closed"
+
+                    else
+                        "opened"
+            in
+            ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }
+            , updateAnalytics model.cookieState.hasConsentedToCookies
+                (updateAnalyticsEvent
+                    { category = Page.toString model.page
+                    , action = action
+                    , label = t EmergencyButton
+                    }
+                )
+            )
 
         CookieButtonClicked button ->
             let
