@@ -46,7 +46,7 @@ update msg model =
             ( { model | revealedJourney = revealedCardData.position }
             , updateAnalytics hasConsented
                 (updateAnalyticsEvent
-                    { category = "homepage"
+                    { category = "/"
                     , action = revealedCardData.action
                     , label = labelFromCardPosition journeyCardPosition
                     }

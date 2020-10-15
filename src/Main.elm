@@ -108,16 +108,8 @@ update msg model =
 
                 Browser.External href ->
                     let
-                        page =
-                            Page.toString model.page
-
                         analyticsEvent =
-                            { category =
-                                if page == "" then
-                                    "homepage"
-
-                                else
-                                    page
+                            { category = Page.toString model.page
                             , action = "clicked external link"
                             , label = href
                             }
@@ -153,7 +145,23 @@ update msg model =
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
 
         EmergencyButtonClicked ->
-            ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }, Cmd.none )
+            let
+                action =
+                    if model.emergencyPopupIsOpen then
+                        "closed"
+
+                    else
+                        "opened"
+            in
+            ( { model | emergencyPopupIsOpen = not model.emergencyPopupIsOpen }
+            , updateAnalytics model.cookieState.hasConsentedToCookies
+                (updateAnalyticsEvent
+                    { category = Page.toString model.page
+                    , action = action
+                    , label = t EmergencyButton
+                    }
+                )
+            )
 
         CookieButtonClicked button ->
             let
