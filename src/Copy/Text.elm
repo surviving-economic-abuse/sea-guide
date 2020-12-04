@@ -20,7 +20,7 @@ t key =
             t SiteTitle ++ " - " ++ "Surviving Economic Abuse"
 
         NotAlonePageDescription ->
-            "If you are experiencing economic abuse, you are not alone. Read about survivors'\nexperiences and the signs of economic abuse in our guide."
+            "If you are experiencing economic abuse, you are not alone. Read about survivors' experiences and the signs of economic abuse in our guide."
 
         DefinitionPageMetaTitle ->
             t DefinitionTitle
@@ -464,7 +464,7 @@ t key =
             "I often wonder how I got here. I got married to this charming man in the legal profession and we had children. But it was after I got married that I was systematically and unwittingly socially isolated, psychologically, emotionally, financially abused and controlled."
 
         SplitterAffirmation ->
-            "If you are experiencing economic abuse, you are not alone. There are\npeople and\u{00A0}organisations who understand and who can help."
+            "If you are experiencing economic abuse, you are not alone. There are people and\u{00A0}organisations who understand and who can help."
 
         ToGetHelpFromDefinitionLink ->
             "Find people to talk to"
