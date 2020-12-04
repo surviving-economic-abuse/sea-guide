@@ -17,7 +17,7 @@
 
 ### Formatting
 
-We recommend integrating `elm-format@0.8.3` into your code editor, but if you don't...
+We recommend integrating `elm-format@0.8.4` into your code editor, but if you don't...
 
 - Please `npm run format` to format `.elm` files in `src` before committing code.
 
