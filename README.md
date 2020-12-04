@@ -4,7 +4,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7786cc97-9bfb-4b62-b8b6-b17f43d3dacc/deploy-status)](https://app.netlify.com/sites/sea-map/deploys)
 - [Staging (deploy previews for each pull request)](https://app.netlify.com/sites/sea-map/deploys)
-- [Release](https://sea-map.netlify.app)
+- [Release](https://guide.survivingeconomicabuse.org)
 
 ## Development
 
