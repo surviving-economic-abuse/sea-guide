@@ -23,7 +23,7 @@ elm.ports.updateAnalyticsPage.subscribe(function (page) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag("config", "UA-30970110-8", { "page_path" : page });
+      gtag("config", "UA-124167481-1", { "page_path" : page });
     }
 });
 
