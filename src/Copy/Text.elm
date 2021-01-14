@@ -175,22 +175,22 @@ t key =
             "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-no-recourse.pdf"
 
         HelpSelfCovidResource1Href ->
-            "https://survivingeconomicabuse.org/coronavirus-info"
+            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-coronavirus/overview/"
 
         HelpSelfCovidResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/04/How-banks-can-help-during-the-Covid-19-outbreak.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-coronavirus/banks-and-covid-19/"
 
         HelpSelfInfoLawResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Economic-abuse-and-controlling-or-coercive-behaviour.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/controlling-or-coercive-behaviour/"
 
         HelpSelfInfoLawResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-the-Domestic-Abuse-Bill.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/domestic-abuse-bill/"
 
         HelpSelfSeparatingResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Steps-you-can-take-towards-economic-safety-2020.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/steps-towards-economic-safety/"
 
         HelpSelfSeparatingResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Separating-finances-from-the-abuser.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/separating-your-finances/"
 
         -- Cookies and Privacy
         CookieBannerP ->
@@ -533,7 +533,7 @@ t key =
             "Approaching your bank about abuse can be daunting, but your bank or building society could be an important source of information and support. This information sets out how your bank can help you to regain control of your money, including separating your finances from the abuser, and making sure any new banking information is safe and secure."
 
         HelpSelfBankingResource1Link ->
-            "How banks can help [PDF 600kB]"
+            "How banks can help"
 
         HelpSelfBankingResource2Title ->
             "Opening a new bank account safely"
@@ -548,7 +548,7 @@ t key =
             "Opening a bank account independent of an abuser can be one of the most important steps you take towards regaining control of your finances. This information provides practical tips on opening a new bank account safely including choosing a bank, gathering documents and selecting the right account."
 
         HelpSelfBankingResource2Link ->
-            "Opening a new bank account [PDF 469kB]"
+            "Opening a new bank account"
 
         -- Help Self single Debt
         HelpSelfDebtTitle ->
@@ -567,7 +567,7 @@ t key =
             "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don't want, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
 
         HelpSelfDebtResource1Link ->
-            "What is coerced debt? [PDF 542kB]"
+            "What is coerced debt?"
 
         HelpSelfDebtResource2Title ->
             "Asking a lender for a debt write-off"
@@ -582,7 +582,7 @@ t key =
             "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn't a guaranteed solution but the information in this guide will help you understand your options."
 
         HelpSelfDebtResource2Link ->
-            "Asking a lender for a debt write-off [PDF 541kB]"
+            "Asking a lender for a debt write-off"
 
         HelpSelfDebtResource3Title ->
             "Economic abuse and your credit report"
@@ -597,7 +597,7 @@ t key =
             "This information will help you understand how your finances could be linked to an abuser on your credit report. It will guide you through how to break those links and how to be sure that nobody can access your address details through linked credit reports if you decide to move."
 
         HelpSelfDebtResource3Link ->
-            "Economic abuse and your credit report [PDF 535kB]"
+            "Economic abuse and your credit report"
 
         -- Help Self single Housing
         HelpSelfHousingTitle ->
@@ -616,7 +616,7 @@ t key =
             "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
-            "Finding a safe place to live [PDF 507kB]"
+            "Finding a safe place to live"
 
         -- Help Self Single Financial Support
         HelpSelfFinancialTitle ->
@@ -635,7 +635,7 @@ t key =
             "Find information on charities and organisations that can support you with money, debt information and advice. There are also grants and payments available for people in financial need to help with day-to-day expenses."
 
         HelpSelfFinancialResource1Link ->
-            "Grants, benefits and financial help [PDF 622kB]"
+            "Grants, benefits and financial help"
 
         HelpSelfFinancialResource2Title ->
             "Economic abuse and supporting children"
@@ -650,7 +650,7 @@ t key =
             "If you are experiencing economic abuse and have children, caring for them may be a lot more challenging. You may struggle to ensure they have everything they need, but support is available. This information outlines some of the options to help you and your children find safety and financial support."
 
         HelpSelfFinancialResource2Link ->
-            "Economic abuse and supporting children [PDF 533kB]"
+            "Economic abuse and supporting children"
 
         HelpSelfFinancialResource3Title ->
             "Immigration status and eligibility for benefits and public funds"
@@ -665,7 +665,7 @@ t key =
             "If you are in the UK on a spousal visa or another visa the 'no recourse to public funds' rule means that you are not entitled to key welfare benefits and local authority housing. This can be a major barrier to escaping abuse. This information will provide steps you can take and places you can turn to for legal, housing, welfare and practical support."
 
         HelpSelfFinancialResource3Link ->
-            "Economic abuse and no recourse to public funds [PDF 560kB]"
+            "Economic abuse and no recourse to public funds"
 
         -- Help Self Single Covid
         HelpSelfCovidTitle ->
@@ -681,7 +681,7 @@ t key =
             "This will end and normality will return."
 
         HelpSelfCovidResource1Link ->
-            "Economic abuse and the coronavirus outbreak [PDF 524kB]"
+            "Economic abuse and the coronavirus outbreak"
 
         HelpSelfCovidResource2Title ->
             "How banks can help during the coronavirus outbreak"
@@ -690,7 +690,7 @@ t key =
             "The measures in place to control the spread of coronavirus (COVID-19) may mean that an abusive partner is able to exert more control over your economic situation, particularly in this period of economic uncertainty. Learn about how your bank or building society can support you at this time if you are experiencing economic abuse."
 
         HelpSelfCovidResource2Link ->
-            "How banks can help during the coronavirus outbreak [PDF 497kB]"
+            "How banks can help during the coronavirus outbreak"
 
         -- Help Self Single Info and Law
         HelpSelfInfoLawTitle ->
@@ -706,7 +706,7 @@ t key =
             "It was sustained emotional abuse and blatant financial coercion and I couldn't see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it gradually melts. That is what coercive control feels like. You don't notice until it is too late."
 
         HelpSelfInfoLawResource1Link ->
-            "Economic abuse and controlling or coercive behaviour [PDF 527kB]"
+            "Economic abuse and controlling or coercive behaviour"
 
         HelpSelfInfoLawResource2Title ->
             "Economic abuse and the Domestic Abuse Bill"
@@ -715,7 +715,7 @@ t key =
             "The Domestic Abuse Bill includes economic abuse as a form of domestic abuse, recognising it in law for the very first time. This resource provides information on how victims and survivors can access justice through the law."
 
         HelpSelfInfoLawResource2Link ->
-            "Economic abuse and the Domestic Abuse Bill [PDF 505kB]"
+            "Economic abuse and the Domestic Abuse Bill"
 
         -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
@@ -731,7 +731,7 @@ t key =
             "I thought I was broken, then I realised I am not alone. I started to believe I could come through this."
 
         HelpSelfSeparatingResource1Link ->
-            "Steps you can take towards economic safety [PDF 559kB]"
+            "Steps you can take towards economic safety"
 
         HelpSelfSeparatingResource2Title ->
             "Separating your finances from the abuser"
@@ -746,7 +746,7 @@ t key =
             "He started using the joint account for cash withdrawals when it was supposed to be for bills. He then accused me of overspending."
 
         HelpSelfSeparatingResource2Link ->
-            "Separating your finances from the abuser [PDF 528kB]"
+            "Separating your finances from the abuser"
 
         -- Get Help page
         GetHelpTitle ->
