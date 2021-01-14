@@ -145,34 +145,34 @@ t key =
 
         -- Resource pdfs
         SeaOrganisationsResourceHref ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/08/Organisations-that-can-help-v8.pdf"
+            "https://survivingeconomicabuse.org/organisations-that-can-help/"
 
         HelpSelfBankingResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/How-banks-can-help__.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/banking/how-banks-can-help/"
 
         HelpSelfBankingResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Opening-a-bank-account.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/banking/opening-a-new-bank-account-safely/"
 
         HelpSelfDebtResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/12/Coerced-debt.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/debt/what-is-coerced-debt/"
 
         HelpSelfDebtResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/04/Asking-for-a-debt-to-be-written-off.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/debt/debt-write-off/"   
 
         HelpSelfDebtResource3Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-your-credit-report.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/debt/your-credit-report/"
 
         HelpSelfHousingResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2019/11/A-safe-place-to-live.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/housing/finding-a-safe-place-to-live/"
 
         HelpSelfFinancialResource1Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/02/Grants-and-financial-help.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/getting-support/grants-benefits-and-financial-help/"
 
         HelpSelfFinancialResource2Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/02/Economic-abuse-and-supporting-children.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/getting-support/supporting-children/"
 
         HelpSelfFinancialResource3Href ->
-            "https://survivingeconomicabuse.org/wp-content/uploads/2020/01/Economic-abuse-and-no-recourse.pdf"
+            "https://survivingeconomicabuse.org/i-need-help/getting-support/no-recourse-to-public-funds/"
 
         HelpSelfCovidResource1Href ->
             "https://survivingeconomicabuse.org/coronavirus-info"
