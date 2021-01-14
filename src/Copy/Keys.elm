@@ -46,7 +46,7 @@ type Key
     | DomesticAbuseHref
     | WomensAidHref
     | SeaSurvivorForumHref
-      -- Resource pdfs
+      -- Resource links
     | SeaOrganisationsResourceHref
     | HelpSelfBankingResource1Href
     | HelpSelfBankingResource2Href
