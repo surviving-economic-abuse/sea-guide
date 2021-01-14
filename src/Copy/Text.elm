@@ -143,7 +143,7 @@ t key =
         SeaSurvivorForumHref ->
             "https://www.survivingeconomicabuse.org/survivor-forum"
 
-        -- Resource pdfs
+        -- Resource links
         SeaOrganisationsResourceHref ->
             "https://survivingeconomicabuse.org/organisations-that-can-help/"
 
