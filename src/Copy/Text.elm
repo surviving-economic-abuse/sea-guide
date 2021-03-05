@@ -141,7 +141,7 @@ t key =
             "https://chat.womensaid.org.uk"
 
         SeaSurvivorForumHref ->
-            "https://www.survivingeconomicabuse.org/survivor-forum"
+            "https://survivingeconomicabuse.org/survivor-forum"
 
         FinancialSupportLineHref ->
             "https://survivingeconomicabuse.org/financial-support-line/"
