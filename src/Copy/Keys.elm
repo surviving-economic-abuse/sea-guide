@@ -46,6 +46,7 @@ type Key
     | DomesticAbuseHref
     | WomensAidHref
     | SeaSurvivorForumHref
+    | FinancialSupportLineHref
       -- Resource links
     | SeaOrganisationsResourceHref
     | HelpSelfBankingResource1Href
@@ -267,9 +268,7 @@ type Key
     | GetHelpSection2Icon
     | GetHelpSection2Quote
     | GetHelpSection2Description
-    | GetHelpSection2CallToAction1Prompt
-    | GetHelpSection2CallToAction1Number
-    | GetHelpSection2CallToAction2
+    | GetHelpSection2CallToAction
     | GetHelpSection3Title
     | GetHelpSection3Icon
     | GetHelpSection3Quote

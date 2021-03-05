@@ -3,5 +3,5 @@ module Page.GetHelp exposing (CallToAction(..))
 
 type CallToAction
     = JoinForum
-    | CallSupport
+    | ContactSupport
     | SeeOrgs

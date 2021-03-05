@@ -143,6 +143,9 @@ t key =
         SeaSurvivorForumHref ->
             "https://www.survivingeconomicabuse.org/survivor-forum"
 
+        FinancialSupportLineHref ->
+            "https://survivingeconomicabuse.org/financial-support-line/"
+
         -- Resource links
         SeaOrganisationsResourceHref ->
             "https://survivingeconomicabuse.org/organisations-that-can-help/"
@@ -157,7 +160,7 @@ t key =
             "https://survivingeconomicabuse.org/i-need-help/debt/what-is-coerced-debt/"
 
         HelpSelfDebtResource2Href ->
-            "https://survivingeconomicabuse.org/i-need-help/debt/debt-write-off/"   
+            "https://survivingeconomicabuse.org/i-need-help/debt/debt-write-off/"
 
         HelpSelfDebtResource3Href ->
             "https://survivingeconomicabuse.org/i-need-help/debt/your-credit-report/"
@@ -777,16 +780,10 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "Contact the Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) for specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "The Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) provides specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
-        GetHelpSection2CallToAction1Prompt ->
-            "Call or text"
-
-        GetHelpSection2CallToAction1Number ->
-            "01323 635987"
-
-        GetHelpSection2CallToAction2 ->
-            "Email DEAP@moneyadviceplus.org.uk"
+        GetHelpSection2CallToAction ->
+            "Contact the Financial Support Line"
 
         GetHelpSection3Title ->
             "Support from other organisations"
