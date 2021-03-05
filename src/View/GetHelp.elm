@@ -20,7 +20,7 @@ view viewportWidth =
                 ]
             , div [ css [ columnStyle ] ]
                 [ card viewportWidth (t GetHelpSection1Title) (t GetHelpSection1Icon) (t GetHelpSection1Quote) green.string (t GetHelpSection1Description) JoinForum
-                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Icon) (t GetHelpSection2Quote) pink.string (t GetHelpSection2Description) CallSupport
+                , card viewportWidth (t GetHelpSection2Title) (t GetHelpSection2Icon) (t GetHelpSection2Quote) pink.string (t GetHelpSection2Description) ContactSupport
                 , card viewportWidth (t GetHelpSection3Title) (t GetHelpSection3Icon) (t GetHelpSection3Quote) teal.string (t GetHelpSection3Description) SeeOrgs
                 ]
             , verticalSpacing 2
@@ -40,16 +40,8 @@ renderCallToAction viewportWidth call =
         JoinForum ->
             renderExternalNavLink SeaSurvivorForumHref GetHelpSection1CallToAction
 
-        CallSupport ->
-            div [ css [ infoStyle ] ]
-                [ p []
-                    [ text (t GetHelpSection2CallToAction1Prompt)
-                    , text " "
-                    , renderPhoneNumber viewportWidth (t GetHelpSection2CallToAction1Number)
-                    ]
-                , p [] [ text (t GetHelpSection2CallToAction2) ]
-                , verticalSpacing 1
-                ]
+        ContactSupport ->
+            renderExternalNavLink FinancialSupportLineHref GetHelpSection2CallToAction
 
         SeeOrgs ->
             renderExternalNavLink SeaOrganisationsResourceHref GetHelpSection3CallToAction
