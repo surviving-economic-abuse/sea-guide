@@ -22,8 +22,6 @@ type Key
     | HelpSelfHousingDescription
     | HelpSelfFinancialMetaTitle
     | HelpSelfFinancialDescription
-    | HelpSelfCovidMetaTitle
-    | HelpSelfCovidDescription
     | HelpSelfInfoLawMetaTitle
     | HelpSelfInfoLawDescription
     | HelpSelfSeparatingMetaTitle
@@ -39,7 +37,6 @@ type Key
     | HelpSelfDebtSlug
     | HelpSelfHousingSlug
     | HelpSelfFinancialSlug
-    | HelpSelfCovidSlug
     | HelpSelfInfoLawSlug
     | HelpSelfSeparatingSlug
       --- External Hrefs
@@ -58,8 +55,6 @@ type Key
     | HelpSelfFinancialResource1Href
     | HelpSelfFinancialResource2Href
     | HelpSelfFinancialResource3Href
-    | HelpSelfCovidResource1Href
-    | HelpSelfCovidResource2Href
     | HelpSelfInfoLawResource1Href
     | HelpSelfInfoLawResource2Href
     | HelpSelfSeparatingResource1Href
@@ -165,7 +160,6 @@ type Key
     | HelpSelfDebtLink
     | HelpSelfHousingLink
     | HelpSelfFinancialLink
-    | HelpSelfCovidLink
     | HelpSelfInfoLawLink
     | HelpSelfSeparatingLink
     | ToDefinitionFromHelpSelfLink
@@ -228,15 +222,6 @@ type Key
     | HelpSelfFinancialResource3Quote2
     | HelpSelfFinancialResource3Summary
     | HelpSelfFinancialResource3Link
-      -- Help Self single Covid
-    | HelpSelfCovidTitle
-    | HelpSelfCovidResource1Title
-    | HelpSelfCovidResource1Summary
-    | HelpSelfCovidResource1Quote1
-    | HelpSelfCovidResource1Link
-    | HelpSelfCovidResource2Title
-    | HelpSelfCovidResource2Summary
-    | HelpSelfCovidResource2Link
       -- Help Self single InfoLaw
     | HelpSelfInfoLawTitle
     | HelpSelfInfoLawResource1Title

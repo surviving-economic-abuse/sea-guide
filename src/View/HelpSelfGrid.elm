@@ -21,11 +21,10 @@ view =
                 , infoLink (t HelpSelfDebtLink) (t HelpSelfDebtSlug)
                 , infoLink (t HelpSelfHousingLink) (t HelpSelfHousingSlug)
                 , infoLink (t HelpSelfFinancialLink) (t HelpSelfFinancialSlug)
-                , infoLink (t HelpSelfCovidLink) (t HelpSelfCovidSlug)
                 , infoLink (t HelpSelfInfoLawLink) (t HelpSelfInfoLawSlug)
                 , infoLink (t HelpSelfSeparatingLink) (t HelpSelfSeparatingSlug)
                 ]
-            , verticalSpacing 2
+            , verticalSpacing 4
             ]
         , container
             [ nav []
