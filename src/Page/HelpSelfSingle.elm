@@ -150,25 +150,6 @@ categoryKeysFromSlug slug =
         , image = Just "/Financial.svg"
         }
 
-    else if slug == t HelpSelfCovidSlug then
-        { title = HelpSelfCovidTitle
-        , resources =
-            Just
-                [ { title = HelpSelfCovidResource1Title
-                  , quotes = [ HelpSelfCovidResource1Quote1 ]
-                  , summary = HelpSelfCovidResource1Summary
-                  , linkName = HelpSelfCovidResource1Link
-                  , linkHref = HelpSelfCovidResource1Href
-                  }
-                , { title = HelpSelfCovidResource2Title
-                  , quotes = []
-                  , summary = HelpSelfCovidResource2Summary
-                  , linkName = HelpSelfCovidResource2Link
-                  , linkHref = HelpSelfCovidResource2Href
-                  }
-                ]
-        , image = Just "/Covid.svg"
-        }
 
     else if slug == t HelpSelfInfoLawSlug then
         { title = HelpSelfInfoLawTitle

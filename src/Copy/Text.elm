@@ -74,17 +74,12 @@ t key =
         HelpSelfFinancialDescription ->
             "Learn about what financial support is available if you are experiencing economic abuse. We have information on grants, immigration and child support."
 
-        HelpSelfCovidMetaTitle ->
-            t HelpSelfCovidTitle
-
-        HelpSelfCovidDescription ->
-            "The resources on this page can help support your economic wellbeing and your safety during the coronavirus pandemic."
 
         HelpSelfInfoLawMetaTitle ->
             t HelpSelfInfoLawTitle
 
         HelpSelfInfoLawDescription ->
-            "Learn about how economic abuse fits into the Domestic Abuse Bill, as well as how the law treats controlling and coercive behaviour."
+            "Learn about how economic abuse fits into the Domestic Abuse Act, as well as how the law treats controlling and coercive behaviour."
 
         HelpSelfSeparatingMetaTitle ->
             t HelpSelfSeparatingTitle
@@ -120,8 +115,6 @@ t key =
         HelpSelfFinancialSlug ->
             "financial-support"
 
-        HelpSelfCovidSlug ->
-            "covid-19"
 
         HelpSelfInfoLawSlug ->
             "the-law"
@@ -177,11 +170,6 @@ t key =
         HelpSelfFinancialResource3Href ->
             "https://survivingeconomicabuse.org/i-need-help/getting-support/no-recourse-to-public-funds/"
 
-        HelpSelfCovidResource1Href ->
-            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-coronavirus/overview/"
-
-        HelpSelfCovidResource2Href ->
-            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-coronavirus/banks-and-covid-19/"
 
         HelpSelfInfoLawResource1Href ->
             "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/controlling-or-coercive-behaviour/"
@@ -389,7 +377,7 @@ t key =
             "Have they stopped you from earning money or going to work? Spent their money how they wanted while your money was used for essentials?"
 
         DefinitionConciseP4 ->
-            "[1 in 5] adults in the UK have experienced economic abuse at some point."
+            "[1 in 6] adults in the UK have experienced economic abuse at some point."
 
         DefinitionGetHelpLink ->
             "people and organisations who understand and who can help"
@@ -491,8 +479,6 @@ t key =
         HelpSelfFinancialLink ->
             "Financial support"
 
-        HelpSelfCovidLink ->
-            "COVID-19"
 
         HelpSelfInfoLawLink ->
             "Economic abuse and the law"
@@ -670,31 +656,6 @@ t key =
         HelpSelfFinancialResource3Link ->
             "Economic abuse and no recourse to public funds"
 
-        -- Help Self Single Covid
-        HelpSelfCovidTitle ->
-            "Information about COVID-19 and your finances"
-
-        HelpSelfCovidResource1Title ->
-            "Economic abuse and the coronavirus outbreak"
-
-        HelpSelfCovidResource1Summary ->
-            "Recommended measures such as limiting social contact, not going to work and self-isolating at home can have implications if you are experiencing economic abuse. This resource can help support your economic wellbeing and your safety during this time."
-
-        HelpSelfCovidResource1Quote1 ->
-            "This will end and normality will return."
-
-        HelpSelfCovidResource1Link ->
-            "Economic abuse and the coronavirus outbreak"
-
-        HelpSelfCovidResource2Title ->
-            "How banks can help during the coronavirus outbreak"
-
-        HelpSelfCovidResource2Summary ->
-            "The measures in place to control the spread of coronavirus (COVID-19) may mean that an abusive partner is able to exert more control over your economic situation, particularly in this period of economic uncertainty. Learn about how your bank or building society can support you at this time if you are experiencing economic abuse."
-
-        HelpSelfCovidResource2Link ->
-            "How banks can help during the coronavirus outbreak"
-
         -- Help Self Single Info and Law
         HelpSelfInfoLawTitle ->
             "Information about economic abuse and the law"
@@ -712,13 +673,13 @@ t key =
             "Economic abuse and controlling or coercive behaviour"
 
         HelpSelfInfoLawResource2Title ->
-            "Economic abuse and the Domestic Abuse Bill"
+            "Economic abuse and the Domestic Abuse Act"
 
         HelpSelfInfoLawResource2Summary ->
-            "The Domestic Abuse Bill includes economic abuse as a form of domestic abuse, recognising it in law for the very first time. This resource provides information on how victims and survivors can access justice through the law."
+            "The Domestic Abuse Act includes economic abuse as a form of domestic abuse, recognising it in law for the very first time. This resource provides information on how victims and survivors can access justice through the law."
 
         HelpSelfInfoLawResource2Link ->
-            "Economic abuse and the Domestic Abuse Bill"
+            "Economic abuse and the Domestic Abuse Act"
 
         -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
@@ -780,7 +741,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "The Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) provides specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "The Financial Support Line (Mon-Thu, 9am-1pm & 2pm-5pm) provides specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction ->
             "Contact the Financial Support Line"
@@ -822,9 +783,6 @@ getHelpSelfSingleTitleKeyFromSlug slug =
     else if slug == t HelpSelfFinancialSlug then
         HelpSelfFinancialTitle
 
-    else if slug == t HelpSelfCovidSlug then
-        HelpSelfCovidTitle
-
     else if slug == t HelpSelfInfoLawSlug then
         HelpSelfInfoLawTitle
 
@@ -849,9 +807,6 @@ getHelpSelfSingleDescriptionKeyFromSlug slug =
 
     else if slug == t HelpSelfFinancialSlug then
         HelpSelfFinancialDescription
-
-    else if slug == t HelpSelfCovidSlug then
-        HelpSelfCovidDescription
 
     else if slug == t HelpSelfInfoLawSlug then
         HelpSelfInfoLawDescription
