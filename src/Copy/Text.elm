@@ -741,7 +741,7 @@ t key =
             "When I found this number, it was a huge relief. It made all the difference knowing I could get the right advice for what I was going through by someone who understands."
 
         GetHelpSection2Description ->
-            "The Financial Support Line (Mon-Thu, 9am-1pm & 2pm-5pm) provides specialist advice to victim-survivors of domestic abuse in financial difficulty."
+            "The Financial Support Line (Mon-Fri, 9am-1pm & 2pm-5pm) provides specialist advice to victim-survivors of domestic abuse in financial difficulty."
 
         GetHelpSection2CallToAction ->
             "Contact the Financial Support Line"
