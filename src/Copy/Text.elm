@@ -158,6 +158,9 @@ t key =
         HelpSelfDebtResource3Href ->
             "https://survivingeconomicabuse.org/i-need-help/debt/your-credit-report/"
 
+        HelpSelfDebtResource4Href ->
+            "https://survivingeconomicabuse.org/i-need-help/debt/possible-solutions-coerced-debt/"
+
         HelpSelfHousingResource1Href ->
             "https://survivingeconomicabuse.org/i-need-help/housing/finding-a-safe-place-to-live/"
 
@@ -177,11 +180,17 @@ t key =
         HelpSelfInfoLawResource2Href ->
             "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/domestic-abuse-bill/"
 
+        HelpSelfInfoLawResource3Href ->
+            "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/accessing-legal-support/"
+
         HelpSelfSeparatingResource1Href ->
             "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/steps-towards-economic-safety/"
 
         HelpSelfSeparatingResource2Href ->
             "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/separating-your-finances/"
+
+        HelpSelfSeparatingResource3Href ->
+            "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/preparing-to-leave-an-abuser/"
 
         -- Cookies and Privacy
         CookieBannerP ->
@@ -550,7 +559,7 @@ t key =
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         HelpSelfDebtResource1Quote2 ->
-            "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
+            "I was already feeling vulnerable in my home life and worried about keeping myself and my children safe. But dealing with creditors chasing me for money amplified my anxiety of the whole world collapsing on top of me."
 
         HelpSelfDebtResource1Summary ->
             "Forcing or coercing someone into debt is a common form of economic abuse. An abuser may convince you to take out a credit card or loan you don't want, use your credit card or take out a loan in your name without your knowledge. This information can help you understand what coerced debt is and provide possible solutions."
@@ -562,10 +571,10 @@ t key =
             "Asking a lender for a debt write-off"
 
         HelpSelfDebtResource2Quote1 ->
-            "I was already feeling vulnerable in my home life and worried about keeping myself and my children safe. But dealing with creditors chasing me for money amplified my anxiety of the whole world collapsing on top of me."
+            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
 
         HelpSelfDebtResource2Quote2 ->
-            "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
+            "The debt has been written off and I feel like I've got my life back. I can take the kids on holiday and we are free."
 
         HelpSelfDebtResource2Summary ->
             "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn't a guaranteed solution but the information in this guide will help you understand your options."
@@ -587,6 +596,21 @@ t key =
 
         HelpSelfDebtResource3Link ->
             "Economic abuse and your credit report"
+
+        HelpSelfDebtResource4Title ->
+            "Tackling coerced debt"
+
+        HelpSelfDebtResource4Quote1 ->
+            "I am not a stupid woman; this could happen to anybody."
+
+        HelpSelfDebtResource4Quote2 ->
+            "I was told there was nothing that could be done as the debts were in my name, so I had to start paying them off."
+
+        HelpSelfDebtResource4Summary ->
+            "It can be difficult to get coerced debt recognised by courts and creditors (people you owe money to). However, there are a number of possible solutions that may be available to you. The right solution for you will depend on your situation. The information linked below covers possible solutions to coerced debt, including debt respite schemes."
+
+        HelpSelfDebtResource4Link ->
+            "Possible solutions to coerced debt"
 
         -- Help Self single Housing
         HelpSelfHousingTitle ->
@@ -681,6 +705,18 @@ t key =
         HelpSelfInfoLawResource2Link ->
             "Economic abuse and the Domestic Abuse Act"
 
+        HelpSelfInfoLawResource3Title ->
+            "Accessing legal support"
+
+        HelpSelfInfoLawResource3Summary ->
+            "If you have experienced economic abuse, you may be involved in legal proceedings now or in the future. The information linked below outlines some options for accessing the support of a lawyer at low-cost, as well as support if you are representing yourself in court.  "
+
+        HelpSelfInfoLawResource3Quote1 ->
+            "It would have made a huge difference to myself and my children to have had legal aid and some initial free advice."
+
+        HelpSelfInfoLawResource3Link ->
+            "Accessing legal support"
+
         -- Help Self Single Separating Finances from Abuser
         HelpSelfSeparatingTitle ->
             "Information to help you separate your finances from the abuser"
@@ -711,6 +747,18 @@ t key =
 
         HelpSelfSeparatingResource2Link ->
             "Separating your finances from the abuser"
+
+        HelpSelfSeparatingResource3Title ->
+            "Preparing to leave"
+
+        HelpSelfSeparatingResource3Summary ->
+            "If a partner is using economic abuse as a form of control, it can be extremely difficult to leave. Without access to the funds needed to escape, you may feel trapped. The guide linked below outlines steps you can take to prepare, as well as the support available to you."
+
+        HelpSelfSeparatingResource3Quote1 ->
+            "Without money, there’s nowhere to go. That’s why, for me, economic abuse is the greatest form of control."
+
+        HelpSelfSeparatingResource3Link ->
+            "Preparing to leave an abuser"
 
         -- Get Help page
         GetHelpTitle ->

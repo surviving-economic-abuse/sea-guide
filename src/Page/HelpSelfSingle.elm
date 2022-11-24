@@ -106,6 +106,12 @@ categoryKeysFromSlug slug =
                   , linkName = HelpSelfDebtResource3Link
                   , linkHref = HelpSelfDebtResource3Href
                   }
+                , { title = HelpSelfDebtResource4Title
+                  , quotes = [ HelpSelfDebtResource3Quote1, HelpSelfDebtResource3Quote2 ]
+                  , summary = HelpSelfDebtResource4Summary
+                  , linkName = HelpSelfDebtResource4Link
+                  , linkHref = HelpSelfDebtResource4Href
+                  }
                 ]
         , image = Just "/Debt.svg"
         }
@@ -167,6 +173,12 @@ categoryKeysFromSlug slug =
                   , linkName = HelpSelfInfoLawResource2Link
                   , linkHref = HelpSelfInfoLawResource2Href
                   }
+                , { title = HelpSelfInfoLawResource3Title
+                  , quotes = [ HelpSelfInfoLawResource3Quote1 ]
+                  , summary = HelpSelfInfoLawResource3Summary
+                  , linkName = HelpSelfInfoLawResource3Link
+                  , linkHref = HelpSelfInfoLawResource3Href
+                  }
                 ]
         , image = Just "/Law.svg"
         }
@@ -186,6 +198,12 @@ categoryKeysFromSlug slug =
                   , summary = HelpSelfSeparatingResource2Summary
                   , linkName = HelpSelfSeparatingResource2Link
                   , linkHref = HelpSelfSeparatingResource2Href
+                  }
+                , { title = HelpSelfSeparatingResource3Title
+                  , quotes = [ HelpSelfSeparatingResource3Quote1 ]
+                  , summary = HelpSelfSeparatingResource3Summary
+                  , linkName = HelpSelfSeparatingResource3Link
+                  , linkHref = HelpSelfSeparatingResource3Href
                   }
                 ]
         , image = Just "/Separating.svg"
