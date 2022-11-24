@@ -602,7 +602,7 @@ t key =
             "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-           "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
+            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
             "Finding a safe place to live"
