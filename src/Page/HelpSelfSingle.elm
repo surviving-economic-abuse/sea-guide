@@ -107,7 +107,7 @@ categoryKeysFromSlug slug =
                   , linkHref = HelpSelfDebtResource3Href
                   }
                 , { title = HelpSelfDebtResource4Title
-                  , quotes = [ HelpSelfDebtResource3Quote1, HelpSelfDebtResource3Quote2 ]
+                  , quotes = [ HelpSelfDebtResource4Quote1, HelpSelfDebtResource4Quote2 ]
                   , summary = HelpSelfDebtResource4Summary
                   , linkName = HelpSelfDebtResource4Link
                   , linkHref = HelpSelfDebtResource4Href
