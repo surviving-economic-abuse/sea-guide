@@ -51,14 +51,17 @@ type Key
     | HelpSelfDebtResource1Href
     | HelpSelfDebtResource2Href
     | HelpSelfDebtResource3Href
+    | HelpSelfDebtResource4Href
     | HelpSelfHousingResource1Href
     | HelpSelfFinancialResource1Href
     | HelpSelfFinancialResource2Href
     | HelpSelfFinancialResource3Href
     | HelpSelfInfoLawResource1Href
     | HelpSelfInfoLawResource2Href
+    | HelpSelfInfoLawResource3Href
     | HelpSelfSeparatingResource1Href
     | HelpSelfSeparatingResource2Href
+    | HelpSelfSeparatingResource3Href
       -- Cookies and Privacy
     | CookieBannerP
     | CookieBannerPrivacyButton
@@ -198,6 +201,11 @@ type Key
     | HelpSelfDebtResource3Quote2
     | HelpSelfDebtResource3Summary
     | HelpSelfDebtResource3Link
+    | HelpSelfDebtResource4Title
+    | HelpSelfDebtResource4Quote1
+    | HelpSelfDebtResource4Quote2
+    | HelpSelfDebtResource4Summary
+    | HelpSelfDebtResource4Link
       -- Help Self single Housing
     | HelpSelfHousingTitle
     | HelpSelfHousingResource1Title
@@ -231,6 +239,10 @@ type Key
     | HelpSelfInfoLawResource2Title
     | HelpSelfInfoLawResource2Summary
     | HelpSelfInfoLawResource2Link
+    | HelpSelfInfoLawResource3Title
+    | HelpSelfInfoLawResource3Summary
+    | HelpSelfInfoLawResource3Link
+    | HelpSelfInfoLawResource3Quote1
       -- Help Self single Separating
     | HelpSelfSeparatingTitle
     | HelpSelfSeparatingResource1Title
@@ -242,6 +254,10 @@ type Key
     | HelpSelfSeparatingResource2Quote2
     | HelpSelfSeparatingResource2Summary
     | HelpSelfSeparatingResource2Link
+    | HelpSelfSeparatingResource3Title
+    | HelpSelfSeparatingResource3Quote1
+    | HelpSelfSeparatingResource3Summary
+    | HelpSelfSeparatingResource3Link
       -- Get Help page
     | GetHelpTitle
     | GetHelpSection1Title
