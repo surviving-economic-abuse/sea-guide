@@ -431,10 +431,10 @@ t key =
             "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         DefinitionCategory5Title ->
-            "Threatening you"
+            "Threatening or emotionally abusing you"
 
         DefinitionCategory5Info ->
-            "Economic abuse often happens alongside other kinds of abuse. An abuser could be violent or [threaten violence] if you don't agree with their demands."
+            "Economic abuse often happens alongside other kinds of abuse. An abuser could be violent or [threaten violence] if you don't agree with their demands. They may also be emotionally abusive"
 
         DefinitionCategory5Quote1 ->
             "My ex made me run up debts on them which are now unaffordable for me to repay. He would push me against a wall, put his hands around my throat if I didn't give him money."
@@ -446,7 +446,7 @@ t key =
             "Manipulating or coercing you"
 
         DefinitionCategory6Info ->
-            "Economic abuse can be hard to spot and often happens without you realising. It could start with behaviour that seems protective or caring such as [offering to take care of all the finances] or [encouraging you not to work] so that you can look after the children. Overspending and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing. It can also continue after leaving or [divorce]."
+            "Economic abuse can be hard to spot and may happen without you realising. It could start with behaviour that seems protective or caring such as [offering to take care of all the finances] or [encouraging you not to work] so that you can look after the children. Overspending and building up debts in your name can also develop slowly and may not be obvious at first. Some women may have lived with economic abuse for many years without knowing. It can also continue after [separating]."
 
         DefinitionCategory6Quote1 ->
             "Even after I came out of refuge and a debt charity helped me, I don't think it clicked that it wasn't half my fault anyway. Because I think it takes a long time to get over that kind of, 'Well, you must be just crap with money then' thinking."
@@ -481,10 +481,10 @@ t key =
 
 
         HelpSelfInfoLawLink ->
-            "Economic abuse and the law"
+            "The law"
 
         HelpSelfSeparatingLink ->
-            "Separating finances from an abusive partner"
+            "Separating your finances"
 
         ToDefinitionFromHelpSelfLink ->
             "Read about signs of economic abuse"
@@ -534,7 +534,7 @@ t key =
             "Setting up a new bank account just for myself felt like a first step to freedom."
 
         HelpSelfBankingResource2Summary ->
-            "Opening a bank account independent of an abuser can be one of the most important steps you take towards regaining control of your finances. This information provides practical tips on opening a new bank account safely including choosing a bank, gathering documents and selecting the right account."
+            "Opening a bank account separate from the abuser can be an important step to regain control of your finances. The information linked below provides practical tips on opening a new bank account safely. This might include gathering the documents the bank may need and asking for an account with an untraceable sort code to help keep your location secure."
 
         HelpSelfBankingResource2Link ->
             "Opening a new bank account"
@@ -568,7 +568,7 @@ t key =
             "I was so relieved when my debt advisor explained the situation to the creditor and they agreed to write it off. It's one less thing hanging over me while I start my new life."
 
         HelpSelfDebtResource2Summary ->
-            "There are a number of solutions to dealing with coerced debt that you can explore with a qualified debt adviser. These include explaining the circumstances to the lender and asking them to write off the debt. This isn't a guaranteed solution but the information in this guide will help you understand your options."
+            "There are a number of possible solutions to coerced debt that you can explore with a qualified debt adviser. These include explaining about the abuse to the lender and asking them to write off the debt. Some lenders will refuse while others may agree. The information in this guide will help you understand your options."
 
         HelpSelfDebtResource2Link ->
             "Asking a lender for a debt write-off"
@@ -602,7 +602,7 @@ t key =
             "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
+           "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
 
         HelpSelfHousingResource1Link ->
             "Finding a safe place to live"
@@ -615,13 +615,13 @@ t key =
             "Grants, benefits and financial help"
 
         HelpSelfFinancialResource1Quote1 ->
-            "He applied for multiple loans in my name by using the app on my  phone. Loans for over £50,000 in total."
+            "He applied for multiple loans in my name by using the app on my phone. Loans for over £50,000 in total."
 
         HelpSelfFinancialResource1Quote2 ->
             "I had been putting off speaking to anyone as I didn't know how to approach these companies. But with the help of my debt advisor, I was successful in removing a contract in my name and the debt was written off in full."
 
         HelpSelfFinancialResource1Summary ->
-            "Find information on charities and organisations that can support you with money, debt information and advice. There are also grants and payments available for people in financial need to help with day-to-day expenses."
+            "Find information on charities and organisations that can provide financial support as well as hardship grants to help with day-to-day expenses. Financial help may be available through local welfare assistance schemes or via an organisation supporting people working in certain industries."
 
         HelpSelfFinancialResource1Link ->
             "Grants, benefits and financial help"
@@ -642,7 +642,7 @@ t key =
             "Economic abuse and supporting children"
 
         HelpSelfFinancialResource3Title ->
-            "Immigration status and eligibility for benefits and public funds"
+            "Immigration status"
 
         HelpSelfFinancialResource3Quote1 ->
             "I have no recourse to public funds here in the UK. As such I have no money and so he is able to control and dictate my life."
@@ -651,7 +651,7 @@ t key =
             "Learning about my rights and what help there is out there has been the first step to regaining some control. I didn't even realise there were advisors who could help me."
 
         HelpSelfFinancialResource3Summary ->
-            "If you are in the UK on a spousal visa or another visa the 'no recourse to public funds' rule means that you are not entitled to key welfare benefits and local authority housing. This can be a major barrier to escaping abuse. This information will provide steps you can take and places you can turn to for legal, housing, welfare and practical support."
+            "If you are in the UK on a visa that says you have 'no recourse to public funds', this means that you are not entitled to key welfare benefits and local authority housing. This can be a major barrier to escaping abuse. This information outlines steps you can take and places you can turn to for legal, housing, welfare and practical support."
 
         HelpSelfFinancialResource3Link ->
             "Economic abuse and no recourse to public funds"
@@ -670,7 +670,7 @@ t key =
             "It was sustained emotional abuse and blatant financial coercion and I couldn't see it. I was like a frog in boiling water. If you throw it straight in, it feels the heat and hops out. If the temperature increases slowly, it gradually melts. That is what coercive control feels like. You don't notice until it is too late."
 
         HelpSelfInfoLawResource1Link ->
-            "Economic abuse and controlling or coercive behaviour"
+            "Prosecuting an abuser"
 
         HelpSelfInfoLawResource2Title ->
             "Economic abuse and the Domestic Abuse Act"
@@ -729,7 +729,7 @@ t key =
             "Share your experience with others in our supportive community of economic abuse survivors."
 
         GetHelpSection1CallToAction ->
-            "Join SEA's survivor forum"
+            "Join SEA’s Survivors’ Forum"
 
         GetHelpSection2Title ->
             "The Financial Support\u{00A0}Line"
