@@ -62,6 +62,8 @@ type Key
     | HelpSelfSeparatingResource1Href
     | HelpSelfSeparatingResource2Href
     | HelpSelfSeparatingResource3Href
+      -- Footer
+    | CopyrightText String
       -- Cookies and Privacy
     | CookieBannerP
     | CookieBannerPrivacyButton

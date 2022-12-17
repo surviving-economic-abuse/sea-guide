@@ -9,6 +9,7 @@ import Copy.Keys exposing (Key(..))
 import Copy.Text exposing (t)
 import Css exposing (..)
 import EmergencyContent exposing (renderEmergencyButton, renderEmergencyPanel, renderExitButton)
+import FooterContent exposing (renderCopyright)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Message exposing (CookieButton(..), Msg(..))
@@ -20,6 +21,7 @@ import Page.NotAlone
 import Route exposing (Route(..))
 import Task
 import Theme exposing (..)
+import Time
 import Url
 import View.Definition
 import View.GetHelp
@@ -48,6 +50,7 @@ type alias Model =
     { key : Browser.Navigation.Key
     , page : Page
     , viewportWidth : Float
+    , timeNow : Time.Posix
     , emergencyPopupIsOpen : Bool
     , cookieState : CookieState
     }
@@ -79,6 +82,7 @@ init hasConsentedString url key =
     ( { key = key
       , page = page
       , viewportWidth = 800
+      , timeNow = Time.millisToPosix 0
       , emergencyPopupIsOpen = False
       , cookieState =
             { cookieBannerIsOpen = viewCookieBannerContent
@@ -88,6 +92,7 @@ init hasConsentedString url key =
       }
     , Cmd.batch
         [ Task.perform GotViewport Browser.Dom.getViewport
+        , Task.perform GetTime Time.now
         , setMetaDescription (metaFromPage page).description
         ]
     )
@@ -140,6 +145,9 @@ update msg model =
                 , updateAnalytics hasConsented (updateAnalyticsPage (Route.toString route))
                 ]
             )
+
+        GetTime timeNow ->
+            ( { model | timeNow = timeNow }, Cmd.none )
 
         GotViewport viewport ->
             ( { model | viewportWidth = Maybe.withDefault model.viewportWidth (Just viewport.scene.width) }, Cmd.none )
@@ -290,6 +298,7 @@ view model =
           else
             renderEmergencyButton
         , renderCookieContent model.cookieState
+        , renderCopyright (Time.toYear Time.utc model.timeNow |> String.fromInt)
         ]
 
 
