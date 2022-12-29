@@ -4,7 +4,7 @@
   "description": "SEA-MAP Tech vs. Abuse application",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "npm test && parcel build src/index.html && cp robots-nofollow.txt dist/robots.txt",
+    "build": "npm test && parcel build src/index.html && cp robots.txt dist/robots.txt",
     "format": "elm-format src",
     "test": "elm-test"
   },
@@ -21,5 +21,9 @@
     "parcel": "^2.8.2",
     "parcel-plugin-asset-copier": "^1.1.0"
   },
-  "assetsPath": "src/images"
+  "assetsPath": "src/images",
+  "dependencies": {
+    "@parcel/config-default": "^2.8.2",
+    "@parcel/transformer-raw": "^2.8.2"
+  }
 }
