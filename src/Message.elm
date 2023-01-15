@@ -5,6 +5,7 @@ import Browser.Dom
 import Page.Definition
 import Page.HelpSelfSingle
 import Page.NotAlone
+import Time
 import Url
 
 
@@ -16,6 +17,7 @@ type Msg
     = NoOp
     | PageLinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
+    | GetTime Time.Posix
     | GotViewport Browser.Dom.Viewport
     | EmergencyButtonClicked
     | CookieButtonClicked CookieButton

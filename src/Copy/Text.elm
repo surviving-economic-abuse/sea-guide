@@ -74,7 +74,6 @@ t key =
         HelpSelfFinancialDescription ->
             "Learn about what financial support is available if you are experiencing economic abuse. We have information on grants, immigration and child support."
 
-
         HelpSelfInfoLawMetaTitle ->
             t HelpSelfInfoLawTitle
 
@@ -114,7 +113,6 @@ t key =
 
         HelpSelfFinancialSlug ->
             "financial-support"
-
 
         HelpSelfInfoLawSlug ->
             "the-law"
@@ -173,7 +171,6 @@ t key =
         HelpSelfFinancialResource3Href ->
             "https://survivingeconomicabuse.org/i-need-help/getting-support/no-recourse-to-public-funds/"
 
-
         HelpSelfInfoLawResource1Href ->
             "https://survivingeconomicabuse.org/i-need-help/economic-abuse-and-the-law/controlling-or-coercive-behaviour/"
 
@@ -191,6 +188,10 @@ t key =
 
         HelpSelfSeparatingResource3Href ->
             "https://survivingeconomicabuse.org/i-need-help/de-linking-from-the-abuser/preparing-to-leave-an-abuser/"
+
+        -- Footer
+        CopyrightText yearNow ->
+            "© 2020 - " ++ yearNow ++ " Surviving Economic Abuse"
 
         -- Cookies and Privacy
         CookieBannerP ->
@@ -487,7 +488,6 @@ t key =
 
         HelpSelfFinancialLink ->
             "Financial support"
-
 
         HelpSelfInfoLawLink ->
             "The law"
