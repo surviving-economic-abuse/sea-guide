@@ -8,4 +8,4 @@ node_modules
 
 # parcel build generated files
 dist
-.cache
+.parcel-cache
