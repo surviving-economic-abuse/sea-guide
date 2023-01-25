@@ -424,7 +424,7 @@ renderWithBulletList richText =
 renderAsListOrText : ( String, Bool ) -> Html msg
 renderAsListOrText ( stringPartial, isList ) =
     if isList then
-        ul [ css [ bulletListStyle ] ] (List.map (\item -> li [] [ text item ]) (String.split "," stringPartial))
+        ul [ css [ bulletListStyle ] ] (List.map (\item -> li [] [ text item ]) (String.split "|" stringPartial))
 
     else if String.length stringPartial > 0 then
         p [] [ text stringPartial ]
@@ -441,7 +441,7 @@ splitOnStartList : String -> List ( String, Bool )
 splitOnStartList richText =
     let
         -- First we break the rich text string into a list,
-        -- separating on <ul>, the start of a bold word or phrase
+        -- separating on <ul>, the start of a list
         beforeListPartials =
             String.split "<ul>" richText
     in
@@ -452,7 +452,7 @@ splitOnEndList : String -> List ( String, Bool )
 splitOnEndList partial =
     if String.contains "</ul>" partial then
         let
-            -- The closing </ul> means this is the end of a bold word or phrase,
+            -- The closing </ul> means this is the end of a list,
             -- Break it into a list again to separate out the plain text that follows.
             subList =
                 String.split "</ul>" partial
