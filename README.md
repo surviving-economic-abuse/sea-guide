@@ -23,8 +23,7 @@ We recommend integrating `elm-format@0.8.4` into your code editor, but if you do
 
 ### Using images
 
-We use plugin, [parcel asset copier](https://github.com/tiaanduplessis/parcel-plugin-asset-copier)
-to copy everything from `src/images` to the root of the build. In order for image paths to
+We use plugin, [parcel reporter static files copy](https://github.com/elwin013/parcel-reporter-static-files-copy) to copy everything from `src/images` to the root of the build. In order for image paths to
 resolve from nested urls, please use a preceding `/` when `src`-ing them.
 
 ### Develop
