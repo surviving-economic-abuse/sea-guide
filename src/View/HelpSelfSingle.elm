@@ -9,7 +9,7 @@ import Html.Styled.Attributes.Aria exposing (ariaControls, ariaExpanded)
 import Html.Styled.Events exposing (onClick)
 import Page.HelpSelfSingle exposing (CategoryResource, Model, Msg(..), categoryKeysFromSlug, resourceIsExpanded)
 import Route exposing (Direction(..), Route(..), renderNavLink)
-import Theme exposing (containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, navListStyle, pageHeadingStyle, purple, quoteStyle, rotate90Style, verticalSpacing)
+import Theme exposing (containerContent, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, navListStyle, pageHeadingStyle, purple, quoteStyle, renderWithBulletList, rotate90Style, verticalSpacing)
 
 
 view : Bool -> String -> Model -> Html Msg
@@ -75,7 +75,7 @@ renderResourceList hasConsented pageSlug model resources =
 
 renderResourceDetails : CategoryResource -> List (Html msg)
 renderResourceDetails resource =
-    [ p [] [ text (t resource.summary) ]
+    [ div [] (renderWithBulletList (t resource.summary))
     , verticalSpacing 2
     ]
         ++ renderQuotes resource.quotes

@@ -6,7 +6,9 @@ import Copy.Keys exposing (Key(..))
 
 -- The translate function
 -- To insert bold text, surround with []
--- Example usage: View.Definition.renderWithKeywords
+-- Example usage in View.Definition Theme.renderWithKeywords (t MyCopyKey)
+-- To insert a bullet style list, surround comma separated items with <ul></ul>
+-- Example usage in View.HelpSelfSingle Theme.renderWithBulletList (t MyCopyKey)
 
 
 t : Key -> String
@@ -528,7 +530,7 @@ t key =
             "My bank were aware of the abuse and they always found a room for me, as it is difficult explaining such distressing personal information in open plan spaces."
 
         HelpSelfBankingResource1Summary ->
-            "Approaching your bank about abuse can be daunting, but your bank or building society could be an important source of information and support. This information sets out how your bank can help you to regain control of your money, including separating your finances from the abuser, and making sure any new banking information is safe and secure."
+            "You might be worried about speaking to your bank or building society about abuse, but there is a lot they may be able to do to support you. This includes supporting you to: <ul>separate your finances from the abuser, keep any new banking information safe and secure, regain control of your money.</ul>"
 
         HelpSelfBankingResource1Link ->
             "How banks can help"
@@ -626,7 +628,7 @@ t key =
             "The situation became dangerous and I left the house with two bags of our clothes. I rent and will probably never buy, but we are safe."
 
         HelpSelfHousingResource1Summary ->
-            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information lays out some of the options that you may have and the support available to help ensure you have a safe place to live."
+            "If you are worried about your safety and your economic situation, finding somewhere to live, away from the abuser, may be one of your first priorities. This information explains: <ul>some of the options that you may have, the support available to help ensure you have a safe place to live.</ul>"
 
         HelpSelfHousingResource1Link ->
             "Finding a safe place to live"
