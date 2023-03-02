@@ -1,10 +1,10 @@
-module Theme exposing (container, containerContent, darkOrange, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaMobile, withMediaTablet)
+module Theme exposing (container, containerContent, darkOrange, expanderButtonStyle, expanderClosedStyle, expanderDefinitionStyles, expanderHeadingStyle, expanderItemStyle, expanderOpenStyle, expanderSymbolStyle, generateId, globalStyles, green, grey, gridStyle, lightGreen, lightGrey, lightOrange, lightPink, lightPurple, lightTeal, maxMobile, navItemStyles, navListStyle, oneColumn, orange, pageHeadingStyle, pink, pureWhite, purple, quoteStyle, renderWithBulletList, renderWithKeywords, rotate90Style, shadowGrey, teal, threeColumn, twoColumn, verticalSpacing, waveStyle, white, withMediaDesktop, withMediaMobile, withMediaTablet)
 
 import Css exposing (..)
 import Css.Global exposing (adjacentSiblings, global, typeSelector)
 import Css.Media as Media exposing (minWidth, only, screen, withMedia)
 import Css.Transitions exposing (transition)
-import Html.Styled exposing (Html, b, div, text)
+import Html.Styled exposing (Html, b, div, li, p, text, ul)
 import Html.Styled.Attributes exposing (css)
 
 
@@ -410,6 +410,71 @@ containerContent children =
 generateId : String -> String
 generateId input =
     String.trim (String.replace " " "-" (String.toLower input))
+
+
+
+-- Helpers to render bullet style lists within Copy.Text Strings list items enclosed in <ul></ul> tags
+
+
+renderWithBulletList : String -> List (Html msg)
+renderWithBulletList richText =
+    List.map (\( words, isList ) -> renderAsListOrText ( words, isList )) (splitOnStartList richText)
+
+
+renderAsListOrText : ( String, Bool ) -> Html msg
+renderAsListOrText ( stringPartial, isList ) =
+    if isList then
+        ul [ css [ bulletListStyle ] ] (List.map (\item -> li [] [ text item ]) (String.split "|" stringPartial))
+
+    else if String.length stringPartial > 0 then
+        p [] [ text stringPartial ]
+
+    else
+        text ""
+
+
+
+-- Helpers to tag each fragment as list of items or plain text (False)
+
+
+splitOnStartList : String -> List ( String, Bool )
+splitOnStartList richText =
+    let
+        -- First we break the rich text string into a list,
+        -- separating on <ul>, the start of a list
+        beforeListPartials =
+            String.split "<ul>" richText
+    in
+    List.concat (List.map (\partial -> splitOnEndList partial) beforeListPartials)
+
+
+splitOnEndList : String -> List ( String, Bool )
+splitOnEndList partial =
+    if String.contains "</ul>" partial then
+        let
+            -- The closing </ul> means this is the end of a list,
+            -- Break it into a list again to separate out the plain text that follows.
+            subList =
+                String.split "</ul>" partial
+        in
+        -- Since we already split on <ul>, the list will always have 2 items, but elm doesn't know that.
+        -- The first item is the list part, the second (tail) is plain text.
+        [ ( Maybe.withDefault "" (List.head subList), True )
+        , ( Maybe.withDefault "" (List.head (List.reverse subList)), False )
+        ]
+
+    else
+        -- The list items without a closing </ul> to mark end, are plain text strings.
+        [ ( partial, False ) ]
+
+
+bulletListStyle : Style
+bulletListStyle =
+    batch
+        [ listStyle2 disc inside
+        , paddingLeft (px 12)
+        , paddingTop (px 12)
+        ]
 
 
 
